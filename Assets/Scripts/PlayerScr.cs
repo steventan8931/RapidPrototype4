@@ -75,4 +75,15 @@ public class PlayerScr : MonoBehaviour
     {
         Instantiate(building,buildLoc.position,Quaternion.identity);
     }
+
+    /*private void OnCollisionEnter(Collision collision)
+    {
+        print(collision.gameObject.tag);
+        if(collision.gameObject.tag == "BearTrap")
+        {
+            //receive damage
+            currenthitpoints -= 25f;
+            Destroy(collision.gameObject);
+        }
+    }*/
 }

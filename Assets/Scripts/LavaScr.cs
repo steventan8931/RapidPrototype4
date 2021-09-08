@@ -4,8 +4,25 @@ using UnityEngine;
 
 public class LavaScr : MonoBehaviour
 {
+    BoxCollider selfBoxCollider;
     public float dmgVal = 0.05f;
+    Vector3 tempLoc;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        selfBoxCollider = gameObject.GetComponent<BoxCollider>();
+        //tempLoc = gameObject.transform.position;
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        tempLoc = gameObject.transform.position;
+        if(collision.gameObject.tag == "Floor")
+        {
+            selfBoxCollider.isTrigger = true;
+            Destroy(GetComponent<Rigidbody>());
+            transform.position = tempLoc;
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
         if(other.tag == "Player")

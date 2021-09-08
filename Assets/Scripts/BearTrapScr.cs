@@ -5,21 +5,55 @@ using UnityEngine;
 public class BearTrapScr : MonoBehaviour
 {
     public int damageVal = 50;
-
-    private void OnTriggerEnter(Collider other)
+    public LayerMask trappableMasks;
+    Vector3 halfBox = new Vector3(0.8f, 0.3f, 0.8f);
+    /*private void trapdetect()
     {
-        if(other.tag == "Player")
+        Gizmos.DrawCube(transform.position, transform.localScale);
+        Collider[] hitobjects = Physics.OverlapBox(transform.position,halfBox, Quaternion.identity,trappableMasks);
+        foreach (Collider target in hitobjects)
         {
-            other.gameObject.GetComponent<PlayerScr>().receiveDmg(damageVal/2);
+            //damage them
+            
+            //debug message
+            Debug.Log("we hit" + target.name);
+
+        }
+    }*/
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            print(collision.gameObject.tag);
+            collision.gameObject.GetComponent<PlayerScr>().receiveDmg(damageVal / 2);
+            Destroy(gameObject);
         }
 
-        if(other.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
+        {
+            //enemy receive dmg function
+            collision.gameObject.GetComponent<EnemyScr>().receiveDmg(damageVal);
+            Destroy(gameObject);
+        }
+    }
+    /*private void OnTriggerEnter(Collider other)
+    {
+        print(other.gameObject.tag);
+        if (other.gameObject.tag == "Player")
+        {
+
+            other.gameObject.GetComponent<PlayerScr>().receiveDmg(damageVal / 2);
+            Destroy(gameObject);
+        }
+
+        if (other.gameObject.tag == "Enemy")
         {
             //enemy receive dmg function
             other.gameObject.GetComponent<EnemyScr>().receiveDmg(damageVal);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
-    }
+    }*/
+
 
     // Update is called once per frame
     void Update()
