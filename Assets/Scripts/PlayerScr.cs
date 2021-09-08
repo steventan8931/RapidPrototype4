@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeAttackScr : MonoBehaviour
+public class PlayerScr : MonoBehaviour
 {
     // Start is called before the first frame update
     public Animator animator;
@@ -11,6 +11,8 @@ public class MeleeAttackScr : MonoBehaviour
     public float attackrange = 0.6f;
     public LayerMask destroyableLayers;
 
+    public float Maxhitpoints = 100f;
+    public float currenthitpoints = 100f;
     // Update is called once per frame
     void Update()
     {
@@ -35,6 +37,12 @@ public class MeleeAttackScr : MonoBehaviour
             Debug.Log("we hit" + enemy.name);
 
         }
+    }
+
+    public void receiveDmg(float dmg)
+    {
+        currenthitpoints -= dmg;
+
     }
 
     private void OnDrawGizmosSelected()
