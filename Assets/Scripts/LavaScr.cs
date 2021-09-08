@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LavaScr : MonoBehaviour
 {
-    public float dmgVal = 5f;
+    public float dmgVal = 0.05f;
     // Start is called before the first frame update
     private void OnTriggerStay(Collider other)
     {
@@ -15,7 +15,7 @@ public class LavaScr : MonoBehaviour
 
         if(other.tag == "Enemy")
         {
-           //do sustain damage
+            other.gameObject.GetComponent<EnemyScr>().receiveDmg(dmgVal);
         }
     }
 
