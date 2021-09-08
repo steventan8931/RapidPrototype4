@@ -32,7 +32,7 @@ public class EnemyScr : MonoBehaviour
         }
         else
         {
-           // moveFunc();
+            moveFunc();
         }
     }
 
