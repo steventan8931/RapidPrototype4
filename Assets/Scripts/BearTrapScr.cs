@@ -16,6 +16,7 @@ public class BearTrapScr : MonoBehaviour
         if(other.tag == "Enemy")
         {
             //enemy receive dmg function
+            other.gameObject.GetComponent<EnemyScr>().receiveDmg(damageVal);
         }
         Destroy(gameObject);
     }

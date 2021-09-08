@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class EnemyScr : MonoBehaviour
 {
+    //basic stat
+    public float maxHp = 100f;
+    public float currentHp = 100f;
+
+    public float atkDmg = 20f;
     //move stat
     public float moveSpeed = 0.3f;
    //attack
-    public float attackCD;
+    public float attackCD = 1.5f;
     public bool attacked;
 
     //state
@@ -70,11 +75,11 @@ public class EnemyScr : MonoBehaviour
     void attackObj()
     {
         //attack object,and the enemy won't move during attack
-        transform.LookAt(FindClosestWall("Wall").transform.position);
+       // transform.LookAt(FindClosestWall("Wall").transform.position);
         if (!attacked)
         {
             //do damage
-
+            print("attacking!");
             //add animation here
 
             attacked = true;
@@ -85,5 +90,10 @@ public class EnemyScr : MonoBehaviour
     void resetAttack()
     {
         attacked = false;
+    }
+
+    public void receiveDmg(float dmg)
+    {
+        currentHp -= dmg;
     }
 }
