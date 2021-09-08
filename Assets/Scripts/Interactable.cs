@@ -13,8 +13,7 @@ public class Interactable : MonoBehaviour
     {
         if (m_Health > 0)
         {
-            m_Health -= _Damage;
-            Instantiate(m_ParticlePrefab, transform.position, Quaternion.identity);
+            m_Health -= _Damage;          
         }
     }
 }

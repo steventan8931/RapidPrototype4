@@ -29,10 +29,14 @@ public class PlayerScr : MonoBehaviour
         // Detect enemies in range
         Collider[] hitobjects = Physics.OverlapSphere(attackpoint.position,attackrange,destroyableLayers);
         // Damage enemies
-        foreach(Collider enemy in hitobjects)
+        foreach (Collider enemy in hitobjects)
         {
-            //damage them
-
+            if (hitobjects[0].GetComponent<Interactable>() != null)
+            {
+                //damage them
+                hitobjects[0].GetComponent<Interactable>().TakeDamage(1);
+                Instantiate(hitobjects[0].GetComponent<Interactable>().m_ParticlePrefab, attackpoint.position, Quaternion.identity);
+            }
             //debug message
             Debug.Log("we hit" + enemy.name);
 

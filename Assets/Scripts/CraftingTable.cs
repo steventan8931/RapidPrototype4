@@ -27,6 +27,7 @@ public class CraftingTable : MonoBehaviour
         if (_other.GetComponent<Inventory>() != null)
         {
             m_InRange = false;
+            m_CraftingOpen = false;
         }
     }
     private void Update()
