@@ -8,6 +8,8 @@ public class CraftingTable : MonoBehaviour
     public bool m_CraftingOpen = false;
     public bool m_InRange = false;
 
+    Inventory m_PlayerInventory;
+
     private void Start()
     {
         m_CraftingUI.SetActive(false);
@@ -19,6 +21,7 @@ public class CraftingTable : MonoBehaviour
         if (_other.GetComponent<Inventory>() != null)
         {
             m_InRange = true;
+            m_PlayerInventory = _other.GetComponent<Inventory>();
         }
     }
 
@@ -39,6 +42,7 @@ public class CraftingTable : MonoBehaviour
         if (m_CraftingOpen)
         {
             m_CraftingUI.SetActive(true);
+            m_PlayerInventory.m_InventoryOpen = false;
         }
         else
         {

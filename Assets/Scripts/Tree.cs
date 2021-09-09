@@ -12,9 +12,12 @@ public class Tree : Interactable
     public float m_FallSpeed = 1.0f;
     public Transform m_RotationPivot;
 
+    public TreePlayerPosCheck m_PosCheck;
+
     [Header("Tree Spawner Components")]
     public GameObject m_WoodBlockPrefab;
     public Transform m_WoodBlockSpawnLocation;
+
 
     private void Update()
     {
@@ -22,7 +25,15 @@ public class Tree : Interactable
         {
             gameObject.GetComponent<Collider>().enabled = false;
             m_FallOverTime += Time.deltaTime * m_FallSpeed;
-            m_RotationPivot.rotation = Quaternion.Lerp(Quaternion.Euler(0.0f, 0.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f), m_FallOverTime);
+            if (transform.position.x - m_PosCheck.m_PlayerPos.x > 0)
+            {
+                m_RotationPivot.rotation = Quaternion.Lerp(Quaternion.Euler(0.0f, 0.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, -90.0f), m_FallOverTime);
+            }
+            else
+            {
+                m_RotationPivot.rotation = Quaternion.Lerp(Quaternion.Euler(0.0f, 0.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f), m_FallOverTime);
+            }
+
             m_DeathTimer += Time.deltaTime;
 
             if (m_DeathTimer > m_DespawnTimer)

@@ -49,20 +49,20 @@ public class Inventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             m_InventoryOpen = !m_InventoryOpen;
+        }
 
-            if (m_InventoryOpen)
-            {
-                m_InventoryCanvas.SetActive(true);
-                Cursor.visible = true;
-                //Cursor.lockState = CursorLockMode.Locked;
-            }
-            else
-            {
-                m_InventoryCanvas.SetActive(false);
-                Cursor.visible = false;
-                //Cursor.lockState = CursorLockMode.None;
+        if (m_InventoryOpen)
+        {
+            m_InventoryCanvas.SetActive(true);
+            Cursor.visible = true;
+            //Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            m_InventoryCanvas.SetActive(false);
+            Cursor.visible = false;
+            //Cursor.lockState = CursorLockMode.None;
 
-            }
         }
     }
 }
