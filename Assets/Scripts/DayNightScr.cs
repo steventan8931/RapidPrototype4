@@ -28,6 +28,7 @@ public class DayNightScr : MonoBehaviour
 
     void spawnEnemies()
     {
+        print("spawning enemies");
         foreach(Transform location in EnemyLoc)
         {
             float randnum = Random.Range(0, 2);

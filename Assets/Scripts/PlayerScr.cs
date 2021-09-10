@@ -11,7 +11,9 @@ public class PlayerScr : MonoBehaviour
     public GameObject buildobj;
 
     public Transform attackpoint;
-    public float attackrange = 0.6f;
+    public float attackrange = 1.5f;
+    public bool attacked = false;
+    public float attackCD = 0.8f;
     public LayerMask destroyableLayers;
 
     public float Maxhitpoints = 100f;
@@ -21,7 +23,7 @@ public class PlayerScr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && isbuilder == false) 
+        if (Input.GetKeyDown(KeyCode.Mouse0) && isbuilder == false && attacked == false) 
         {
             Attack();
         }
@@ -34,12 +36,25 @@ public class PlayerScr : MonoBehaviour
         {
             isbuilder = !isbuilder;
         }
+        if(attacked == true)
+        {
+            attackCD -= Time.deltaTime;
+            if (attackCD <= 0)
+            {
+                attackCD = 0.8f;
+                attacked = false;
+            }
+        }
 
+        attackDetection();
+       
 
     }
 
     void Attack()
     {
+        
+        print("playerattacking!");
         // start melee attack animation
 
         // Detect enemies in range
@@ -55,7 +70,24 @@ public class PlayerScr : MonoBehaviour
             }
             //debug message
             Debug.Log("we hit" + enemy.name);
+            if(enemy.tag == "Enemy")
+            {
+                enemy.GetComponent<EnemyScr>().receiveDmg(10f);
+            }
 
+        }
+        attacked = true;
+    }
+
+    void attackDetection()
+    {
+        Collider[] hitobjects = Physics.OverlapSphere(attackpoint.position, attackrange, destroyableLayers);
+        foreach (Collider enemy in hitobjects)
+        {
+            if(enemy != null)
+            {
+                print("detected destroyable obj");
+            }
         }
     }
 

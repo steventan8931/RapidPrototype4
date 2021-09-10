@@ -71,7 +71,8 @@ public class EnemyScr : MonoBehaviour
         if(FindClosestWall("Wall")!= null)
         {
             print("finded wall oof");
-             transform.position = moveTowards(FindClosestWall("Wall"));
+            transform.LookAt(FindClosestWall("Wall").transform.position);
+            transform.position = moveTowards(FindClosestWall("Wall"));
 
         }
     }
@@ -79,7 +80,7 @@ public class EnemyScr : MonoBehaviour
     void attackObj()
     {
         //attack object,and the enemy won't move during attack
-        //transform.LookAt(FindClosestWall("Wall").transform.position);
+        
 
         if (!attacked)
         {
@@ -94,7 +95,7 @@ public class EnemyScr : MonoBehaviour
                     Instantiate(hitobjects[0].GetComponent<Interactable>().m_ParticlePrefab, attackpoint.position, Quaternion.identity);
                 }
                 //debug message
-                Debug.Log("we hit" + enemy.name);
+                Debug.Log("enemy hit" + enemy.name);
 
             }
 
