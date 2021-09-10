@@ -20,6 +20,9 @@ public class PlayerScr : MonoBehaviour
     public float currenthitpoints = 100f;
 
     public bool isbuilder = false;
+
+    public Animator m_Animation;
+
     // Update is called once per frame
     void Update()
     {
@@ -56,7 +59,14 @@ public class PlayerScr : MonoBehaviour
         
         print("playerattacking!");
         // start melee attack animation
+        m_Animation.ResetTrigger("Attacking");
+        m_Animation.SetTrigger("Attacking");
 
+        //m_Animation.ResetTrigger("Mining");
+        //m_Animation.SetTrigger("Mining");
+
+        //m_Animation.ResetTrigger("MiningLow");
+        //m_Animation.SetTrigger("MiningLow");
         // Detect enemies in range
         Collider[] hitobjects = Physics.OverlapSphere(attackpoint.position,attackrange,destroyableLayers);
         // Damage enemies
@@ -70,7 +80,7 @@ public class PlayerScr : MonoBehaviour
             }
             //debug message
             Debug.Log("we hit" + enemy.name);
-            if(enemy.tag == "Enemy")
+            if (enemy.tag == "Enemy")
             {
                 enemy.GetComponent<EnemyScr>().receiveDmg(10f);
             }
