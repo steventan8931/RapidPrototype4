@@ -46,7 +46,7 @@ public class PlayerScr : MonoBehaviour
             }
         }
 
-        attackDetection();
+       //attackDetection();
        
 
     }
