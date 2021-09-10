@@ -107,6 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1695b833e28be4286933007ee2cd44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHp: 100
+  currentHp: 100
+  atkDmg: 20
   moveSpeed: 0.01
   attackCD: 0
   attacked: 0
@@ -120,4 +123,4 @@ MonoBehaviour:
     m_Bits: 0
   objMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256

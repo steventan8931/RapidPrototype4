@@ -29,6 +29,7 @@ public class TPPmovement : MonoBehaviour
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
         if (direction.magnitude >= 0.1f)
         {
+            print("moving state");
             float targetAng = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAng, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
@@ -50,16 +51,18 @@ public class TPPmovement : MonoBehaviour
 
             controller.Move(tempMoveDir * speed * Time.deltaTime);
         }
-        else if(Input.GetButtonDown("Jump"))
+        else if(Input.GetButtonDown("Jump") && controller.isGrounded)
         {
-            print("jumped but not moving");
-            Vector3 pureJumpDir = new Vector3(0f, (jumpSpd-gravity), 0f);
-            controller.Move(pureJumpDir.normalized * speed * Time.deltaTime);
+            //print("jumped but not moving");
+            Vector3 pureJumpDir = new Vector3(0f, (jumpSpd)*speed, 0f);
+            print(pureJumpDir.y);
+            controller.Move(pureJumpDir * speed *Time.deltaTime);
         }
-        else
+        else if(!controller.isGrounded)
         {
-            Vector3 fallDir = new Vector3(0f, -gravity, 0f);
-            controller.Move(fallDir.normalized * speed * Time.deltaTime);
+            Vector3 fallDir = new Vector3(0f, -gravity*Time.deltaTime, 0f);
+            controller.Move(fallDir.normalized *speed*Time.deltaTime);
+            print("falling speed:" + fallDir.normalized.y * Time.deltaTime);
         }
         
         
