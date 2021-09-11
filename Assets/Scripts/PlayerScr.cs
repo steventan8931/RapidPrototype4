@@ -72,11 +72,11 @@ public class PlayerScr : MonoBehaviour
         // Damage enemies
         foreach (Collider enemy in hitobjects)
         {
-            if (hitobjects[0].GetComponent<Interactable>() != null)
+            if (enemy.GetComponent<Interactable>() != null)
             {
                 //damage them
-                hitobjects[0].GetComponent<Interactable>().TakeDamage(1);
-                Instantiate(hitobjects[0].GetComponent<Interactable>().m_ParticlePrefab, attackpoint.position, Quaternion.identity);
+                enemy.GetComponent<Interactable>().TakeDamage(1);
+                Instantiate(enemy.GetComponent<Interactable>().m_ParticlePrefab, attackpoint.position, Quaternion.identity);
             }
             //debug message
             Debug.Log("we hit" + enemy.name);
