@@ -27,6 +27,13 @@ public class CharacterMotor : MonoBehaviour
 
     public Animator m_Animation;
 
+    AudioManager m_AudioManager;
+
+    private void Start()
+    {
+        m_AudioManager = FindObjectOfType<AudioManager>();
+    }
+
     public void Update()
     {
         float x = 0.0f;
@@ -40,6 +47,7 @@ public class CharacterMotor : MonoBehaviour
             m_Velocity.y = m_JumpSpeed;
             m_Animation.ResetTrigger("Jumping");
             m_Animation.SetTrigger("Jumping");
+            m_AudioManager.PlaySound("Jump");
         }
 
         Vector3 inputMove = new Vector3(x, 0.0f, z);

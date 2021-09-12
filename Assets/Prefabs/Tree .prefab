@@ -66,9 +66,9 @@ MonoBehaviour:
   m_ParticlePrefab: {fileID: 5535729147322069121, guid: 19da399dcbb42944fb2a8188cf988c9f,
     type: 3}
   m_DeathTimer: 0
-  m_DespawnTimer: 2
+  m_DespawnTimer: 5
   m_FallOverTime: 0
-  m_FallSpeed: 1
+  m_FallSpeed: 0.2
   m_RotationPivot: {fileID: 6824367272222995279}
   m_PosCheck: {fileID: 6824367272352742021}
   m_WoodBlockPrefab: {fileID: 6230850178394913937, guid: 4fcae3d7102f5d344861a6bfed27bbac,

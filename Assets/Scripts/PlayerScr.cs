@@ -28,9 +28,12 @@ public class PlayerScr : MonoBehaviour
     Crafting m_Crafting;
     public bool m_IsCrafting = false;
 
+    AudioManager m_AudioManager;
+
     private void Start()
     {
         m_Crafting = FindObjectOfType<Crafting>();
+        m_AudioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -40,6 +43,7 @@ public class PlayerScr : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0) && isbuilder == false && attacked == false)
             {
+                m_AudioManager.PlaySound("Swing");
                 Attack();
             }
             if (Input.GetKeyDown(KeyCode.Mouse0) && isbuilder == true)
@@ -81,18 +85,20 @@ public class PlayerScr : MonoBehaviour
         // Damage enemies
         foreach (Collider enemy in hitobjects)
         {
-            if (enemy.GetComponent<Interactable>() != null)
+            if (enemy.GetComponent<Tree>() != null)
             {
                 //damage them
-                enemy.GetComponent<Interactable>().TakeDamage(1);
+                m_AudioManager.PlaySound("Wood");
+                enemy.GetComponent<Interactable>().TakeDamage(5);
                 Instantiate(enemy.GetComponent<Interactable>().m_ParticlePrefab, attackpoint.position, Quaternion.identity);
             }
             if (enemy.GetComponent<Rock>() != null)
             {
                 m_Animation.ResetTrigger("Mining");
                 m_Animation.SetTrigger("Mining");
+                m_AudioManager.PlaySound("Metal");
                 //damage them
-                enemy.GetComponent<Interactable>().TakeDamage(1);
+                enemy.GetComponent<Interactable>().TakeDamage(5);
                 Instantiate(enemy.GetComponent<Interactable>().m_ParticlePrefab, attackpoint.position, Quaternion.identity);
             }
             //debug message
@@ -139,6 +145,7 @@ public class PlayerScr : MonoBehaviour
         Instantiate(building, buildLoc.position, transform.rotation);
         m_Crafting.SetItemCostCount(1);
         m_Crafting.SetItemCost(m_BuildMaterial);
+        m_AudioManager.PlaySound("Spawn");
     }
 
     /*private void OnCollisionEnter(Collision collision)

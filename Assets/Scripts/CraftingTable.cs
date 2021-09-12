@@ -11,11 +11,15 @@ public class CraftingTable : MonoBehaviour
     Inventory m_PlayerInventory;
     PlayerScr m_Player;
 
+    AudioManager m_AudioManager;
+
     private void Start()
     {
         m_CraftingUI.SetActive(false);
         m_CraftingOpen = false;
         m_InRange = false;
+
+        m_AudioManager = FindObjectOfType<AudioManager>();
     }
 
     private void OnTriggerEnter(Collider _other)
@@ -42,6 +46,7 @@ public class CraftingTable : MonoBehaviour
     {
         m_Player.m_Animation.ResetTrigger("Crafting");
         m_Player.m_Animation.SetTrigger("Crafting");
+        m_AudioManager.PlaySound("Craft");
     }
 
     private void Update()
