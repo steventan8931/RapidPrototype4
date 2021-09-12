@@ -9,6 +9,7 @@ public class CraftingTable : MonoBehaviour
     public bool m_InRange = false;
 
     Inventory m_PlayerInventory;
+    PlayerScr m_Player;
 
     private void Start()
     {
@@ -16,12 +17,14 @@ public class CraftingTable : MonoBehaviour
         m_CraftingOpen = false;
         m_InRange = false;
     }
+
     private void OnTriggerEnter(Collider _other)
     {
         if (_other.GetComponent<Inventory>() != null)
         {
             m_InRange = true;
             m_PlayerInventory = _other.GetComponent<Inventory>();
+            m_Player = _other.GetComponent<PlayerScr>();
         }
     }
 
@@ -31,8 +34,16 @@ public class CraftingTable : MonoBehaviour
         {
             m_InRange = false;
             m_CraftingOpen = false;
+            _other.GetComponent<PlayerScr>().m_IsCrafting = false;
         }
+    }   
+
+    public void PlayCraftAnim()
+    {
+        m_Player.m_Animation.ResetTrigger("Crafting");
+        m_Player.m_Animation.SetTrigger("Crafting");
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.C) && m_InRange)
@@ -42,10 +53,13 @@ public class CraftingTable : MonoBehaviour
         if (m_CraftingOpen)
         {
             m_CraftingUI.SetActive(true);
+            Cursor.visible = true;
             m_PlayerInventory.m_InventoryOpen = false;
+            m_Player.m_IsCrafting = true;
         }
         else
         {
+            Cursor.visible = false;
             m_CraftingUI.SetActive(false);
         }
     }

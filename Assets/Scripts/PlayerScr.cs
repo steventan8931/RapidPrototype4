@@ -23,17 +23,31 @@ public class PlayerScr : MonoBehaviour
 
     public Animator m_Animation;
 
+    public string m_BuildMaterial;
+
+    Crafting m_Crafting;
+    public bool m_IsCrafting = false;
+
+    private void Start()
+    {
+        m_Crafting = FindObjectOfType<Crafting>();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && isbuilder == false && attacked == false) 
+        if (!m_IsCrafting)
         {
-            Attack();
+            if (Input.GetKeyDown(KeyCode.Mouse0) && isbuilder == false && attacked == false)
+            {
+                Attack();
+            }
+            if (Input.GetKeyDown(KeyCode.Mouse0) && isbuilder == true)
+            {
+                buildInfront(buildobj);
+            }
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && isbuilder == true)
-        {
-            buildInfront(buildobj);
-        }
+
 
         if (Input.GetKeyDown(KeyCode.B))
         {
@@ -62,11 +76,6 @@ public class PlayerScr : MonoBehaviour
         m_Animation.ResetTrigger("Attacking");
         m_Animation.SetTrigger("Attacking");
 
-        //m_Animation.ResetTrigger("Mining");
-        //m_Animation.SetTrigger("Mining");
-
-        //m_Animation.ResetTrigger("MiningLow");
-        //m_Animation.SetTrigger("MiningLow");
         // Detect enemies in range
         Collider[] hitobjects = Physics.OverlapSphere(attackpoint.position,attackrange,destroyableLayers);
         // Damage enemies
@@ -74,6 +83,14 @@ public class PlayerScr : MonoBehaviour
         {
             if (enemy.GetComponent<Interactable>() != null)
             {
+                //damage them
+                enemy.GetComponent<Interactable>().TakeDamage(1);
+                Instantiate(enemy.GetComponent<Interactable>().m_ParticlePrefab, attackpoint.position, Quaternion.identity);
+            }
+            if (enemy.GetComponent<Rock>() != null)
+            {
+                m_Animation.ResetTrigger("Mining");
+                m_Animation.SetTrigger("Mining");
                 //damage them
                 enemy.GetComponent<Interactable>().TakeDamage(1);
                 Instantiate(enemy.GetComponent<Interactable>().m_ParticlePrefab, attackpoint.position, Quaternion.identity);
@@ -119,7 +136,9 @@ public class PlayerScr : MonoBehaviour
 
     void buildInfront(GameObject building)
     {
-        Instantiate(building,buildLoc.position,Quaternion.identity);
+        Instantiate(building, buildLoc.position, transform.rotation);
+        m_Crafting.SetItemCostCount(1);
+        m_Crafting.SetItemCost(m_BuildMaterial);
     }
 
     /*private void OnCollisionEnter(Collision collision)
