@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class LavaMove : MonoBehaviour
 {
     public float scrollSpeed = 0.1f;
     Renderer rend;
