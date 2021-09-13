@@ -58,6 +58,7 @@ public class PlayerScr : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.B))
         {
+            print("pressed B");
             isbuilder = !isbuilder;
         }
         if(attacked == true)
