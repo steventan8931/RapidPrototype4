@@ -34,7 +34,11 @@ public class EnemyScr : MonoBehaviour
             attackObj();
 
         }
-        else
+        else if(playerInAttackRange)
+        {
+            attackPlayer();
+        }
+        else 
         {
             moveFunc();
         }
@@ -60,6 +64,14 @@ public class EnemyScr : MonoBehaviour
         return closest;
     }
 
+    public float checkDistPlayer()
+    {
+        float distance;
+        distance = Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position);
+        return distance;
+    }
+    
+
     Vector3 moveTowards(GameObject target)
     {
        return Vector3.MoveTowards(transform.position,target.transform.position,moveSpeed);
@@ -71,8 +83,23 @@ public class EnemyScr : MonoBehaviour
         if(FindClosestWall("Wall")!= null)
         {
             print("finded wall oof");
-            transform.LookAt(FindClosestWall("Wall").transform.position);
-            transform.position = moveTowards(FindClosestWall("Wall"));
+            float disToPlayer = checkDistPlayer();
+            if(disToPlayer > 6f)
+            {
+                Vector3 tempTarget = FindClosestWall("Wall").transform.position;
+                tempTarget.y = gameObject.transform.position.y;
+                transform.LookAt(tempTarget);
+                transform.position = moveTowards(FindClosestWall("Wall"));
+            }
+            else
+            {
+                Vector3 tempTarget = GameObject.FindGameObjectWithTag("Player").transform.position;
+                tempTarget.y = gameObject.transform.position.y;
+                transform.LookAt(tempTarget);
+                transform.position = moveTowards(GameObject.FindGameObjectWithTag("Player"));
+            }
+           
+            
 
         }
     }
@@ -93,6 +120,7 @@ public class EnemyScr : MonoBehaviour
                     //damage them
                     enemy.GetComponent<Interactable>().TakeDamage((int)atkDmg);
                     Instantiate(enemy.GetComponent<Interactable>().m_ParticlePrefab, attackpoint.position, Quaternion.identity);
+                   
                 }
                 //debug message
                 Debug.Log("enemy hit" + enemy.name);
@@ -107,7 +135,33 @@ public class EnemyScr : MonoBehaviour
             Invoke(nameof(resetAttack), attackCD);
         }
     }
+    void attackPlayer()
+    {
+        if (!attacked)
+        {
+            Collider[] hitobjects = Physics.OverlapSphere(attackpoint.position, attackRange, playerMask);
+            // Damage enemies
+            foreach (Collider enemy in hitobjects)
+            {
+                if (enemy.GetComponent<PlayerScr>() != null)
+                {
+                    //damage Player
+                    enemy.GetComponent<PlayerScr>().receiveDmg((int)atkDmg);
+                   
+                }
+                //debug message
+                Debug.Log("enemy hit" + enemy.name);
 
+            }
+
+            //do damage
+            print("attacking!");
+            //add animation here
+
+            attacked = true;
+            Invoke(nameof(resetAttack), attackCD);
+        }
+    }
     private void OnDrawGizmosSelected()
     {
         if (attackpoint == null)
