@@ -13,6 +13,7 @@ public class HudScr : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScr>();
+        playerLoadout = GameObject.FindGameObjectWithTag("Player").GetComponent<LoadOut>();
     }
     void Update()
     {
