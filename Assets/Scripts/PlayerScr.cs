@@ -30,6 +30,9 @@ public class PlayerScr : MonoBehaviour
 
     AudioManager m_AudioManager;
 
+    public float m_DeathTimer = 0.0f;
+    public float m_RespawnTime = 2.0f;
+
     private void Start()
     {
         m_Crafting = FindObjectOfType<Crafting>();
@@ -69,9 +72,34 @@ public class PlayerScr : MonoBehaviour
 
        //attackDetection();
        
-
+        if (currenthitpoints <= 0)
+        {
+            Respawn();
+            Debug.Log("play death anim");
+        }
     }
 
+    void Respawn()
+    {
+        if (m_DeathTimer == 0)
+        {
+            m_Animation.ResetTrigger("Dead");
+            m_Animation.SetTrigger("Dead");
+            m_Animation.SetBool("IsDead", true);
+            GetComponent<CharacterMotor>().enabled = false;
+        }
+
+        m_DeathTimer += Time.deltaTime;
+        
+        if (m_DeathTimer > m_RespawnTime)
+        {
+            m_Animation.SetBool("IsDead", false);
+            currenthitpoints = Maxhitpoints;
+            m_DeathTimer = 0;
+            GetComponent<CharacterMotor>().enabled = true;
+        }
+
+    }
     void Attack()
     {
         
