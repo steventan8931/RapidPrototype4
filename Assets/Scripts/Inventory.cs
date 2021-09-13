@@ -9,6 +9,8 @@ public class Inventory : MonoBehaviour
     public int m_RockBlockCount = 0;
     public int m_WoodBlockCount = 0;
     public int m_FenceBlockCount = 0;
+    public int m_WallBlockCount = 0;
+    public int m_TrapBlockCount = 0;
 
     [Header("UI Components")]
     public GameObject m_InventoryCanvas;
@@ -16,6 +18,8 @@ public class Inventory : MonoBehaviour
     public GameObject m_WoodUI;
     public GameObject m_RockUI;
     public GameObject m_FenceUI;
+    public GameObject m_WallUI;
+    public GameObject m_TrapUI;
 
     private void Start()
     {
@@ -45,10 +49,16 @@ public class Inventory : MonoBehaviour
         UpdateInventorySlot(m_RockBlockCount, m_RockUI);
         UpdateInventorySlot(m_WoodBlockCount, m_WoodUI);
         UpdateInventorySlot(m_FenceBlockCount, m_FenceUI);
+        UpdateInventorySlot(m_WallBlockCount, m_WallUI);
+        UpdateInventorySlot(m_TrapBlockCount, m_TrapUI);
 
         if (Input.GetKeyDown(KeyCode.E))
         {
             m_InventoryOpen = !m_InventoryOpen;
+            if (!m_InventoryOpen)
+            {
+                Cursor.visible = false;
+            }
         }
 
         if (m_InventoryOpen)
@@ -60,7 +70,7 @@ public class Inventory : MonoBehaviour
         else
         {
             m_InventoryCanvas.SetActive(false);
-            Cursor.visible = false;
+
             //Cursor.lockState = CursorLockMode.None;
 
         }

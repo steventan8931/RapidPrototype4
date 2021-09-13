@@ -11,6 +11,8 @@ public class Crafting : MonoBehaviour
 
     [Header("Interactable Components")]
     public GameObject m_FenceCraftUI;
+    public GameObject m_WallCraftUI;
+    public GameObject m_TrapCraftUI;
 
     private void Start()
     {
@@ -35,7 +37,9 @@ public class Crafting : MonoBehaviour
         //ItemCost
         //Add Item
 
-        UpdateCraftingSlot(m_Inventory.m_WoodBlockCount, 10, m_FenceCraftUI);
+        UpdateCraftingSlot(m_Inventory.m_WoodBlockCount, 5, m_FenceCraftUI);
+        UpdateCraftingSlot(m_Inventory.m_RockBlockCount, 5, m_WallCraftUI);
+        UpdateCraftingSlot(m_Inventory.m_RockBlockCount, 3, m_TrapCraftUI);
     }
 
     //Button Functions
@@ -45,15 +49,17 @@ public class Crafting : MonoBehaviour
         {
             switch (_ItemName)
             {
-                case "m_RockBlockCount":
-                    m_Inventory.m_RockBlockCount++;
-                    break;
-                case "m_WoodBlockCount":
-                    m_Inventory.m_WoodBlockCount++;
-                    break;
                 case "m_FenceBlockCount":
                     m_Inventory.m_FenceBlockCount++;
                     Debug.Log("added fence");
+                    break;
+                case "m_TrapBlockCount":
+                    m_Inventory.m_TrapBlockCount++;
+                    Debug.Log("added Trap");
+                    break;
+                case "m_WallBlockCount":
+                    m_Inventory.m_WallBlockCount++;
+                    Debug.Log("added Wall");
                     break;
             }
         }
@@ -85,6 +91,20 @@ public class Crafting : MonoBehaviour
                 if (m_Inventory.m_FenceBlockCount >= m_Cost)
                 {
                     m_Inventory.m_FenceBlockCount -= m_Cost;
+                    m_EnoughMaterials = true;
+                }
+                break;
+            case "m_WallBlockCount":
+                if (m_Inventory.m_WallBlockCount >= m_Cost)
+                {
+                    m_Inventory.m_WallBlockCount -= m_Cost;
+                    m_EnoughMaterials = true;
+                }
+                break;
+            case "m_TrapBlockCount":
+                if (m_Inventory.m_TrapBlockCount >= m_Cost)
+                {
+                    m_Inventory.m_TrapBlockCount -= m_Cost;
                     m_EnoughMaterials = true;
                 }
                 break;

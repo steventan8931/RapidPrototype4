@@ -20,17 +20,41 @@ public class PlayerScr : MonoBehaviour
     public float currenthitpoints = 100f;
 
     public bool isbuilder = false;
+
+    public Animator m_Animation;
+
+    public string m_BuildMaterial;
+
+    Crafting m_Crafting;
+    public bool m_IsCrafting = false;
+
+    AudioManager m_AudioManager;
+
+    public float m_DeathTimer = 0.0f;
+    public float m_RespawnTime = 2.0f;
+
+    private void Start()
+    {
+        m_Crafting = FindObjectOfType<Crafting>();
+        m_AudioManager = FindObjectOfType<AudioManager>();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && isbuilder == false && attacked == false) 
+        if (!m_IsCrafting)
         {
-            Attack();
+            if (Input.GetKeyDown(KeyCode.Mouse0) && isbuilder == false && attacked == false)
+            {
+                m_AudioManager.PlaySound("Swing");
+                Attack();
+            }
+            if (Input.GetKeyDown(KeyCode.Mouse0) && isbuilder == true)
+            {
+                buildInfront(buildobj);
+            }
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && isbuilder == true)
-        {
-            buildInfront(buildobj);
-        }
+
 
         if (Input.GetKeyDown(KeyCode.B))
         {
@@ -48,29 +72,66 @@ public class PlayerScr : MonoBehaviour
 
        //attackDetection();
        
-
+        if (currenthitpoints <= 0)
+        {
+            Respawn();
+            Debug.Log("play death anim");
+        }
     }
 
+    void Respawn()
+    {
+        if (m_DeathTimer == 0)
+        {
+            m_Animation.ResetTrigger("Dead");
+            m_Animation.SetTrigger("Dead");
+            m_Animation.SetBool("IsDead", true);
+            GetComponent<CharacterMotor>().enabled = false;
+        }
+
+        m_DeathTimer += Time.deltaTime;
+        
+        if (m_DeathTimer > m_RespawnTime)
+        {
+            m_Animation.SetBool("IsDead", false);
+            currenthitpoints = Maxhitpoints;
+            m_DeathTimer = 0;
+            GetComponent<CharacterMotor>().enabled = true;
+        }
+
+    }
     void Attack()
     {
         
         print("playerattacking!");
         // start melee attack animation
+        m_Animation.ResetTrigger("Attacking");
+        m_Animation.SetTrigger("Attacking");
 
         // Detect enemies in range
         Collider[] hitobjects = Physics.OverlapSphere(attackpoint.position,attackrange,destroyableLayers);
         // Damage enemies
         foreach (Collider enemy in hitobjects)
         {
-            if (hitobjects[0].GetComponent<Interactable>() != null)
+            if (enemy.GetComponent<Tree>() != null)
             {
                 //damage them
-                hitobjects[0].GetComponent<Interactable>().TakeDamage(1);
-                Instantiate(hitobjects[0].GetComponent<Interactable>().m_ParticlePrefab, attackpoint.position, Quaternion.identity);
+                m_AudioManager.PlaySound("Wood");
+                enemy.GetComponent<Interactable>().TakeDamage(5);
+                Instantiate(enemy.GetComponent<Interactable>().m_ParticlePrefab, attackpoint.position, Quaternion.identity);
+            }
+            if (enemy.GetComponent<Rock>() != null)
+            {
+                m_Animation.ResetTrigger("Mining");
+                m_Animation.SetTrigger("Mining");
+                m_AudioManager.PlaySound("Metal");
+                //damage them
+                enemy.GetComponent<Interactable>().TakeDamage(5);
+                Instantiate(enemy.GetComponent<Interactable>().m_ParticlePrefab, attackpoint.position, Quaternion.identity);
             }
             //debug message
             Debug.Log("we hit" + enemy.name);
-            if(enemy.tag == "Enemy")
+            if (enemy.tag == "Enemy")
             {
                 enemy.GetComponent<EnemyScr>().receiveDmg(10f);
             }
@@ -109,7 +170,10 @@ public class PlayerScr : MonoBehaviour
 
     void buildInfront(GameObject building)
     {
-        Instantiate(building,buildLoc.position,Quaternion.identity);
+        Instantiate(building, buildLoc.position, transform.rotation);
+        m_Crafting.SetItemCostCount(1);
+        m_Crafting.SetItemCost(m_BuildMaterial);
+        m_AudioManager.PlaySound("Spawn");
     }
 
     /*private void OnCollisionEnter(Collision collision)
