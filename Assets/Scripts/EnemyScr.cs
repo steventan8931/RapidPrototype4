@@ -8,6 +8,8 @@ public class EnemyScr : MonoBehaviour
     public float maxHp = 100f;
     public float currentHp = 100f;
 
+    public bool isDead = false;
+
     public float atkDmg = 20f;
     //move stat
     public float moveSpeed = 0.3f;
@@ -180,5 +182,11 @@ public class EnemyScr : MonoBehaviour
     public void receiveDmg(float dmg)
     {
         currentHp -= dmg;
+        if(currentHp <=0)
+        {
+            currentHp = 0;
+            isDead = true;
+            //Play death animation
+        }
     }
 }
