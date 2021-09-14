@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//using TMPro;
 public class DayNightScr : MonoBehaviour
 {
-    public float timerDN = 0f;
+    public float timerDN = 300f;
     public Transform[] EnemyLoc;
     public Transform[] ResourceLoc;
     public GameObject enemyPrefab;
@@ -16,6 +16,9 @@ public class DayNightScr : MonoBehaviour
     public int enemyCount = 0;
     public float SpawningCd = 2.0f;
     public float currSpawnCd = 0f;
+
+    //for reminder
+    public HudScr playerHud;
     void Start()
     {
         
@@ -24,18 +27,29 @@ public class DayNightScr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DayNightCircle();
+    }
+    void DayNightCircle()
+    {
         timerDN -= Time.deltaTime;
-        if(timerDN <= 0 || isSpawning)
+        if(timerDN == 100f && isNight == false)
         {
+            playerHud.showReminder(2);
+        }
+        
+       
+        if (timerDN <= 0 || isSpawning)
+        {
+
             spawnEnemies();
             if (isNight == false)
             {
                 isNight = true;
                 timerDN = 300f;
+                playerHud.showReminder(3);
             }
         }
     }
-
     void spawnEnemies()
     {
         print("spawning enemies");

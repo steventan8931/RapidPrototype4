@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HudScr : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class HudScr : MonoBehaviour
     public PlayerScr player;
     public Image playerHpBar;
     public float percentage;
+    public TextMeshProUGUI reminder;
     // Update is called once per frame
     private void Awake()
     {
@@ -64,6 +66,24 @@ public class HudScr : MonoBehaviour
         percentage = player.currenthitpoints / 100;
         print(percentage);
         playerHpBar.fillAmount = percentage;
+    }
+
+    public void showReminder(int index)
+    {
+        if(index == 1)
+        {
+            reminder.text = "Collect resources and build a defence to protect your buddy before dawn.";
+        }
+        else if(index == 2)
+        {
+            reminder.text = "Enemies are approaching soon, set up your defence.";
+        }
+        else if(index == 3)
+        {
+            reminder.text = "Enemies have spawned,protect ur buddy!";
+        }
+
+
     }
 
         
