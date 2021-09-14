@@ -522,6 +522,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BearTrapTest
       objectReference: {fileID: 0}
+    - target: {fileID: 9206261585605313405, guid: 9c7fd46663804ac4bb5b3b0f3813ef80,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9206261585605313402, guid: 9c7fd46663804ac4bb5b3b0f3813ef80, type: 3}
     - {fileID: 9206261585605313382, guid: 9c7fd46663804ac4bb5b3b0f3813ef80, type: 3}
@@ -558,6 +563,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 411720953789301612, guid: 06be2909221749840a487e284c2445d6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 562527026561607089, guid: 06be2909221749840a487e284c2445d6,
         type: 3}
@@ -1418,6 +1428,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fence
+      objectReference: {fileID: 0}
+    - target: {fileID: 6865620989608144894, guid: 1005b4390b940374898d29175abfce3d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7564376264193628642, guid: 1005b4390b940374898d29175abfce3d,
         type: 3}

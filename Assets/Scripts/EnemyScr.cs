@@ -131,7 +131,6 @@ public class EnemyScr : MonoBehaviour
             }
 
 
-
         }
         else
         {
@@ -161,7 +160,13 @@ public class EnemyScr : MonoBehaviour
                     //damage them
                     enemy.GetComponent<Interactable>().TakeDamage((int)atkDmg);
                     Instantiate(enemy.GetComponent<Interactable>().m_ParticlePrefab, attackpoint.position, Quaternion.identity);
-                   
+                }
+
+                if (enemy.GetComponent<BuddyScr>() != null)
+                {
+                    //damage them
+
+                    enemy.GetComponent<BuddyScr>().receiveDmg(atkDmg);
                 }
                 //debug message
                 Debug.Log("enemy hit" + enemy.name);
