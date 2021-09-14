@@ -11,13 +11,13 @@ public class CharacterMotor : MonoBehaviour
     public Vector3 m_Velocity;
 
     public float m_MoveSpeed = 8.0f;
+    public float m_RunSpeed = 30.0f;
     public float m_Acceleration = 12.0f;
     public AnimationCurve m_FrictionCurve = AnimationCurve.Linear(0.0f, 0.1f, 1.0f, 1.0f);
 
     public float m_Gravity = 40.0f;
     public float m_JumpSpeed = 12.0f;
 
-    public float m_PushStrength = 5.0f;
 
     public bool m_Grounded = false;
 
@@ -28,14 +28,25 @@ public class CharacterMotor : MonoBehaviour
     public Animator m_Animation;
 
     AudioManager m_AudioManager;
+    float cacheMoveSpeed = 0.0f;
 
     private void Start()
     {
+        cacheMoveSpeed = m_MoveSpeed;
         m_AudioManager = FindObjectOfType<AudioManager>();
     }
 
     public void Update()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            m_MoveSpeed = m_RunSpeed;
+        }
+        else
+        {
+            m_MoveSpeed = cacheMoveSpeed;
+        }
+
         float x = 0.0f;
         float z = 0.0f;
 
