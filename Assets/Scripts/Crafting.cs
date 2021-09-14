@@ -31,15 +31,27 @@ public class Crafting : MonoBehaviour
         }
     }
 
+    public void UpdateCraftingSlotMulti(int _BlockCount, int _BlockCount1, int _BlockCount2, int _ItemCost, GameObject _CraftUI)
+    {
+        if (_BlockCount >= _ItemCost && _BlockCount1 >= _ItemCost && _BlockCount2 >= _ItemCost)
+        {
+            _CraftUI.SetActive(true);
+        }
+        else
+        {
+            _CraftUI.SetActive(false);
+        }
+    }
+
     private void Update()
     {
         //ItemCostCount
         //ItemCost
         //Add Item
 
-        UpdateCraftingSlot(m_Inventory.m_WoodBlockCount, 5, m_FenceCraftUI);
-        UpdateCraftingSlot(m_Inventory.m_RockBlockCount, 5, m_WallCraftUI);
-        UpdateCraftingSlot(m_Inventory.m_RockBlockCount, 3, m_TrapCraftUI);
+        UpdateCraftingSlot(m_Inventory.m_WoodBlockCount, 1, m_FenceCraftUI);
+        UpdateCraftingSlot(m_Inventory.m_RockBlockCount, 2, m_WallCraftUI);
+        UpdateCraftingSlotMulti(m_Inventory.m_RockBlockCount, m_Inventory.m_WoodBlockCount, m_Inventory.m_RedStoneBlockCount,1, m_TrapCraftUI);
     }
 
     //Button Functions
@@ -102,9 +114,11 @@ public class Crafting : MonoBehaviour
                 }
                 break;
             case "m_TrapBlockCount":
-                if (m_Inventory.m_TrapBlockCount >= m_Cost)
+                if (m_Inventory.m_RedStoneBlockCount >= m_Cost && m_Inventory.m_WoodBlockCount >= m_Cost && m_Inventory.m_RockBlockCount >= m_Cost)
                 {
-                    m_Inventory.m_TrapBlockCount -= m_Cost;
+                    m_Inventory.m_RockBlockCount -= m_Cost;
+                    m_Inventory.m_WoodBlockCount -= m_Cost;
+                    m_Inventory.m_RedStoneBlockCount -= m_Cost;
                     m_EnoughMaterials = true;
                 }
                 break;
