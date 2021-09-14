@@ -25,6 +25,9 @@ public class EnemyScr : MonoBehaviour
     public LayerMask objMask;
 
     public Transform attackpoint;
+
+    //animation
+    public Animator EnemyAnimator;
     private void Awake()
     {
         buddy = GameObject.FindGameObjectWithTag("Buddy");
@@ -32,21 +35,24 @@ public class EnemyScr : MonoBehaviour
 
     private void Update()
     {
-        playerInAttackRange = Physics.CheckSphere(attackpoint.position, attackRange, playerMask);
-        objInAttackRange = Physics.CheckSphere(attackpoint.position, attackRange, objMask);
-        
-        if(objInAttackRange)
+        if (currentHp > 0)
         {
-            attackObj();
+            playerInAttackRange = Physics.CheckSphere(attackpoint.position, attackRange, playerMask);
+            objInAttackRange = Physics.CheckSphere(attackpoint.position, attackRange, objMask);
 
-        }
-        else if(playerInAttackRange)
-        {
-            attackPlayer();
-        }
-        else 
-        {
-            moveFunc();
+            if (objInAttackRange)
+            {
+                attackObj();
+
+            }
+            else if (playerInAttackRange)
+            {
+                attackPlayer();
+            }
+            else
+            {
+                moveFunc();
+            }
         }
     }
 
@@ -135,13 +141,15 @@ public class EnemyScr : MonoBehaviour
             transform.LookAt(tempTarget);
             transform.position = moveTowards(buddy);
         }
+        EnemyAnimator.SetBool("IsAttacking", false);
+        EnemyAnimator.SetBool("IsWalking", true);
     }
 
     void attackObj()
     {
         //attack object,and the enemy won't move during attack
-        
 
+        EnemyAnimator.SetBool("IsWalking", false);
         if (!attacked)
         {
             Collider[] hitobjects = Physics.OverlapSphere(attackpoint.position, attackRange, objMask);
@@ -163,13 +171,14 @@ public class EnemyScr : MonoBehaviour
             //do damage
             print("attacking!");
             //add animation here
-
+            EnemyAnimator.SetBool("IsAttacking", true);
             attacked = true;
             Invoke(nameof(resetAttack), attackCD);
         }
     }
     void attackPlayer()
     {
+        EnemyAnimator.SetBool("IsWalking", false);
         if (!attacked)
         {
             Collider[] hitobjects = Physics.OverlapSphere(attackpoint.position, attackRange, playerMask);
@@ -184,7 +193,7 @@ public class EnemyScr : MonoBehaviour
                 }
                 //debug message
                 Debug.Log("enemy hit" + enemy.name);
-
+                EnemyAnimator.SetBool("IsAttacking", true);
             }
 
             //do damage
@@ -218,7 +227,8 @@ public class EnemyScr : MonoBehaviour
             currentHp = 0;
             isDead = true;
             //Play death animation
-            
+            EnemyAnimator.SetBool("IsWalking", false);
+            EnemyAnimator.SetBool("Dying", true);
         }
     }
 }
