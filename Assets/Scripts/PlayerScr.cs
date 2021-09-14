@@ -32,11 +32,14 @@ public class PlayerScr : MonoBehaviour
 
     public float m_DeathTimer = 0.0f;
     public float m_RespawnTime = 2.0f;
-
+    public Transform m_CheckPoint;
+    
     private void Start()
     {
         m_Crafting = FindObjectOfType<Crafting>();
         m_AudioManager = FindObjectOfType<AudioManager>();
+        m_CheckPoint = FindObjectOfType<BuddyAnim>().transform;
+        m_CheckPoint.position += new Vector3(2.0f, 2.0f, 2.0f);
     }
 
     // Update is called once per frame
@@ -75,8 +78,8 @@ public class PlayerScr : MonoBehaviour
        
         if (currenthitpoints <= 0)
         {
+            m_Animation.SetBool("IsDead", true);
             Respawn();
-            Debug.Log("play death anim");
         }
     }
 
@@ -84,20 +87,22 @@ public class PlayerScr : MonoBehaviour
     {
         if (m_DeathTimer == 0)
         {
+            GetComponent<CharacterMotor>().enabled = false;
             m_Animation.ResetTrigger("Dead");
             m_Animation.SetTrigger("Dead");
-            m_Animation.SetBool("IsDead", true);
-            GetComponent<CharacterMotor>().enabled = false;
         }
 
         m_DeathTimer += Time.deltaTime;
         
         if (m_DeathTimer > m_RespawnTime)
         {
+            GetComponent<CharacterController>().enabled = false;
+            transform.position = m_CheckPoint.position;
             m_Animation.SetBool("IsDead", false);
             currenthitpoints = Maxhitpoints;
-            m_DeathTimer = 0;
             GetComponent<CharacterMotor>().enabled = true;
+            GetComponent<CharacterController>().enabled = true;
+            m_DeathTimer = 0;
         }
 
     }
@@ -122,6 +127,15 @@ public class PlayerScr : MonoBehaviour
                 Instantiate(enemy.GetComponent<Interactable>().m_ParticlePrefab, attackpoint.position, Quaternion.identity);
             }
             if (enemy.GetComponent<Rock>() != null)
+            {
+                m_Animation.ResetTrigger("Mining");
+                m_Animation.SetTrigger("Mining");
+                m_AudioManager.PlaySound("Metal");
+                //damage them
+                enemy.GetComponent<Interactable>().TakeDamage(5);
+                Instantiate(enemy.GetComponent<Interactable>().m_ParticlePrefab, attackpoint.position, Quaternion.identity);
+            }
+            if (enemy.GetComponent<RedStone>() != null)
             {
                 m_Animation.ResetTrigger("Mining");
                 m_Animation.SetTrigger("Mining");
@@ -156,7 +170,7 @@ public class PlayerScr : MonoBehaviour
     public void receiveDmg(float dmg)
     {
         currenthitpoints -= dmg;
-
+        m_AudioManager.PlaySound("PlayerHurt");
     }
 
     private void OnDrawGizmosSelected()
