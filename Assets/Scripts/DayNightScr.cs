@@ -47,7 +47,7 @@ public class DayNightScr : MonoBehaviour
         {
             isSpawning = true;
         }
-        if(currSpawnCd <= 0)
+        if(currSpawnCd <= 0 && fullyspawned == false)
         {
             foreach (Transform location in EnemyLoc)
             {

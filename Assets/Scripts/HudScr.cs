@@ -9,6 +9,7 @@ public class HudScr : MonoBehaviour
     public LoadOut playerLoadout;
     public PlayerScr player;
     public Image playerHpBar;
+    public float percentage;
     // Update is called once per frame
     private void Awake()
     {
@@ -17,8 +18,9 @@ public class HudScr : MonoBehaviour
     }
     void Update()
     {
-        changeLoadoutIcon();
         updatePlayerHp();
+        changeLoadoutIcon();
+        
     }
 
     void changeLoadoutIcon()
@@ -59,7 +61,8 @@ public class HudScr : MonoBehaviour
 
     void updatePlayerHp()
     {
-        float percentage = player.currenthitpoints / 100;
+        percentage = player.currenthitpoints / 100;
+        print(percentage);
         playerHpBar.fillAmount = percentage;
     }
 
