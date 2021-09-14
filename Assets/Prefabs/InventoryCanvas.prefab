@@ -227,8 +227,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.1, y: 155.4}
-  m_SizeDelta: {x: 175.9274, y: 34.281784}
+  m_AnchoredPosition: {x: -1.15, y: 156.25}
+  m_SizeDelta: {x: 176.02225, y: 35.985718}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5098233760186082640
 CanvasRenderer:
@@ -1058,6 +1058,11 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.3962264
       objectReference: {fileID: 0}
+    - target: {fileID: 3788473489515026191, guid: 91bfce0fc2d98964480d0884aecbd6c6,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: c10992b3bdb7f01438862ce433f546e7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91bfce0fc2d98964480d0884aecbd6c6, type: 3}
 --- !u!224 &8063925202858422468 stripped
@@ -1233,6 +1238,11 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3788473489515026191, guid: 91bfce0fc2d98964480d0884aecbd6c6,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: 49160350c7f946841bce160b50675e0b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91bfce0fc2d98964480d0884aecbd6c6, type: 3}
 --- !u!224 &8063925202273302418 stripped
