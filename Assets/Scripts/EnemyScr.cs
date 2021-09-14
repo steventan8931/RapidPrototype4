@@ -20,11 +20,15 @@ public class EnemyScr : MonoBehaviour
     //state
     public float sightRange, attackRange;
     public bool playerInSight, playerInAttackRange, objInAttackRange;
-
+    public GameObject buddy;
     public LayerMask playerMask;
     public LayerMask objMask;
 
     public Transform attackpoint;
+    private void Awake()
+    {
+        buddy = GameObject.FindGameObjectWithTag("Buddy");
+    }
 
     private void Update()
     {
@@ -73,6 +77,19 @@ public class EnemyScr : MonoBehaviour
         return distance;
     }
     
+    public float checkDisBuddy()
+    {
+        float distance;
+        distance = Vector3.Distance(transform.position, buddy.transform.position);
+        return distance;
+    }
+
+    public float checkDisToWall()
+    {
+        float distance;
+        distance = Vector3.Distance(transform.position, FindClosestWall("Wall").transform.position);
+        return distance;
+    }
 
     Vector3 moveTowards(GameObject target)
     {
@@ -92,17 +109,31 @@ public class EnemyScr : MonoBehaviour
                 tempTarget.y = gameObject.transform.position.y;
                 transform.LookAt(tempTarget);
                 transform.position = moveTowards(FindClosestWall("Wall"));
+            }else if(checkDisBuddy()<checkDisToWall())
+            {
+                Vector3 tempTarget = buddy.transform.position;
+                tempTarget.y = gameObject.transform.position.y;
+                transform.LookAt(tempTarget);
+                transform.position = moveTowards(buddy);
             }
-            else
+            else 
             {
                 Vector3 tempTarget = GameObject.FindGameObjectWithTag("Player").transform.position;
                 tempTarget.y = gameObject.transform.position.y;
                 transform.LookAt(tempTarget);
                 transform.position = moveTowards(GameObject.FindGameObjectWithTag("Player"));
             }
-           
-            
 
+
+
+        }
+        else
+        {
+            // move towards to buddy directly
+            Vector3 tempTarget = buddy.transform.position;
+            tempTarget.y = gameObject.transform.position.y;
+            transform.LookAt(tempTarget);
+            transform.position = moveTowards(buddy);
         }
     }
 
