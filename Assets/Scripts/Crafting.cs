@@ -14,6 +14,8 @@ public class Crafting : MonoBehaviour
     public GameObject m_WallCraftUI;
     public GameObject m_TrapCraftUI;
 
+    string m_ItemName;
+
     private void Start()
     {
         m_Inventory = FindObjectOfType<Inventory>();
@@ -55,23 +57,32 @@ public class Crafting : MonoBehaviour
     }
 
     //Button Functions
-    public void AddItem(string _ItemName)
+    public void AddItemName(string _ItemName)
+    {
+        m_ItemName = _ItemName;
+    }
+
+    //Button Functions
+    public void AddItem()
     {
         if (m_EnoughMaterials)
         {
-            switch (_ItemName)
+            switch (m_ItemName)
             {
                 case "m_FenceBlockCount":
                     m_Inventory.m_FenceBlockCount++;
                     Debug.Log("added fence");
+                    m_EnoughMaterials = false;
                     break;
                 case "m_TrapBlockCount":
                     m_Inventory.m_TrapBlockCount++;
                     Debug.Log("added Trap");
+                    m_EnoughMaterials = false;
                     break;
                 case "m_WallBlockCount":
                     m_Inventory.m_WallBlockCount++;
                     Debug.Log("added Wall");
+                    m_EnoughMaterials = false;
                     break;
             }
         }
