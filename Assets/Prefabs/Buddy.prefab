@@ -336,6 +336,7 @@ GameObject:
   - component: {fileID: 86700898072510836}
   - component: {fileID: 86700898072510842}
   - component: {fileID: 86700898072510843}
+  - component: {fileID: 2315341749828191443}
   m_Layer: 14
   m_Name: Buddy
   m_TagString: Buddy
@@ -412,6 +413,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Animation: {fileID: 0}
+--- !u!114 &2315341749828191443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005833032800832307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b185f3ac8787ab43895541b0d01b760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1128282757895680918
 GameObject:
   m_ObjectHideFlags: 0

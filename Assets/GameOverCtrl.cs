@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 public class GameOverCtrl : MonoBehaviour
 {
     public GameObject FailUi, RetryButton, MenuButton;
-    public PlayerScr player;
+    public BuddyScr Buddy;
     private void Start ()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScr>();
+        Buddy = GameObject.FindGameObjectWithTag("Buddy").GetComponent<BuddyScr>();
     }
     public void EnableFail()
     {
-        if(player.currenthitpoints <=0)
+        if(Buddy.CurrHp <=0)
         {
             FailUi.SetActive(true);
             Cursor.visible = true;
