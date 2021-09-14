@@ -52,6 +52,7 @@ public class LoadOut : MonoBehaviour
                 }
                 else
                 {
+                    m_Hand = ActiveInHand.m_Wall;
                     goto case ActiveInHand.m_Wall;
                 }
             case ActiveInHand.m_Wall:
@@ -67,6 +68,7 @@ public class LoadOut : MonoBehaviour
                 }
                 else
                 {
+                    m_Hand = ActiveInHand.m_Trap;
                     goto case ActiveInHand.m_Trap;
                 }
             case ActiveInHand.m_Trap:
@@ -82,6 +84,7 @@ public class LoadOut : MonoBehaviour
                 }
                 else
                 {
+                    m_Hand = ActiveInHand.m_Melee;
                     goto case ActiveInHand.m_Melee;
                 }
         }

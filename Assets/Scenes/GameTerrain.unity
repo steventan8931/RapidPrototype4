@@ -1324,6 +1324,11 @@ PrefabInstance:
       objectReference: {fileID: 489115171}
     - target: {fileID: 3361304532904642311, guid: 4535da36cad67cf43a1b0166df94b078,
         type: 3}
+      propertyPath: m_TrapBlockCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361304532904642311, guid: 4535da36cad67cf43a1b0166df94b078,
+        type: 3}
       propertyPath: m_InventoryCanvas
       value: 
       objectReference: {fileID: 1867828688}
