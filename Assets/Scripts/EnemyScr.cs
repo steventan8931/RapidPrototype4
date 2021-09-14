@@ -187,6 +187,7 @@ public class EnemyScr : MonoBehaviour
             currentHp = 0;
             isDead = true;
             //Play death animation
+            
         }
     }
 }
