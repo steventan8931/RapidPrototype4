@@ -33,6 +33,11 @@ public class Tree : Interactable
         {
             gameObject.GetComponent<Collider>().enabled = false;
             m_FallOverTime += Time.deltaTime * m_FallSpeed;
+
+            if (m_FallOverTime > 0.6f)
+            {
+                m_FallOverTime += Time.deltaTime * m_FallSpeed;
+            }
             m_AudioManager.PlaySound("TreeFall");
             if (transform.position.x - cachePosCheck.x > 0)
             {

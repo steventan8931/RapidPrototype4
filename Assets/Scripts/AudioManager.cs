@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public AudioClip m_WoodSound, m_MetalSound, m_JumpSound, m_RockBreakSound, m_TreeFallSound, m_CraftSound, m_SwingSound, m_PickUpSound,
-    m_SpawnItemSound;
+    m_SpawnItemSound, m_PlayerHurtSound;
 
     public AudioSource m_AudioSource;
 
@@ -50,6 +50,9 @@ public class AudioManager : MonoBehaviour
                 break;
             case "Spawn":
                 m_AudioSource.PlayOneShot(m_SpawnItemSound);
+                break;
+            case "PlayerHurt":
+                m_AudioSource.PlayOneShot(m_PlayerHurtSound);
                 break;
         }
     }
