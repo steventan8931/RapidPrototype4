@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d1ad12b0ddfa75a4aab9e9f4be86dae4
+guid: d991b29a6e233824faa42583be6fe996
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
@@ -7,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: LavaTrap_LavaMat
-    second: {fileID: 2100000, guid: 04d28c61d4de1be4a93cdb1b3503c4d9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Pit_Stone_LavaTrapMat
-    second: {fileID: 2100000, guid: 8a3c31b58e88ca0408b210d1cb6a2bd2, type: 2}
+      name: lambert1
+    second: {fileID: 2100000, guid: 27cdf62544342b84ab1ec83d5131cac8, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
