@@ -13,11 +13,12 @@ public class Crafting : MonoBehaviour
     public GameObject m_FenceCraftUI;
     public GameObject m_WallCraftUI;
     public GameObject m_TrapCraftUI;
+    public GameObject m_LavaTrapCraftUI;
     public GameObject m_AntidoteCraftUI;
 
     string m_ItemName;
 
-    private void Start()
+    private void Awake()
     {
         m_Inventory = FindObjectOfType<Inventory>();
     }
@@ -66,6 +67,7 @@ public class Crafting : MonoBehaviour
         UpdateCraftingSlot(m_Inventory.m_WoodBlockCount, 1, m_FenceCraftUI);
         UpdateCraftingSlot(m_Inventory.m_RockBlockCount, 2, m_WallCraftUI);
         UpdateCraftingSlotMulti(m_Inventory.m_RockBlockCount, m_Inventory.m_WoodBlockCount, m_Inventory.m_RedStoneBlockCount, 1, m_TrapCraftUI);
+        UpdateCraftingSlotMulti(m_Inventory.m_RockBlockCount, m_Inventory.m_WoodBlockCount, m_Inventory.m_RedStoneBlockCount, 1, m_LavaTrapCraftUI);
         UpdateCraftingSlotMulti(m_Inventory.m_RockBlockCount, m_Inventory.m_BloodBlockCount, 2, m_AntidoteCraftUI);
     }
 
@@ -90,6 +92,14 @@ public class Crafting : MonoBehaviour
                     break;
                 case "m_TrapBlockCount":
                     m_Inventory.m_TrapBlockCount++;
+                    m_Inventory.m_RockBlockCount -= m_Cost;
+                    m_Inventory.m_WoodBlockCount -= m_Cost;
+                    m_Inventory.m_RedStoneBlockCount -= m_Cost;
+                    Debug.Log("added Trap");
+                    m_EnoughMaterials = false;
+                    break;
+                case "m_LavaTrapBlockCount":
+                    m_Inventory.m_LavaTrapBlockCount++;
                     m_Inventory.m_RockBlockCount -= m_Cost;
                     m_Inventory.m_WoodBlockCount -= m_Cost;
                     m_Inventory.m_RedStoneBlockCount -= m_Cost;
@@ -154,7 +164,20 @@ public class Crafting : MonoBehaviour
                     m_EnoughMaterials = true;
                 }
                 break;
+            case "m_LavaTrapBlockCountUse":
+                if (m_Inventory.m_LavaTrapBlockCount >= m_Cost)
+                {
+                    m_Inventory.m_LavaTrapBlockCount -= m_Cost;
+                    m_EnoughMaterials = true;
+                }
+                break;
             case "m_TrapBlockCount":
+                if (m_Inventory.m_RedStoneBlockCount >= m_Cost && m_Inventory.m_WoodBlockCount >= m_Cost && m_Inventory.m_RockBlockCount >= m_Cost)
+                {
+                    m_EnoughMaterials = true;
+                }
+                break;
+            case "m_LavaTrap":
                 if (m_Inventory.m_RedStoneBlockCount >= m_Cost && m_Inventory.m_WoodBlockCount >= m_Cost && m_Inventory.m_RockBlockCount >= m_Cost)
                 {
                     m_EnoughMaterials = true;

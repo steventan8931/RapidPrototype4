@@ -9,17 +9,20 @@ public class LoadOut : MonoBehaviour
         m_Melee,
         m_Fence,
         m_Wall,
+        m_LavaTrap,
         m_Trap,
     }
 
     public GameObject m_Fence;
     public GameObject m_Wall;
+    public GameObject m_LavaTrap;
     public GameObject m_Trap;
 
     public ActiveInHand m_Hand;
 
     public GameObject m_FencePrefab;
     public GameObject m_WallPrefab;
+    public GameObject m_LavaTrapPrefab;
     public GameObject m_TrapPrefab;
 
     Inventory m_Inventory;
@@ -38,6 +41,7 @@ public class LoadOut : MonoBehaviour
                 m_Wall.SetActive(false);
                 m_Trap.SetActive(false);
                 m_Fence.SetActive(false);
+                m_LavaTrap.SetActive(false);
                 break;
             case ActiveInHand.m_Fence:
                 if (m_Inventory.m_FenceBlockCount > 0)
@@ -47,6 +51,7 @@ public class LoadOut : MonoBehaviour
                     GetComponent<PlayerScr>().m_BuildMaterial = "m_FenceBlockCountUse";
                     m_Wall.SetActive(false);
                     m_Trap.SetActive(false);
+                    m_LavaTrap.SetActive(false);
                     m_Fence.SetActive(true);
                     break;
                 }
@@ -63,6 +68,24 @@ public class LoadOut : MonoBehaviour
                     GetComponent<PlayerScr>().m_BuildMaterial = "m_WallBlockCountUse";
                     m_Wall.SetActive(true);
                     m_Trap.SetActive(false);
+                    m_LavaTrap.SetActive(false);
+                    m_Fence.SetActive(false);
+                    break;
+                }
+                else
+                {
+                    m_Hand = ActiveInHand.m_LavaTrap;
+                    goto case ActiveInHand.m_LavaTrap;
+                }
+            case ActiveInHand.m_LavaTrap:
+                if (m_Inventory.m_LavaTrapBlockCount > 0)
+                {
+                    GetComponent<PlayerScr>().buildobj = m_LavaTrapPrefab;
+                    GetComponent<PlayerScr>().isbuilder = true;
+                    GetComponent<PlayerScr>().m_BuildMaterial = "m_LavaTrapBlockCountUse";
+                    m_Wall.SetActive(false);
+                    m_LavaTrap.SetActive(true);
+                    m_Trap.SetActive(false);
                     m_Fence.SetActive(false);
                     break;
                 }
@@ -78,6 +101,7 @@ public class LoadOut : MonoBehaviour
                     GetComponent<PlayerScr>().isbuilder = true;
                     GetComponent<PlayerScr>().m_BuildMaterial = "m_TrapBlockCountUse";
                     m_Wall.SetActive(false);
+                    m_LavaTrap.SetActive(false);
                     m_Trap.SetActive(true);
                     m_Fence.SetActive(false);
                     break;
