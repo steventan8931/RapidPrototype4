@@ -19,10 +19,11 @@ public class EnemyScr : MonoBehaviour
 
     //state
     public float sightRange, attackRange;
-    public bool playerInSight, playerInAttackRange, objInAttackRange;
+    public bool playerInSight, playerInAttackRange, objInAttackRange, buddyInAttackRange;
     public GameObject buddy;
     public LayerMask playerMask;
     public LayerMask objMask;
+    public LayerMask buddyMask;
 
     public Transform attackpoint;
 
@@ -39,8 +40,12 @@ public class EnemyScr : MonoBehaviour
         {
             playerInAttackRange = Physics.CheckSphere(attackpoint.position, attackRange, playerMask);
             objInAttackRange = Physics.CheckSphere(attackpoint.position, attackRange, objMask);
+            buddyInAttackRange = Physics.CheckSphere(attackpoint.position, attackRange, buddyMask);
+            if(buddyInAttackRange)
+            {
 
-            if (objInAttackRange)
+            }
+            else if (objInAttackRange)
             {
                 attackObj();
 
@@ -202,6 +207,36 @@ public class EnemyScr : MonoBehaviour
                 //debug message
                 Debug.Log("enemy hit" + enemy.name);
                 
+            }
+
+            //do damage
+            print("attacking!");
+            //add animation here
+
+            attacked = true;
+            Invoke(nameof(resetAttack), attackCD);
+        }
+    }
+
+    void attackBuddy()
+    {
+        EnemyAnimator.SetBool("IsWalking", false);
+        if (!attacked)
+        {
+            Collider[] hitobjects = Physics.OverlapSphere(attackpoint.position, attackRange, playerMask);
+            // Damage enemies
+            foreach (Collider enemy in hitobjects)
+            {
+                if (enemy.GetComponent<BuddyScr>() != null)
+                {
+                    //damage Player
+                    enemy.GetComponent<BuddyScr>().receiveDmg(atkDmg);
+                    EnemyAnimator.SetBool("IsAttacking", true);
+
+                }
+                //debug message
+                Debug.Log("enemy hit" + enemy.name);
+
             }
 
             //do damage
