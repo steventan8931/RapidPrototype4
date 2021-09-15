@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyScr : MonoBehaviour
 {
+    public DayNightScr gameManager;
     //basic stat
     public float maxHp = 100f;
     public float currentHp = 100f;
@@ -27,11 +28,13 @@ public class EnemyScr : MonoBehaviour
 
     public Transform attackpoint;
 
+
     //animation
     public Animator EnemyAnimator;
     private void Awake()
     {
         buddy = GameObject.FindGameObjectWithTag("Buddy");
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<DayNightScr>();
     }
 
     private void Update()
@@ -267,6 +270,7 @@ public class EnemyScr : MonoBehaviour
             //Play death animation
             EnemyAnimator.SetBool("IsWalking", false);
             EnemyAnimator.SetBool("Dying", true);
+            gameManager.enemyCount -= 1;
             Invoke(nameof(destroywhendead), 1.5f);
         }
     }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5824672316974228904}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,3 +53,13 @@ MonoBehaviour:
   enemyPrefab: {fileID: 2373408700345361925, guid: 51b2ec43a1a2b444b85ddf156686dd50,
     type: 3}
   isNight: 0
+  isWin: 0
+  isSpawning: 0
+  fullyspawned: 0
+  enemyCount: 0
+  SpawningCd: 2
+  currSpawnCd: 0
+  StageText: {fileID: 0}
+  TimeText: {fileID: 0}
+  BlackScreenCtrl: {fileID: 0}
+  playerHud: {fileID: 0}

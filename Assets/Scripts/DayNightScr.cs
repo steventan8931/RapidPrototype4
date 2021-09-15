@@ -63,6 +63,14 @@ public class DayNightScr : MonoBehaviour
                 playerHud.showReminder(3);
             }
         }
+        if(isNight == true && fullyspawned == true)
+        {
+            if(enemyCount <=3)
+            {
+                fullyspawned = false;
+                spawnEnemies();
+            }
+        }
     }
     void spawnEnemies()
     {
@@ -90,6 +98,7 @@ public class DayNightScr : MonoBehaviour
             if(enemyCount == EnemyLoc.Length)
             {
                 fullyspawned = true;
+                isSpawning = false;
             }
         }else
         {
