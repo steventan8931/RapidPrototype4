@@ -12,6 +12,8 @@ public class BuddyAnim : MonoBehaviour
     AudioManager m_AudioManager;
 
     public bool m_Saved = false;
+    public GameObject m_ReviveParticle;
+    public Transform m_ReviveTransform;
 
     private void Start()
     {
@@ -40,6 +42,7 @@ public class BuddyAnim : MonoBehaviour
                 m_Animation.ResetTrigger("Revive");
                 m_Animation.SetTrigger("Revive");
                 firstFrameRevive = false;
+                Instantiate(m_ReviveParticle, m_ReviveTransform.position, Quaternion.identity);
             }
 
         }
