@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public AudioClip m_WoodSound, m_MetalSound, m_JumpSound, m_RockBreakSound, m_TreeFallSound, m_CraftSound, m_SwingSound, m_PickUpSound,
-    m_SpawnItemSound, m_PlayerHurtSound, m_EnemyHurtSound, m_EnemyDeadSound;
+    m_SpawnItemSound, m_PlayerHurtSound, m_EnemyHurtSound, m_EnemyDeadSound, m_EnemyAttackSound;
 
     public AudioSource m_AudioSource;
 
