@@ -14,6 +14,11 @@ public class Tree : Interactable
 
     public TreePlayerPosCheck m_PosCheck;
 
+    public Vector2 m_ScaleExtents = new Vector2(5.0f, 10.0f);
+    public float cacheScale;
+    public Vector2 m_RotationExtents = new Vector2(0.0f, 360.0f);
+    public float cacheRotation;
+
     [Header("Tree Spawner Components")]
     public GameObject m_WoodBlockPrefab;
     public Transform m_WoodBlockSpawnLocation;
@@ -24,6 +29,10 @@ public class Tree : Interactable
     private void Start()
     {
         m_AudioManager = FindObjectOfType<AudioManager>();
+        cacheScale = Random.Range(m_ScaleExtents.x, m_ScaleExtents.y);
+        transform.localScale = new Vector3(cacheScale, cacheScale, cacheScale);
+        cacheRotation = Random.Range(m_RotationExtents.x, m_RotationExtents.y);
+        transform.localRotation =  Quaternion.Euler(0.0f, cacheRotation, 0.0f);
     }
 
     private void Update()
@@ -52,7 +61,7 @@ public class Tree : Interactable
 
             if (m_DeathTimer > m_DespawnTimer)
             {
-                int spawnCount = (int)Random.Range(m_SpawnCountExtents.x, m_SpawnCountExtents.y);
+                int spawnCount = (int)Random.Range(m_SpawnCountExtents.x + cacheScale, m_SpawnCountExtents.y + cacheScale);
                 for (int i = 0; i < spawnCount; i++)
                 {
                     Instantiate(m_WoodBlockPrefab, m_WoodBlockSpawnLocation.position, Quaternion.Euler(0.0f, 0.0f, 0.0f));

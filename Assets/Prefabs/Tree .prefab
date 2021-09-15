@@ -173,6 +173,10 @@ MonoBehaviour:
   m_FallSpeed: 0.2
   m_RotationPivot: {fileID: 3214850331777652347}
   m_PosCheck: {fileID: 6824367272352742021}
+  m_ScaleExtents: {x: 2, y: 10}
+  cacheScale: 0
+  m_RotationExtents: {x: 0, y: 360}
+  cacheRotation: 0
   m_WoodBlockPrefab: {fileID: 6230850178394913937, guid: 4fcae3d7102f5d344861a6bfed27bbac,
     type: 3}
   m_WoodBlockSpawnLocation: {fileID: 6824367273468884537}
