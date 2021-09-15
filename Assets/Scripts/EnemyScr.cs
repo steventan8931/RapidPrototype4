@@ -11,7 +11,7 @@ public class EnemyScr : MonoBehaviour
 
     public bool isDead = false;
 
-    public float atkDmg = 20f;
+    public float atkDmg = 10f;
     //move stat
     public float moveSpeed = 0.3f;
    //attack
@@ -284,7 +284,7 @@ public class EnemyScr : MonoBehaviour
             EnemyAnimator.SetBool("IsWalking", false);
             EnemyAnimator.SetBool("Dying", true);
             gameManager.enemyCount -= 1;
-            Invoke(nameof(destroywhendead), 1.5f);
+            Invoke(nameof(destroywhendead), 5.5f);
         }
     }
 

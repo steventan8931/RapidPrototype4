@@ -21,6 +21,7 @@ public class DayNightScr : MonoBehaviour
 
     public TextMeshProUGUI StageText, TimeText;
     public Animator BlackScreenCtrl;
+    public GameObject winText;
     //for reminder
     public HudScr playerHud;
 
@@ -115,6 +116,7 @@ public class DayNightScr : MonoBehaviour
             isWin = true;
             // Pop up win UI
             BlackScreenCtrl.SetBool("IsWin", true);
+            winText.SetActive(true);
             // Swap Scene
             Invoke(nameof(loadWinScreen), 2.5f);
         }
