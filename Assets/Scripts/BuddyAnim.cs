@@ -35,6 +35,7 @@ public class BuddyAnim : MonoBehaviour
         {
             if (firstFrameRevive)
             {
+                m_AudioManager.PlaySound("PlayerRevive");
                 m_Animation.SetBool("IsDead", false);
                 m_Animation.ResetTrigger("Revive");
                 m_Animation.SetTrigger("Revive");

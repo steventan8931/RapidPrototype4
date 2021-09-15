@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public AudioClip m_WoodSound, m_MetalSound, m_JumpSound, m_RockBreakSound, m_TreeFallSound, m_CraftSound, m_SwingSound, m_PickUpSound,
-    m_SpawnItemSound, m_PlayerHurtSound, m_EnemyHurtSound, m_EnemyDeadSound, m_EnemyAttackSound;
+    m_SpawnItemSound, m_PlayerHurtSound, m_EnemyHurtSound, m_EnemyDeadSound, m_EnemyAttackSound, m_PlayerReviveSound;
 
     public AudioSource m_AudioSource;
 
@@ -74,6 +74,10 @@ public class AudioManager : MonoBehaviour
             case "EnemyAttack":
                 m_AudioSource.volume = 0.3f;
                 m_AudioSource.PlayOneShot(m_EnemyAttackSound);
+                break;
+            case "PlayerRevive":
+                m_AudioSource.volume = 0.5f;
+                m_AudioSource.PlayOneShot(m_PlayerReviveSound);
                 break;
         }
     }
