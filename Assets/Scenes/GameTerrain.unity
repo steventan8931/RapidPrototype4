@@ -902,6 +902,11 @@ PrefabInstance:
       propertyPath: m_EnemyAttackSound
       value: 
       objectReference: {fileID: 8300000, guid: 0d6fa1efd8caab54182c608b306ff682, type: 3}
+    - target: {fileID: 3976892393882626399, guid: 61e0b5e7802a3d745a156303b6402257,
+        type: 3}
+      propertyPath: m_PlayerReviveSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c62d10675b35e0847b3b46104c3f1d9c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61e0b5e7802a3d745a156303b6402257, type: 3}
 --- !u!1001 &250969539

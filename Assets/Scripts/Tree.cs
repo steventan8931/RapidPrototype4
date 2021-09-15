@@ -32,7 +32,16 @@ public class Tree : Interactable
         cacheScale = Random.Range(m_ScaleExtents.x, m_ScaleExtents.y);
         transform.localScale = new Vector3(cacheScale, cacheScale, cacheScale);
         cacheRotation = Random.Range(m_RotationExtents.x, m_RotationExtents.y);
-        transform.localRotation =  Quaternion.Euler(0.0f, cacheRotation, 0.0f);
+        transform.localRotation = Quaternion.Euler(0.0f, cacheRotation, 0.0f);
+
+        if (cacheScale > 7.5f)
+        {
+            m_Health = 20;
+        }
+        else if (cacheScale < 5f)
+        {
+            m_Health = 5;
+        }
     }
 
     private void Update()
@@ -68,7 +77,7 @@ public class Tree : Interactable
 
             if (m_DeathTimer > m_DespawnTimer)
             {
-                int spawnCount = (int)Random.Range(m_SpawnCountExtents.x + cacheScale, m_SpawnCountExtents.y + cacheScale);
+                int spawnCount = (int)Random.Range(m_SpawnCountExtents.x, m_SpawnCountExtents.y + cacheScale);
                 for (int i = 0; i < spawnCount; i++)
                 {
                     Instantiate(m_WoodBlockPrefab, m_WoodBlockSpawnLocation.position, Quaternion.Euler(0.0f, 0.0f, 0.0f));

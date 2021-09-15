@@ -101,6 +101,36 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4347160785256668185, guid: 25b26c1449bf2af4caec7e8e65d6c5a3, type: 3}
+--- !u!1 &4685482701223420624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2269044529971536795}
+  m_Layer: 8
+  m_Name: SpawnLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2269044529971536795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4685482701223420624}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.3765, y: 0.159, z: 0.12}
+  m_LocalScale: {x: 0.8333334, y: 0.625, z: 0.8333334}
+  m_Children: []
+  m_Father: {fileID: 6824367272222995279}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1996421407603624282
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -146,7 +176,7 @@ Transform:
   m_Children:
   - {fileID: 3214850331777652347}
   - {fileID: 1505194945098199505}
-  - {fileID: 6824367273468884537}
+  - {fileID: 2269044529971536795}
   - {fileID: 6824367272352742019}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -173,13 +203,13 @@ MonoBehaviour:
   m_FallSpeed: 0.5
   m_RotationPivot: {fileID: 3214850331777652347}
   m_PosCheck: {fileID: 6824367272352742021}
-  m_ScaleExtents: {x: 2, y: 10}
+  m_ScaleExtents: {x: 4, y: 10}
   cacheScale: 0
   m_RotationExtents: {x: 0, y: 360}
   cacheRotation: 0
   m_WoodBlockPrefab: {fileID: 6230850178394913937, guid: 4fcae3d7102f5d344861a6bfed27bbac,
     type: 3}
-  m_WoodBlockSpawnLocation: {fileID: 6824367273468884537}
+  m_WoodBlockSpawnLocation: {fileID: 2269044529971536795}
 --- !u!136 &1868941086037884749
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -252,36 +282,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerPos: {x: 0, y: 0, z: 0}
---- !u!1 &6824367273468884538
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6824367273468884537}
-  m_Layer: 8
-  m_Name: Spawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6824367273468884537
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6824367273468884538}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6824367272222995279}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &688218128265161487
 MeshCollider:
   m_ObjectHideFlags: 0
