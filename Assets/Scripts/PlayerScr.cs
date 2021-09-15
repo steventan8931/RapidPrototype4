@@ -32,14 +32,14 @@ public class PlayerScr : MonoBehaviour
 
     public float m_DeathTimer = 0.0f;
     public float m_RespawnTime = 2.0f;
-    public Transform m_CheckPoint;
+    public Vector3 m_CheckPoint;
     
     private void Start()
     {
         m_Crafting = FindObjectOfType<Crafting>();
         m_AudioManager = FindObjectOfType<AudioManager>();
-        m_CheckPoint = FindObjectOfType<BuddyAnim>().transform;
-        m_CheckPoint.position += new Vector3(2.0f, 2.0f, 2.0f);
+        m_CheckPoint = FindObjectOfType<BuddyAnim>().transform.position;
+        m_CheckPoint += new Vector3(2.0f, 2.0f, 2.0f);
     }
 
     // Update is called once per frame
@@ -96,9 +96,10 @@ public class PlayerScr : MonoBehaviour
         
         if (m_DeathTimer > m_RespawnTime)
         {
+            Debug.Log("dead");
             m_AudioManager.PlaySound("PlayerRevive");
             GetComponent<CharacterController>().enabled = false;
-            transform.position = m_CheckPoint.position;
+            transform.position = m_CheckPoint;
             m_Animation.SetBool("IsDead", false);
             currenthitpoints = Maxhitpoints;
             GetComponent<CharacterMotor>().enabled = true;
