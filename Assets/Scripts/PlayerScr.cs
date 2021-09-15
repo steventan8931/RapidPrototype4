@@ -144,6 +144,13 @@ public class PlayerScr : MonoBehaviour
                 enemy.GetComponent<Interactable>().TakeDamage(5);
                 Instantiate(enemy.GetComponent<Interactable>().m_ParticlePrefab, attackpoint.position, Quaternion.identity);
             }
+            if (enemy.GetComponent<EnemyScr>() != null)
+            {
+                //damage them
+                enemy.GetComponent<EnemyScr>().receiveDmg(20);
+                //Instantiate(enemy.GetComponent<Interactable>().m_ParticlePrefab, attackpoint.position, Quaternion.identity);"
+                Debug.Log("hitting");
+            }
             //debug message
             Debug.Log("we hit" + enemy.name);
             if (enemy.tag == "Enemy")

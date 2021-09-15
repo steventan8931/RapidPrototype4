@@ -14,7 +14,7 @@ public class EnemyScr : MonoBehaviour
     //move stat
     public float moveSpeed = 0.3f;
    //attack
-    public float attackCD = 1.5f;
+    public float attackCD = 2.5f;
     public bool attacked;
 
     //state
@@ -51,6 +51,7 @@ public class EnemyScr : MonoBehaviour
             }
             else
             {
+                EnemyAnimator.SetBool("IsAttacking", false);
                 moveFunc();
             }
         }
@@ -147,8 +148,9 @@ public class EnemyScr : MonoBehaviour
     void attackObj()
     {
         //attack object,and the enemy won't move during attack
-
+        
         EnemyAnimator.SetBool("IsWalking", false);
+        
         if (!attacked)
         {
             Collider[] hitobjects = Physics.OverlapSphere(attackpoint.position, attackRange, objMask);
@@ -194,11 +196,12 @@ public class EnemyScr : MonoBehaviour
                 {
                     //damage Player
                     enemy.GetComponent<PlayerScr>().receiveDmg((int)atkDmg);
-                   
+                    EnemyAnimator.SetBool("IsAttacking", true);
+
                 }
                 //debug message
                 Debug.Log("enemy hit" + enemy.name);
-                EnemyAnimator.SetBool("IsAttacking", true);
+                
             }
 
             //do damage

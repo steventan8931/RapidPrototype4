@@ -91,7 +91,7 @@ public class HudScr : MonoBehaviour
     void updatePlayerHp()
     {
         percentage = player.currenthitpoints / 100;
-        print(percentage);
+        //print(percentage);
         playerHpBar.fillAmount = percentage;
     }
 
