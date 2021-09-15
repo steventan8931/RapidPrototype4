@@ -28,7 +28,8 @@ public class EnemyScr : MonoBehaviour
 
     public Transform attackpoint;
 
-
+    AudioManager m_AudioManager;
+    public GameObject m_BloodFXPrefab;
     //animation
     public Animator EnemyAnimator;
     private void Awake()
@@ -39,7 +40,7 @@ public class EnemyScr : MonoBehaviour
 
     private void Start()
     {
-        //m_AudioManager = FindObjectOfType<AudioManager>();
+        m_AudioManager = FindObjectOfType<AudioManager>();
     }
 
         private void Update()
@@ -175,15 +176,15 @@ public class EnemyScr : MonoBehaviour
                     //damage them
                     enemy.GetComponent<Interactable>().TakeDamage((int)atkDmg);
                     Instantiate(enemy.GetComponent<Interactable>().m_ParticlePrefab, attackpoint.position, Quaternion.identity);
-                    //m_AudioManager.PlaySound("EnemyHurt");
+                    m_AudioManager.PlaySound("EnemyAttack");
                 }
 
                 if (enemy.GetComponent<BuddyScr>() != null)
                 {
                     //damage them
-                    //Instantiate(m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
+                    Instantiate(m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
                     enemy.GetComponent<BuddyScr>().receiveDmg(atkDmg);
-                    //m_AudioManager.PlaySound("EnemyHurt");
+                    m_AudioManager.PlaySound("EnemyAttack");
                 }
                 //debug message
                 Debug.Log("enemy hit" + enemy.name);
@@ -212,8 +213,8 @@ public class EnemyScr : MonoBehaviour
                     //damage Player
                     enemy.GetComponent<PlayerScr>().receiveDmg((int)atkDmg);
                     EnemyAnimator.SetBool("IsAttacking", true);
-                    //Instantiate(m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
-                    //m_AudioManager.PlaySound("EnemyHurt");
+                    Instantiate(m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
+                    m_AudioManager.PlaySound("EnemyAttack");
                 }
                 //debug message
                 Debug.Log("enemy hit" + enemy.name);
@@ -243,7 +244,7 @@ public class EnemyScr : MonoBehaviour
                     //damage Player
                     enemy.GetComponent<BuddyScr>().receiveDmg(atkDmg);
                     EnemyAnimator.SetBool("IsAttacking", true);
-                    //m_AudioManager.PlaySound("EnemyHurt");
+                    m_AudioManager.PlaySound("EnemyAttack");
                 }
                 //debug message
                 Debug.Log("enemy hit" + enemy.name);
@@ -276,7 +277,9 @@ public class EnemyScr : MonoBehaviour
     public void receiveDmg(float dmg)
     {
         currentHp -= dmg;
-        if(currentHp <=0)
+        Instantiate(m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
+        m_AudioManager.PlaySound("EnemyHurt");
+        if (currentHp <=0)
         {
             currentHp = 0;
             isDead = true;
@@ -285,6 +288,7 @@ public class EnemyScr : MonoBehaviour
             EnemyAnimator.SetBool("Dying", true);
             gameManager.enemyCount -= 1;
             Invoke(nameof(destroywhendead), 5.5f);
+            m_AudioManager.PlaySound("EnemyDead");
         }
     }
 
