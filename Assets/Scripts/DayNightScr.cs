@@ -25,7 +25,8 @@ public class DayNightScr : MonoBehaviour
     //for reminder
     public HudScr playerHud;
 
-
+    public Material m_Sunset;
+    public Material m_Night;
     void Start()
     {
         playerHud.showReminder(1);
@@ -40,7 +41,6 @@ public class DayNightScr : MonoBehaviour
         }
         checkWin();
 
-
     }
     void DayNightCircle()
     {
@@ -49,10 +49,10 @@ public class DayNightScr : MonoBehaviour
         TimeText.text =tempTime.ToString();
         if((timerDN >= 50f && timerDN <=51f) && isNight == false)
         {
+            RenderSettings.skybox = m_Sunset;
             playerHud.showReminder(2);
         }
         
-       
         if (timerDN <= 0 || isSpawning)
         {
 
@@ -62,7 +62,7 @@ public class DayNightScr : MonoBehaviour
                 timerDN = 150f;
                 isNight = true;
                 StageText.text = "Night Time";
-                
+                RenderSettings.skybox = m_Night;
                 playerHud.showReminder(3);
             }
         }
