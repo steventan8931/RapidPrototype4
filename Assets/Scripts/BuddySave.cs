@@ -5,6 +5,7 @@ using UnityEngine;
 public class BuddySave : MonoBehaviour
 {
     public BuddyAnim m_Buddy;
+
     private void OnTriggerEnter(Collider _other)
     {
         if (_other.GetComponent<Inventory>() != null)

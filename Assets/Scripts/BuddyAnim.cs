@@ -10,6 +10,7 @@ public class BuddyAnim : MonoBehaviour
     bool firstFrameRevive = true;
 
     AudioManager m_AudioManager;
+    DayNightScr m_GameManager;
 
     public bool m_Saved = false;
     public GameObject m_ReviveParticle;
@@ -18,6 +19,7 @@ public class BuddyAnim : MonoBehaviour
     private void Start()
     {
         m_AudioManager = FindObjectOfType<AudioManager>();
+        m_GameManager = FindObjectOfType<DayNightScr>();
         m_Animation = GetComponent<Animator>();
 
 
@@ -44,7 +46,7 @@ public class BuddyAnim : MonoBehaviour
                 firstFrameRevive = false;
                 Instantiate(m_ReviveParticle, m_ReviveTransform.position, Quaternion.identity);
             }
-
+            m_GameManager.BuddyWin();
         }
         if (firstFrame)
         {
