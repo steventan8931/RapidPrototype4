@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 public class DayNightScr : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class DayNightScr : MonoBehaviour
     public Transform[] ResourceLoc;
     public GameObject enemyPrefab;
     public bool isNight = false;
+    public bool isWin = false;
 
     //for enemy generation
     public bool isSpawning = false;
@@ -18,9 +20,11 @@ public class DayNightScr : MonoBehaviour
     public float currSpawnCd = 0f;
 
     public TextMeshProUGUI StageText, TimeText;
-
+    public Animator BlackScreenCtrl;
     //for reminder
     public HudScr playerHud;
+
+
     void Start()
     {
         
@@ -29,14 +33,18 @@ public class DayNightScr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DayNightCircle();
+        if(!isWin)
+        {
+            DayNightCircle();
+        }
+        
     }
     void DayNightCircle()
     {
         timerDN -= Time.deltaTime;
         int tempTime = Mathf.FloorToInt(timerDN);
         TimeText.text =tempTime.ToString();
-        if(timerDN == 50f && isNight == false)
+        if((timerDN >= 50f && timerDN <=51f) && isNight == false)
         {
             playerHud.showReminder(2);
         }
@@ -48,9 +56,10 @@ public class DayNightScr : MonoBehaviour
             spawnEnemies();
             if (isNight == false)
             {
+                timerDN = 150f;
                 isNight = true;
                 StageText.text = "Night Time";
-                timerDN = 150f;
+                
                 playerHud.showReminder(3);
             }
         }
@@ -88,5 +97,22 @@ public class DayNightScr : MonoBehaviour
         }
         
         
+    }
+
+    void checkWin()
+    {
+        if(timerDN <= 0 && isNight == true)
+        {
+            isWin = true;
+            // Pop up win UI
+            BlackScreenCtrl.SetBool("IsWin", true);
+            // Swap Scene
+            Invoke(nameof(loadWinScreen), 2.5f);
+        }
+    }
+
+    void loadWinScreen()
+    {
+        SceneManager.LoadScene(2);
     }
 }
