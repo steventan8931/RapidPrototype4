@@ -71,16 +71,21 @@ public class Crafting : MonoBehaviour
             {
                 case "m_FenceBlockCount":
                     m_Inventory.m_FenceBlockCount++;
+                    m_Inventory.m_WoodBlockCount -= m_Cost;
                     Debug.Log("added fence");
                     m_EnoughMaterials = false;
                     break;
                 case "m_TrapBlockCount":
                     m_Inventory.m_TrapBlockCount++;
+                    m_Inventory.m_RockBlockCount -= m_Cost;
+                    m_Inventory.m_WoodBlockCount -= m_Cost;
+                    m_Inventory.m_RedStoneBlockCount -= m_Cost;
                     Debug.Log("added Trap");
                     m_EnoughMaterials = false;
                     break;
                 case "m_WallBlockCount":
                     m_Inventory.m_WallBlockCount++;
+                    m_Inventory.m_RockBlockCount -= m_Cost;
                     Debug.Log("added Wall");
                     m_EnoughMaterials = false;
                     break;
@@ -99,14 +104,12 @@ public class Crafting : MonoBehaviour
             case "m_RockBlockCount":
                 if (m_Inventory.m_RockBlockCount >= m_Cost)
                 {
-                    m_Inventory.m_RockBlockCount -= m_Cost;
                     m_EnoughMaterials = true;
                 }
                 break;
             case "m_WoodBlockCount":
                 if (m_Inventory.m_WoodBlockCount >= m_Cost)
                 {
-                    m_Inventory.m_WoodBlockCount -= m_Cost;
                     m_EnoughMaterials = true;
                 }
                 break;
@@ -127,9 +130,6 @@ public class Crafting : MonoBehaviour
             case "m_TrapBlockCount":
                 if (m_Inventory.m_RedStoneBlockCount >= m_Cost && m_Inventory.m_WoodBlockCount >= m_Cost && m_Inventory.m_RockBlockCount >= m_Cost)
                 {
-                    m_Inventory.m_RockBlockCount -= m_Cost;
-                    m_Inventory.m_WoodBlockCount -= m_Cost;
-                    m_Inventory.m_RedStoneBlockCount -= m_Cost;
                     m_EnoughMaterials = true;
                 }
                 break;
