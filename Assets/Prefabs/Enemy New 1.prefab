@@ -75,6 +75,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2373408700345361920, guid: 51b2ec43a1a2b444b85ddf156686dd50,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2373408700345361920, guid: 51b2ec43a1a2b444b85ddf156686dd50,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2373408700345361920, guid: 51b2ec43a1a2b444b85ddf156686dd50,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2373408700345361920, guid: 51b2ec43a1a2b444b85ddf156686dd50,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.1137228
       objectReference: {fileID: 0}
@@ -145,9 +160,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2373408700345361924, guid: 51b2ec43a1a2b444b85ddf156686dd50,
         type: 3}
+      propertyPath: attackRange
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2373408700345361924, guid: 51b2ec43a1a2b444b85ddf156686dd50,
+        type: 3}
       propertyPath: EnemyAnimator
       value: 
       objectReference: {fileID: 4237944649965735516}
+    - target: {fileID: 2373408700345361924, guid: 51b2ec43a1a2b444b85ddf156686dd50,
+        type: 3}
+      propertyPath: objMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 2373408700345361924, guid: 51b2ec43a1a2b444b85ddf156686dd50,
+        type: 3}
+      propertyPath: playerMask.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 2373408700345361925, guid: 51b2ec43a1a2b444b85ddf156686dd50,
         type: 3}
       propertyPath: m_Name
