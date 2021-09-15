@@ -5,6 +5,7 @@ using UnityEngine;
 public class LavaScr : MonoBehaviour
 {
     BoxCollider selfBoxCollider;
+    public Rigidbody TrapRigibody;
     public float dmgVal = 0.05f;
     Vector3 tempLoc;
     // Start is called before the first frame update
@@ -15,11 +16,13 @@ public class LavaScr : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        
         tempLoc = gameObject.transform.position;
         if(collision.gameObject.tag == "Floor")
         {
             selfBoxCollider.isTrigger = true;
-            Destroy(GetComponent<Rigidbody>());
+            Destroy(TrapRigibody);
+            print("destroied rigi body");
             transform.position = tempLoc;
         }
     }
