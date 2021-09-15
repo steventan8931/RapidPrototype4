@@ -13,6 +13,7 @@ public class Crafting : MonoBehaviour
     public GameObject m_FenceCraftUI;
     public GameObject m_WallCraftUI;
     public GameObject m_TrapCraftUI;
+    public GameObject m_AntidoteCraftUI;
 
     string m_ItemName;
 
@@ -44,6 +45,17 @@ public class Crafting : MonoBehaviour
             _CraftUI.SetActive(false);
         }
     }
+    public void UpdateCraftingSlotMulti(int _BlockCount, int _BlockCount1, int _ItemCost, GameObject _CraftUI)
+    {
+        if (_BlockCount >= _ItemCost && _BlockCount1 >= _ItemCost)
+        {
+            _CraftUI.SetActive(true);
+        }
+        else
+        {
+            _CraftUI.SetActive(false);
+        }
+    }
 
     private void Update()
     {
@@ -53,7 +65,8 @@ public class Crafting : MonoBehaviour
 
         UpdateCraftingSlot(m_Inventory.m_WoodBlockCount, 1, m_FenceCraftUI);
         UpdateCraftingSlot(m_Inventory.m_RockBlockCount, 2, m_WallCraftUI);
-        UpdateCraftingSlotMulti(m_Inventory.m_RockBlockCount, m_Inventory.m_WoodBlockCount, m_Inventory.m_RedStoneBlockCount,1, m_TrapCraftUI);
+        UpdateCraftingSlotMulti(m_Inventory.m_RockBlockCount, m_Inventory.m_WoodBlockCount, m_Inventory.m_RedStoneBlockCount, 1, m_TrapCraftUI);
+        UpdateCraftingSlotMulti(m_Inventory.m_RockBlockCount, m_Inventory.m_BloodBlockCount, 2, m_AntidoteCraftUI);
     }
 
     //Button Functions
@@ -89,6 +102,13 @@ public class Crafting : MonoBehaviour
                     Debug.Log("added Wall");
                     m_EnoughMaterials = false;
                     break;
+                case "m_AntidoteBlockCount":
+                    m_Inventory.m_RockBlockCount -= m_Cost;
+                    m_Inventory.m_BloodBlockCount -= m_Cost;
+                    m_Inventory.m_AntidoteBlockCount++;
+                    Debug.Log("added antidote");
+                    m_EnoughMaterials = false;
+                    break;
             }
         }
     }
@@ -113,24 +133,42 @@ public class Crafting : MonoBehaviour
                     m_EnoughMaterials = true;
                 }
                 break;
-            case "m_FenceBlockCount":
+            case "m_FenceBlockCountUse":
                 if (m_Inventory.m_FenceBlockCount >= m_Cost)
                 {
                     m_Inventory.m_FenceBlockCount -= m_Cost;
                     m_EnoughMaterials = true;
                 }
                 break;
-            case "m_WallBlockCount":
+            case "m_WallBlockCountUse":
                 if (m_Inventory.m_WallBlockCount >= m_Cost)
                 {
                     m_Inventory.m_WallBlockCount -= m_Cost;
                     m_EnoughMaterials = true;
                 }
                 break;
+            case "m_TrapBlockCountUse":
+                if (m_Inventory.m_TrapBlockCount >= m_Cost)
+                {
+                    m_Inventory.m_TrapBlockCount -= m_Cost;
+                    m_EnoughMaterials = true;
+                }
+                break;
             case "m_TrapBlockCount":
                 if (m_Inventory.m_RedStoneBlockCount >= m_Cost && m_Inventory.m_WoodBlockCount >= m_Cost && m_Inventory.m_RockBlockCount >= m_Cost)
                 {
-                    m_Inventory.m_TrapBlockCount -= m_Cost;
+                    m_EnoughMaterials = true;
+                }
+                break;
+            case "m_AntidoteBlockCount":
+                if ( m_Inventory.m_BloodBlockCount >= m_Cost && m_Inventory.m_RockBlockCount >= m_Cost)
+                {
+                    m_EnoughMaterials = true;
+                }
+                break;
+            case "m_BloodBlockCount":
+                if (m_Inventory.m_BloodBlockCount >= m_Cost)
+                {
                     m_EnoughMaterials = true;
                 }
                 break;

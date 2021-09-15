@@ -336,6 +336,7 @@ MonoBehaviour:
   m_Reminder3: {fileID: 7201737093031524902}
   m_ReminderTimer: 0
   m_ReminderTimeout: 3
+  m_DecayTimer: 255
 --- !u!1 &699846262477921429
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,7 +824,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &699846263307059829
 RectTransform:
   m_ObjectHideFlags: 0
