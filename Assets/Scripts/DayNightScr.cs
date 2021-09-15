@@ -25,10 +25,12 @@ public class DayNightScr : MonoBehaviour
     //for reminder
     public HudScr playerHud;
 
+    public Material m_Day;
     public Material m_Sunset;
     public Material m_Night;
     void Start()
     {
+        RenderSettings.skybox = m_Day;
         playerHud.showReminder(1);
     }
 
