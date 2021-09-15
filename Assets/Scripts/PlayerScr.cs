@@ -149,7 +149,7 @@ public class PlayerScr : MonoBehaviour
             {
                 //damage them
                 enemy.GetComponent<EnemyScr>().receiveDmg(20);
-                Instantiate(enemy.GetComponent<EnemyScr>().m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
+                //Instantiate(enemy.GetComponent<EnemyScr>().m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
                 Debug.Log("hitting");
             }
             //debug message
