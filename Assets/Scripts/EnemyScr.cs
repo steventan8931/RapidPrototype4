@@ -28,6 +28,7 @@ public class EnemyScr : MonoBehaviour
     public Transform attackpoint;
 
     public GameObject m_BloodFXPrefab;
+    AudioManager m_AudioManager;
 
     //animation
     public Animator EnemyAnimator;
@@ -36,7 +37,12 @@ public class EnemyScr : MonoBehaviour
         buddy = GameObject.FindGameObjectWithTag("Buddy");
     }
 
-    private void Update()
+    private void Start()
+    {
+        m_AudioManager = FindObjectOfType<AudioManager>();
+    }
+
+        private void Update()
     {
         if (currentHp > 0)
         {
@@ -169,6 +175,7 @@ public class EnemyScr : MonoBehaviour
                     //damage them
                     enemy.GetComponent<Interactable>().TakeDamage((int)atkDmg);
                     Instantiate(enemy.GetComponent<Interactable>().m_ParticlePrefab, attackpoint.position, Quaternion.identity);
+                    m_AudioManager.PlaySound("EnemyHurt");
                 }
 
                 if (enemy.GetComponent<BuddyScr>() != null)
@@ -176,6 +183,7 @@ public class EnemyScr : MonoBehaviour
                     //damage them
                     Instantiate(m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
                     enemy.GetComponent<BuddyScr>().receiveDmg(atkDmg);
+                    m_AudioManager.PlaySound("EnemyHurt");
                 }
                 //debug message
                 Debug.Log("enemy hit" + enemy.name);
@@ -205,6 +213,7 @@ public class EnemyScr : MonoBehaviour
                     enemy.GetComponent<PlayerScr>().receiveDmg((int)atkDmg);
                     EnemyAnimator.SetBool("IsAttacking", true);
                     Instantiate(m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
+                    m_AudioManager.PlaySound("EnemyHurt");
                 }
                 //debug message
                 Debug.Log("enemy hit" + enemy.name);
@@ -234,7 +243,7 @@ public class EnemyScr : MonoBehaviour
                     //damage Player
                     enemy.GetComponent<BuddyScr>().receiveDmg(atkDmg);
                     EnemyAnimator.SetBool("IsAttacking", true);
-
+                    m_AudioManager.PlaySound("EnemyHurt");
                 }
                 //debug message
                 Debug.Log("enemy hit" + enemy.name);
@@ -274,6 +283,7 @@ public class EnemyScr : MonoBehaviour
             //Play death animation
             EnemyAnimator.SetBool("IsWalking", false);
             EnemyAnimator.SetBool("Dying", true);
+            m_AudioManager.PlaySound("EnemyDead");
         }
     }
 }

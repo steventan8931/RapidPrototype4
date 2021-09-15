@@ -130,6 +130,7 @@ public class Crafting : MonoBehaviour
             case "m_TrapBlockCount":
                 if (m_Inventory.m_RedStoneBlockCount >= m_Cost && m_Inventory.m_WoodBlockCount >= m_Cost && m_Inventory.m_RockBlockCount >= m_Cost)
                 {
+                    m_Inventory.m_TrapBlockCount -= m_Cost;
                     m_EnoughMaterials = true;
                 }
                 break;
