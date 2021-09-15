@@ -19,11 +19,11 @@ public class AudioManager : MonoBehaviour
         switch(_Clip)
         {
             case "Wood":
-                m_AudioSource.volume = 0.6f;
+                m_AudioSource.volume = 0.5f;
                 m_AudioSource.PlayOneShot(m_WoodSound);
                 break;
             case "Metal":
-                m_AudioSource.volume = 0.6f;
+                m_AudioSource.volume = 0.5f;
                 m_AudioSource.PlayOneShot(m_MetalSound);
                 break;
             case "Swing":
@@ -36,13 +36,12 @@ public class AudioManager : MonoBehaviour
                 break;
             case "TreeFall":
                 m_AudioSource.volume = 0.2f;
-                if (!m_AudioSource.isPlaying)
-                {
+
                     m_AudioSource.PlayOneShot(m_TreeFallSound);
-                }
+                
                 break;
             case "RockBreak":
-                m_AudioSource.volume = 0.6f;
+                m_AudioSource.volume = 0.5f;
                 if (!m_AudioSource.isPlaying)
                 {
                     m_AudioSource.PlayOneShot(m_RockBreakSound);
@@ -53,7 +52,7 @@ public class AudioManager : MonoBehaviour
                 m_AudioSource.PlayOneShot(m_CraftSound);
                 break;
             case "PickUp":
-                m_AudioSource.volume = 1.0f;
+                m_AudioSource.volume = 0.7f;
                 m_AudioSource.PlayOneShot(m_PickUpSound);
                 break;
             case "Spawn":

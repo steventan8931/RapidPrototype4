@@ -30,6 +30,8 @@ public class EnemyScr : MonoBehaviour
 
     AudioManager m_AudioManager;
     public GameObject m_BloodFXPrefab;
+    public GameObject m_BloodBlockPrefab;
+
     //animation
     public Animator EnemyAnimator;
     private void Awake()
@@ -279,6 +281,7 @@ public class EnemyScr : MonoBehaviour
         currentHp -= dmg;
         Instantiate(m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
         m_AudioManager.PlaySound("EnemyHurt");
+        
         if (currentHp <=0)
         {
             currentHp = 0;
@@ -294,6 +297,7 @@ public class EnemyScr : MonoBehaviour
 
     void destroywhendead()
     {
+        Instantiate(m_BloodBlockPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

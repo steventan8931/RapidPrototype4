@@ -189,6 +189,12 @@ PrefabInstance:
       propertyPath: playerMask.m_Bits
       value: 1024
       objectReference: {fileID: 0}
+    - target: {fileID: 2373408700345361924, guid: 51b2ec43a1a2b444b85ddf156686dd50,
+        type: 3}
+      propertyPath: m_BloodBlockPrefab
+      value: 
+      objectReference: {fileID: 9091656557741748771, guid: 00f717485b28a5749af67c0e8f2480f8,
+        type: 3}
     - target: {fileID: 2373408700345361925, guid: 51b2ec43a1a2b444b85ddf156686dd50,
         type: 3}
       propertyPath: m_Name

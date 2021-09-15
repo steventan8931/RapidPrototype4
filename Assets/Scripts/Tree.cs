@@ -25,7 +25,7 @@ public class Tree : Interactable
 
     AudioManager m_AudioManager;
     Vector3 cachePosCheck;
-
+    bool cacheAudio = true;
     private void Start()
     {
         m_AudioManager = FindObjectOfType<AudioManager>();
@@ -40,14 +40,21 @@ public class Tree : Interactable
 
         if (m_Health <= 0)
         {
+            if(cacheAudio)
+            {
+                m_AudioManager.PlaySound("TreeFall");
+                Debug.Log("play audio");
+                cacheAudio = false;
+            }
+
             gameObject.GetComponent<Collider>().enabled = false;
             m_FallOverTime += Time.deltaTime * m_FallSpeed;
 
             if (m_FallOverTime > 0.6f)
             {
+
                 m_FallOverTime += Time.deltaTime * m_FallSpeed;
             }
-            m_AudioManager.PlaySound("TreeFall");
             if (transform.position.x - cachePosCheck.x > 0)
             {
                 m_RotationPivot.rotation = Quaternion.Lerp(Quaternion.Euler(0.0f, 0.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, -90.0f), m_FallOverTime);
