@@ -122,22 +122,16 @@ public class EnemyScr : MonoBehaviour
 
     void moveFunc()
     {
-       /* if(FindClosestWall("Wall")!= null)
+       if(FindClosestWall("Decoy")!= null)
         {
-            print("finded wall oof");
+            print("finded decoy oof");
             float disToPlayer = checkDistPlayer();
-            if(disToPlayer > 6f)
+            if(disToPlayer > 5f)
             {
-                Vector3 tempTarget = FindClosestWall("Wall").transform.position;
+                Vector3 tempTarget = FindClosestWall("Decoy").transform.position;
                 tempTarget.y = gameObject.transform.position.y;
                 transform.LookAt(tempTarget);
-                transform.position = moveTowards(FindClosestWall("Wall"));
-            }else if(checkDisBuddy()<checkDisToWall())
-            {
-                Vector3 tempTarget = buddy.transform.position;
-                tempTarget.y = gameObject.transform.position.y;
-                transform.LookAt(tempTarget);
-                transform.position = moveTowards(buddy);
+                transform.position = moveTowards(FindClosestWall("Decoy"));
             }
             else 
             {
@@ -149,13 +143,16 @@ public class EnemyScr : MonoBehaviour
 
 
         }
-        else*/
-        
+        else
+        {
             // move towards to buddy directly
-        Vector3 tempTarget = buddy.transform.position;
-        tempTarget.y = gameObject.transform.position.y;
-        transform.LookAt(tempTarget);
-        transform.position = moveTowards(buddy);
+            Vector3 tempTarget = buddy.transform.position;
+            tempTarget.y = gameObject.transform.position.y;
+            transform.LookAt(tempTarget);
+            transform.position = moveTowards(buddy);
+        }
+        
+          
         
         EnemyAnimator.SetBool("IsAttacking", false);
         EnemyAnimator.SetBool("IsWalking", true);

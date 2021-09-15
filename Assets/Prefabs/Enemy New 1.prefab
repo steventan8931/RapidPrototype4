@@ -209,8 +209,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2373408700345361924, guid: 51b2ec43a1a2b444b85ddf156686dd50,
         type: 3}
+      propertyPath: maxHp
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2373408700345361924, guid: 51b2ec43a1a2b444b85ddf156686dd50,
+        type: 3}
       propertyPath: atkDmg
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2373408700345361924, guid: 51b2ec43a1a2b444b85ddf156686dd50,
+        type: 3}
+      propertyPath: currentHp
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 2373408700345361924, guid: 51b2ec43a1a2b444b85ddf156686dd50,
         type: 3}
