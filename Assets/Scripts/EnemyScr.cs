@@ -119,7 +119,7 @@ public class EnemyScr : MonoBehaviour
 
     void moveFunc()
     {
-        if(FindClosestWall("Wall")!= null)
+       /* if(FindClosestWall("Wall")!= null)
         {
             print("finded wall oof");
             float disToPlayer = checkDistPlayer();
@@ -146,14 +146,14 @@ public class EnemyScr : MonoBehaviour
 
 
         }
-        else
-        {
+        else*/
+        
             // move towards to buddy directly
-            Vector3 tempTarget = buddy.transform.position;
-            tempTarget.y = gameObject.transform.position.y;
-            transform.LookAt(tempTarget);
-            transform.position = moveTowards(buddy);
-        }
+        Vector3 tempTarget = buddy.transform.position;
+        tempTarget.y = gameObject.transform.position.y;
+        transform.LookAt(tempTarget);
+        transform.position = moveTowards(buddy);
+        
         EnemyAnimator.SetBool("IsAttacking", false);
         EnemyAnimator.SetBool("IsWalking", true);
     }
