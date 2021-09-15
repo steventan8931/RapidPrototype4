@@ -34,11 +34,13 @@ public class DayNightScr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isWin)
+        if (!isWin)
         {
             DayNightCircle();
         }
-        
+        checkWin();
+
+
     }
     void DayNightCircle()
     {
