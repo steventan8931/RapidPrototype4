@@ -51,7 +51,7 @@ public class EnemyScr : MonoBehaviour
             buddyInAttackRange = Physics.CheckSphere(attackpoint.position, attackRange, buddyMask);
             if(buddyInAttackRange)
             {
-
+                attackBuddy();
             }
             else if (objInAttackRange)
             {
