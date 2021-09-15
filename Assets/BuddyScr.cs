@@ -10,15 +10,19 @@ public class BuddyScr : MonoBehaviour
     // Start is called before the first frame update
     public void receiveDmg(float dmg)
     {
-        CurrHp -= dmg;
-        //Show warning UI
-        warningUi.SetActive(true);
-        Invoke(nameof(disableWarning), 1.2f);
-        if(CurrHp <= 0)
+        if (CurrHp <= 0)
         {
             CurrHp = 0;
             // game over func
         }
+        else
+        {
+            CurrHp -= dmg;
+            //Show warning UI
+            warningUi.SetActive(true);
+            Invoke(nameof(disableWarning), 1.2f);
+        }
+
     }
 
     public void disableWarning()
@@ -29,6 +33,9 @@ public class BuddyScr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (CurrHp <= 0)
+        {
+            warningUi.SetActive(false);
+        }
     }
 }

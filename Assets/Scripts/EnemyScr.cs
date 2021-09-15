@@ -27,6 +27,8 @@ public class EnemyScr : MonoBehaviour
 
     public Transform attackpoint;
 
+    public GameObject m_BloodFXPrefab;
+
     //animation
     public Animator EnemyAnimator;
     private void Awake()
@@ -172,7 +174,7 @@ public class EnemyScr : MonoBehaviour
                 if (enemy.GetComponent<BuddyScr>() != null)
                 {
                     //damage them
-
+                    Instantiate(m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
                     enemy.GetComponent<BuddyScr>().receiveDmg(atkDmg);
                 }
                 //debug message
@@ -202,7 +204,7 @@ public class EnemyScr : MonoBehaviour
                     //damage Player
                     enemy.GetComponent<PlayerScr>().receiveDmg((int)atkDmg);
                     EnemyAnimator.SetBool("IsAttacking", true);
-
+                    Instantiate(m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
                 }
                 //debug message
                 Debug.Log("enemy hit" + enemy.name);
