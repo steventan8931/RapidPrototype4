@@ -96,6 +96,7 @@ public class PlayerScr : MonoBehaviour
         
         if (m_DeathTimer > m_RespawnTime)
         {
+            m_AudioManager.PlaySound("PlayerRevive");
             GetComponent<CharacterController>().enabled = false;
             transform.position = m_CheckPoint.position;
             m_Animation.SetBool("IsDead", false);

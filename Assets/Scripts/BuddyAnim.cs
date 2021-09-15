@@ -7,8 +7,11 @@ public class BuddyAnim : MonoBehaviour
     public Animator m_Animation;
 
     bool firstFrame = true;
+    bool firstFrameRevive = true;
 
     AudioManager m_AudioManager;
+
+    public bool m_Saved = false;
 
     private void Start()
     {
@@ -21,8 +24,25 @@ public class BuddyAnim : MonoBehaviour
         m_Animation.SetBool("IsDead", true);
     }
 
+    public void Revive()
+    {
+
+    }
+
     private void Update()
     {
+        if (m_Saved)
+        {
+            if (firstFrameRevive)
+            {
+                m_AudioManager.PlaySound("PlayerRevive");
+                m_Animation.SetBool("IsDead", false);
+                m_Animation.ResetTrigger("Revive");
+                m_Animation.SetTrigger("Revive");
+                firstFrameRevive = false;
+            }
+
+        }
         if (firstFrame)
         {
             m_AudioManager.PlaySound("PlayerHurt");

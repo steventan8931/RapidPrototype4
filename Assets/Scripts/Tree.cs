@@ -25,14 +25,23 @@ public class Tree : Interactable
 
     AudioManager m_AudioManager;
     Vector3 cachePosCheck;
-
+    bool cacheAudio = true;
     private void Start()
     {
         m_AudioManager = FindObjectOfType<AudioManager>();
         cacheScale = Random.Range(m_ScaleExtents.x, m_ScaleExtents.y);
         transform.localScale = new Vector3(cacheScale, cacheScale, cacheScale);
         cacheRotation = Random.Range(m_RotationExtents.x, m_RotationExtents.y);
-        transform.localRotation =  Quaternion.Euler(0.0f, cacheRotation, 0.0f);
+        transform.localRotation = Quaternion.Euler(0.0f, cacheRotation, 0.0f);
+
+        if (cacheScale > 7.5f)
+        {
+            m_Health = 20;
+        }
+        else if (cacheScale < 5f)
+        {
+            m_Health = 5;
+        }
     }
 
     private void Update()
@@ -40,14 +49,21 @@ public class Tree : Interactable
 
         if (m_Health <= 0)
         {
+            if(cacheAudio)
+            {
+                m_AudioManager.PlaySound("TreeFall");
+                Debug.Log("play audio");
+                cacheAudio = false;
+            }
+
             gameObject.GetComponent<Collider>().enabled = false;
             m_FallOverTime += Time.deltaTime * m_FallSpeed;
 
             if (m_FallOverTime > 0.6f)
             {
+
                 m_FallOverTime += Time.deltaTime * m_FallSpeed;
             }
-            m_AudioManager.PlaySound("TreeFall");
             if (transform.position.x - cachePosCheck.x > 0)
             {
                 m_RotationPivot.rotation = Quaternion.Lerp(Quaternion.Euler(0.0f, 0.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, -90.0f), m_FallOverTime);
@@ -61,7 +77,7 @@ public class Tree : Interactable
 
             if (m_DeathTimer > m_DespawnTimer)
             {
-                int spawnCount = (int)Random.Range(m_SpawnCountExtents.x + cacheScale, m_SpawnCountExtents.y + cacheScale);
+                int spawnCount = (int)Random.Range(m_SpawnCountExtents.x, m_SpawnCountExtents.y + cacheScale);
                 for (int i = 0; i < spawnCount; i++)
                 {
                     Instantiate(m_WoodBlockPrefab, m_WoodBlockSpawnLocation.position, Quaternion.Euler(0.0f, 0.0f, 0.0f));

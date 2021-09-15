@@ -59,7 +59,7 @@ public class Inventory : MonoBehaviour
         UpdateInventorySlot(m_WallBlockCount, m_WallUI);
         UpdateInventorySlot(m_TrapBlockCount, m_TrapUI);
         UpdateInventorySlot(m_AntidoteBlockCount, m_AntidoteUI);
-        //UpdateInventorySlot(m_BloodBlockCount, m_BloodUI);
+        UpdateInventorySlot(m_BloodBlockCount, m_BloodUI);
 
         if (Input.GetKeyDown(KeyCode.E))
         {
