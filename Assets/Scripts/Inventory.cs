@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour
     public int m_FenceBlockCount = 0;
     public int m_WallBlockCount = 0;
     public int m_TrapBlockCount = 0;
+    public int m_LavaTrapBlockCount = 0;
     public int m_AntidoteBlockCount = 0;
 
     [Header("UI Components")]
@@ -24,8 +25,10 @@ public class Inventory : MonoBehaviour
     public GameObject m_FenceUI;
     public GameObject m_WallUI;
     public GameObject m_TrapUI;
+    public GameObject m_LavaTrapUI;
     public GameObject m_AntidoteUI;
     public GameObject m_BloodUI;
+
 
     private void Start()
     {
@@ -58,6 +61,7 @@ public class Inventory : MonoBehaviour
         UpdateInventorySlot(m_FenceBlockCount, m_FenceUI);
         UpdateInventorySlot(m_WallBlockCount, m_WallUI);
         UpdateInventorySlot(m_TrapBlockCount, m_TrapUI);
+        UpdateInventorySlot(m_LavaTrapBlockCount, m_LavaTrapUI);
         UpdateInventorySlot(m_AntidoteBlockCount, m_AntidoteUI);
         UpdateInventorySlot(m_BloodBlockCount, m_BloodUI);
 

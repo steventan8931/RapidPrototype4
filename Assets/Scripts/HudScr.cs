@@ -60,7 +60,7 @@ public class HudScr : MonoBehaviour
             fenceIcon.SetActive(false);
             wallIcon.SetActive(false);
             bearIcon.SetActive(false);
-            //LavaIcon.SetActive(false);
+            LavaIcon.SetActive(false);
         }
         else if (playerLoadout.m_Hand == LoadOut.ActiveInHand.m_Fence)
         {
@@ -68,7 +68,7 @@ public class HudScr : MonoBehaviour
             fenceIcon.SetActive(true);
             wallIcon.SetActive(false);
             bearIcon.SetActive(false);
-            //LavaIcon.SetActive(false);
+            LavaIcon.SetActive(false);
         }
         else if (playerLoadout.m_Hand == LoadOut.ActiveInHand.m_Wall)
         {
@@ -76,7 +76,15 @@ public class HudScr : MonoBehaviour
             fenceIcon.SetActive(false);
             wallIcon.SetActive(true);
             bearIcon.SetActive(false);
-            //LavaIcon.SetActive(false);
+            LavaIcon.SetActive(false);
+        }
+        else if (playerLoadout.m_Hand == LoadOut.ActiveInHand.m_LavaTrap)
+        {
+            meleeIcon.SetActive(false);
+            fenceIcon.SetActive(false);
+            wallIcon.SetActive(false);
+            bearIcon.SetActive(false);
+            LavaIcon.SetActive(true);
         }
         else if (playerLoadout.m_Hand == LoadOut.ActiveInHand.m_Trap)
         {
@@ -84,7 +92,7 @@ public class HudScr : MonoBehaviour
             fenceIcon.SetActive(false);
             wallIcon.SetActive(false);
             bearIcon.SetActive(true);
-            //LavaIcon.SetActive(false);
+            LavaIcon.SetActive(false);
         }
     }
 
