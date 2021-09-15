@@ -23,7 +23,7 @@ public class DayNightScr : MonoBehaviour
     public HudScr playerHud;
     void Start()
     {
-        
+        playerHud.showReminder(1);
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class DayNightScr : MonoBehaviour
         timerDN -= Time.deltaTime;
         int tempTime = Mathf.FloorToInt(timerDN);
         TimeText.text =tempTime.ToString();
-        if(timerDN == 50f && isNight == false)
+        if((timerDN >= 50f && timerDN <= 51f) && isNight == false)
         {
             playerHud.showReminder(2);
         }
