@@ -44,7 +44,7 @@ public class LoadOut : MonoBehaviour
                 {
                     GetComponent<PlayerScr>().buildobj = m_FencePrefab;
                     GetComponent<PlayerScr>().isbuilder = true;
-                    GetComponent<PlayerScr>().m_BuildMaterial = "m_FenceBlockCount";
+                    GetComponent<PlayerScr>().m_BuildMaterial = "m_FenceBlockCountUse";
                     m_Wall.SetActive(false);
                     m_Trap.SetActive(false);
                     m_Fence.SetActive(true);
@@ -60,7 +60,7 @@ public class LoadOut : MonoBehaviour
                 {
                     GetComponent<PlayerScr>().buildobj = m_WallPrefab;
                     GetComponent<PlayerScr>().isbuilder = true;
-                    GetComponent<PlayerScr>().m_BuildMaterial = "m_WallBlockCount";
+                    GetComponent<PlayerScr>().m_BuildMaterial = "m_WallBlockCountUse";
                     m_Wall.SetActive(true);
                     m_Trap.SetActive(false);
                     m_Fence.SetActive(false);
@@ -76,7 +76,7 @@ public class LoadOut : MonoBehaviour
                 {
                     GetComponent<PlayerScr>().buildobj = m_TrapPrefab;
                     GetComponent<PlayerScr>().isbuilder = true;
-                    GetComponent<PlayerScr>().m_BuildMaterial = "m_TrapBlockCount";
+                    GetComponent<PlayerScr>().m_BuildMaterial = "m_TrapBlockCountUse";
                     m_Wall.SetActive(false);
                     m_Trap.SetActive(true);
                     m_Fence.SetActive(false);

@@ -27,7 +27,7 @@ public class DayNightScr : MonoBehaviour
 
     void Start()
     {
-        
+        playerHud.showReminder(1);
     }
 
     // Update is called once per frame

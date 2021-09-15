@@ -37,7 +37,12 @@ public class EnemyScr : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<DayNightScr>();
     }
 
-    private void Update()
+    private void Start()
+    {
+        //m_AudioManager = FindObjectOfType<AudioManager>();
+    }
+
+        private void Update()
     {
         if (currentHp > 0)
         {
@@ -140,7 +145,6 @@ public class EnemyScr : MonoBehaviour
             }
 
 
-
         }
         else
         {
@@ -171,7 +175,15 @@ public class EnemyScr : MonoBehaviour
                     //damage them
                     enemy.GetComponent<Interactable>().TakeDamage((int)atkDmg);
                     Instantiate(enemy.GetComponent<Interactable>().m_ParticlePrefab, attackpoint.position, Quaternion.identity);
-                   
+                    //m_AudioManager.PlaySound("EnemyHurt");
+                }
+
+                if (enemy.GetComponent<BuddyScr>() != null)
+                {
+                    //damage them
+                    //Instantiate(m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
+                    enemy.GetComponent<BuddyScr>().receiveDmg(atkDmg);
+                    //m_AudioManager.PlaySound("EnemyHurt");
                 }
                 //debug message
                 Debug.Log("enemy hit" + enemy.name);
@@ -200,7 +212,8 @@ public class EnemyScr : MonoBehaviour
                     //damage Player
                     enemy.GetComponent<PlayerScr>().receiveDmg((int)atkDmg);
                     EnemyAnimator.SetBool("IsAttacking", true);
-
+                    //Instantiate(m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
+                    //m_AudioManager.PlaySound("EnemyHurt");
                 }
                 //debug message
                 Debug.Log("enemy hit" + enemy.name);
@@ -230,7 +243,7 @@ public class EnemyScr : MonoBehaviour
                     //damage Player
                     enemy.GetComponent<BuddyScr>().receiveDmg(atkDmg);
                     EnemyAnimator.SetBool("IsAttacking", true);
-
+                    //m_AudioManager.PlaySound("EnemyHurt");
                 }
                 //debug message
                 Debug.Log("enemy hit" + enemy.name);

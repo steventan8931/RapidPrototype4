@@ -274,7 +274,7 @@ MonoBehaviour:
   attackCD: 0.8
   destroyableLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2304
   Maxhitpoints: 100
   currenthitpoints: 100
   isbuilder: 0
@@ -301,7 +301,9 @@ MonoBehaviour:
   m_RedStoneBlockCount: 0
   m_FenceBlockCount: 0
   m_WallBlockCount: 0
-  m_TrapBlockCount: 10
+  m_TrapBlockCount: 1
+  m_BloodBlockCount: 0
+  m_AntidoteBlockCount: 0
   m_InventoryCanvas: {fileID: 0}
   m_InventoryOpen: 0
   m_WoodUI: {fileID: 0}
@@ -310,6 +312,8 @@ MonoBehaviour:
   m_FenceUI: {fileID: 0}
   m_WallUI: {fileID: 0}
   m_TrapUI: {fileID: 0}
+  m_AntidoteUI: {fileID: 0}
+  m_BloodUI: {fileID: 0}
 --- !u!114 &3361304532904642306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,8 +351,8 @@ MonoBehaviour:
   m_Model: {fileID: 7951399909881607512}
   m_Controller: {fileID: 7951399909881607514}
   m_Velocity: {x: 0, y: 0, z: 0}
-  m_MoveSpeed: 25
-  m_RunSpeed: 30
+  m_MoveSpeed: 50
+  m_RunSpeed: 50
   m_Acceleration: 12
   m_FrictionCurve:
     serializedVersion: 2
@@ -522,6 +526,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BearTrapTest
       objectReference: {fileID: 0}
+    - target: {fileID: 9206261585605313405, guid: 9c7fd46663804ac4bb5b3b0f3813ef80,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9206261585605313402, guid: 9c7fd46663804ac4bb5b3b0f3813ef80, type: 3}
     - {fileID: 9206261585605313382, guid: 9c7fd46663804ac4bb5b3b0f3813ef80, type: 3}
@@ -558,6 +567,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 411720953789301612, guid: 06be2909221749840a487e284c2445d6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 562527026561607089, guid: 06be2909221749840a487e284c2445d6,
         type: 3}
@@ -1418,6 +1432,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fence
+      objectReference: {fileID: 0}
+    - target: {fileID: 6865620989608144894, guid: 1005b4390b940374898d29175abfce3d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7564376264193628642, guid: 1005b4390b940374898d29175abfce3d,
         type: 3}
