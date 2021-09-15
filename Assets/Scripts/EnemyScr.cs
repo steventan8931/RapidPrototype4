@@ -267,6 +267,12 @@ public class EnemyScr : MonoBehaviour
             //Play death animation
             EnemyAnimator.SetBool("IsWalking", false);
             EnemyAnimator.SetBool("Dying", true);
+            Invoke(nameof(destroywhendead), 1.5f);
         }
+    }
+
+    void destroywhendead()
+    {
+        Destroy(gameObject);
     }
 }
