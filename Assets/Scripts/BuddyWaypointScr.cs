@@ -41,7 +41,7 @@ public class BuddyWaypointScr : MonoBehaviour
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
 
         waypointImg.transform.position = pos;
-        dist.text = ((int)Vector3.Distance(buddyLoc.position, player.transform.position)).ToString();
+        dist.text = ((int)Vector3.Distance(buddyLoc.position, player.transform.position)).ToString() + "m";
         
     }
 }
