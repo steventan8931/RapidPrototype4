@@ -278,7 +278,7 @@ public class EnemyScr : MonoBehaviour
     {
         currentHp -= dmg;
         Instantiate(m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
-        if (dmg >= 5)
+        if (dmg >= 5 && isDead == false)
         {
             m_AudioManager.PlaySound("EnemyHurt");
         }
