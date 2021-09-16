@@ -6,7 +6,7 @@ using TMPro;
 
 public class HudScr : MonoBehaviour
 {
-    public GameObject meleeIcon, fenceIcon, wallIcon, bearIcon, LavaIcon;
+    public GameObject meleeIcon, fenceIcon, wallIcon, bearIcon, LavaIcon, DecoyIcon;
     public LoadOut playerLoadout;
     public PlayerScr player;
     public Image playerHpBar;
@@ -61,6 +61,7 @@ public class HudScr : MonoBehaviour
             wallIcon.SetActive(false);
             bearIcon.SetActive(false);
             LavaIcon.SetActive(false);
+            DecoyIcon.SetActive(false);
         }
         else if (playerLoadout.m_Hand == LoadOut.ActiveInHand.m_Fence)
         {
@@ -69,6 +70,7 @@ public class HudScr : MonoBehaviour
             wallIcon.SetActive(false);
             bearIcon.SetActive(false);
             LavaIcon.SetActive(false);
+            DecoyIcon.SetActive(false);
         }
         else if (playerLoadout.m_Hand == LoadOut.ActiveInHand.m_Wall)
         {
@@ -77,6 +79,16 @@ public class HudScr : MonoBehaviour
             wallIcon.SetActive(true);
             bearIcon.SetActive(false);
             LavaIcon.SetActive(false);
+            DecoyIcon.SetActive(false);
+        }
+        else if (playerLoadout.m_Hand == LoadOut.ActiveInHand.m_Decoy)
+        {
+            meleeIcon.SetActive(false);
+            fenceIcon.SetActive(false);
+            wallIcon.SetActive(true);
+            bearIcon.SetActive(false);
+            LavaIcon.SetActive(false);
+            DecoyIcon.SetActive(true);
         }
         else if (playerLoadout.m_Hand == LoadOut.ActiveInHand.m_LavaTrap)
         {
@@ -85,6 +97,7 @@ public class HudScr : MonoBehaviour
             wallIcon.SetActive(false);
             bearIcon.SetActive(false);
             LavaIcon.SetActive(true);
+            DecoyIcon.SetActive(false);
         }
         else if (playerLoadout.m_Hand == LoadOut.ActiveInHand.m_Trap)
         {
@@ -93,6 +106,7 @@ public class HudScr : MonoBehaviour
             wallIcon.SetActive(false);
             bearIcon.SetActive(true);
             LavaIcon.SetActive(false);
+            DecoyIcon.SetActive(false);
         }
     }
 

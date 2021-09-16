@@ -15,6 +15,7 @@ public class Crafting : MonoBehaviour
     public GameObject m_TrapCraftUI;
     public GameObject m_LavaTrapCraftUI;
     public GameObject m_AntidoteCraftUI;
+    public GameObject m_DecoyCraftUI;
 
     string m_ItemName;
 
@@ -69,6 +70,7 @@ public class Crafting : MonoBehaviour
         UpdateCraftingSlotMulti(m_Inventory.m_RockBlockCount, m_Inventory.m_WoodBlockCount, m_Inventory.m_RedStoneBlockCount, 1, m_TrapCraftUI);
         UpdateCraftingSlotMulti(m_Inventory.m_RockBlockCount, m_Inventory.m_WoodBlockCount, m_Inventory.m_RedStoneBlockCount, 1, m_LavaTrapCraftUI);
         UpdateCraftingSlotMulti(m_Inventory.m_RockBlockCount, m_Inventory.m_BloodBlockCount, 5, m_AntidoteCraftUI);
+        UpdateCraftingSlotMulti(m_Inventory.m_RockBlockCount, m_Inventory.m_WoodBlockCount, 2, m_DecoyCraftUI);
     }
 
     //Button Functions
@@ -117,6 +119,13 @@ public class Crafting : MonoBehaviour
                     m_Inventory.m_BloodBlockCount -= m_Cost;
                     m_Inventory.m_AntidoteBlockCount++;
                     Debug.Log("added antidote");
+                    m_EnoughMaterials = false;
+                    break;
+                case "m_DecoyBlockCount":
+                    m_Inventory.m_RockBlockCount -= m_Cost;
+                    m_Inventory.m_BloodBlockCount -= m_Cost;
+                    m_Inventory.m_DecoyBlockCount++;
+                    Debug.Log("added decoy");
                     m_EnoughMaterials = false;
                     break;
             }
@@ -171,6 +180,13 @@ public class Crafting : MonoBehaviour
                     m_EnoughMaterials = true;
                 }
                 break;
+            case "m_DecoyBlockCountUse":
+                if (m_Inventory.m_DecoyBlockCount >= m_Cost)
+                {
+                    m_Inventory.m_DecoyBlockCount -= m_Cost;
+                    m_EnoughMaterials = true;
+                }
+                break;
             case "m_TrapBlockCount":
                 if (m_Inventory.m_RedStoneBlockCount >= m_Cost && m_Inventory.m_WoodBlockCount >= m_Cost && m_Inventory.m_RockBlockCount >= m_Cost)
                 {
@@ -185,6 +201,12 @@ public class Crafting : MonoBehaviour
                 break;
             case "m_AntidoteBlockCount":
                 if ( m_Inventory.m_BloodBlockCount >= m_Cost && m_Inventory.m_RockBlockCount >= m_Cost)
+                {
+                    m_EnoughMaterials = true;
+                }
+                break;
+            case "m_DecoyBlockCount":
+                if (m_Inventory.m_WoodBlockCount >= m_Cost && m_Inventory.m_RockBlockCount >= m_Cost)
                 {
                     m_EnoughMaterials = true;
                 }

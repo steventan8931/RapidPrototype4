@@ -9,6 +9,7 @@ public class LoadOut : MonoBehaviour
         m_Melee,
         m_Fence,
         m_Wall,
+        m_Decoy,
         m_LavaTrap,
         m_Trap,
     }
@@ -17,11 +18,13 @@ public class LoadOut : MonoBehaviour
     public GameObject m_Wall;
     public GameObject m_LavaTrap;
     public GameObject m_Trap;
+    public GameObject m_Decoy;
 
     public ActiveInHand m_Hand;
 
     public GameObject m_FencePrefab;
     public GameObject m_WallPrefab;
+    public GameObject m_DecoyPrefab;
     public GameObject m_LavaTrapPrefab;
     public GameObject m_TrapPrefab;
 
@@ -41,6 +44,7 @@ public class LoadOut : MonoBehaviour
                 m_Wall.SetActive(false);
                 m_Trap.SetActive(false);
                 m_Fence.SetActive(false);
+                m_Decoy.SetActive(false);
                 m_LavaTrap.SetActive(false);
                 break;
             case ActiveInHand.m_Fence:
@@ -52,6 +56,7 @@ public class LoadOut : MonoBehaviour
                     m_Wall.SetActive(false);
                     m_Trap.SetActive(false);
                     m_LavaTrap.SetActive(false);
+                    m_Decoy.SetActive(false);
                     m_Fence.SetActive(true);
                     break;
                 }
@@ -69,6 +74,25 @@ public class LoadOut : MonoBehaviour
                     m_Wall.SetActive(true);
                     m_Trap.SetActive(false);
                     m_LavaTrap.SetActive(false);
+                    m_Decoy.SetActive(false);
+                    m_Fence.SetActive(false);
+                    break;
+                }
+                else
+                {
+                    m_Hand = ActiveInHand.m_Decoy;
+                    goto case ActiveInHand.m_Decoy;
+                }
+            case ActiveInHand.m_Decoy:
+                if (m_Inventory.m_DecoyBlockCount > 0)
+                {
+                    GetComponent<PlayerScr>().buildobj = m_DecoyPrefab;
+                    GetComponent<PlayerScr>().isbuilder = true;
+                    GetComponent<PlayerScr>().m_BuildMaterial = "m_DecoyBlockCountUse";
+                    m_Wall.SetActive(false);
+                    m_Trap.SetActive(false);
+                    m_LavaTrap.SetActive(false);
+                    m_Decoy.SetActive(true);
                     m_Fence.SetActive(false);
                     break;
                 }
@@ -86,6 +110,7 @@ public class LoadOut : MonoBehaviour
                     m_Wall.SetActive(false);
                     m_LavaTrap.SetActive(true);
                     m_Trap.SetActive(false);
+                    m_Decoy.SetActive(false);
                     m_Fence.SetActive(false);
                     break;
                 }
