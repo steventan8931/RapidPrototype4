@@ -68,7 +68,7 @@ public class Crafting : MonoBehaviour
         UpdateCraftingSlot(m_Inventory.m_RockBlockCount, 2, m_WallCraftUI);
         UpdateCraftingSlotMulti(m_Inventory.m_RockBlockCount, m_Inventory.m_WoodBlockCount, m_Inventory.m_RedStoneBlockCount, 1, m_TrapCraftUI);
         UpdateCraftingSlotMulti(m_Inventory.m_RockBlockCount, m_Inventory.m_WoodBlockCount, m_Inventory.m_RedStoneBlockCount, 1, m_LavaTrapCraftUI);
-        UpdateCraftingSlotMulti(m_Inventory.m_RockBlockCount, m_Inventory.m_BloodBlockCount, 2, m_AntidoteCraftUI);
+        UpdateCraftingSlotMulti(m_Inventory.m_RockBlockCount, m_Inventory.m_BloodBlockCount, 5, m_AntidoteCraftUI);
     }
 
     //Button Functions

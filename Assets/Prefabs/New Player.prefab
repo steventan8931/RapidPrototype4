@@ -301,7 +301,8 @@ MonoBehaviour:
   buildLoc: {fileID: 3361304531244500005}
   buildobj: {fileID: 0}
   attackpoint: {fileID: 7951399909844717443}
-  attackrange: 0.6
+  attackrange: 2.5
+  attackDmg: 25
   attacked: 0
   attackCD: 0.8
   destroyableLayers:
@@ -315,7 +316,7 @@ MonoBehaviour:
   m_IsCrafting: 0
   m_DeathTimer: 0
   m_RespawnTime: 2
-  m_CheckPoint: {fileID: 0}
+  m_CheckPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &3361304532904642311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,7 +335,7 @@ MonoBehaviour:
   m_BloodBlockCount: 0
   m_FenceBlockCount: 0
   m_WallBlockCount: 0
-  m_TrapBlockCount: 1
+  m_TrapBlockCount: 0
   m_LavaTrapBlockCount: 0
   m_AntidoteBlockCount: 0
   m_InventoryCanvas: {fileID: 0}
@@ -1598,7 +1599,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9f9cb5dbbf937544e9d1b3ff25a646d0, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4238520633030608891, guid: e20a59ea53e944440b58c943c730e68f, type: 3}
+    - {fileID: 3946064698555438016, guid: e20a59ea53e944440b58c943c730e68f, type: 3}
+    - {fileID: 3028154912857258607, guid: e20a59ea53e944440b58c943c730e68f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e20a59ea53e944440b58c943c730e68f, type: 3}
 --- !u!4 &2869450698088630331 stripped
 Transform:
