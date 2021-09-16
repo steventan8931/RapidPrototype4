@@ -281,14 +281,17 @@ public class EnemyScr : MonoBehaviour
         
         if (currentHp <=0)
         {
-            currentHp = 0;
-            isDead = true;
-            //Play death animation
-            EnemyAnimator.SetBool("IsWalking", false);
-            EnemyAnimator.SetBool("Dying", true);
-            gameManager.enemyCount -= 1;
-            Invoke(nameof(destroywhendead), 5.5f);
-            m_AudioManager.PlaySound("EnemyDead");
+            if (isDead == false)
+            {
+                currentHp = 0;
+                isDead = true;
+                //Play death animation
+                EnemyAnimator.SetBool("IsWalking", false);
+                EnemyAnimator.SetBool("Dying", true);
+                gameManager.enemyCount -= 1;
+                Invoke(nameof(destroywhendead), 5.5f);
+                m_AudioManager.PlaySound("EnemyDead");
+            }
         }
     }
 
