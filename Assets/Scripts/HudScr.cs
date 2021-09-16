@@ -16,9 +16,14 @@ public class HudScr : MonoBehaviour
     public GameObject m_Reminder1;
     public GameObject m_Reminder2;
     public GameObject m_Reminder3;
+
+    public GameObject m_Reminder4;
+
     public float m_ReminderTimer = 0.0f;
     public float m_ReminderTimeout = 3.0f;
     public float m_DecayTimer = 255;
+
+    bool didOnce = true;
 
     // Update is called once per frame
     private void Awake()
@@ -50,6 +55,16 @@ public class HudScr : MonoBehaviour
         Prompt(m_Reminder1);
         Prompt(m_Reminder2);
         Prompt(m_Reminder3);
+
+        if (player.GetComponent<Inventory>().m_BloodBlockCount > 0)
+        {
+            if (didOnce)
+            {
+                m_Reminder4.SetActive(true);
+                didOnce = false;
+            }
+        }
+        Prompt(m_Reminder4);
     }         
               
     void changeLoadoutIcon()
