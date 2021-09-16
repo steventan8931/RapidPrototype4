@@ -34,6 +34,9 @@ public class Inventory : MonoBehaviour
     {
         m_InventoryCanvas.SetActive(false);
         m_InventoryOpen = false;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void UpdateInventorySlot(int _BlockCount, GameObject _BlockUI)
@@ -71,6 +74,7 @@ public class Inventory : MonoBehaviour
             if (!m_InventoryOpen)
             {
                 Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
             }
         }
 
@@ -78,13 +82,12 @@ public class Inventory : MonoBehaviour
         {
             m_InventoryCanvas.SetActive(true);
             Cursor.visible = true;
-            //Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.None;
         }
         else
         {
             m_InventoryCanvas.SetActive(false);
 
-            //Cursor.lockState = CursorLockMode.None;
 
         }
     }

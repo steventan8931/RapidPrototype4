@@ -12,6 +12,7 @@ public class PlayerScr : MonoBehaviour
 
     public Transform attackpoint;
     public float attackrange = 1.5f;
+    public float attackDmg = 25f;
     public bool attacked = false;
     public float attackCD = 0.8f;
     public LayerMask destroyableLayers;
@@ -150,7 +151,7 @@ public class PlayerScr : MonoBehaviour
             if (enemy.GetComponent<EnemyScr>() != null)
             {
                 //damage them
-                enemy.GetComponent<EnemyScr>().receiveDmg(20);
+                enemy.GetComponent<EnemyScr>().receiveDmg(attackDmg);
                 //Instantiate(enemy.GetComponent<EnemyScr>().m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
                 Debug.Log("hitting");
             }
@@ -180,7 +181,10 @@ public class PlayerScr : MonoBehaviour
     public void receiveDmg(float dmg)
     {
         currenthitpoints -= dmg;
-        m_AudioManager.PlaySound("PlayerHurt");
+        if (dmg >= 5f)
+        {
+            m_AudioManager.PlaySound("PlayerHurt");
+        }
     }
 
     private void OnDrawGizmosSelected()
