@@ -125,7 +125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4685482701223420624}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3765, y: 1.41, z: 0.12}
+  m_LocalPosition: {x: 0.3765, y: 0.607, z: 0.12}
   m_LocalScale: {x: 0.8333334, y: 0.625, z: 0.8333334}
   m_Children: []
   m_Father: {fileID: 6824367272222995279}
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_ParticlePrefab: {fileID: 8672328601254370654, guid: 772085efea2ad534e93adeb119df1b39,
     type: 3}
   m_DeathTimer: 0
-  m_DespawnTimer: 3
+  m_DespawnTimer: 2
   m_FallOverTime: 0
   m_FallSpeed: 0.5
   m_RotationPivot: {fileID: 3214850331777652347}

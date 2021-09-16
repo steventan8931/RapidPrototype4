@@ -61,7 +61,7 @@ public class DayNightScr : MonoBehaviour
             spawnEnemies();
             if (isNight == false)
             {
-                timerDN = 150f;
+                timerDN = 100f;
                 isNight = true;
                 StageText.text = "Night Time";
                 RenderSettings.skybox = m_Night;
