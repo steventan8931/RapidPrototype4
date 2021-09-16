@@ -181,7 +181,10 @@ public class PlayerScr : MonoBehaviour
     public void receiveDmg(float dmg)
     {
         currenthitpoints -= dmg;
-        m_AudioManager.PlaySound("PlayerHurt");
+        if (dmg >= 5f)
+        {
+            m_AudioManager.PlaySound("PlayerHurt");
+        }
     }
 
     private void OnDrawGizmosSelected()
