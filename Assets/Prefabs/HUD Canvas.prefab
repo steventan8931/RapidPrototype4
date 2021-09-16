@@ -1219,7 +1219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6997571732248818400
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2086,6 +2086,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence
       objectReference: {fileID: 0}
+    - target: {fileID: 6518195523569942575, guid: cc0301f79bac2c844b552b80079e6dca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc0301f79bac2c844b552b80079e6dca, type: 3}
 --- !u!224 &6329835485406046184 stripped
@@ -2216,6 +2221,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3050151800338617842, guid: a3099d632375a774b8726b77d785a312,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3099d632375a774b8726b77d785a312, type: 3}
@@ -2348,6 +2358,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lava
       objectReference: {fileID: 0}
+    - target: {fileID: 3050151800338617842, guid: a3099d632375a774b8726b77d785a312,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5032916616759995201, guid: a3099d632375a774b8726b77d785a312,
         type: 3}
       propertyPath: m_Texture
@@ -2378,6 +2393,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trap
+      objectReference: {fileID: 0}
+    - target: {fileID: 2472007581728928334, guid: 83291912b9247614193615b29578b9a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7172371936366335040, guid: 83291912b9247614193615b29578b9a7,
         type: 3}
@@ -2509,6 +2529,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TimeReminder
+      objectReference: {fileID: 0}
+    - target: {fileID: 1037316665376248859, guid: f60aad07f6974de43a66711417f9b2d7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1037316665376249060, guid: f60aad07f6974de43a66711417f9b2d7,
         type: 3}
@@ -2649,6 +2674,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pickaxe
+      objectReference: {fileID: 0}
+    - target: {fileID: 3937475116123643201, guid: 32691d73a9a0ab644892b6489e832fad,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5462093032276706602, guid: 32691d73a9a0ab644892b6489e832fad,
         type: 3}

@@ -126,6 +126,20 @@ public class DayNightScr : MonoBehaviour
         }
     }
 
+    public void BuddyWin()
+    {
+        isWin = true;
+        // Pop up win UI
+        Invoke(nameof(DelayBlackScreen),1.0f);
+        winText.SetActive(true);
+        // Swap Scene
+        Invoke(nameof(loadWinScreen), 3f);
+    }
+
+    void DelayBlackScreen()
+    {
+        BlackScreenCtrl.SetBool("IsWin", true);
+    }
     void loadWinScreen()
     {
         SceneManager.LoadScene(2);
