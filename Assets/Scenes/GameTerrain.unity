@@ -5063,7 +5063,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827760203}
-  m_LocalRotation: {x: 0.14521316, y: 2.1244632e-14, z: -1.4474892e-13, w: 0.98940045}
+  m_LocalRotation: {x: 0.14521316, y: -2.1244632e-14, z: 1.4474892e-13, w: 0.98940045}
   m_LocalPosition: {x: 412.6, y: 141.2, z: 216.38672}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -5242,21 +5242,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5824672316974228904, guid: c4c661285ebc270469a6d8f60ef68b71,
         type: 3}
-      propertyPath: m_Day
-      value: 
-      objectReference: {fileID: 2100000, guid: f65e06966bd0eb74ebfcf68158123654, type: 2}
-    - target: {fileID: 5824672316974228904, guid: c4c661285ebc270469a6d8f60ef68b71,
-        type: 3}
-      propertyPath: m_Night
-      value: 
-      objectReference: {fileID: 2100000, guid: fb1102f086dc5c542823e8aae55b64cc, type: 2}
-    - target: {fileID: 5824672316974228904, guid: c4c661285ebc270469a6d8f60ef68b71,
-        type: 3}
-      propertyPath: timerDN
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5824672316974228904, guid: c4c661285ebc270469a6d8f60ef68b71,
-        type: 3}
       propertyPath: winText
       value: 
       objectReference: {fileID: 791576697}
@@ -5265,11 +5250,6 @@ PrefabInstance:
       propertyPath: TimeText
       value: 
       objectReference: {fileID: 771798700}
-    - target: {fileID: 5824672316974228904, guid: c4c661285ebc270469a6d8f60ef68b71,
-        type: 3}
-      propertyPath: m_Sunset
-      value: 
-      objectReference: {fileID: 2100000, guid: 6e00f8b39315691449f256740a5cb862, type: 2}
     - target: {fileID: 5824672316974228904, guid: c4c661285ebc270469a6d8f60ef68b71,
         type: 3}
       propertyPath: StageText
@@ -5282,20 +5262,9 @@ PrefabInstance:
       objectReference: {fileID: 1212239910}
     - target: {fileID: 5824672316974228904, guid: c4c661285ebc270469a6d8f60ef68b71,
         type: 3}
-      propertyPath: enemyPrefab
-      value: 
-      objectReference: {fileID: 682281902905590512, guid: ad9d8548c41041d4a9d858048238a451,
-        type: 3}
-    - target: {fileID: 5824672316974228904, guid: c4c661285ebc270469a6d8f60ef68b71,
-        type: 3}
       propertyPath: BlackScreenCtrl
       value: 
       objectReference: {fileID: 649905460}
-    - target: {fileID: 5824672316974228904, guid: c4c661285ebc270469a6d8f60ef68b71,
-        type: 3}
-      propertyPath: EnemyLoc.Array.size
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 5824672316974228904, guid: c4c661285ebc270469a6d8f60ef68b71,
         type: 3}
       propertyPath: EnemyLoc.Array.data[0]
@@ -5456,12 +5425,12 @@ PrefabInstance:
     - target: {fileID: 1667756462535342872, guid: 74eec021e85ca5c40a30245cd0255f06,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000017066634
+      value: -0.000000017066634
       objectReference: {fileID: 0}
     - target: {fileID: 1667756462535342872, guid: 74eec021e85ca5c40a30245cd0255f06,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000021885216
+      value: 0.0000000021885216
       objectReference: {fileID: 0}
     - target: {fileID: 1667756462884663452, guid: 74eec021e85ca5c40a30245cd0255f06,
         type: 3}
@@ -5578,6 +5547,11 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 649187781}
+    - target: {fileID: 1667756463752432765, guid: 74eec021e85ca5c40a30245cd0255f06,
+        type: 3}
+      propertyPath: m_XAxis.m_Wrap
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1667756463752432765, guid: 74eec021e85ca5c40a30245cd0255f06,
         type: 3}
       propertyPath: m_Orbits.Array.data[2].m_Radius
