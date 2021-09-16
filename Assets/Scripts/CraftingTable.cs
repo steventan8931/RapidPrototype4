@@ -59,17 +59,22 @@ public class CraftingTable : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C) && m_InRange)
         {
             m_CraftingOpen = !m_CraftingOpen;
+            if (!m_CraftingOpen)
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
         }
         if (m_CraftingOpen)
         {
             m_CraftingUI.SetActive(true);
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             m_PlayerInventory.m_InventoryOpen = false;
             m_Player.m_IsCrafting = true;
         }
         else
         {
-            Cursor.visible = false;
             m_CraftingUI.SetActive(false);
         }
     }
