@@ -49,7 +49,7 @@ public class DayNightScr : MonoBehaviour
         timerDN -= Time.deltaTime;
         int tempTime = Mathf.FloorToInt(timerDN);
         TimeText.text =tempTime.ToString();
-        if((timerDN >= 100f && timerDN <=101f) && isNight == false)
+        if((timerDN >= 75f && timerDN <=76f) && isNight == false)
         {
             RenderSettings.skybox = m_Sunset;
             playerHud.showReminder(2);
