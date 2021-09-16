@@ -43,14 +43,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af6b5d79e39566c4bb5409477b762d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerDN: 0
+  timerDN: 175
   EnemyLoc:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   ResourceLoc:
   - {fileID: 0}
-  enemyPrefab: {fileID: 2373408700345361925, guid: 51b2ec43a1a2b444b85ddf156686dd50,
+  enemyPrefab: {fileID: 682281902905590512, guid: ad9d8548c41041d4a9d858048238a451,
     type: 3}
   isNight: 0
   isWin: 0
@@ -62,4 +64,8 @@ MonoBehaviour:
   StageText: {fileID: 0}
   TimeText: {fileID: 0}
   BlackScreenCtrl: {fileID: 0}
+  winText: {fileID: 0}
   playerHud: {fileID: 0}
+  m_Day: {fileID: 2100000, guid: f65e06966bd0eb74ebfcf68158123654, type: 2}
+  m_Sunset: {fileID: 2100000, guid: 6e00f8b39315691449f256740a5cb862, type: 2}
+  m_Night: {fileID: 2100000, guid: fb1102f086dc5c542823e8aae55b64cc, type: 2}
