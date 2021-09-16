@@ -15,6 +15,7 @@ public class Inventory : MonoBehaviour
     public int m_TrapBlockCount = 0;
     public int m_LavaTrapBlockCount = 0;
     public int m_AntidoteBlockCount = 0;
+    public int m_DecoyBlockCount = 0;
 
     [Header("UI Components")]
     public GameObject m_InventoryCanvas;
@@ -28,6 +29,7 @@ public class Inventory : MonoBehaviour
     public GameObject m_LavaTrapUI;
     public GameObject m_AntidoteUI;
     public GameObject m_BloodUI;
+    public GameObject m_DecoyUI;
 
 
     private void Start()
@@ -67,6 +69,7 @@ public class Inventory : MonoBehaviour
         UpdateInventorySlot(m_LavaTrapBlockCount, m_LavaTrapUI);
         UpdateInventorySlot(m_AntidoteBlockCount, m_AntidoteUI);
         UpdateInventorySlot(m_BloodBlockCount, m_BloodUI);
+        UpdateInventorySlot(m_DecoyBlockCount, m_DecoyUI);
 
         if (Input.GetKeyDown(KeyCode.E))
         {
