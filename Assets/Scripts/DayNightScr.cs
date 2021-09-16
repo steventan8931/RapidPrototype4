@@ -28,10 +28,14 @@ public class DayNightScr : MonoBehaviour
     public Material m_Day;
     public Material m_Sunset;
     public Material m_Night;
+
+    public GameObject m_DayBGM;
+    public GameObject m_NightBGM;
     void Start()
     {
         RenderSettings.skybox = m_Day;
         playerHud.showReminder(1);
+        m_DayBGM.SetActive(true);
     }
 
     // Update is called once per frame
@@ -61,6 +65,8 @@ public class DayNightScr : MonoBehaviour
             spawnEnemies();
             if (isNight == false)
             {
+                m_DayBGM.SetActive(false);
+                m_NightBGM.SetActive(true);
                 timerDN = 100f;
                 isNight = true;
                 StageText.text = "Night Time";
