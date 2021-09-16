@@ -6,6 +6,8 @@ public class BearTrapScr : MonoBehaviour
 {
     public int damageVal = 50;
     public LayerMask trappableMasks;
+    public Animator trapAnim;
+    public bool isActivated = false;
     Vector3 halfBox = new Vector3(0.8f, 0.3f, 0.8f);
     /*private void trapdetect()
     {
@@ -22,19 +24,24 @@ public class BearTrapScr : MonoBehaviour
     }*/
     private void OnCollisionEnter(Collision collision)
     {
-       /* if (collision.gameObject.tag == "Player")
+        /* if (collision.gameObject.tag == "Player")
+         {
+             print(collision.gameObject.tag);
+             collision.gameObject.GetComponent<PlayerScr>().receiveDmg(damageVal / 2);
+             Destroy(gameObject);
+         }
+        */
+        if (isActivated == false)
         {
-            print(collision.gameObject.tag);
-            collision.gameObject.GetComponent<PlayerScr>().receiveDmg(damageVal / 2);
-            Destroy(gameObject);
-        }
-       */
-
-        if (collision.gameObject.tag == "Enemy")
-        {
-            //enemy receive dmg function
-            collision.gameObject.GetComponent<EnemyScr>().receiveDmg(damageVal);
-            Destroy(gameObject);
+            if (collision.gameObject.tag == "Enemy")
+            {
+                //enemy receive dmg function
+                isActivated = true;
+                trapAnim.SetBool("IsActive",true);
+                collision.gameObject.GetComponent<EnemyScr>().receiveDmg(damageVal);
+                Invoke(nameof(destroyTrap), 2f);
+                
+            }
         }
     }
     /*private void OnTriggerEnter(Collider other)
@@ -55,7 +62,10 @@ public class BearTrapScr : MonoBehaviour
         }
     }*/
 
-
+    private void destroyTrap()
+    {
+        Destroy(gameObject);
+    }
     // Update is called once per frame
     void Update()
     {
