@@ -1048,7 +1048,7 @@ PrefabInstance:
     - target: {fileID: 6056291768050087236, guid: 44cd6794aaeebdf42941ff661c7210be,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 422.53625
+      value: 412.07
       objectReference: {fileID: 0}
     - target: {fileID: 6056291768050087236, guid: 44cd6794aaeebdf42941ff661c7210be,
         type: 3}
@@ -1058,7 +1058,7 @@ PrefabInstance:
     - target: {fileID: 6056291768050087236, guid: 44cd6794aaeebdf42941ff661c7210be,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 283.83078
+      value: 269.19
       objectReference: {fileID: 0}
     - target: {fileID: 6056291768050087236, guid: 44cd6794aaeebdf42941ff661c7210be,
         type: 3}
@@ -2007,6 +2007,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Buddy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5454993421241844717, guid: 52eeed44c0f6a3c41b65844585cc16ab,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8273360153726495132, guid: 52eeed44c0f6a3c41b65844585cc16ab,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52eeed44c0f6a3c41b65844585cc16ab, type: 3}
@@ -4320,7 +4330,7 @@ PrefabInstance:
     - target: {fileID: 6056291768050087236, guid: 44cd6794aaeebdf42941ff661c7210be,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 289.4591
+      value: 274.76
       objectReference: {fileID: 0}
     - target: {fileID: 6056291768050087236, guid: 44cd6794aaeebdf42941ff661c7210be,
         type: 3}
