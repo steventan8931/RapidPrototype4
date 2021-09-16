@@ -234,7 +234,7 @@ public class EnemyScr : MonoBehaviour
         EnemyAnimator.SetBool("IsWalking", false);
         if (!attacked)
         {
-            Collider[] hitobjects = Physics.OverlapSphere(attackpoint.position, attackRange, playerMask);
+            Collider[] hitobjects = Physics.OverlapSphere(attackpoint.position, attackRange, buddyMask);
             // Damage enemies
             foreach (Collider enemy in hitobjects)
             {
