@@ -6,9 +6,12 @@ public class GameOverCtrl : MonoBehaviour
 {
     public GameObject FailUi, RetryButton, MenuButton;
     public BuddyScr Buddy;
+    CharacterMotor m_Player;
+
     private void Start ()
     {
         Buddy = GameObject.FindGameObjectWithTag("Buddy").GetComponent<BuddyScr>();
+        m_Player = FindObjectOfType<CharacterMotor>();
     }
     public void EnableFail()
     {
@@ -16,7 +19,8 @@ public class GameOverCtrl : MonoBehaviour
         {
             FailUi.SetActive(true);
             Cursor.visible = true;
-
+            Cursor.lockState = CursorLockMode.None;
+            m_Player.enabled = false;
         }
     }
 
