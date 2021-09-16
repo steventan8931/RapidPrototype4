@@ -1658,6 +1658,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7951399909881607515, guid: 4535da36cad67cf43a1b0166df94b078,
+        type: 3}
+      propertyPath: attackrange
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7951399909881607518, guid: 4535da36cad67cf43a1b0166df94b078,
         type: 3}
       propertyPath: m_Camera
@@ -4932,12 +4937,12 @@ PrefabInstance:
     - target: {fileID: 1667756462535342872, guid: 74eec021e85ca5c40a30245cd0255f06,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000017066634
+      value: -0.000000017066634
       objectReference: {fileID: 0}
     - target: {fileID: 1667756462535342872, guid: 74eec021e85ca5c40a30245cd0255f06,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000021885216
+      value: 0.0000000021885216
       objectReference: {fileID: 0}
     - target: {fileID: 1667756462884663452, guid: 74eec021e85ca5c40a30245cd0255f06,
         type: 3}

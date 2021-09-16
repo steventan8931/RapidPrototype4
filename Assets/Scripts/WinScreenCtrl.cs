@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 public class WinScreenCtrl : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public void Awake()
+    {
+        Cursor.visible = true;
+    }
     public void goMenu()
     {
         SceneManager.LoadScene(0);
