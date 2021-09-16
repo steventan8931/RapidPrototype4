@@ -100,7 +100,7 @@ public class HudScr : MonoBehaviour
         {
             meleeIcon.SetActive(false);
             fenceIcon.SetActive(false);
-            wallIcon.SetActive(true);
+            wallIcon.SetActive(false) ;
             bearIcon.SetActive(false);
             LavaIcon.SetActive(false);
             DecoyIcon.SetActive(true);
