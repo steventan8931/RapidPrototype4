@@ -91,7 +91,8 @@ public class NewCrafting : MonoBehaviour
                 case "m_Turret1":
                     if (m_Builder.m_CurrentPlaceableObject == null)
                     {
-                        m_Builder.m_CurrentPlaceableObject = Instantiate(m_TurretOnePrefab);
+                        m_Builder.m_CurrentPlaceableObject = Instantiate(m_TurretOnePrefab, Camera.main.transform);
+                        m_Builder.m_CurrentPlaceableObject.transform.parent = null;
                         m_Builder.m_CanPlaceMat = m_Builder.m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material;
                         Debug.Log("added tur1");
                         m_EnoughMaterials = false;
@@ -101,7 +102,8 @@ public class NewCrafting : MonoBehaviour
                 case "m_Turret2":
                     if (m_Builder.m_CurrentPlaceableObject == null)
                     {
-                        m_Builder.m_CurrentPlaceableObject = Instantiate(m_TurretTwoPrefab);
+                        m_Builder.m_CurrentPlaceableObject = Instantiate(m_TurretTwoPrefab, Camera.main.transform);
+                        m_Builder.m_CurrentPlaceableObject.transform.parent = null;
                         m_Builder.m_CanPlaceMat = m_Builder.m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material;
                         Debug.Log("added tur2");
                         m_EnoughMaterials = false;
