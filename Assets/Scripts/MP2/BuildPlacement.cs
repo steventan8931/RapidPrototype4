@@ -37,7 +37,7 @@ public class BuildPlacement : MonoBehaviour
         {
             if (m_CurrentPlaceableObject == null)
             {
-                m_CurrentPlaceableObject = Instantiate(m_BuildablePrefab);
+                //m_CurrentPlaceableObject = Instantiate(m_BuildablePrefab);
 
             }
             else
