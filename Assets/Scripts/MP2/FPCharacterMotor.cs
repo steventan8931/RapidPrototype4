@@ -27,12 +27,25 @@ public class FPCharacterMotor : MonoBehaviour
 
     public Animator m_Animation;
 
+    private CamSwitcher m_CamSwitcher;
+
     private void Start()
     {
+        m_CamSwitcher = FindObjectOfType<CamSwitcher>();
     }
 
     public void Update()
     {
+        //Only run if player is in first person
+        if (!m_CamSwitcher.m_IsFirstPerson)
+        {
+            m_Controller.enabled = false;
+            return;
+        }
+        else
+        {
+            m_Controller.enabled = true;
+        }
 
         float x = 0.0f;
         float z = 0.0f;
