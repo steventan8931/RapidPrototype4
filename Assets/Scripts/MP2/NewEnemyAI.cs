@@ -33,6 +33,10 @@ public class NewEnemyAI : MonoBehaviour
 
     //animation
     public Animator EnemyAnimator;
+
+    //EnemySpawner
+    bool cacheDeath = false;
+
     private void Awake()
     {
         buddy = GameObject.FindGameObjectWithTag("Buddy");
@@ -69,6 +73,16 @@ public class NewEnemyAI : MonoBehaviour
                 //EnemyAnimator.SetBool("IsAttacking", false);
                 moveFunc();
             }
+        }
+        else
+        {
+            if (!cacheDeath)
+            {
+                transform.parent.GetComponent<EnemySpawner>().m_EnemiesRemain--;
+                cacheDeath = true;
+            }
+
+            Destroy(gameObject);
         }
     }
 

@@ -13,10 +13,13 @@ public class EnemySpawner : MonoBehaviour
     public int m_EnemiesToSpawn = 5;
     public int m_EnemiesSpawned = 0;
 
+    public int m_EnemiesRemain = 0;
+
     private void Start()
     {
         //Rmove for actuals
-        m_StartSpawning = true;
+        //m_StartSpawning = true;
+        m_EnemiesRemain = m_EnemiesToSpawn;
     }
 
     private void Update()

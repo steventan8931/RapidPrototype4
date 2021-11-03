@@ -12,6 +12,7 @@ public class NewCrafting : MonoBehaviour
     public bool m_EnoughMaterials = false;
     string m_ItemName;
 
+    [Header("UI + Prefabs Components")]
     public GameObject m_TurretOnePrefab;
     public GameObject m_TurretOneUI;
     public GameObject m_TurretTwoPrefab;
