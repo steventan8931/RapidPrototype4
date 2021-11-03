@@ -18,6 +18,8 @@ public class TurretScr : MonoBehaviour
     public Transform partToRotate;
     public float turnSpeed = 7f;
 
+    public GameObject bulletPrefab;
+    public Transform firepoint;
     
     // Start is called before the first frame update
     void Start()
@@ -65,6 +67,7 @@ public class TurretScr : MonoBehaviour
         if(fireCountdown <= 0f)
         {
             Shoot();
+            Debug.Log("fired turret ball");
             fireCountdown = 1f / fireRate;
         }
         fireCountdown -= Time.deltaTime;
@@ -72,7 +75,13 @@ public class TurretScr : MonoBehaviour
 
     private void Shoot()
     {
-        Debug.Log("shooted");
+        GameObject bulletgo = (GameObject)Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
+        TurretBullet bullet = bulletgo.GetComponent<TurretBullet>();
+
+        if(bullet != null)
+        {
+            bullet.Seek(target);
+        }
     }
 
     private void OnDrawGizmosSelected()
