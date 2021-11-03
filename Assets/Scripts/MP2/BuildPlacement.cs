@@ -1,0 +1,92 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BuildPlacement : MonoBehaviour
+{
+    public GameObject m_BuildablePrefab;
+
+    private KeyCode newObjectHotKey = KeyCode.A;
+
+    private GameObject m_CurrentPlaceableObject;
+
+    public Material m_CantPlaceMat;
+    private Material m_CanPlaceMat;
+
+    private CamSwitcher m_CamSwitcher;
+    private void Start()
+    {
+        m_CamSwitcher = FindObjectOfType<CamSwitcher>();
+    }
+
+    private void Update()
+    {
+        //Only run this script if the player is in top down view
+        if (m_CamSwitcher.m_IsFirstPerson)
+        {
+            Destroy(m_CurrentPlaceableObject);
+            return;
+        }
+
+        if (Input.GetKeyDown(newObjectHotKey))
+        {
+            if (m_CurrentPlaceableObject == null)
+            {
+                m_CurrentPlaceableObject = Instantiate(m_BuildablePrefab);
+                m_CanPlaceMat = m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material;
+            }
+            else
+            {
+                Destroy(m_CurrentPlaceableObject);
+            }
+        }
+
+        if (m_CurrentPlaceableObject != null)
+        {
+            MoveObjectToMouse();
+
+        }
+    }
+
+    private void MoveObjectToMouse()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        RaycastHit hitInfo;
+        if (Physics.Raycast(ray, out hitInfo))
+        {
+            m_CurrentPlaceableObject.transform.position = hitInfo.point;
+            m_CurrentPlaceableObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
+        }
+
+        //If object has a collider
+        if (hitInfo.collider != null)
+        {
+            if (!hitInfo.collider.gameObject.CompareTag("Wall"))
+            {
+                m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material = m_CanPlaceMat;
+                BoxCollider PlaceableCollider = m_CurrentPlaceableObject.gameObject.GetComponent<BoxCollider>();
+                PlaceableCollider.isTrigger = true;
+                Vector3 BoxCenter = m_CurrentPlaceableObject.gameObject.transform.position + PlaceableCollider.center;
+                Vector3 HalfExtents = PlaceableCollider.size / 2;
+
+                if (Physics.CheckBox(BoxCenter, HalfExtents, Quaternion.identity))
+                {
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        //PlaceableCollider.isTrigger = false;
+                        m_CurrentPlaceableObject.layer = 30;
+                        m_CurrentPlaceableObject = null;
+                    }
+                }
+            }
+            else
+            {
+                m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material = m_CantPlaceMat;
+            }
+        }
+
+
+    }
+}
