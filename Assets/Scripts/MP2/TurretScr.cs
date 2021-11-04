@@ -24,7 +24,8 @@ public class TurretScr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        //InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        UpdateTarget();
     }
 
     void UpdateTarget()
@@ -59,10 +60,7 @@ public class TurretScr : MonoBehaviour
         {
             return;
         }
-        Vector3 dir = target.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        rotateToTarget();
 
         if(fireCountdown <= 0f)
         {
@@ -72,7 +70,15 @@ public class TurretScr : MonoBehaviour
         }
         fireCountdown -= Time.deltaTime;
     }
+    private void rotateToTarget()
+    {
+        Vector3 dir = target.position - transform.position;
 
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+
+        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, Quaternion.AngleAxis(-90f, Vector3.up) * lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+    }
     private void Shoot()
     {
         GameObject bulletgo = (GameObject)Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
