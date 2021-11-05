@@ -25,15 +25,20 @@ public class ShootingScr : MonoBehaviour
 
     public TextMeshProUGUI ammoDisplay;
     public GameObject ReloadReminder;
-    
+    public CamSwitcher camswitcher;
     private void Awake()
     {
         bulletsLeft = magazineSize;
         rdyToShoot = true;
+        camswitcher = FindObjectOfType<CamSwitcher>();
     }
 
     private void Update()
     {
+        if(!camswitcher.m_IsFirstPerson)
+        {
+            return;
+        }
         shootInput();
 
         if(ammoDisplay != null)
