@@ -1,26 +1,28 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretScr : MonoBehaviour
+public class FlameTurretScr : MonoBehaviour
 {
     public Transform target;
     [Header("Attributes")]
 
-    public float range = 20f;
+    public float range = 8f;
     public float fireRate = 1f;
     private float fireCountdown = 0f;
+    public float currentFireCount = 3f;
+    public float MaxFireCount = 3f;
 
     [Header("Unity setup fields")]
     public string enemyTag = "Enemy";
-
+    public LayerMask enemyMask;
     public Transform partToRotate;
     public float turnSpeed = 7f;
 
     public GameObject bulletPrefab;
     public Transform firepoint;
-    
+    public bool enemyInFireRange;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,16 +35,16 @@ public class TurretScr : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDist = Mathf.Infinity;
         GameObject closestEnemy = null;
-        foreach(GameObject enemy in enemies)
+        foreach (GameObject enemy in enemies)
         {
             float disToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if(disToEnemy < shortestDist)
+            if (disToEnemy < shortestDist)
             {
                 shortestDist = disToEnemy;
                 closestEnemy = enemy;
             }
         }
-        if(closestEnemy != null && shortestDist <= range)
+        if (closestEnemy != null && shortestDist <= range)
         {
             target = closestEnemy.transform;
         }
@@ -56,13 +58,13 @@ public class TurretScr : MonoBehaviour
     void Update()
     {
         UpdateTarget();
-        if(target == null)
+        if (target == null)
         {
             return;
         }
         rotateToTarget();
 
-        if(fireCountdown <= 0f)
+        if (fireCountdown <= 0f)
         {
             Shoot();
             Debug.Log("fired turret ball");
@@ -84,7 +86,7 @@ public class TurretScr : MonoBehaviour
         GameObject bulletgo = (GameObject)Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
         TurretBullet bullet = bulletgo.GetComponent<TurretBullet>();
 
-        if(bullet != null)
+        if (bullet != null)
         {
             bullet.Seek(target);
         }

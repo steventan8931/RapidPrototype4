@@ -24,7 +24,7 @@ public class ShootingScr : MonoBehaviour
     public Transform attackPoint;
 
     public TextMeshProUGUI ammoDisplay;
-    
+    public GameObject ReloadReminder;
     
     private void Awake()
     {
@@ -132,11 +132,13 @@ public class ShootingScr : MonoBehaviour
     void Reload()
     {
         reloading = true;
+        ReloadReminder.SetActive(true);
         Invoke("ReloadFinished", reloadTime);     
     }
     void ReloadFinished()
     {
         bulletsLeft = magazineSize;
         reloading = false;
+        ReloadReminder.SetActive(false);
     }
 }
