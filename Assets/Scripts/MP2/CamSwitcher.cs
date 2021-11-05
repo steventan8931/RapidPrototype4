@@ -27,11 +27,13 @@ public class CamSwitcher : MonoBehaviour
     {
         if (m_IsFirstPerson)
         {
+            Cursor.lockState = CursorLockMode.Locked;
             m_CameraFP.SetActive(true);
             m_CameraTD.SetActive(false);
         }
         else
         {
+            Cursor.lockState = CursorLockMode.None;
             m_CameraFP.SetActive(false);
             m_CameraTD.SetActive(true);
         }

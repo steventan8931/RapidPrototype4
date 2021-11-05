@@ -9,15 +9,18 @@ public class BuildPlacement : MonoBehaviour
 
     private KeyCode newObjectHotKey = KeyCode.A;
 
-    private GameObject m_CurrentPlaceableObject;
+    public GameObject m_CurrentPlaceableObject;
 
     public Material m_CantPlaceMat;
-    private Material m_CanPlaceMat;
+    public Material m_CanPlaceMat;
 
     private CamSwitcher m_CamSwitcher;
+    private NewCrafting m_Crafting;
+
     private void Start()
     {
         m_CamSwitcher = FindObjectOfType<CamSwitcher>();
+        m_Crafting = FindObjectOfType<NewCrafting>();
     }
 
     private void Update()
@@ -29,12 +32,13 @@ public class BuildPlacement : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(newObjectHotKey))
+        //Right click to remove item
+        if (Input.GetMouseButtonDown(1))
         {
             if (m_CurrentPlaceableObject == null)
             {
-                m_CurrentPlaceableObject = Instantiate(m_BuildablePrefab);
-                m_CanPlaceMat = m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material;
+                //m_CurrentPlaceableObject = Instantiate(m_BuildablePrefab);
+
             }
             else
             {
@@ -77,6 +81,8 @@ public class BuildPlacement : MonoBehaviour
                     {
                         //PlaceableCollider.isTrigger = false;
                         m_CurrentPlaceableObject.layer = 30;
+                        m_Crafting.m_Inventory.m_MagicCrystalCount -= m_Crafting.m_Cost;
+                        Debug.Log("craft cost" + m_Crafting.m_Cost);
                         m_CurrentPlaceableObject = null;
                     }
                 }
