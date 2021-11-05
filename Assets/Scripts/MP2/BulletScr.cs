@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletScr : MonoBehaviour
 {
     public int damage = 50;
+    public float lifetime = 0;
     void Start()
     {
         
@@ -13,7 +14,7 @@ public class BulletScr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        destroyAfterWhile();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -22,6 +23,15 @@ public class BulletScr : MonoBehaviour
         {
             collision.gameObject.GetComponent<EnemyScr>().currentHp -= damage;
             Destroy(gameObject);
+        }
+    }
+    void destroyAfterWhile()
+    {
+        lifetime += Time.deltaTime;
+        if(lifetime >= 7f)
+        {
+            Destroy(gameObject);
+            return;
         }
     }
 }
