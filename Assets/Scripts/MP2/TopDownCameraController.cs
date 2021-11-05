@@ -11,9 +11,20 @@ public class TopDownCameraController : MonoBehaviour
 
     public float m_MouseScrollSpeed = 20.0f;
     public Vector2 m_ScrollLimitYExtents = new Vector2(10.0f, 40.0f);
+
+    private Transform m_PlayerRotation;
+
+    private void Start()
+    {
+        m_PlayerRotation = transform.parent.transform;
+    }
+
     private void Update()
     {
-        Vector3 cameraPos = transform.position;
+        //Reset Player Rotation due to camera movements
+        m_PlayerRotation.rotation = Quaternion.Euler(Vector3.zero);
+
+        Vector3 cameraPos = transform.localPosition;
 
         //Move Camera with Mouse/Keyboard
         if (Input.GetKey(KeyCode.W) || Input.mousePosition.y >= Screen.height - m_PanBorderThickness)
@@ -41,6 +52,6 @@ public class TopDownCameraController : MonoBehaviour
         cameraPos.y = Mathf.Clamp(cameraPos.y, m_ScrollLimitYExtents.x, m_ScrollLimitYExtents.y);
         cameraPos.z = Mathf.Clamp(cameraPos.z, m_PanLimitZExtents.x, m_PanLimitZExtents.y);
 
-        transform.position = cameraPos;
+        transform.localPosition = cameraPos;
     }
 }
