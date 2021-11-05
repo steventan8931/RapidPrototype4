@@ -24,16 +24,21 @@ public class ShootingScr : MonoBehaviour
     public Transform attackPoint;
 
     public TextMeshProUGUI ammoDisplay;
-    
-    
+    public GameObject ReloadReminder;
+    public CamSwitcher camswitcher;
     private void Awake()
     {
         bulletsLeft = magazineSize;
         rdyToShoot = true;
+        camswitcher = FindObjectOfType<CamSwitcher>();
     }
 
     private void Update()
     {
+        if(!camswitcher.m_IsFirstPerson)
+        {
+            return;
+        }
         shootInput();
 
         if(ammoDisplay != null)
@@ -132,11 +137,13 @@ public class ShootingScr : MonoBehaviour
     void Reload()
     {
         reloading = true;
+        ReloadReminder.SetActive(true);
         Invoke("ReloadFinished", reloadTime);     
     }
     void ReloadFinished()
     {
         bulletsLeft = magazineSize;
         reloading = false;
+        ReloadReminder.SetActive(false);
     }
 }

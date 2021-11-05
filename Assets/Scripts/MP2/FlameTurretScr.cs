@@ -15,12 +15,13 @@ public class FlameTurretScr : MonoBehaviour
 
     [Header("Unity setup fields")]
     public string enemyTag = "Enemy";
-
+    public LayerMask enemyMask;
     public Transform partToRotate;
     public float turnSpeed = 7f;
 
     public GameObject bulletPrefab;
     public Transform firepoint;
+    public bool enemyInFireRange;
 
     // Start is called before the first frame update
     void Start()
