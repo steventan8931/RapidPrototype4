@@ -20,8 +20,8 @@ public class NewEnemyAI : MonoBehaviour
     //state
     public float sightRange, attackRange;
     public bool playerInSight, playerInAttackRange, objInAttackRange, buddyInAttackRange;
-    public GameObject buddy;
-    public LayerMask playerMask;
+    public GameObject m_AIStartPos;
+
     public LayerMask objMask;
     public LayerMask buddyMask;
 
@@ -39,7 +39,7 @@ public class NewEnemyAI : MonoBehaviour
 
     private void Awake()
     {
-        buddy = GameObject.FindGameObjectWithTag("Buddy");
+        m_AIStartPos = GameObject.FindGameObjectWithTag("AIStart");
     }
 
     private void Start()
@@ -96,7 +96,7 @@ public class NewEnemyAI : MonoBehaviour
     public float checkDisBuddy()
     {
         float distance;
-        distance = Vector3.Distance(transform.position, buddy.transform.position);
+        distance = Vector3.Distance(transform.position, m_AIStartPos.transform.position);
         return distance;
     }
 
@@ -109,10 +109,10 @@ public class NewEnemyAI : MonoBehaviour
     void moveFunc()
     {
         // move towards to buddy directly
-        Vector3 tempTarget = buddy.transform.position;
+        Vector3 tempTarget = m_AIStartPos.transform.position;
         tempTarget.y = gameObject.transform.position.y;
         transform.LookAt(tempTarget);
-        transform.position = moveTowards(buddy);
+        transform.position = moveTowards(m_AIStartPos);
         transform.position = new Vector3(transform.position.x, tempTarget.y, transform.position.z);
         //EnemyAnimator.SetBool("IsAttacking", false);
         //EnemyAnimator.SetBool("IsWalking", true);
@@ -159,36 +159,7 @@ public class NewEnemyAI : MonoBehaviour
     //        Invoke(nameof(resetAttack), attackCD);
     //    }
     //}
-    //void attackPlayer()
-    //{
-    //    EnemyAnimator.SetBool("IsWalking", false);
-    //    if (!attacked)
-    //    {
-    //        Collider[] hitobjects = Physics.OverlapSphere(attackpoint.position, attackRange, playerMask);
-    //        // Damage enemies
-    //        foreach (Collider enemy in hitobjects)
-    //        {
-    //            if (enemy.GetComponent<PlayerScr>() != null)
-    //            {
-    //                //damage Player
-    //                enemy.GetComponent<PlayerScr>().receiveDmg((int)atkDmg);
-    //                EnemyAnimator.SetBool("IsAttacking", true);
-    //                Instantiate(m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
-    //                m_AudioManager.PlaySound("EnemyAttack");
-    //            }
-    //            //debug message
-    //            Debug.Log("enemy hit" + enemy.name);
 
-    //        }
-
-    //        //do damage
-    //        print("attacking!");
-    //        //add animation here
-
-    //        attacked = true;
-    //        Invoke(nameof(resetAttack), attackCD);
-    //    }
-    //}
 
     //void attackBuddy()
     //{
@@ -219,6 +190,7 @@ public class NewEnemyAI : MonoBehaviour
     //        Invoke(nameof(resetAttack), attackCD);
     //    }
     //}
+
     //private void OnDrawGizmosSelected()
     //{
     //    if (attackpoint == null)

@@ -35,10 +35,10 @@ public class ShootingScr : MonoBehaviour
 
     private void Update()
     {
-        if(!camswitcher.m_IsFirstPerson)
-        {
-            return;
-        }
+        //if(!camswitcher.m_IsFirstPerson)
+        //{
+        //    return;
+        //}
         shootInput();
 
         if(ammoDisplay != null)

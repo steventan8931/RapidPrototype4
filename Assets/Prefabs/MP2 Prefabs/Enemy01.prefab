@@ -64,7 +64,7 @@ MonoBehaviour:
   currentHp: 100
   isDead: 0
   atkDmg: 10
-  moveSpeed: 5
+  moveSpeed: 50
   attackCD: 2.5
   attacked: 0
   sightRange: 0
@@ -73,10 +73,7 @@ MonoBehaviour:
   playerInAttackRange: 0
   objInAttackRange: 0
   buddyInAttackRange: 0
-  buddy: {fileID: 0}
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 0
+  m_AIStartPos: {fileID: 0}
   objMask:
     serializedVersion: 2
     m_Bits: 0
