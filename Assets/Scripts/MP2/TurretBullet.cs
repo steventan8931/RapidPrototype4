@@ -5,7 +5,7 @@ using UnityEngine;
 public class TurretBullet : MonoBehaviour
 {
     private Transform target;
-
+    public float lifetime = 0f;
     public float speed = 50f;
     public GameObject impactEffect;
     public void Seek(Transform tar)
@@ -20,7 +20,7 @@ public class TurretBullet : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        destroyAfterWhile();
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
@@ -31,6 +31,8 @@ public class TurretBullet : MonoBehaviour
         }
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
         transform.LookAt(target);
+
+        
     }
 
     private void HitTarget()
@@ -39,5 +41,15 @@ public class TurretBullet : MonoBehaviour
         GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 2f);
         Destroy(gameObject);
+    }
+
+    void destroyAfterWhile()
+    {
+        lifetime += Time.deltaTime;
+        if (lifetime >= 7f)
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 }
