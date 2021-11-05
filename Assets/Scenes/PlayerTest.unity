@@ -281,7 +281,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1009c60bfdf5080429fa0abd263b4684, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1519,7 +1519,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1009c60bfdf5080429fa0abd263b4684, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1797,7 +1797,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1009c60bfdf5080429fa0abd263b4684, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1957,6 +1957,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurretBullet
       objectReference: {fileID: 0}
+    - target: {fileID: 3165437787736484477, guid: dc57df20a2199914481b59bf5adac4c4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1009c60bfdf5080429fa0abd263b4684, type: 2}
     - target: {fileID: 3165437787736484479, guid: dc57df20a2199914481b59bf5adac4c4,
         type: 3}
       propertyPath: m_RootOrder
@@ -2031,11 +2036,21 @@ PrefabInstance:
       propertyPath: destroyableLayers.m_Bits
       value: 2048
       objectReference: {fileID: 0}
+    - target: {fileID: 4682842833386570435, guid: 1195f3a799c0e5245b5e14d57ad5a1fa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1009c60bfdf5080429fa0abd263b4684, type: 2}
     - target: {fileID: 4682842833386570436, guid: 1195f3a799c0e5245b5e14d57ad5a1fa,
         type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4682842833685613706, guid: 1195f3a799c0e5245b5e14d57ad5a1fa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1009c60bfdf5080429fa0abd263b4684, type: 2}
     - target: {fileID: 4682842833685613711, guid: 1195f3a799c0e5245b5e14d57ad5a1fa,
         type: 3}
       propertyPath: m_Layer
