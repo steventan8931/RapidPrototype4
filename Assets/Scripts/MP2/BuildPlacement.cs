@@ -67,7 +67,7 @@ public class BuildPlacement : MonoBehaviour
         //If object has a collider
         if (hitInfo.collider != null)
         {
-            if (!hitInfo.collider.gameObject.CompareTag("Wall"))
+            if (!hitInfo.collider.gameObject.CompareTag("Floor"))
             {
                 m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material = m_CanPlaceMat;
                 BoxCollider PlaceableCollider = m_CurrentPlaceableObject.gameObject.GetComponent<BoxCollider>();
