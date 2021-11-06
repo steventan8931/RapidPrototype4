@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 745535028}
   - component: {fileID: 745535029}
   m_Layer: 5
-  m_Name: OffScreenRectPos
+  m_Name: OffScreenCraftPanelRectPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,12 +24,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745535027}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 181517688313476056}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 1289731130}
   - component: {fileID: 1289731131}
   m_Layer: 5
-  m_Name: OnScreenRectPos
+  m_Name: OnScreenCraftPaneRectPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,16 +68,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289731129}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 181517688313476056}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 372.8, y: 0.00019455}
+  m_AnchoredPosition: {x: 372.79993, y: 0.00019455}
   m_SizeDelta: {x: 214.19217, y: 600.00037}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1289731131
@@ -119,9 +119,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 7302935908742542641}
   - {fileID: 1289731130}
   - {fileID: 745535028}
+  - {fileID: 7302935908742542641}
   m_Father: {fileID: 7505655986078381179}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -481,7 +481,7 @@ GameObject:
   - component: {fileID: 422054664876032736}
   - component: {fileID: 3294779772583550683}
   m_Layer: 5
-  m_Name: Image
+  m_Name: CraftingPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -500,7 +500,7 @@ RectTransform:
   m_Children:
   - {fileID: 181517689371412171}
   m_Father: {fileID: 181517688313476056}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_Inventory: {fileID: 0}
   m_Cost: 0
   m_EnoughMaterials: 0
-  m_TurretOnePrefab: {fileID: 8101936059159090519, guid: 5b2b2527bd5761040bed0344ff980922,
+  m_TurretOnePrefab: {fileID: 3068935343624889945, guid: 8d117fa8fbb64af49896dd8646b2422b,
     type: 3}
   m_TurretOneUI: {fileID: 1895827317000720687}
   m_TurretTwoPrefab: {fileID: 1943988097974460549, guid: d4303e6c13b8fc543b839bdbe0462576,

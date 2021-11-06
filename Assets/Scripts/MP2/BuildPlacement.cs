@@ -69,7 +69,7 @@ public class BuildPlacement : MonoBehaviour
         {
             if (!hitInfo.collider.gameObject.CompareTag("Floor"))
             {
-                m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material = m_CanPlaceMat;
+                //m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material = m_CanPlaceMat;
                 BoxCollider PlaceableCollider = m_CurrentPlaceableObject.gameObject.GetComponent<BoxCollider>();
                 PlaceableCollider.isTrigger = true;
                 Vector3 BoxCenter = m_CurrentPlaceableObject.gameObject.transform.position + PlaceableCollider.center;
@@ -89,7 +89,7 @@ public class BuildPlacement : MonoBehaviour
             }
             else
             {
-                m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material = m_CantPlaceMat;
+                //m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material = m_CantPlaceMat;
             }
         }
 
