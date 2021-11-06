@@ -6999,6 +6999,31 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2580334512954640370, guid: fe9188d93d7777140a47a1914e92e513, type: 3}
+--- !u!1 &1121153257 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8677968d2085ae1489be539bc58c43f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 247080431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1121153259
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121153257}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0075c36f1c21f034eaf167f13b3dbe94, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1134723304 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5255955993036019224, guid: fe9188d93d7777140a47a1914e92e513,
@@ -9181,6 +9206,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5446656084542202672, guid: 59c888afdd87bce4aba74eee82dfa292,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8db81b078586b9b46ae08c8764000cc0, type: 2}
     - target: {fileID: 5484488950969516230, guid: 59c888afdd87bce4aba74eee82dfa292,
         type: 3}
       propertyPath: m_LocalPosition.z
