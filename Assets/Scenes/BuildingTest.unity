@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 1030957304}
   m_Layer: 0
   m_Name: Path
-  m_TagString: Wall
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -514,6 +514,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1438783149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6234935404435143395, guid: 59c888afdd87bce4aba74eee82dfa292,
+    type: 3}
+  m_PrefabInstance: {fileID: 6234935403087618195}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1438783155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438783149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9afa901cd55402d4d9a54e0b28a8bbed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1572864663
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,7 +845,7 @@ GameObject:
   - component: {fileID: 2110030378}
   m_Layer: 0
   m_Name: PowerSource
-  m_TagString: Buddy
+  m_TagString: AIStart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

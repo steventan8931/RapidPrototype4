@@ -43,12 +43,14 @@ public class NewCrafting : MonoBehaviour
         //Only Craft in Top Down
         if (m_CamSwitcher.m_IsFirstPerson)
         {
-            m_CraftingCanvas.SetActive(false);
+            m_CraftingCanvas.GetComponent<BuildCanvasTransition>().m_OnScreen = false;
+            //m_CraftingCanvas.SetActive(false);
             return;
         }
         else
         {
-            m_CraftingCanvas.SetActive(true);
+            m_CraftingCanvas.GetComponent<BuildCanvasTransition>().m_OnScreen = true;
+            //m_CraftingCanvas.SetActive(true);
         }
 
         //Order -> SetItemCostCount -> SetItemCost - > AddItem
