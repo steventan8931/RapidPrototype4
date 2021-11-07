@@ -16,13 +16,10 @@ public class CannonBullet : MonoBehaviour
     public float m_ExplodeLifeTime = 1.0f;
     private float m_ExplodeLifeCounter = 0.0f;
 
-    private void OnCollisionEnter(Collision _collision)
-    {
-        if (_collision.gameObject.tag == "Enemy")
-        {
-            Explode();
-        }
-    }
+    //Movement
+    private Transform target;
+    public float speed = 50f;
+    public GameObject impactEffect;
 
     private void Update()
     {
@@ -33,9 +30,9 @@ public class CannonBullet : MonoBehaviour
             Explode();
         }
 
-
         if (m_Exploded)
         {
+            GetComponent<Collider>().enabled = false;
             m_ExplodeLifeCounter += Time.deltaTime;
 
             if (m_ExplodeLifeCounter >= m_ExplodeLifeTime)
@@ -43,14 +40,27 @@ public class CannonBullet : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
+        Vector3 dir = target.position - transform.position;
+        float distanceThisFrame = speed * Time.deltaTime;
+
+        if (dir.magnitude <= distanceThisFrame)
+        {
+            Debug.Log("exploded");
+            Explode();
+            return;
+        }
+
+        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        transform.LookAt(target);
     }
 
     public void Explode()
     {
         if (!m_Exploded)
-        {
-            Debug.Log("exploded");
+        {         
             Collider[] hitobjects = Physics.OverlapSphere(transform.position, m_AttackRange, m_EnemyMask);
+            Debug.Log("size  = " + hitobjects.Length);
             // Damage enemies
             foreach (Collider enemy in hitobjects)
             {
@@ -58,6 +68,8 @@ public class CannonBullet : MonoBehaviour
                 {
                     //damage Player
                     enemy.GetComponent<NewEnemyAI>().currentHp -= m_Damage;
+                    GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
+                    Destroy(effectIns, 2f);
                     //m_AudioManager.PlaySound("EnemyAttack");
                 }
                 //debug message
@@ -65,9 +77,12 @@ public class CannonBullet : MonoBehaviour
 
             }
 
-            //add animation here
+            //if (hitobjects.Length > 0)
+            {
+                //add animation here
+                m_Exploded = true;
+            }
 
-            m_Exploded = true;
         }
     }
 
@@ -75,4 +90,10 @@ public class CannonBullet : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, m_AttackRange);
     }
+
+    public void Seek(Transform tar)
+    {
+        target = tar;
+    }
+
 }

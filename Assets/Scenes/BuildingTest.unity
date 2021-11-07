@@ -534,7 +534,7 @@ PrefabInstance:
     - target: {fileID: 2454637557840505084, guid: 92eb55ae90c5d934290e94325903dd39,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.01999998
+      value: 1.72
       objectReference: {fileID: 0}
     - target: {fileID: 2454637557840505084, guid: 92eb55ae90c5d934290e94325903dd39,
         type: 3}
@@ -595,6 +595,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2454637557840505087, guid: 92eb55ae90c5d934290e94325903dd39,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2454637557840505087, guid: 92eb55ae90c5d934290e94325903dd39,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92eb55ae90c5d934290e94325903dd39, type: 3}
@@ -939,6 +949,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b2b2527bd5761040bed0344ff980922, type: 3}
+--- !u!4 &1909884291 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2454637557840505084, guid: 92eb55ae90c5d934290e94325903dd39,
+    type: 3}
+  m_PrefabInstance: {fileID: 1247659180}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2056721210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,6 +1365,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CannonBullet
       objectReference: {fileID: 0}
+    - target: {fileID: 1913994490857038736, guid: 8d19c1012b27a044da892903e4d78164,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1909884291}
     - target: {fileID: 1913994490857038739, guid: 8d19c1012b27a044da892903e4d78164,
         type: 3}
       propertyPath: m_RootOrder
