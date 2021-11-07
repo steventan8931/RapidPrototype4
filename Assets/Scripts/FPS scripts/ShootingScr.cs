@@ -87,9 +87,11 @@ public class ShootingScr : MonoBehaviour
         if(Physics.Raycast(ray,out hit))
         {
             targetPoint = hit.point;
+            Debug.Log("have a hit target");
         }else
         {
             targetPoint = ray.GetPoint(80); // not hitting, then get a point that far away  from player
+            Debug.Log("raycast not hitting");
         }
 
         //calculate direction from attackpoint to target point
