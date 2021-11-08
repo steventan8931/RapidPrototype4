@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject m_EnemyPrefab;
-
+    public int m_CrystalReward = 10;
     public float m_MoveSpeedBoost = 0.0f;
     public float m_HPBoost = 0.0f;
 

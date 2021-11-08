@@ -24,8 +24,13 @@ public class WavesManager : MonoBehaviour
     public bool m_GameWin = false;
     public bool m_LastRound = false;
 
+
+    private NewInventory m_PlayerIventory;
+
     private void Start()
     {
+        m_PlayerIventory = FindObjectOfType<NewInventory>();
+
         //If there are no preset spawners
         if (m_EnemySpawners.Count <= 0)
         {
@@ -67,6 +72,9 @@ public class WavesManager : MonoBehaviour
         {
             if (m_CurrentSpawner.m_EnemiesRemain <= 0)
             {
+                //Add the crystals to player inventory after the round
+                m_PlayerIventory.m_MagicCrystalCount += m_CurrentSpawner.m_CrystalReward;
+
                 m_WaveIsActive = false;
             }
         }
