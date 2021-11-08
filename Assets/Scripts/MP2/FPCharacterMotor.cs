@@ -28,10 +28,13 @@ public class FPCharacterMotor : MonoBehaviour
     public Animator m_Animation;
 
     private CamSwitcher m_CamSwitcher;
+    private ShootingScr m_Shooter;
+
 
     private void Start()
     {
         m_CamSwitcher = FindObjectOfType<CamSwitcher>();
+        m_Shooter = FindObjectOfType<ShootingScr>();
     }
 
     public void Update()
@@ -81,6 +84,17 @@ public class FPCharacterMotor : MonoBehaviour
 
         m_Velocity.y = cacheY;
         m_Velocity.y -= m_Gravity * Time.deltaTime;
+
+        if (m_Velocity.x == 0 && !m_Shooter.isShooting)
+        {
+            //m_Animation.SetBool("Walking", false);
+            //m_Animation.speed = 0.0f;
+        }
+        else
+        {
+            //m_Animation.speed = 1.0f;
+            //m_Animation.SetBool("Walking", true);
+        }
 
         Vector3 trueVelocity = m_Velocity;
         trueVelocity.x *= m_MoveSpeed;
