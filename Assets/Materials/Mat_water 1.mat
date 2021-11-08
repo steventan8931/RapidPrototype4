@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_water
+  m_Name: Mat_water 1
   m_Shader: {fileID: -6465566751694194690, guid: 6f4374ddc07c5a94a81832d08ec150b7,
     type: 3}
   m_ShaderKeywords: 
@@ -44,18 +44,22 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_9AA82901_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 86e84c60f3772f44c91f8a63d0f94590, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_1589761D: 1.09
-    - Vector1_1BAB2212: 0.4
-    - Vector1_3E760561: 0.79
-    - Vector1_4EB8EDEB: 2.74
-    - Vector1_B5FDDB27: 0.16
-    - Vector1_B771124B: 4.34
-    - Vector1_E4744B64: 1.21
+    - Vector1_1589761D: 1.31
+    - Vector1_1BAB2212: 4.67
+    - Vector1_3E760561: 3.37
+    - Vector1_4EB8EDEB: 32.7
+    - Vector1_B5FDDB27: 1.18
+    - Vector1_B771124B: 0.08
+    - Vector1_E4744B64: 7.91
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -78,8 +82,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_6F102A2: {r: 0.15819688, g: 0.42821202, b: 0.745283, a: 1}
-    - Color_921667FD: {r: 0.43543077, g: 0.8130753, b: 0.8962264, a: 1}
+    - Color_6F102A2: {r: 0.2747864, g: 0.58966357, b: 0.8962264, a: 1}
+    - Color_921667FD: {r: 0.42114633, g: 0.87502956, b: 0.9811321, a: 1}
     - Color_BDB0A757: {r: 0.1547704, g: 0.5436219, b: 0.6981132, a: 1}
     - Color_E34CAA29: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
