@@ -26,13 +26,17 @@ public class WavesManager : MonoBehaviour
 
     private void Start()
     {
-        //Change to preset objects later
-        EnemySpawner[] tempList = FindObjectsOfType<EnemySpawner>();
-
-        for (int i = 0; i < tempList.Length; i++)
+        //If there are no preset spawners
+        if (m_EnemySpawners.Count <= 0)
         {
-            m_EnemySpawners.Add(tempList[i]);
+            //Change to preset objects later
+            EnemySpawner[] tempList = FindObjectsOfType<EnemySpawner>();
+            for (int i = 0; i < tempList.Length; i++)
+            {
+                m_EnemySpawners.Add(tempList[i]);
+            }
         }
+
         m_CurrentSpawner = m_EnemySpawners[0];
 
         //Update Current Wave Number
