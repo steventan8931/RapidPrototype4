@@ -130,7 +130,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 365, y: 225.6}
+  m_AnchoredPosition: {x: 365, y: 276.2}
   m_SizeDelta: {x: 133.97646, y: 52.773956}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &464301648
@@ -1233,8 +1233,8 @@ MonoBehaviour:
   m_CrystalsAddedRect: {fileID: 464301645}
   m_CrystalAddedCount: {fileID: 154168859}
   m_OnScreen: 0
-  m_TransitionSpeed: 0.75
-  m_FadeSpeed: 100
+  m_TransitionSpeed: 0.5
+  m_FadeSpeed: 50
   m_FadeTimer: 0
 --- !u!1 &7672450341155547914
 GameObject:

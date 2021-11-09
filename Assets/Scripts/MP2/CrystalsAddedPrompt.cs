@@ -24,6 +24,7 @@ public class CrystalsAddedPrompt : MonoBehaviour
         m_WaveManager = FindObjectOfType<WavesManager>();
         m_Inventory = FindObjectOfType<NewInventory>();
         cacheTextColor = m_CrystalAddedCount.color;
+        cacheCrystalCount = m_Inventory.m_MagicCrystalCount;
     }
 
     private void Update()
