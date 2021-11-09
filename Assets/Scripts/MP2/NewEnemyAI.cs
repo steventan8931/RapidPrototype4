@@ -207,29 +207,29 @@ public class NewEnemyAI : MonoBehaviour
         attacked = false;
     }
 
-    //public void receiveDmg(float dmg)
-    //{
-    //    currentHp -= dmg;
-    //    Instantiate(m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
-    //    if (dmg >= 5 && isDead == false)
-    //    {
-    //        m_AudioManager.PlaySound("EnemyHurt");
-    //    }
+    public void receiveDmg(float dmg)
+    {
+        currentHp -= dmg;
+        Instantiate(m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
+        if (dmg >= 5 && isDead == false)
+        {
+            //m_AudioManager.PlaySound("EnemyHurt");
+        }
 
-    //    if (currentHp <= 0)
-    //    {
-    //        if (isDead == false)
-    //        {
-    //            currentHp = 0;
-    //            isDead = true;
-    //            //Play death animation
-    //            EnemyAnimator.SetBool("IsWalking", false);
-    //            EnemyAnimator.SetBool("Dying", true);
-    //            Invoke(nameof(destroywhendead), 5.5f);
-    //            m_AudioManager.PlaySound("EnemyDead");
-    //        }
-    //    }
-    //}
+        if (currentHp <= 0)
+        {
+            if (isDead == false)
+            {
+                currentHp = 0;
+                isDead = true;
+                //Play death animation
+               // EnemyAnimator.SetBool("IsWalking", false);
+                //EnemyAnimator.SetBool("Dying", true);
+                //Invoke(nameof(destroywhendead), 5.5f);
+                //m_AudioManager.PlaySound("EnemyDead");
+            }
+        }
+    }
 
     //void destroywhendead()
     //{

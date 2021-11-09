@@ -73,7 +73,8 @@ public class CannonBullet : MonoBehaviour
                 if (enemy.GetComponent<NewEnemyAI>() != null)
                 {
                     //damage Player
-                    enemy.GetComponent<NewEnemyAI>().currentHp -= m_Damage;
+                    //enemy.GetComponent<NewEnemyAI>().currentHp -= m_Damage;
+                    enemy.GetComponent<NewEnemyAI>().receiveDmg(m_Damage);
                     GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
                     Destroy(effectIns, 2f);
                     //m_AudioManager.PlaySound("EnemyAttack");
