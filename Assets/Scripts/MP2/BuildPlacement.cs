@@ -49,7 +49,6 @@ public class BuildPlacement : MonoBehaviour
         if (m_CurrentPlaceableObject != null)
         {
             MoveObjectToMouse();
-
         }
     }
 
