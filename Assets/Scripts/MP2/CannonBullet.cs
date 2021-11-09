@@ -42,6 +42,11 @@ public class CannonBullet : MonoBehaviour
             }
         }
 
+        if (target == null)
+        {
+            Explode();
+            return;
+        }
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
