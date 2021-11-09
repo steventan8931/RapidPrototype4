@@ -82,6 +82,12 @@ public class WavesManager : MonoBehaviour
         //If there is no current wave
         if (!m_WaveIsActive)
         {
+            //Press Enter to start next round earlier
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                m_NextWaveTimer = m_NextWaveDelay;
+            }
+
             m_NextWaveTimer += Time.deltaTime;
             if (!m_LastRound)
             {

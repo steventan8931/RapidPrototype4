@@ -21,8 +21,8 @@ public class BulletScr : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<NewEnemyAI>().currentHp -= damage;
-            
+            //collision.gameObject.GetComponent<NewEnemyAI>().currentHp -= damage;
+            collision.gameObject.GetComponent<NewEnemyAI>().receiveDmg(damage);
         }
         Destroy(gameObject);
     }
