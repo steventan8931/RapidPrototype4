@@ -77,6 +77,7 @@ public class TurretScr : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(dir);
 
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, Quaternion.AngleAxis(-90f, Vector3.up) * lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        //Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, Quaternion.AngleAxis(90f, Vector3.up) * lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
     private void Shoot()

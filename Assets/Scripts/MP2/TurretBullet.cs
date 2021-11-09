@@ -39,6 +39,7 @@ public class TurretBullet : MonoBehaviour
     {
         //Debug.Log("hit something");
         GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
+
         Destroy(effectIns, 2f);
         Destroy(gameObject);
     }
@@ -50,6 +51,16 @@ public class TurretBullet : MonoBehaviour
         {
             Destroy(gameObject);
             return;
+        }
+    }
+
+    void Damage(Transform enemy)
+    {
+        NewEnemyAI ene = enemy.GetComponent<NewEnemyAI>();
+
+        if (ene != null)
+        {
+           
         }
     }
 }
