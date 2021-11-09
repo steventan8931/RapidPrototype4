@@ -17,6 +17,7 @@ public class CannonBullet : MonoBehaviour
     private float m_ExplodeLifeCounter = 0.0f;
 
     //Movement
+    [SerializeField]
     private Transform target;
     public float speed = 50f;
     public GameObject impactEffect;
