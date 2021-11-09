@@ -38,7 +38,7 @@ public class TurretBullet : MonoBehaviour
 
     private void HitTarget()
     {
-        //Debug.Log("hit something");
+        Debug.Log("hit something");
         GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
         Damage(target);
         Destroy(effectIns, 2f);

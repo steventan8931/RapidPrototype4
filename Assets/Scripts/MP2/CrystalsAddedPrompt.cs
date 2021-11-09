@@ -29,21 +29,21 @@ public class CrystalsAddedPrompt : MonoBehaviour
 
     private void Update()
     {
-        if (m_WaveManager.m_WaveIsActive)
+        //Set up prompt when reward has been given
+        if (!m_WaveManager.m_CurrentSpawner.m_StartSpawning && m_WaveManager.m_WaveIsActive)
         {
-            cacheCrystalCount = m_Inventory.m_MagicCrystalCount;
-        }
-
-        m_CrystalAddedCount.text = m_WaveManager.m_CurrentSpawner.m_CrystalReward.ToString();
-        
-        if (cacheCrystalCount != m_Inventory.m_MagicCrystalCount)
-        {
-            m_OnScreen = true;
+            if (m_WaveManager.m_CurrentSpawner.m_EnemiesRemain <= 0)
+            {
+                m_OnScreen = true;
+            }
         }
         else
         {
             m_OnScreen = false;
         }
+
+        m_CrystalAddedCount.text = m_WaveManager.m_CurrentSpawner.m_CrystalReward.ToString();
+        
             
         if (m_OnScreen)
         {
