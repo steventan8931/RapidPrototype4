@@ -8,6 +8,7 @@ public class TurretBullet : MonoBehaviour
     public float lifetime = 0f;
     public float speed = 50f;
     public GameObject impactEffect;
+    public float dmg = 25f;
     public void Seek(Transform tar)
     {
         target = tar;
@@ -37,8 +38,9 @@ public class TurretBullet : MonoBehaviour
 
     private void HitTarget()
     {
-        //Debug.Log("hit something");
+        Debug.Log("hit something");
         GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
+        Damage(target);
         Destroy(effectIns, 2f);
         Destroy(gameObject);
     }
@@ -50,6 +52,16 @@ public class TurretBullet : MonoBehaviour
         {
             Destroy(gameObject);
             return;
+        }
+    }
+
+    void Damage(Transform enemy)
+    {
+        NewEnemyAI ene = enemy.GetComponent<NewEnemyAI>();
+
+        if (ene != null)
+        {
+            ene.receiveDmg(dmg);
         }
     }
 }

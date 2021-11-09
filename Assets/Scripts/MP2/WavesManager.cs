@@ -7,7 +7,7 @@ public class WavesManager : MonoBehaviour
 {
     [Header("Per Wave Components")]
     public List<EnemySpawner> m_EnemySpawners;
-    private EnemySpawner m_CurrentSpawner;
+    public EnemySpawner m_CurrentSpawner;
     private bool cacheFirstWave = true;
     public bool m_WaveIsActive = false;
 
@@ -74,7 +74,6 @@ public class WavesManager : MonoBehaviour
             {
                 //Add the crystals to player inventory after the round
                 m_PlayerIventory.m_MagicCrystalCount += m_CurrentSpawner.m_CrystalReward;
-
                 m_WaveIsActive = false;
             }
         }
@@ -82,6 +81,12 @@ public class WavesManager : MonoBehaviour
         //If there is no current wave
         if (!m_WaveIsActive)
         {
+            //Press Enter to start next round earlier
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                m_NextWaveTimer = m_NextWaveDelay;
+            }
+
             m_NextWaveTimer += Time.deltaTime;
             if (!m_LastRound)
             {

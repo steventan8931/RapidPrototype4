@@ -17,6 +17,7 @@ public class CannonBullet : MonoBehaviour
     private float m_ExplodeLifeCounter = 0.0f;
 
     //Movement
+    [SerializeField]
     private Transform target;
     public float speed = 50f;
     public GameObject impactEffect;
@@ -41,6 +42,11 @@ public class CannonBullet : MonoBehaviour
             }
         }
 
+        if (target == null)
+        {
+            Explode();
+            return;
+        }
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
@@ -67,7 +73,8 @@ public class CannonBullet : MonoBehaviour
                 if (enemy.GetComponent<NewEnemyAI>() != null)
                 {
                     //damage Player
-                    enemy.GetComponent<NewEnemyAI>().currentHp -= m_Damage;
+                    //enemy.GetComponent<NewEnemyAI>().currentHp -= m_Damage;
+                    enemy.GetComponent<NewEnemyAI>().receiveDmg(m_Damage);
                     GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
                     Destroy(effectIns, 2f);
                     //m_AudioManager.PlaySound("EnemyAttack");

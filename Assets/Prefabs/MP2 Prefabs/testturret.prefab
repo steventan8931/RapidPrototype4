@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 2440067832396348643}
   - component: {fileID: 5286168864573866437}
   - component: {fileID: 1833667682}
+  - component: {fileID: 4894215894590314415}
   m_Layer: 2
   m_Name: testturret
   m_TagString: Floor
@@ -283,6 +284,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StandardModel: {fileID: 2299034643357666927}
   m_InvalidPlacementModel: {fileID: 5458226814612678712}
+--- !u!114 &4894215894590314415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3068935343624889945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f48874ab864c545a2cc24588ac3255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  range: 200
+  fireRate: 1
+  enemyTag: Enemy
+  partToRotate: {fileID: 663232870286630407}
+  turnSpeed: 7
+  bulletPrefab: {fileID: 3165437787736484465, guid: dc57df20a2199914481b59bf5adac4c4,
+    type: 3}
+  firepoint: {fileID: 6263794585127941874}
 --- !u!1 &3522404512139978737
 GameObject:
   m_ObjectHideFlags: 0

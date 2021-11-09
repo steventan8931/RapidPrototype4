@@ -12,18 +12,16 @@ public class TopDownCameraController : MonoBehaviour
     public float m_MouseScrollSpeed = 20.0f;
     public Vector2 m_ScrollLimitYExtents = new Vector2(10.0f, 40.0f);
 
-    private Transform m_PlayerRotation;
+    //private Transform m_PlayerRotation;
+    //private CamSwitcher m_CamSwitcher;
 
     private void Start()
     {
-        m_PlayerRotation = transform.parent.transform;
+        //m_PlayerRotation = transform.parent.transform;
     }
 
     private void Update()
     {
-        //Reset Player Rotation due to camera movements
-        m_PlayerRotation.rotation = Quaternion.Euler(Vector3.zero);
-
         Vector3 cameraPos = transform.localPosition;
 
         //Move Camera with Mouse/Keyboard

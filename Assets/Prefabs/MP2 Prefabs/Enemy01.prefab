@@ -47,15 +47,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf6ca571b5c9dc4091543f052c4f99e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
-  currentHp: 100
+  maxHp: 200
+  currentHp: 200
   isDead: 0
   atkDmg: 10
-  moveSpeed: 50
+  moveSpeed: 75
   attackCD: 2.5
   attacked: 0
   sightRange: 0
-  attackRange: 0.5
+  attackRange: 10
   playerInSight: 0
   playerInAttackRange: 0
   objInAttackRange: 0
@@ -68,7 +68,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 536870912
   attackpoint: {fileID: 8156244424518206232}
-  m_BloodFXPrefab: {fileID: 0}
+  m_BloodFXPrefab: {fileID: 6456249085295041610, guid: 12773b80ff3a30442897cc7b63b8cf37,
+    type: 3}
   m_BloodBlockPrefab: {fileID: 0}
   EnemyAnimator: {fileID: 2454637558661979159}
 --- !u!54 &7332728101455928365

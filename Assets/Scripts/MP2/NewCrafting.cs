@@ -95,8 +95,9 @@ public class NewCrafting : MonoBehaviour
                     if (m_Builder.m_CurrentPlaceableObject == null)
                     {
                         m_Builder.m_CurrentPlaceableObject = Instantiate(m_TurretOnePrefab, Camera.main.transform);
+                        //Disable turret to prevent shooting when not placed
+                        m_Builder.m_CurrentPlaceableObject.GetComponent<TurretScr>().enabled = false;
                         m_Builder.m_CurrentPlaceableObject.transform.parent = null;
-                        //m_Builder.m_CanPlaceMat = m_Builder.m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material;
                         Debug.Log("added tur1");
                         m_EnoughMaterials = false;
                     }
@@ -106,8 +107,9 @@ public class NewCrafting : MonoBehaviour
                     if (m_Builder.m_CurrentPlaceableObject == null)
                     {
                         m_Builder.m_CurrentPlaceableObject = Instantiate(m_TurretTwoPrefab, Camera.main.transform);
+                        //Disable turret to prevent shooting when not placed
+                        m_Builder.m_CurrentPlaceableObject.GetComponent<TurretScr>().enabled = false;
                         m_Builder.m_CurrentPlaceableObject.transform.parent = null;
-                        //m_Builder.m_CanPlaceMat = m_Builder.m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material;
                         Debug.Log("added tur2");
                         m_EnoughMaterials = false;
                     }
