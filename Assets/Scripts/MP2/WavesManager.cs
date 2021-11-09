@@ -24,15 +24,24 @@ public class WavesManager : MonoBehaviour
     public bool m_GameWin = false;
     public bool m_LastRound = false;
 
+
+    private NewInventory m_PlayerIventory;
+
     private void Start()
     {
-        //Change to preset objects later
-        EnemySpawner[] tempList = FindObjectsOfType<EnemySpawner>();
+        m_PlayerIventory = FindObjectOfType<NewInventory>();
 
-        for (int i = 0; i < tempList.Length; i++)
+        //If there are no preset spawners
+        if (m_EnemySpawners.Count <= 0)
         {
-            m_EnemySpawners.Add(tempList[i]);
+            //Change to preset objects later
+            EnemySpawner[] tempList = FindObjectsOfType<EnemySpawner>();
+            for (int i = 0; i < tempList.Length; i++)
+            {
+                m_EnemySpawners.Add(tempList[i]);
+            }
         }
+
         m_CurrentSpawner = m_EnemySpawners[0];
 
         //Update Current Wave Number
@@ -63,6 +72,9 @@ public class WavesManager : MonoBehaviour
         {
             if (m_CurrentSpawner.m_EnemiesRemain <= 0)
             {
+                //Add the crystals to player inventory after the round
+                m_PlayerIventory.m_MagicCrystalCount += m_CurrentSpawner.m_CrystalReward;
+
                 m_WaveIsActive = false;
             }
         }

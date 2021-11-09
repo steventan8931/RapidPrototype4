@@ -19,11 +19,11 @@ public class NewEnemyAI : MonoBehaviour
 
     //state
     public float sightRange, attackRange;
-    public bool playerInSight, playerInAttackRange, objInAttackRange, buddyInAttackRange;
-    public GameObject buddy;
-    public LayerMask playerMask;
+    public bool playerInSight, playerInAttackRange, objInAttackRange, PowerSourceInAttackRange;
+    public GameObject m_AIStartPos;
+
     public LayerMask objMask;
-    public LayerMask buddyMask;
+    public LayerMask PowerSourceMask;
 
     public Transform attackpoint;
 
@@ -39,9 +39,9 @@ public class NewEnemyAI : MonoBehaviour
 
     private void Awake()
     {
-        buddy = GameObject.FindGameObjectWithTag("Buddy");
+        m_AIStartPos = GameObject.FindGameObjectWithTag("AIStart");
     }
-
+    
     private void Start()
     {
         m_AudioManager = FindObjectOfType<AudioManager>();
@@ -53,15 +53,16 @@ public class NewEnemyAI : MonoBehaviour
         {
             //playerInAttackRange = Physics.CheckSphere(attackpoint.position, attackRange, playerMask);
             //objInAttackRange = Physics.CheckSphere(attackpoint.position, attackRange, objMask);
-            //buddyInAttackRange = Physics.CheckSphere(attackpoint.position, attackRange, buddyMask);
+            PowerSourceInAttackRange = Physics.CheckSphere(attackpoint.position, attackRange, PowerSourceMask);
             if (objInAttackRange)
             {
                 //attackObj();
 
             }
-            else if (buddyInAttackRange)
+            else if (PowerSourceInAttackRange)
             {
-                //attackBuddy();
+                attackPowerSource();
+                Debug.Log("attacking");
 
             }
             else if (playerInAttackRange)
@@ -96,7 +97,7 @@ public class NewEnemyAI : MonoBehaviour
     public float checkDisBuddy()
     {
         float distance;
-        distance = Vector3.Distance(transform.position, buddy.transform.position);
+        distance = Vector3.Distance(transform.position, m_AIStartPos.transform.position);
         return distance;
     }
 
@@ -109,10 +110,10 @@ public class NewEnemyAI : MonoBehaviour
     void moveFunc()
     {
         // move towards to buddy directly
-        Vector3 tempTarget = buddy.transform.position;
+        Vector3 tempTarget = m_AIStartPos.transform.position;
         tempTarget.y = gameObject.transform.position.y;
         transform.LookAt(tempTarget);
-        transform.position = moveTowards(buddy);
+        transform.position = moveTowards(m_AIStartPos);
         transform.position = new Vector3(transform.position.x, tempTarget.y, transform.position.z);
         //EnemyAnimator.SetBool("IsAttacking", false);
         //EnemyAnimator.SetBool("IsWalking", true);
@@ -159,80 +160,52 @@ public class NewEnemyAI : MonoBehaviour
     //        Invoke(nameof(resetAttack), attackCD);
     //    }
     //}
-    //void attackPlayer()
-    //{
-    //    EnemyAnimator.SetBool("IsWalking", false);
-    //    if (!attacked)
-    //    {
-    //        Collider[] hitobjects = Physics.OverlapSphere(attackpoint.position, attackRange, playerMask);
-    //        // Damage enemies
-    //        foreach (Collider enemy in hitobjects)
-    //        {
-    //            if (enemy.GetComponent<PlayerScr>() != null)
-    //            {
-    //                //damage Player
-    //                enemy.GetComponent<PlayerScr>().receiveDmg((int)atkDmg);
-    //                EnemyAnimator.SetBool("IsAttacking", true);
-    //                Instantiate(m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
-    //                m_AudioManager.PlaySound("EnemyAttack");
-    //            }
-    //            //debug message
-    //            Debug.Log("enemy hit" + enemy.name);
 
-    //        }
 
-    //        //do damage
-    //        print("attacking!");
-    //        //add animation here
+    void attackPowerSource()
+    {
+        EnemyAnimator.SetBool("IsWalking", false);
+        if (!attacked)
+        {
+            Collider[] hitobjects = Physics.OverlapSphere(attackpoint.position, attackRange, PowerSourceMask);
+            // Damage enemies
+            foreach (Collider enemy in hitobjects)
+            {
+                if (enemy.GetComponent<PowerSource>() != null)
+                {
+                    //damage Player
+                    enemy.GetComponent<PowerSource>().receiveDmg(atkDmg);
+                    EnemyAnimator.SetBool("IsAttacking", true);
+                    //m_AudioManager.PlaySound("EnemyAttack");
+                }
+                //debug message
+                Debug.Log("enemy hit" + enemy.name);
 
-    //        attacked = true;
-    //        Invoke(nameof(resetAttack), attackCD);
-    //    }
-    //}
+            }
 
-    //void attackBuddy()
-    //{
-    //    EnemyAnimator.SetBool("IsWalking", false);
-    //    if (!attacked)
-    //    {
-    //        Collider[] hitobjects = Physics.OverlapSphere(attackpoint.position, attackRange, buddyMask);
-    //        // Damage enemies
-    //        foreach (Collider enemy in hitobjects)
-    //        {
-    //            if (enemy.GetComponent<BuddyScr>() != null)
-    //            {
-    //                //damage Player
-    //                enemy.GetComponent<BuddyScr>().receiveDmg(atkDmg);
-    //                EnemyAnimator.SetBool("IsAttacking", true);
-    //                m_AudioManager.PlaySound("EnemyAttack");
-    //            }
-    //            //debug message
-    //            Debug.Log("enemy hit" + enemy.name);
+            //do damage
+            print("attacking!");
+            //add animation here
 
-    //        }
+            attacked = true;
+            Invoke(nameof(resetAttack), attackCD);
+        }
+    }
 
-    //        //do damage
-    //        print("attacking!");
-    //        //add animation here
+    private void OnDrawGizmosSelected()
+    {
+        if (attackpoint == null)
+        {
+            return;
+        }
 
-    //        attacked = true;
-    //        Invoke(nameof(resetAttack), attackCD);
-    //    }
-    //}
-    //private void OnDrawGizmosSelected()
-    //{
-    //    if (attackpoint == null)
-    //    {
-    //        return;
-    //    }
+        Gizmos.DrawWireSphere(attackpoint.position, attackRange);
+    }
 
-    //    Gizmos.DrawWireSphere(attackpoint.position, attackRange);
-    //}
-
-    //void resetAttack()
-    //{
-    //    attacked = false;
-    //}
+    void resetAttack()
+    {
+        attacked = false;
+    }
 
     //public void receiveDmg(float dmg)
     //{

@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2454637557840505084}
-  - component: {fileID: 2454637557840505085}
   - component: {fileID: 2454637557840505086}
   - component: {fileID: 7332728101455928365}
-  m_Layer: 0
+  - component: {fileID: 6739159133717039720}
+  m_Layer: 11
   m_Name: Enemy01
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,23 +31,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2454637558133343598}
+  - {fileID: 8156244424518206232}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &2454637557840505085
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2454637557840505087}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.7
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!114 &2454637557840505086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,30 +47,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf6ca571b5c9dc4091543f052c4f99e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
-  currentHp: 100
+  maxHp: 200
+  currentHp: 200
   isDead: 0
   atkDmg: 10
-  moveSpeed: 5
+  moveSpeed: 75
   attackCD: 2.5
   attacked: 0
   sightRange: 0
-  attackRange: 0
+  attackRange: 0.5
   playerInSight: 0
   playerInAttackRange: 0
   objInAttackRange: 0
-  buddyInAttackRange: 0
-  buddy: {fileID: 0}
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 0
+  PowerSourceInAttackRange: 0
+  m_AIStartPos: {fileID: 0}
   objMask:
     serializedVersion: 2
     m_Bits: 0
-  buddyMask:
+  PowerSourceMask:
     serializedVersion: 2
-    m_Bits: 16384
-  attackpoint: {fileID: 0}
+    m_Bits: 536870912
+  attackpoint: {fileID: 8156244424518206232}
   m_BloodFXPrefab: {fileID: 0}
   m_BloodBlockPrefab: {fileID: 0}
   EnemyAnimator: {fileID: 2454637558661979159}
@@ -103,6 +87,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!136 &6739159133717039720
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2454637557840505087}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.8
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.7, z: 0.1}
 --- !u!1 &2454637557920430765
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +110,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2454637557920430764}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Base HumanNeck2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2454637557936044751}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Base Human
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +171,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2454637557941396767}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Base HumanSpine4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2454637557954191576}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Base HumanLThigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2454637558114328190}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Base HumanPelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2454637558133343598}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +298,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2454637558139583594}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Base HumanSpine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,7 +329,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2454637558229044772}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Base HumanLPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +359,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2454637558273455466}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Base HumanSpine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,7 +391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2454637558661979158}
   - component: {fileID: 2454637558661979159}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy_01
   m_TagString: Buddy
   m_Icon: {fileID: 0}
@@ -447,7 +445,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2454637558662134450}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Base HumanRibcage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,7 +476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2454637558722243690}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Base HumanSpine3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +507,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2454637559078811643}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Base HumanRLegThigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -540,7 +538,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2454637559220743774}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Base HumanRLegPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -570,7 +568,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2454637559258622621}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Base HumanLFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,7 +598,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2454637559359041176}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Base HumanHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -630,7 +628,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2454637559400190284}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Base HumanRLegFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -661,7 +659,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2454637559500853427}
   - component: {fileID: 2454637559500853426}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -751,7 +749,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2454637559741742896}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Base HumanNeck1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -772,4 +770,34 @@ Transform:
   - {fileID: 2454637557920430764}
   m_Father: {fileID: 2454637558662134450}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5623256032390098419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8156244424518206232}
+  m_Layer: 11
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8156244424518206232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5623256032390098419}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.602, z: 0.674}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2454637557840505084}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

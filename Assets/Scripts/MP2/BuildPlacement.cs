@@ -49,7 +49,6 @@ public class BuildPlacement : MonoBehaviour
         if (m_CurrentPlaceableObject != null)
         {
             MoveObjectToMouse();
-
         }
     }
 
@@ -67,9 +66,11 @@ public class BuildPlacement : MonoBehaviour
         //If object has a collider
         if (hitInfo.collider != null)
         {
-            if (!hitInfo.collider.gameObject.CompareTag("Wall"))
+            if (!hitInfo.collider.gameObject.CompareTag("Floor") && !hitInfo.collider.gameObject.CompareTag("Enemy"))
             {
-                m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material = m_CanPlaceMat;
+                //m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material = m_CanPlaceMat;
+                m_CurrentPlaceableObject.GetComponent<PlaceableObject>().CheckValid(true);
+
                 BoxCollider PlaceableCollider = m_CurrentPlaceableObject.gameObject.GetComponent<BoxCollider>();
                 PlaceableCollider.isTrigger = true;
                 Vector3 BoxCenter = m_CurrentPlaceableObject.gameObject.transform.position + PlaceableCollider.center;
@@ -82,6 +83,8 @@ public class BuildPlacement : MonoBehaviour
                         //PlaceableCollider.isTrigger = false;
                         m_CurrentPlaceableObject.layer = 30;
                         m_Crafting.m_Inventory.m_MagicCrystalCount -= m_Crafting.m_Cost;
+                        //reenable turret script afte being placed
+                        m_CurrentPlaceableObject.GetComponent<TurretScr>().enabled = true;
                         Debug.Log("craft cost" + m_Crafting.m_Cost);
                         m_CurrentPlaceableObject = null;
                     }
@@ -89,7 +92,8 @@ public class BuildPlacement : MonoBehaviour
             }
             else
             {
-                m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material = m_CantPlaceMat;
+                //m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material = m_CantPlaceMat;
+                m_CurrentPlaceableObject.GetComponent<PlaceableObject>().CheckValid(false);
             }
         }
 

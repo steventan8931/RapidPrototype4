@@ -26,19 +26,23 @@ public class ShootingScr : MonoBehaviour
     public TextMeshProUGUI ammoDisplay;
     public GameObject ReloadReminder;
     public CamSwitcher camswitcher;
+
+    private FPCharacterMotor m_CharacterMotor;
+
     private void Awake()
     {
         bulletsLeft = magazineSize;
         rdyToShoot = true;
         camswitcher = FindObjectOfType<CamSwitcher>();
+        m_CharacterMotor = FindObjectOfType<FPCharacterMotor>();
     }
 
     private void Update()
     {
-        if(!camswitcher.m_IsFirstPerson)
-        {
-            return;
-        }
+        //if(!camswitcher.m_IsFirstPerson)
+        //{
+        //    return;
+        //}
         shootInput();
 
         if(ammoDisplay != null)
@@ -77,7 +81,8 @@ public class ShootingScr : MonoBehaviour
     private void Shoot()
     {
         rdyToShoot = false;
-
+        m_CharacterMotor.m_Animation.SetBool("Shooting", true);
+        m_CharacterMotor.m_Animation.speed = 1.0f;
         //find hit position using raycast
         Ray ray = Cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
@@ -131,6 +136,8 @@ public class ShootingScr : MonoBehaviour
 
     void ResetShot()
     {
+        m_CharacterMotor.m_Animation.SetBool("Shooting", false);
+        //m_CharacterMotor.m_Animation.speed = 0.0f;
         //allow shooting and invoke again
         rdyToShoot = true;
         allowInvoke = true;
