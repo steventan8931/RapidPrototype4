@@ -1373,6 +1373,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cannontestturret
       objectReference: {fileID: 0}
+    - target: {fileID: 6026180983628609689, guid: 4e8aaa8e8b729644cb445392b5dad83c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6407103851368145443, guid: 4e8aaa8e8b729644cb445392b5dad83c,
         type: 3}
       propertyPath: m_RootOrder
@@ -1576,6 +1581,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: testturret
       objectReference: {fileID: 0}
+    - target: {fileID: 3068935343624889945, guid: 8d117fa8fbb64af49896dd8646b2422b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d117fa8fbb64af49896dd8646b2422b, type: 3}
 --- !u!1001 &6234935403087618195
@@ -1675,6 +1685,11 @@ PrefabInstance:
       propertyPath: m_MagicCrystalUI
       value: 
       objectReference: {fileID: 2144572316}
+    - target: {fileID: 6234935403755660581, guid: 59c888afdd87bce4aba74eee82dfa292,
+        type: 3}
+      propertyPath: m_MagicCrystalCount
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59c888afdd87bce4aba74eee82dfa292, type: 3}
 --- !u!1001 &7505655986259667876
@@ -1684,6 +1699,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7302935908742542641, guid: cd574583b61f92944a6281c4766aa19a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302935908742542641, guid: cd574583b61f92944a6281c4766aa19a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302935908742542641, guid: cd574583b61f92944a6281c4766aa19a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302935908742542641, guid: cd574583b61f92944a6281c4766aa19a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 591
+      objectReference: {fileID: 0}
     - target: {fileID: 7505655986078381177, guid: cd574583b61f92944a6281c4766aa19a,
         type: 3}
       propertyPath: m_Name
@@ -1867,6 +1902,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NewHUDCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7672450341033320872, guid: f7dd21203abab8f478510edd2c232ff4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7dd21203abab8f478510edd2c232ff4, type: 3}
