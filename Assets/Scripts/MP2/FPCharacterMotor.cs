@@ -87,13 +87,13 @@ public class FPCharacterMotor : MonoBehaviour
 
         if (m_Velocity.x == 0 && !m_Shooter.isShooting)
         {
-            //m_Animation.SetBool("Walking", false);
+            m_Animation.SetBool("Walking", false);
             //m_Animation.speed = 0.0f;
         }
         else
         {
             //m_Animation.speed = 1.0f;
-            //m_Animation.SetBool("Walking", true);
+            m_Animation.SetBool("Walking", true);
         }
 
         Vector3 trueVelocity = m_Velocity;
