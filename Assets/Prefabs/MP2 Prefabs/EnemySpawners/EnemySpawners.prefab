@@ -49,6 +49,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 317870168934159013, guid: 4be8e76f6046b014aa7958d69249f05a,
         type: 3}
+      propertyPath: m_Enemy2Prefab
+      value: 
+      objectReference: {fileID: 1168150980158287198, guid: 76cb9fdf74a05b9439e0053537bcef02,
+        type: 3}
+    - target: {fileID: 317870168934159013, guid: 4be8e76f6046b014aa7958d69249f05a,
+        type: 3}
       propertyPath: m_CrystalReward
       value: 10
       objectReference: {fileID: 0}
@@ -61,6 +67,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_MoveSpeedBoost
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317870168934159013, guid: 4be8e76f6046b014aa7958d69249f05a,
+        type: 3}
+      propertyPath: m_EnemiesSnakeToSpawn
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 317870168934159014, guid: 4be8e76f6046b014aa7958d69249f05a,
         type: 3}
@@ -154,12 +165,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 317870168934159013, guid: 4be8e76f6046b014aa7958d69249f05a,
         type: 3}
+      propertyPath: m_Enemy2Prefab
+      value: 
+      objectReference: {fileID: 1168150980158287198, guid: 76cb9fdf74a05b9439e0053537bcef02,
+        type: 3}
+    - target: {fileID: 317870168934159013, guid: 4be8e76f6046b014aa7958d69249f05a,
+        type: 3}
       propertyPath: m_CrystalReward
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 317870168934159013, guid: 4be8e76f6046b014aa7958d69249f05a,
         type: 3}
       propertyPath: m_EnemiesToSpawn
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 317870168934159013, guid: 4be8e76f6046b014aa7958d69249f05a,
+        type: 3}
+      propertyPath: m_EnemiesSnakeToSpawn
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 317870168934159014, guid: 4be8e76f6046b014aa7958d69249f05a,
@@ -257,6 +279,12 @@ PrefabInstance:
       propertyPath: m_SpawnDelay
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 317870168934159013, guid: 4be8e76f6046b014aa7958d69249f05a,
+        type: 3}
+      propertyPath: m_Enemy2Prefab
+      value: 
+      objectReference: {fileID: 1168150980158287198, guid: 76cb9fdf74a05b9439e0053537bcef02,
+        type: 3}
     - target: {fileID: 317870168934159013, guid: 4be8e76f6046b014aa7958d69249f05a,
         type: 3}
       propertyPath: m_CrystalReward
@@ -369,6 +397,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 317870168934159013, guid: 4be8e76f6046b014aa7958d69249f05a,
         type: 3}
+      propertyPath: m_Enemy2Prefab
+      value: 
+      objectReference: {fileID: 1168150980158287198, guid: 76cb9fdf74a05b9439e0053537bcef02,
+        type: 3}
+    - target: {fileID: 317870168934159013, guid: 4be8e76f6046b014aa7958d69249f05a,
+        type: 3}
       propertyPath: m_CrystalReward
       value: 20
       objectReference: {fileID: 0}
@@ -477,6 +511,12 @@ PrefabInstance:
       propertyPath: m_SpawnDelay
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 317870168934159013, guid: 4be8e76f6046b014aa7958d69249f05a,
+        type: 3}
+      propertyPath: m_Enemy2Prefab
+      value: 
+      objectReference: {fileID: 1168150980158287198, guid: 76cb9fdf74a05b9439e0053537bcef02,
+        type: 3}
     - target: {fileID: 317870168934159013, guid: 4be8e76f6046b014aa7958d69249f05a,
         type: 3}
       propertyPath: m_CrystalReward

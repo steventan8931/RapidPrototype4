@@ -41,7 +41,7 @@ public class NewEnemyAI : MonoBehaviour
     {
         m_AIStartPos = GameObject.FindGameObjectWithTag("AIStart");
     }
-
+    
     private void Start()
     {
         m_AudioManager = FindObjectOfType<AudioManager>();

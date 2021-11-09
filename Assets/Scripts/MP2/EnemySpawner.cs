@@ -5,6 +5,9 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject m_EnemyPrefab;
+    public GameObject m_Enemy2Prefab;
+    //public GameObject m_Enemy3Prefab;
+
     public int m_CrystalReward = 10;
     public float m_MoveSpeedBoost = 0.0f;
     public float m_HPBoost = 0.0f;
@@ -15,8 +18,9 @@ public class EnemySpawner : MonoBehaviour
     public bool m_StartSpawning = false;
     public int m_EnemiesToSpawn = 5;
     public int m_EnemiesSpawned = 0;
-
     public int m_EnemiesRemain = 0;
+
+    public int m_EnemiesSnakeToSpawn = 0;
 
     private void Start()
     {
@@ -35,11 +39,25 @@ public class EnemySpawner : MonoBehaviour
                 if (m_SpawnTimer > m_SpawnDelay)
                 {
                     Debug.Log("spawned");
-                    GameObject temp = Instantiate(m_EnemyPrefab, transform);
+
+                    GameObject temp;
+
+                    //If there are enemy snakes to spawn
+                    if (m_EnemiesSnakeToSpawn > 0)
+                    {
+                        //Spawn all the snakes first
+                        temp = Instantiate(m_Enemy2Prefab, transform);
+                    }
+                    else //Spawn default enemy
+                    {
+                        temp = Instantiate(m_EnemyPrefab, transform);
+                    }
+
                     temp.GetComponent<NewEnemyAI>().moveSpeed += m_MoveSpeedBoost;
                     temp.GetComponent<NewEnemyAI>().maxHp += m_HPBoost;
                     temp.GetComponent<NewEnemyAI>().currentHp += m_HPBoost;
 
+                    m_EnemiesSnakeToSpawn--;    
                     m_EnemiesSpawned++;
                     m_SpawnTimer = 0.0f;
                 }
