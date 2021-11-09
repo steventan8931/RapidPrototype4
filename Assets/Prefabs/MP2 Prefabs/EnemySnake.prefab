@@ -77,11 +77,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf6ca571b5c9dc4091543f052c4f99e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
-  currentHp: 100
+  maxHp: 200
+  currentHp: 200
   isDead: 0
   atkDmg: 10
-  moveSpeed: 50
+  moveSpeed: 75
   attackCD: 2.5
   attacked: 0
   sightRange: 0
