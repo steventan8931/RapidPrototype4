@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Damage: 50
-  m_LifeTime: 10
+  m_LifeTime: 0.5
   m_EnemyMask:
     serializedVersion: 2
     m_Bits: 2048
@@ -115,6 +115,6 @@ MonoBehaviour:
   m_Exploded: 0
   m_ExplodeLifeTime: 0
   target: {fileID: 0}
-  speed: 100
+  speed: 200
   impactEffect: {fileID: 8672328601254370654, guid: 772085efea2ad534e93adeb119df1b39,
     type: 3}
