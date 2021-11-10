@@ -10,7 +10,7 @@ public class TurretScr : MonoBehaviour
 
     public float range = 20f;
     public float fireRate = 1f;
-    private float fireCountdown = 0f;
+    protected float fireCountdown = 0f;
 
     [Header("Unity setup fields")]
     public string enemyTag = "Enemy";
@@ -28,7 +28,7 @@ public class TurretScr : MonoBehaviour
         UpdateTarget();
     }
 
-    void UpdateTarget()
+    protected void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDist = Mathf.Infinity;
@@ -53,7 +53,7 @@ public class TurretScr : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         UpdateTarget();
         if(target == null)
@@ -70,7 +70,7 @@ public class TurretScr : MonoBehaviour
         }
         fireCountdown -= Time.deltaTime;
     }
-    private void rotateToTarget()
+    protected void rotateToTarget()
     {
         Vector3 dir = target.position - transform.position;
 

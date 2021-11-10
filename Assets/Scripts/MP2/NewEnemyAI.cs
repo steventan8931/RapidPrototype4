@@ -38,8 +38,8 @@ public class NewEnemyAI : MonoBehaviour
     bool cacheDeath = false;
 
     //Ice and Fire
-    bool onFire = false;
-    bool onIce = false;
+    public bool onFire = false;
+    public bool onIce = false;
     float debuffTimer = 4f;
     float currDebuff = 0f;
     private void Awake()
