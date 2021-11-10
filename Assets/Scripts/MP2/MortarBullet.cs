@@ -14,6 +14,7 @@ public class MortarBullet : MonoBehaviour
     public Rigidbody bulletBody;
     public float h = 25;
     public float gravity = -18;
+    public float explodeRad = 10f;
 
     private void Awake()
     {
@@ -99,5 +100,22 @@ public class MortarBullet : MonoBehaviour
         Vector3 velocityXZ = displacementXZ / time;
 
         return velocityXZ + velocityY * -Mathf.Sign(gravity);
+    }
+    void Explode()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explodeRad);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.tag == "Enemy")
+            {
+                Damage(collider.transform);
+            }
+        }
+        //Add effect here
+        Destroy(gameObject);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Explode();
     }
 }
