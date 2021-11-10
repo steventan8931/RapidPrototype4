@@ -20557,6 +20557,26 @@ PrefabInstance:
       propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6234935404548534847, guid: 59c888afdd87bce4aba74eee82dfa292,
+        type: 3}
+      propertyPath: m_PanLimitXExtents.x
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234935404548534847, guid: 59c888afdd87bce4aba74eee82dfa292,
+        type: 3}
+      propertyPath: m_PanLimitZExtents.x
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234935404548534847, guid: 59c888afdd87bce4aba74eee82dfa292,
+        type: 3}
+      propertyPath: m_PanLimitZExtents.y
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234935404548534847, guid: 59c888afdd87bce4aba74eee82dfa292,
+        type: 3}
+      propertyPath: m_ScrollLimitYExtents.y
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 7839073854210918218, guid: 59c888afdd87bce4aba74eee82dfa292,
         type: 3}
       propertyPath: m_CastShadows
