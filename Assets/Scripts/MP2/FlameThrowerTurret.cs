@@ -23,13 +23,11 @@ public class FlameThrowerTurret : TurretScr
         UpdateTarget();
         if (target == null)
         {
-            Debug.Log("no turret");
+            FlameThrower.SetActive(false);
             return;
         }
         else
         {
-            Debug.Log("enemy found");
-
         }
 
         fireCountdown += Time.deltaTime;
@@ -39,8 +37,6 @@ public class FlameThrowerTurret : TurretScr
         if (fireCountdown <= m_FlameDuration)
         {
             NewShoot();
-            Debug.Log("fired turret ball");
-
         }
         else
         {
