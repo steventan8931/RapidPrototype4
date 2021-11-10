@@ -37,6 +37,11 @@ public class NewEnemyAI : MonoBehaviour
     //EnemySpawner
     bool cacheDeath = false;
 
+    //Ice and Fire
+    bool onFire = false;
+    bool onIce = false;
+    float debuffTimer = 4f;
+    float currDebuff = 0f;
     private void Awake()
     {
         m_AIStartPos = GameObject.FindGameObjectWithTag("AIStart");
@@ -53,6 +58,7 @@ public class NewEnemyAI : MonoBehaviour
         {
             //playerInAttackRange = Physics.CheckSphere(attackpoint.position, attackRange, playerMask);
             //objInAttackRange = Physics.CheckSphere(attackpoint.position, attackRange, objMask);
+            calDebuff();
             PowerSourceInAttackRange = Physics.CheckSphere(attackpoint.position, attackRange, PowerSourceMask);
             if (objInAttackRange)
             {
@@ -102,8 +108,15 @@ public class NewEnemyAI : MonoBehaviour
     }
 
     Vector3 moveTowards(GameObject target)
-    {        
-        return Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+    {
+        if (onIce)
+        {
+            return Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * 0.75f * Time.deltaTime);
+        }
+        else
+        {
+            return Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+        }
 
     }
 
@@ -118,6 +131,8 @@ public class NewEnemyAI : MonoBehaviour
         //EnemyAnimator.SetBool("IsAttacking", false);
         //EnemyAnimator.SetBool("IsWalking", true);
     }
+
+    
 
 
     //void attackObj()
@@ -230,7 +245,60 @@ public class NewEnemyAI : MonoBehaviour
             }
         }
     }
+   public void caughtFire()
+    {
+        if(onIce == true)
+        {
+            onIce = false;
+            currDebuff = 0;
+            return;
+        }else
+        {
+            onFire = true;
+            currDebuff = debuffTimer;
+        }
 
+    }
+    public void caughtIce()
+    {
+        if (onFire == true)
+        {
+            onFire = false;
+            currDebuff = 0;
+            return;
+        }
+        else
+        {
+            onIce = true;
+            currDebuff = debuffTimer;
+        }
+
+    }
+    void calDebuff()
+    {
+        if(onFire == true)
+        {
+            currentHp -= 10 * Time.deltaTime;
+            currDebuff -= Time.deltaTime;
+            if(currDebuff <= 0)
+            {
+                currDebuff = 0;
+                onFire = false;
+            }
+        }
+
+        if (onIce == true)
+        {
+            currentHp -= 4 * Time.deltaTime;
+            currDebuff -= Time.deltaTime;
+            if (currDebuff <= 0)
+            {
+                currDebuff = 0;
+                onIce = false;
+            }
+        }
+
+    }
     //void destroywhendead()
     //{
     //    Instantiate(m_BloodBlockPrefab, transform.position, Quaternion.identity);

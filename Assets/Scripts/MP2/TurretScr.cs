@@ -85,7 +85,7 @@ public class TurretScr : MonoBehaviour
         GameObject bulletgo = (GameObject)Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
         TurretBullet bullet = bulletgo.GetComponent<TurretBullet>();
         CannonBullet canbullet = bulletgo.GetComponent<CannonBullet>();
-
+        MortarBullet morbullet = bulletgo.GetComponent<MortarBullet>();
         if (bullet != null)
         {
             bullet.Seek(target);
@@ -95,6 +95,10 @@ public class TurretScr : MonoBehaviour
         if (canbullet != null)
         {
             canbullet.Seek(target);
+        }
+        if(morbullet != null)
+        {
+            morbullet.Seek(target);
         }
     }
 

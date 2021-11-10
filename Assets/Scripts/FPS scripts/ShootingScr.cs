@@ -7,7 +7,7 @@ using TMPro;
 public class ShootingScr : MonoBehaviour
 {
     //bullet param
-    public GameObject bullet;
+    public GameObject bullet,fireBullet,iceBullet;
     public float shootForce, upwardForce;
 
     //weapon stat
@@ -18,12 +18,14 @@ public class ShootingScr : MonoBehaviour
     public int bulletsLeft, bulletsShot;
 
     public bool isShooting, rdyToShoot, reloading;
+    public int bulletType = 1;
 
     public bool allowInvoke;
     public Camera Cam;
     public Transform attackPoint;
 
     public TextMeshProUGUI ammoDisplay;
+    public TextMeshProUGUI ammoType;
     public GameObject ReloadReminder;
     public CamSwitcher camswitcher;
 
@@ -39,18 +41,41 @@ public class ShootingScr : MonoBehaviour
 
     private void Update()
     {
-        //if(!camswitcher.m_IsFirstPerson)
-        //{
-        //    return;
-        //}
+        if(!camswitcher.m_IsFirstPerson)
+        {
+            return;
+        }
+        switchAmmo();
         shootInput();
+        textDraw();
+        
 
-        if(ammoDisplay != null)
+    }
+    void textDraw()
+    {
+        if (ammoDisplay != null)
         {
             ammoDisplay.SetText(bulletsLeft / bulletsPerTap + "/" + magazineSize / bulletsPerTap);
         }
-    }
+        if(ammoType != null)
+        {
+            if(bulletType == 1)
+            {
+                ammoType.SetText("Regular Bullet");
+            }
 
+            if (bulletType == 2)
+            {
+                ammoType.SetText("Fire Bullet");
+            }
+
+            if (bulletType == 3)
+            {
+                ammoType.SetText("Ice Bullet");
+            }
+
+        }
+    }
     void shootInput()
     {
         //if allowed to hold down button to shoot
@@ -77,7 +102,23 @@ public class ShootingScr : MonoBehaviour
             Shoot();
         }
     }
+    void switchAmmo()
+    {
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            bulletType = 1;
+        }
 
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            bulletType = 2;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            bulletType = 3;
+        }
+    }
     private void Shoot()
     {
         rdyToShoot = false;
@@ -110,7 +151,19 @@ public class ShootingScr : MonoBehaviour
         Vector3 directionWithSpread = directionWithoutSpread + new Vector3(x, y, 0);
 
         //Spawn bullet
-        GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
+        GameObject currentBullet = null;
+        if (bulletType == 1)
+        {
+           currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
+        }
+        if(bulletType == 2)
+        {
+           currentBullet = Instantiate(fireBullet, attackPoint.position, Quaternion.identity);
+        }
+        if (bulletType == 3)
+        {
+            currentBullet = Instantiate(iceBullet, attackPoint.position, Quaternion.identity);
+        }
         Debug.Log("fired one bullet!");
         //rotate bullet to shoot direction
         currentBullet.transform.forward = directionWithSpread.normalized;
