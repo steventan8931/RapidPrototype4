@@ -127,7 +127,8 @@ MonoBehaviour:
   speed: 50
   impactEffect: {fileID: 9097763849067715483, guid: 89656aefe39cce44ea39b549eb135408,
     type: 3}
-  dmg: 25
+  dmg: 50
   bulletBody: {fileID: 8550196204669685538}
   h: 25
   gravity: -18
+  explodeRad: 10
