@@ -17,6 +17,10 @@ public class NewCrafting : MonoBehaviour
     public GameObject m_TurretOneUI;
     public GameObject m_TurretTwoPrefab;
     public GameObject m_TurretTwoUI;
+    public GameObject m_TurretThreePrefab;
+    public GameObject m_TurretThreeUI;
+    public GameObject m_TurretFourPrefab;
+    public GameObject m_TurretFourUI;
 
     private CamSwitcher m_CamSwitcher;
     private void Start()
@@ -55,7 +59,9 @@ public class NewCrafting : MonoBehaviour
 
         //Order -> SetItemCostCount -> SetItemCost - > AddItem
         UpdateSlot(1, m_TurretOneUI);
-        UpdateSlot(2, m_TurretTwoUI);
+        UpdateSlot(1, m_TurretTwoUI);
+        UpdateSlot(1, m_TurretThreeUI);
+        UpdateSlot(1, m_TurretFourUI);
     }
 
     public void SetItemCostCount(int _ItemCostCount)
@@ -76,6 +82,20 @@ public class NewCrafting : MonoBehaviour
                 }
                 break;
             case "m_Turret2":
+                if (m_Inventory.m_MagicCrystalCount >= m_Cost)
+                {
+                    m_ItemName = _ItemName;
+                    m_EnoughMaterials = true;
+                }
+                break;
+            case "m_Turret3":
+                if (m_Inventory.m_MagicCrystalCount >= m_Cost)
+                {
+                    m_ItemName = _ItemName;
+                    m_EnoughMaterials = true;
+                }
+                break;
+            case "m_Turret4":
                 if (m_Inventory.m_MagicCrystalCount >= m_Cost)
                 {
                     m_ItemName = _ItemName;
@@ -111,6 +131,28 @@ public class NewCrafting : MonoBehaviour
                         m_Builder.m_CurrentPlaceableObject.GetComponent<TurretScr>().enabled = false;
                         m_Builder.m_CurrentPlaceableObject.transform.parent = null;
                         Debug.Log("added tur2");
+                        m_EnoughMaterials = false;
+                    }
+                    break;
+                case "m_Turret3":
+                    if (m_Builder.m_CurrentPlaceableObject == null)
+                    {
+                        m_Builder.m_CurrentPlaceableObject = Instantiate(m_TurretThreePrefab, Camera.main.transform);
+                        //Disable turret to prevent shooting when not placed
+                        m_Builder.m_CurrentPlaceableObject.GetComponent<TurretScr>().enabled = false;
+                        m_Builder.m_CurrentPlaceableObject.transform.parent = null;
+                        Debug.Log("added tur3");
+                        m_EnoughMaterials = false;
+                    }
+                    break;
+                case "m_Turret4":
+                    if (m_Builder.m_CurrentPlaceableObject == null)
+                    {
+                        m_Builder.m_CurrentPlaceableObject = Instantiate(m_TurretFourPrefab, Camera.main.transform);
+                        //Disable turret to prevent shooting when not placed
+                        m_Builder.m_CurrentPlaceableObject.GetComponent<TurretScr>().enabled = false;
+                        m_Builder.m_CurrentPlaceableObject.transform.parent = null;
+                        Debug.Log("added tur4");
                         m_EnoughMaterials = false;
                     }
                     break;
