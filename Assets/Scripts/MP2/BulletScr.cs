@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletScr : MonoBehaviour
 {
-    public int damage = 50;
+    public float damage = 50f;
     public float lifetime = 0;
     void Start()
     {

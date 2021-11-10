@@ -147,6 +147,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 599401505501105770, guid: 3f74f199c2d2fdc4cabe74ac98fdd0fe, type: 3}
+  fireBullet: {fileID: 7067444898386650504, guid: 1d8b50026e9ab3f42b2aef45ccbf80c6,
+    type: 3}
+  iceBullet: {fileID: 2223983275142287115, guid: 8a8dfe8dde6a1634788de9d512516aee,
+    type: 3}
   shootForce: 300
   upwardForce: 0
   timeBetweenShooting: 0.47
@@ -161,10 +165,12 @@ MonoBehaviour:
   isShooting: 0
   rdyToShoot: 0
   reloading: 0
+  bulletType: 1
   allowInvoke: 1
   Cam: {fileID: 6234935404435143393}
   attackPoint: {fileID: 241054651}
   ammoDisplay: {fileID: 0}
+  ammoType: {fileID: 0}
   ReloadReminder: {fileID: 0}
   camswitcher: {fileID: 6234935403755660582}
 --- !u!114 &501428716
@@ -268,7 +274,7 @@ MonoBehaviour:
   m_BuildablePrefab: {fileID: 5556377889011743347, guid: c71851e21405bef45aa4152e398372f0,
     type: 3}
   m_CurrentPlaceableObject: {fileID: 0}
-  m_CantPlaceMat: {fileID: 2100000, guid: 9f9cb5dbbf937544e9d1b3ff25a646d0, type: 2}
+  m_CantPlaceMat: {fileID: 0}
   m_CanPlaceMat: {fileID: 0}
 --- !u!114 &6234935403755660582
 MonoBehaviour:
