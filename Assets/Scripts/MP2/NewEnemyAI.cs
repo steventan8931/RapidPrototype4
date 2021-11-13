@@ -29,7 +29,7 @@ public class NewEnemyAI : MonoBehaviour
 
     AudioManager m_AudioManager;
     public GameObject m_BloodFXPrefab;
-    public GameObject m_BloodBlockPrefab;
+    public GameObject m_DeathFXPrefab;
 
     //animation
     public Animator EnemyAnimator;
@@ -88,7 +88,8 @@ public class NewEnemyAI : MonoBehaviour
                 transform.parent.GetComponent<EnemySpawner>().m_EnemiesRemain--;
                 cacheDeath = true;
             }
-
+            GameObject temp = Instantiate(m_DeathFXPrefab,transform);
+            temp.transform.parent = null;
             Destroy(gameObject);
         }
     }
