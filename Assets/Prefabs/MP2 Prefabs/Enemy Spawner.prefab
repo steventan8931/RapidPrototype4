@@ -106,11 +106,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47e609ad94d1f24ba7d268864f920eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EnemyPrefab: {fileID: 2454637557840505087, guid: 92eb55ae90c5d934290e94325903dd39,
+  m_EnemyT1Prefab: {fileID: 4849688766595841121, guid: b5a7bdc863db00a47a58f683fe18c41e,
     type: 3}
+  m_EnemyT2Prefab: {fileID: 7838005083591096327, guid: c395d624ca355384dbb11bc91048e333,
+    type: 3}
+  m_EnemyT3Prefab: {fileID: 396466655680761163, guid: a2ea0eeddc50a2a4e9f734e5f53dff84,
+    type: 3}
+  m_EnemyT4Prefab: {fileID: 1168150980158287198, guid: 76cb9fdf74a05b9439e0053537bcef02,
+    type: 3}
+  m_CrystalReward: 10
+  m_MoveSpeedBoost: 0
+  m_HPBoost: 0
   m_SpawnDelay: 2
   m_SpawnTimer: 0
   m_StartSpawning: 0
-  m_EnemiesToSpawn: 5
+  m_TotalEnemiesToSpawn: 5
   m_EnemiesSpawned: 0
   m_EnemiesRemain: 0
+  m_EnemiesT2ToSpawn: 0
+  m_EnemiesT3ToSpawn: 0
+  m_EnemiesT4ToSpawn: 0
