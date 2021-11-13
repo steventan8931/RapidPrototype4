@@ -1115,6 +1115,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2139544613}
     - target: {fileID: 1753972680, guid: 59c888afdd87bce4aba74eee82dfa292, type: 3}
+      propertyPath: magazineSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753972680, guid: 59c888afdd87bce4aba74eee82dfa292, type: 3}
       propertyPath: ReloadReminder
       value: 
       objectReference: {fileID: 990259613}
