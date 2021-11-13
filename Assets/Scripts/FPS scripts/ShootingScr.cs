@@ -7,7 +7,7 @@ using TMPro;
 public class ShootingScr : MonoBehaviour
 {
     //bullet param
-    public GameObject bullet,fireBullet,iceBullet;
+    public GameObject bullet,fireBullet,iceBullet,buffBullet;
     public float shootForce, upwardForce;
 
     //weapon stat
@@ -75,6 +75,11 @@ public class ShootingScr : MonoBehaviour
                 ammoType.SetText("Ice Bullet");
             }
 
+            if (bulletType == 4)
+            {
+                ammoType.SetText("Turret Buff");
+            }
+
         }
     }
     void shootInput()
@@ -82,6 +87,10 @@ public class ShootingScr : MonoBehaviour
         if(bulletsLeft < magazineSize)
         {
             bulletsLeft += Time.deltaTime * 2;
+            if(bulletsLeft > magazineSize)
+            {
+                bulletsLeft = magazineSize;
+            }
         }
         //if allowed to hold down button to shoot
         if(allowButtonHold)
@@ -123,6 +132,11 @@ public class ShootingScr : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             bulletType = 3;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            bulletType = 4;
         }
     }
     private void Shoot()
@@ -169,6 +183,10 @@ public class ShootingScr : MonoBehaviour
         if (bulletType == 3)
         {
             currentBullet = Instantiate(iceBullet, attackPoint.position, Quaternion.identity);
+        }
+        if (bulletType == 4)
+        {
+            currentBullet = Instantiate(buffBullet, attackPoint.position, Quaternion.identity);
         }
         Debug.Log("fired one bullet!");
         //rotate bullet to shoot direction
