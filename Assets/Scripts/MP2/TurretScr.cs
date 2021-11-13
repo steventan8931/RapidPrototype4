@@ -61,7 +61,8 @@ public class TurretScr : MonoBehaviour
     public virtual void Update()
     {
         UpdateTarget();
-        if(target == null)
+        CalBuff();
+        if (target == null)
         {
             return;
         }
@@ -69,7 +70,7 @@ public class TurretScr : MonoBehaviour
 
         if(fireCountdown <= 0f)
         {
-            CalBuff();
+            
             Shoot();
             Debug.Log("fired turret ball");
             fireCountdown = 1f / fireRate;
