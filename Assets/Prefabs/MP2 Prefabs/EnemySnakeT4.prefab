@@ -100,7 +100,7 @@ MonoBehaviour:
   attackpoint: {fileID: 4834132533217756857}
   m_BloodFXPrefab: {fileID: 6456249085295041610, guid: 12773b80ff3a30442897cc7b63b8cf37,
     type: 3}
-  m_BloodBlockPrefab: {fileID: 0}
+  m_DeathFXPrefab: {fileID: 0}
   EnemyAnimator: {fileID: 9104701180563573858}
   onFire: 0
   onIce: 0
@@ -118,7 +118,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!65 &1168150980158287196
 BoxCollider:
