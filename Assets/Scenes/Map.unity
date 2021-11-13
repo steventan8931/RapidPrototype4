@@ -18566,6 +18566,7 @@ GameObject:
   - component: {fileID: 1321819479}
   - component: {fileID: 1321819478}
   - component: {fileID: 1321819477}
+  - component: {fileID: 1321819482}
   m_Layer: 0
   m_Name: AIRoute1
   m_TagString: Untagged
@@ -18660,6 +18661,19 @@ Transform:
   m_Father: {fileID: 1989287703}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1321819482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321819476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba954fc816468c14291afe1f941706fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_YChange: 0.1
 --- !u!1001 &1326345267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21872,6 +21886,11 @@ PrefabInstance:
       propertyPath: m_MagicCrystalUI
       value: 
       objectReference: {fileID: 1057393091}
+    - target: {fileID: 6234935403755660581, guid: 59c888afdd87bce4aba74eee82dfa292,
+        type: 3}
+      propertyPath: m_MagicCrystalCount
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59c888afdd87bce4aba74eee82dfa292, type: 3}
 --- !u!1 &1609151975 stripped
@@ -21907,6 +21926,7 @@ GameObject:
   - component: {fileID: 1616801113}
   - component: {fileID: 1616801112}
   - component: {fileID: 1616801111}
+  - component: {fileID: 1616801116}
   m_Layer: 0
   m_Name: AIRoute2
   m_TagString: Untagged
@@ -21995,12 +22015,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1616801110}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1570, y: 29.4, z: 169.1}
+  m_LocalPosition: {x: 1436.5, y: 29.4, z: 150.1}
   m_LocalScale: {x: 20, y: 50, z: 20}
   m_Children: []
   m_Father: {fileID: 1989287703}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1616801116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616801110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba954fc816468c14291afe1f941706fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_YChange: -0.1
 --- !u!1001 &1622282994
 PrefabInstance:
   m_ObjectHideFlags: 0
