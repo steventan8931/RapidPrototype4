@@ -30007,6 +30007,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4089280322545300622, guid: 20f8db8802c1fd845a68fb1bc6123a49,
         type: 3}
+      propertyPath: m_EnemiesT2ToSpawn
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089280322545300622, guid: 20f8db8802c1fd845a68fb1bc6123a49,
+        type: 3}
       propertyPath: m_EnemiesSnakeToSpawn
       value: 0
       objectReference: {fileID: 0}
