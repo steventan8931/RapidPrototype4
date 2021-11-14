@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaceableObject : MonoBehaviour
+public class TeleportShadow : MonoBehaviour
 {
     public GameObject m_StandardModel;
-    public GameObject m_InvalidPlacementModel;
-    
+
     private void Start()
     {
         m_StandardModel.SetActive(true);
-        m_InvalidPlacementModel.SetActive(false);
     }
 
     public void CheckValid(bool _IsValid)
@@ -18,13 +16,10 @@ public class PlaceableObject : MonoBehaviour
         if (_IsValid)
         {
             m_StandardModel.SetActive(true);
-            m_InvalidPlacementModel.SetActive(false);
         }
         else
         {
             m_StandardModel.SetActive(false);
-            m_InvalidPlacementModel.SetActive(true);
         }
     }
-
 }

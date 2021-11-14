@@ -21868,6 +21868,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 501428716, guid: 59c888afdd87bce4aba74eee82dfa292, type: 3}
+      propertyPath: m_MaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 501428716, guid: 59c888afdd87bce4aba74eee82dfa292, type: 3}
+      propertyPath: m_ShadowPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 501428716, guid: 59c888afdd87bce4aba74eee82dfa292, type: 3}
+      propertyPath: m_BuildablePrefab
+      value: 
+      objectReference: {fileID: 1397913770170043811, guid: 301a64aa78432b041ab15961d6e2e52d,
+        type: 3}
+    - target: {fileID: 501428716, guid: 59c888afdd87bce4aba74eee82dfa292, type: 3}
+      propertyPath: m_CreateParticles
+      value: 
+      objectReference: {fileID: 8168363997170096864, guid: d09d7fc5a608f0d44b7fcbf6fc992825,
+        type: 3}
+    - target: {fileID: 501428716, guid: 59c888afdd87bce4aba74eee82dfa292, type: 3}
       propertyPath: m_TeleportLocations.Array.data[0]
       value: 
       objectReference: {fileID: 1551762776}
