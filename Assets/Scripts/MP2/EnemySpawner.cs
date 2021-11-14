@@ -59,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
                         temp = Instantiate(m_EnemyT3Prefab, transform);
                         m_EnemiesT3ToSpawn--;
                     }
-                    if (m_EnemiesT2ToSpawn > 0)  //If there are T2 enemies to spawn
+                    else if (m_EnemiesT2ToSpawn > 0)  //If there are T2 enemies to spawn
                     {
                         //Spawn all the 2 enemies first
                         temp = Instantiate(m_EnemyT2Prefab, transform);
