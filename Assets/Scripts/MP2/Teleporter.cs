@@ -44,6 +44,19 @@ public class Teleporter : MonoBehaviour
                 m_Created = true;
                 m_Motor.m_Animation.SetBool("CastTeleport", true);
             }
+            else
+            {
+                Destroy(m_ShadowPrefab);
+            }
+        }
+
+        //Right click to remove item
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (m_ShadowPrefab)
+            {
+                Destroy(m_ShadowPrefab);
+            }
         }
 
         if (m_ShadowPrefab)
