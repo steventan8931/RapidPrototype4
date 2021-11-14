@@ -19655,7 +19655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1407808509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19696,7 +19696,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -21940,6 +21940,11 @@ PrefabInstance:
       propertyPath: m_MagicCrystalUI
       value: 
       objectReference: {fileID: 1057393091}
+    - target: {fileID: 6234935403755660581, guid: 59c888afdd87bce4aba74eee82dfa292,
+        type: 3}
+      propertyPath: m_MagicCrystalCount
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6234935403755660582, guid: 59c888afdd87bce4aba74eee82dfa292,
         type: 3}
       propertyPath: m_CameraTD
@@ -32546,52 +32551,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4089280322545300622, guid: 20f8db8802c1fd845a68fb1bc6123a49,
-        type: 3}
-      propertyPath: m_SpawnDelay
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4089280322545300622, guid: 20f8db8802c1fd845a68fb1bc6123a49,
-        type: 3}
-      propertyPath: m_EnemiesT2ToSpawn
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4089280322545300622, guid: 20f8db8802c1fd845a68fb1bc6123a49,
-        type: 3}
-      propertyPath: m_EnemiesSnakeToSpawn
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4089280323282520296, guid: 20f8db8802c1fd845a68fb1bc6123a49,
-        type: 3}
-      propertyPath: m_EnemiesSnakeToSpawn
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4089280323478966034, guid: 20f8db8802c1fd845a68fb1bc6123a49,
-        type: 3}
-      propertyPath: m_SpawnDelay
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4089280323478966034, guid: 20f8db8802c1fd845a68fb1bc6123a49,
-        type: 3}
-      propertyPath: m_Enemy2Prefab
-      value: 
-      objectReference: {fileID: 1168150980158287198, guid: 76cb9fdf74a05b9439e0053537bcef02,
-        type: 3}
-    - target: {fileID: 4089280323478966034, guid: 20f8db8802c1fd845a68fb1bc6123a49,
-        type: 3}
-      propertyPath: m_EnemiesSnakeToSpawn
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4089280323531806720, guid: 20f8db8802c1fd845a68fb1bc6123a49,
-        type: 3}
-      propertyPath: m_EnemiesSnakeToSpawn
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4089280324160758847, guid: 20f8db8802c1fd845a68fb1bc6123a49,
-        type: 3}
-      propertyPath: m_EnemiesSnakeToSpawn
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 4933403339989869122, guid: 20f8db8802c1fd845a68fb1bc6123a49,
         type: 3}
       propertyPath: m_Name
@@ -32610,7 +32569,7 @@ PrefabInstance:
     - target: {fileID: 8169644883630821722, guid: 20f8db8802c1fd845a68fb1bc6123a49,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8169644883630821722, guid: 20f8db8802c1fd845a68fb1bc6123a49,
         type: 3}
