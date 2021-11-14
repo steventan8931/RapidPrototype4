@@ -521,6 +521,7 @@ MonoBehaviour:
     type: 3}
   iceBullet: {fileID: 2223983275142287115, guid: 8a8dfe8dde6a1634788de9d512516aee,
     type: 3}
+  buffBullet: {fileID: 0}
   shootForce: 300
   upwardForce: 0
   timeBetweenShooting: 0.47
@@ -724,7 +725,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296624728302441038}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.075, y: -1.34, z: 0.138}
+  m_LocalPosition: {x: 0.075, y: -1.285, z: 0.202}
   m_LocalScale: {x: 1.0671407, y: 1.0671407, z: 1.0671407}
   m_Children:
   - {fileID: 6172589704353944840}
@@ -1733,7 +1734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MagicCrystalUI: {fileID: 0}
-  m_MagicCrystalCount: 10
+  m_MagicCrystalCount: 0
 --- !u!1 &6234935404435143395
 GameObject:
   m_ObjectHideFlags: 0
