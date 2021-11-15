@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class ShootingScr : MonoBehaviour
@@ -24,7 +25,8 @@ public class ShootingScr : MonoBehaviour
     public Camera Cam;
     public Transform attackPoint;
 
-    public TextMeshProUGUI ammoDisplay;
+    //public TextMeshProUGUI ammoDisplay;
+    public Image ManaBar;
     public TextMeshProUGUI ammoType;
     public GameObject ReloadReminder;
     public CamSwitcher camswitcher;
@@ -54,9 +56,13 @@ public class ShootingScr : MonoBehaviour
     }
     void textDraw()
     {
-        if (ammoDisplay != null)
+        //if (ammoDisplay != null)
+       // {
+       //     ammoDisplay.SetText(bulletsLeft / bulletsPerTap + "/" + magazineSize / bulletsPerTap);
+       // }
+        if(ManaBar != null)
         {
-            ammoDisplay.SetText(bulletsLeft / bulletsPerTap + "/" + magazineSize / bulletsPerTap);
+            ManaBar.fillAmount = (bulletsLeft / magazineSize);
         }
         if(ammoType != null)
         {
