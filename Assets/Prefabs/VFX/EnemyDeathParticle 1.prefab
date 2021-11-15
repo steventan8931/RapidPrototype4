@@ -9633,6 +9633,7 @@ GameObject:
   - component: {fileID: 2845719375900694985}
   - component: {fileID: 2845719375900694986}
   - component: {fileID: 2845719375900694987}
+  - component: {fileID: 9124436061971634713}
   m_Layer: 0
   m_Name: EnemyDeathParticle 1
   m_TagString: Untagged
@@ -9648,7 +9649,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2845719375900694988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.1, y: 32.7, z: 59.9}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2845719375821360173}
@@ -14377,3 +14378,17 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &9124436061971634713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2845719375900694988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f572998bd3fc4849b05d4413d95150f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Timer: 0
+  m_DespawnTime: 1

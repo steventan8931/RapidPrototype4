@@ -29,22 +29,6 @@ public class CrystalsAddedPrompt : MonoBehaviour
 
     private void Update()
     {
-        //Set up prompt when reward has been given
-        if (!m_WaveManager.m_CurrentSpawner.m_StartSpawning && m_WaveManager.m_WaveIsActive)
-        {
-            if (m_WaveManager.m_CurrentSpawner.m_EnemiesRemain <= 0)
-            {
-                m_OnScreen = true;
-            }
-        }
-        else
-        {
-            m_OnScreen = false;
-        }
-
-        m_CrystalAddedCount.text = m_WaveManager.m_CurrentSpawner.m_CrystalReward.ToString();
-        
-            
         if (m_OnScreen)
         {
             //Set it on the screen
@@ -53,7 +37,7 @@ public class CrystalsAddedPrompt : MonoBehaviour
             //Reset Variables when it left screen
             m_FadeTimer = 0.0f;
             m_CrystalAddedCount.color = cacheTextColor;
-            m_CrystalsAddedRect.GetComponent<Text>().color = cacheTextColor; 
+            m_CrystalsAddedRect.GetComponent<Text>().color = cacheTextColor;
 
             //Move it out of the screen
             cacheCrystalCount = m_Inventory.m_MagicCrystalCount;
@@ -68,5 +52,18 @@ public class CrystalsAddedPrompt : MonoBehaviour
             m_CrystalAddedCount.color = new Color32(cacheTextColor.r, cacheTextColor.g, cacheTextColor.b, (byte)m_FadeTimer);
             m_CrystalsAddedRect.GetComponent<Text>().color = new Color32(cacheTextColor.r, cacheTextColor.g, cacheTextColor.b, (byte)m_FadeTimer);
         }
+
+        //Set up prompt when reward has been given
+        if (!m_WaveManager.m_CurrentSpawner.m_StartSpawning && m_WaveManager.m_WaveIsActive)
+        {
+
+        }
+        else
+        {
+            m_OnScreen = false;
+        }
+
+        m_CrystalAddedCount.text = m_WaveManager.m_CurrentSpawner.m_CrystalReward.ToString();
+        
     }
 }

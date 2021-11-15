@@ -66,8 +66,9 @@ public class BuildPlacement : MonoBehaviour
         //If object has a collider
         if (hitInfo.collider != null)
         {
-            if (!hitInfo.collider.gameObject.CompareTag("Floor") && !hitInfo.collider.gameObject.CompareTag("Enemy"))
-            {
+            //if (!hitInfo.collider.gameObject.CompareTag("Floor") && !hitInfo.collider.gameObject.CompareTag("Enemy"))
+            if (hitInfo.collider.gameObject.CompareTag("Placeable"))
+            { 
                 //m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material = m_CanPlaceMat;
                 m_CurrentPlaceableObject.GetComponent<PlaceableObject>().CheckValid(true);
 

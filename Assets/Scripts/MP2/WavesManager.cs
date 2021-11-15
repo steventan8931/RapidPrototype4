@@ -26,11 +26,12 @@ public class WavesManager : MonoBehaviour
 
 
     private NewInventory m_PlayerIventory;
+    private CrystalsAddedPrompt m_Prompt;
 
     private void Start()
     {
         m_PlayerIventory = FindObjectOfType<NewInventory>();
-
+        m_Prompt = FindObjectOfType<CrystalsAddedPrompt>();
         //If there are no preset spawners
         if (m_EnemySpawners.Count <= 0)
         {
@@ -74,6 +75,7 @@ public class WavesManager : MonoBehaviour
             {
                 //Add the crystals to player inventory after the round
                 m_PlayerIventory.m_MagicCrystalCount += m_CurrentSpawner.m_CrystalReward;
+                m_Prompt.m_OnScreen = true;
                 m_WaveIsActive = false;
             }
         }
@@ -138,6 +140,14 @@ public class WavesManager : MonoBehaviour
         else
         {
             m_NextWaveUIPrompt.SetActive(false);
+            //Press Enter to start next round earlier
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                for (int i = 0; i < m_EnemySpawners[0].transform.childCount; i++)
+                {
+                    m_EnemySpawners[0].transform.GetChild(i).GetComponent<NewEnemyAI>().moveSpeed += 10;
+                }
+            }
         }
     }
 }
