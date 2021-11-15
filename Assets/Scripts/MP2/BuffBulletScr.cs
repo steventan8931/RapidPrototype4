@@ -23,7 +23,7 @@ public class BuffBulletScr : MonoBehaviour
         {
             if(collision.gameObject.GetComponent<FlameThrowerTurret>()!=null)
             {
-
+                collision.gameObject.GetComponent<FlameThrowerTurret>().buffTurret();
             }
             if (collision.gameObject.GetComponent<TurretScr>() != null)
             {
