@@ -25,6 +25,7 @@ public class EnemySpawner : MonoBehaviour
     public int m_EnemiesT3ToSpawn = 0;
     public int m_EnemiesT4ToSpawn = 0;
 
+    public GameObject m_SpawnFX;
     private void Start()
     {
         //Rmove for actuals
@@ -44,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
                     Debug.Log("spawned");
 
                     GameObject temp;
-
+                    Instantiate(m_SpawnFX, transform);
                     //Spawns stronger enemies before weaker ones
                     //If there are T4 enemies to spawn
                     if (m_EnemiesT4ToSpawn > 0)
