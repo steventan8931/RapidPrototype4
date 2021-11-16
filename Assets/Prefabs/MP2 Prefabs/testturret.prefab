@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 4894215894590314415}
   m_Layer: 2
   m_Name: testturret
-  m_TagString: Floor
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -299,6 +299,10 @@ MonoBehaviour:
   target: {fileID: 0}
   range: 200
   fireRate: 1
+  fireRateStorage: 0
+  isBuffed: 0
+  currBuffTime: 0
+  MaxBuffTime: 5
   enemyTag: Enemy
   partToRotate: {fileID: 663232870286630407}
   turnSpeed: 7

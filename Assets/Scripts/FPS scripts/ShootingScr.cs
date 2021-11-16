@@ -2,12 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class ShootingScr : MonoBehaviour
 {
     //bullet param
-    public GameObject bullet,fireBullet,iceBullet;
+    public GameObject bullet,fireBullet,iceBullet,buffBullet;
     public float shootForce, upwardForce;
 
     //weapon stat
@@ -15,7 +16,7 @@ public class ShootingScr : MonoBehaviour
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
 
-    public int bulletsLeft, bulletsShot;
+    public float bulletsLeft, bulletsShot;
 
     public bool isShooting, rdyToShoot, reloading;
     public int bulletType = 1;
@@ -24,7 +25,8 @@ public class ShootingScr : MonoBehaviour
     public Camera Cam;
     public Transform attackPoint;
 
-    public TextMeshProUGUI ammoDisplay;
+    //public TextMeshProUGUI ammoDisplay;
+    public Image ManaBar;
     public TextMeshProUGUI ammoType;
     public GameObject ReloadReminder;
     public CamSwitcher camswitcher;
@@ -33,7 +35,8 @@ public class ShootingScr : MonoBehaviour
 
     private void Awake()
     {
-        bulletsLeft = magazineSize;
+        // bulletsLeft = magazineSize;
+        bulletsLeft = 5f;
         rdyToShoot = true;
         camswitcher = FindObjectOfType<CamSwitcher>();
         m_CharacterMotor = FindObjectOfType<FPCharacterMotor>();
@@ -53,9 +56,13 @@ public class ShootingScr : MonoBehaviour
     }
     void textDraw()
     {
-        if (ammoDisplay != null)
+        //if (ammoDisplay != null)
+       // {
+       //     ammoDisplay.SetText(bulletsLeft / bulletsPerTap + "/" + magazineSize / bulletsPerTap);
+       // }
+        if(ManaBar != null)
         {
-            ammoDisplay.SetText(bulletsLeft / bulletsPerTap + "/" + magazineSize / bulletsPerTap);
+            ManaBar.fillAmount = (bulletsLeft / magazineSize);
         }
         if(ammoType != null)
         {
@@ -74,10 +81,23 @@ public class ShootingScr : MonoBehaviour
                 ammoType.SetText("Ice Bullet");
             }
 
+            if (bulletType == 4)
+            {
+                ammoType.SetText("Turret Buff");
+            }
+
         }
     }
     void shootInput()
     {
+        if(bulletsLeft < magazineSize)
+        {
+            bulletsLeft += Time.deltaTime * 2;
+            if(bulletsLeft > magazineSize)
+            {
+                bulletsLeft = magazineSize;
+            }
+        }
         //if allowed to hold down button to shoot
         if(allowButtonHold)
         {
@@ -89,12 +109,13 @@ public class ShootingScr : MonoBehaviour
         
         if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading )
         {
-            Reload();
+           // Reload();
         }
         //auto reload when no bullets left
         if(rdyToShoot && isShooting && !reloading && bulletsLeft <=0)
         {
-            Reload();
+            // Reload();
+            return;
         }
         if(rdyToShoot && isShooting && !reloading && bulletsLeft>0)
         {
@@ -117,6 +138,11 @@ public class ShootingScr : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             bulletType = 3;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            bulletType = 4;
         }
     }
     private void Shoot()
@@ -164,6 +190,10 @@ public class ShootingScr : MonoBehaviour
         {
             currentBullet = Instantiate(iceBullet, attackPoint.position, Quaternion.identity);
         }
+        if (bulletType == 4)
+        {
+            currentBullet = Instantiate(buffBullet, attackPoint.position, Quaternion.identity);
+        }
         Debug.Log("fired one bullet!");
         //rotate bullet to shoot direction
         currentBullet.transform.forward = directionWithSpread.normalized;
@@ -171,8 +201,18 @@ public class ShootingScr : MonoBehaviour
         //add force 
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
 
-
-        bulletsLeft--;
+        if(bulletType != 1)
+        {
+            if(bulletType == 2 && bulletsLeft >=2)
+            {
+                bulletsLeft-=2;
+            }
+            if(bulletType == 3 && bulletsLeft >=3)
+            {
+                bulletsLeft-=3;
+            }
+        }
+        
         bulletsShot++;
 
         if(allowInvoke)

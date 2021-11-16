@@ -6,7 +6,7 @@ public class PlaceableObject : MonoBehaviour
 {
     public GameObject m_StandardModel;
     public GameObject m_InvalidPlacementModel;
-
+    
     private void Start()
     {
         m_StandardModel.SetActive(true);

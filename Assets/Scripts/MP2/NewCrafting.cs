@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NewCrafting : MonoBehaviour
 {
@@ -35,10 +36,12 @@ public class NewCrafting : MonoBehaviour
         if (m_Inventory.m_MagicCrystalCount >= _ItemCost)
         {
             _CraftUI.SetActive(true);
+            _CraftUI.transform.GetChild(0).GetComponent<Button>().interactable = true;
         }
         else
         {
-            _CraftUI.SetActive(false);
+            _CraftUI.transform.GetChild(0).GetComponent<Button>().interactable = false;
+            //_CraftUI.SetActive(false);
         }
     }
 
@@ -58,10 +61,10 @@ public class NewCrafting : MonoBehaviour
         }
 
         //Order -> SetItemCostCount -> SetItemCost - > AddItem
-        UpdateSlot(1, m_TurretOneUI);
-        UpdateSlot(1, m_TurretTwoUI);
-        UpdateSlot(1, m_TurretThreeUI);
-        UpdateSlot(1, m_TurretFourUI);
+        UpdateSlot(3, m_TurretOneUI);
+        UpdateSlot(5, m_TurretTwoUI);
+        UpdateSlot(5, m_TurretThreeUI);
+        UpdateSlot(10, m_TurretFourUI);
     }
 
     public void SetItemCostCount(int _ItemCostCount)

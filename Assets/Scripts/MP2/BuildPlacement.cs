@@ -66,8 +66,9 @@ public class BuildPlacement : MonoBehaviour
         //If object has a collider
         if (hitInfo.collider != null)
         {
-            if (!hitInfo.collider.gameObject.CompareTag("Floor") && !hitInfo.collider.gameObject.CompareTag("Enemy"))
-            {
+            //if (!hitInfo.collider.gameObject.CompareTag("Floor") && !hitInfo.collider.gameObject.CompareTag("Enemy"))
+            if (hitInfo.collider.gameObject.CompareTag("Placeable"))
+            { 
                 //m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material = m_CanPlaceMat;
                 m_CurrentPlaceableObject.GetComponent<PlaceableObject>().CheckValid(true);
 
@@ -78,15 +79,22 @@ public class BuildPlacement : MonoBehaviour
 
                 if (Physics.CheckBox(BoxCenter, HalfExtents, Quaternion.identity))
                 {
-                    if (Input.GetMouseButtonDown(0))
+                    if (m_CurrentPlaceableObject.transform.rotation.x == 0 && m_CurrentPlaceableObject.transform.rotation.z == 0)
                     {
-                        //PlaceableCollider.isTrigger = false;
-                        m_CurrentPlaceableObject.layer = 30;
-                        m_Crafting.m_Inventory.m_MagicCrystalCount -= m_Crafting.m_Cost;
-                        //reenable turret script afte being placed
-                        m_CurrentPlaceableObject.GetComponent<TurretScr>().enabled = true;
-                        Debug.Log("craft cost" + m_Crafting.m_Cost);
-                        m_CurrentPlaceableObject = null;
+                        if (Input.GetMouseButtonDown(0))
+                        {
+                            //PlaceableCollider.isTrigger = false;
+                            m_CurrentPlaceableObject.layer = 30;
+                            m_Crafting.m_Inventory.m_MagicCrystalCount -= m_Crafting.m_Cost;
+                            //reenable turret script afte being placed
+                            m_CurrentPlaceableObject.GetComponent<TurretScr>().enabled = true;
+                            Debug.Log("craft cost" + m_Crafting.m_Cost);
+                            m_CurrentPlaceableObject = null;
+                        }
+                    }
+                    else
+                    {
+                        m_CurrentPlaceableObject.GetComponent<PlaceableObject>().CheckValid(false);
                     }
                 }
             }

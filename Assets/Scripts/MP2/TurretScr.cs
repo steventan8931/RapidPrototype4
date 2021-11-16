@@ -10,7 +10,11 @@ public class TurretScr : MonoBehaviour
 
     public float range = 20f;
     public float fireRate = 1f;
+    public float fireRateStorage;
     protected float fireCountdown = 0f;
+    public bool isBuffed = false;
+    public float currBuffTime = 0f;
+    public float MaxBuffTime = 5f;
 
     [Header("Unity setup fields")]
     public string enemyTag = "Enemy";
@@ -26,6 +30,7 @@ public class TurretScr : MonoBehaviour
     {
         //InvokeRepeating("UpdateTarget", 0f, 0.5f);
         UpdateTarget();
+        fireRateStorage = fireRate;
     }
 
     protected void UpdateTarget()
@@ -56,7 +61,8 @@ public class TurretScr : MonoBehaviour
     public virtual void Update()
     {
         UpdateTarget();
-        if(target == null)
+        CalBuff();
+        if (target == null)
         {
             return;
         }
@@ -64,6 +70,7 @@ public class TurretScr : MonoBehaviour
 
         if(fireCountdown <= 0f)
         {
+            
             Shoot();
             Debug.Log("fired turret ball");
             fireCountdown = 1f / fireRate;
@@ -107,4 +114,25 @@ public class TurretScr : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, range);
     }
+    private void CalBuff()
+    {
+        if(isBuffed == true)
+        {
+            fireRate = 1.5f * fireRateStorage;
+            currBuffTime -= Time.deltaTime;
+            if (currBuffTime <= 0)
+            {
+                currBuffTime = 0;
+                isBuffed = false;
+                fireRate = fireRateStorage;
+            }
+        }
+        
+    }
+    public void buffTurret()
+    {
+        isBuffed = true;
+        currBuffTime = MaxBuffTime;
+    }
+
 }

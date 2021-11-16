@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7113613316081955141}
   m_Layer: 2
   m_Name: MortarTurret
-  m_TagString: Floor
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,6 +77,10 @@ MonoBehaviour:
   target: {fileID: 0}
   range: 200
   fireRate: 0.4
+  fireRateStorage: 0
+  isBuffed: 0
+  currBuffTime: 0
+  MaxBuffTime: 5
   enemyTag: Enemy
   partToRotate: {fileID: 6122434365304669791}
   turnSpeed: 7

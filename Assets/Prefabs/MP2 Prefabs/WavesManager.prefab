@@ -43,10 +43,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0538764d51006bb4fb02e772d68c9a18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EnemySpawners: []
+  m_EnemySpawners:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_CurrentSpawner: {fileID: 0}
   m_WaveIsActive: 0
   m_NextWaveTimer: 0
-  m_NextWaveDelay: 5
+  m_NextWaveDelay: 15
   m_NextWaveUIPrompt: {fileID: 0}
   m_NextWaveComingInCount: {fileID: 0}
   m_WinPrompt: {fileID: 0}
