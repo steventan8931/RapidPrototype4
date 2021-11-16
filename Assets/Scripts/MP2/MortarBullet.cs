@@ -23,7 +23,7 @@ public class MortarBullet : MonoBehaviour
     private void Start()
     {
        
-        //bulletBody.useGravity = false;
+        
     }
 
     public void Seek(Transform tar)
@@ -45,11 +45,11 @@ public class MortarBullet : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
-        if (dir.magnitude <= distanceThisFrame)
-        {
-            HitTarget();
-            return;
-        }
+       // if (dir.magnitude <= distanceThisFrame)
+        //{
+         //   HitTarget();
+          //  return;
+        //}
        // transform.Translate(dir.normalized * distanceThisFrame, Space.World);
        // transform.LookAt(target);
 
@@ -96,10 +96,11 @@ public class MortarBullet : MonoBehaviour
         float displacementY = target.position.y - bulletBody.position.y;
         Vector3 displacementXZ = new Vector3(target.position.x - bulletBody.position.x, 0, target.position.z - bulletBody.position.z);
         float time = Mathf.Sqrt(-2 * h / gravity) + Mathf.Sqrt(2 * (displacementY - h) / gravity);
+        //time *= 2f;
         Vector3 velocityY = Vector3.up * Mathf.Sqrt(-2 * gravity * h);
         Vector3 velocityXZ = displacementXZ / time;
 
-        return velocityXZ + velocityY * -Mathf.Sign(gravity);
+        return velocityXZ + velocityY * -Mathf.Sign(gravity) ;
     }
     void Explode()
     {
