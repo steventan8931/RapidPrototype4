@@ -32,6 +32,7 @@ public class ShootingScr : MonoBehaviour
     public CamSwitcher camswitcher;
 
     private FPCharacterMotor m_CharacterMotor;
+    private MP2AudioManager m_AudioManager;
 
     private void Awake()
     {
@@ -40,6 +41,8 @@ public class ShootingScr : MonoBehaviour
         rdyToShoot = true;
         camswitcher = FindObjectOfType<CamSwitcher>();
         m_CharacterMotor = FindObjectOfType<FPCharacterMotor>();
+
+        m_AudioManager = FindObjectOfType<MP2AudioManager>();
     }
 
     private void Update()
@@ -181,14 +184,17 @@ public class ShootingScr : MonoBehaviour
         if (bulletType == 1)
         {
            currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
+            m_AudioManager.PlaySound("Basic");
         }
         if(bulletType == 2)
         {
            currentBullet = Instantiate(fireBullet, attackPoint.position, Quaternion.identity);
+            m_AudioManager.PlaySound("Fire");
         }
         if (bulletType == 3)
         {
             currentBullet = Instantiate(iceBullet, attackPoint.position, Quaternion.identity);
+            m_AudioManager.PlaySound("Ice");
         }
         if (bulletType == 4)
         {
