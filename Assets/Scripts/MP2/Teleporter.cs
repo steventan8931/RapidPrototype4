@@ -19,6 +19,7 @@ public class Teleporter : MonoBehaviour
     public bool m_Teleporting = false;
     private float m_TeleportTimer = 0.0f;
     public float m_TeleportDelay = 1.0f;
+    public Vector3 cacheTransform;
 
     private void Start()
     {
@@ -74,7 +75,7 @@ public class Teleporter : MonoBehaviour
             m_TeleportTimer += Time.deltaTime;
             if (m_TeleportTimer > m_TeleportDelay)
             {
-                Teleport(m_ShadowPrefab.transform);
+                Teleport(cacheTransform);
                 Destroy(m_ShadowPrefab);
                 m_TeleportTimer = 0.0f;
                 m_Teleporting = false;
@@ -83,10 +84,10 @@ public class Teleporter : MonoBehaviour
         }
     }
 
-    public void Teleport(Transform _TeleportEnd)
+    public void Teleport(Vector3 _TeleportEnd)
     {
         m_Motor.m_Controller.enabled = false;
-        transform.position = _TeleportEnd.position;
+        transform.position = _TeleportEnd;
         m_Motor.m_Controller.enabled = true;
     }
 
@@ -122,6 +123,7 @@ public class Teleporter : MonoBehaviour
                         Instantiate(m_CreateParticles, Camera.main.transform);
                         //PlaceableCollider.isTrigger = false;
                         //m_ShadowPrefab.layer = 30;
+                        cacheTransform = m_ShadowPrefab.transform.position;
                         m_Teleporting = true;
 
                     }
