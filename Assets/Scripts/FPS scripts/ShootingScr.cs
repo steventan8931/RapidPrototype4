@@ -119,8 +119,23 @@ public class ShootingScr : MonoBehaviour
         }
         if(rdyToShoot && isShooting && !reloading && bulletsLeft>0)
         {
-            bulletsShot = 0;
-            Shoot();
+            if(bulletType == 1 || bulletType == 4)
+            {
+                bulletsShot = 0;
+                Shoot();
+            }
+            else if(bulletType == 2 && bulletsLeft > 2f)
+            {
+                bulletsShot = 0;
+                Shoot();
+            }
+            else if(bulletType == 3 && bulletsLeft >3f)
+            {
+                bulletsShot = 0;
+                Shoot();
+
+            }
+            
         }
     }
     void switchAmmo()
