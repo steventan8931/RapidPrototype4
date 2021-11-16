@@ -21,9 +21,12 @@ public class Teleporter : MonoBehaviour
     public float m_TeleportDelay = 1.0f;
     public Vector3 cacheTransform;
 
+    private MP2AudioManager m_AudioManager;
+
     private void Start()
     {
         m_Motor = FindObjectOfType<FPCharacterMotor>();
+        m_AudioManager = FindObjectOfType<MP2AudioManager>();
     }
 
     private void Update()
@@ -72,6 +75,7 @@ public class Teleporter : MonoBehaviour
 
         if (m_Teleporting)
         {
+ 
             m_TeleportTimer += Time.deltaTime;
             if (m_TeleportTimer > m_TeleportDelay)
             {
@@ -124,6 +128,7 @@ public class Teleporter : MonoBehaviour
                         //PlaceableCollider.isTrigger = false;
                         //m_ShadowPrefab.layer = 30;
                         cacheTransform = m_ShadowPrefab.transform.position;
+                        m_AudioManager.PlaySound("Teleport");
                         m_Teleporting = true;
 
                     }

@@ -27,7 +27,6 @@ public class NewEnemyAI : MonoBehaviour
 
     public Transform attackpoint;
 
-    AudioManager m_AudioManager;
     public GameObject m_BloodFXPrefab;
     public GameObject m_DeathFXPrefab;
 
@@ -42,6 +41,9 @@ public class NewEnemyAI : MonoBehaviour
     public bool onIce = false;
     float debuffTimer = 4f;
     float currDebuff = 0f;
+
+    private MP2AudioManager m_AudioManager;
+
     private void Awake()
     {
         m_AIStartPos = GameObject.FindGameObjectWithTag("AIStart");
@@ -49,7 +51,7 @@ public class NewEnemyAI : MonoBehaviour
     
     private void Start()
     {
-        m_AudioManager = FindObjectOfType<AudioManager>();
+        m_AudioManager = FindObjectOfType<MP2AudioManager>();
     }
 
     private void Update()
@@ -88,7 +90,16 @@ public class NewEnemyAI : MonoBehaviour
                 transform.parent.GetComponent<EnemySpawner>().m_EnemiesRemain--;
                 cacheDeath = true;
             }
-            GameObject temp = Instantiate(m_DeathFXPrefab,transform);
+            if (maxHp > 600)
+            {
+                m_AudioManager.PlaySound("RockDeath");
+            }
+            else
+            {
+                m_AudioManager.PlaySound("FurDeath");
+            }
+
+           GameObject temp = Instantiate(m_DeathFXPrefab,transform);
             temp.transform.parent = null;
             Destroy(gameObject);
         }
