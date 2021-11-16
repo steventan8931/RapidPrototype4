@@ -208,6 +208,86 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fireparticle_abilityBlue
       objectReference: {fileID: 0}
+    - target: {fileID: 1515371149422455234, guid: 2ae384e44c530414d83e598ce63f01e6,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5.7927504
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515371149422455234, guid: 2ae384e44c530414d83e598ce63f01e6,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5.7927504
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515371149422455234, guid: 2ae384e44c530414d83e598ce63f01e6,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5.7927504
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515371149422455235, guid: 2ae384e44c530414d83e598ce63f01e6,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515371149422455235, guid: 2ae384e44c530414d83e598ce63f01e6,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515371150806625224, guid: 2ae384e44c530414d83e598ce63f01e6,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20.748001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515371150806625224, guid: 2ae384e44c530414d83e598ce63f01e6,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 20.748001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515371150806625224, guid: 2ae384e44c530414d83e598ce63f01e6,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 20.748001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515371150806625225, guid: 2ae384e44c530414d83e598ce63f01e6,
+        type: 3}
+      propertyPath: ShapeModule.type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515371150806625225, guid: 2ae384e44c530414d83e598ce63f01e6,
+        type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515371150806625225, guid: 2ae384e44c530414d83e598ce63f01e6,
+        type: 3}
+      propertyPath: ShapeModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515371150806625225, guid: 2ae384e44c530414d83e598ce63f01e6,
+        type: 3}
+      propertyPath: NoiseModule.frequency
+      value: 17.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515371150806625225, guid: 2ae384e44c530414d83e598ce63f01e6,
+        type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515371150806625225, guid: 2ae384e44c530414d83e598ce63f01e6,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515371150806625225, guid: 2ae384e44c530414d83e598ce63f01e6,
+        type: 3}
+      propertyPath: NoiseModule.scrollSpeed.scalar
+      value: 5.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515371150806625225, guid: 2ae384e44c530414d83e598ce63f01e6,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 9.56
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ae384e44c530414d83e598ce63f01e6, type: 3}
 --- !u!4 &8373301375665304650 stripped
