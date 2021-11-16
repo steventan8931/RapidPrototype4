@@ -29278,6 +29278,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7672450340882375926, guid: f7dd21203abab8f478510edd2c232ff4,
+        type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7672450340882375926, guid: f7dd21203abab8f478510edd2c232ff4,
+        type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7672450340882375926, guid: f7dd21203abab8f478510edd2c232ff4,
+        type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7672450341033320868, guid: f7dd21203abab8f478510edd2c232ff4,
         type: 3}
       propertyPath: m_Pivot.x
@@ -31936,6 +31951,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4089280324160758847, guid: 20f8db8802c1fd845a68fb1bc6123a49,
+        type: 3}
+      propertyPath: m_CrystalReward
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4933403339989869122, guid: 20f8db8802c1fd845a68fb1bc6123a49,
         type: 3}
       propertyPath: m_Name

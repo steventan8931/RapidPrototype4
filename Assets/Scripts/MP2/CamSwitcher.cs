@@ -44,6 +44,7 @@ public class CamSwitcher : MonoBehaviour
         if (m_IsFirstPerson)
         {
             m_PlayerRotation.rotation = Quaternion.Euler(0.0f, cacheRotationY, 0.0f);
+            Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             m_CameraFP.SetActive(true);
             m_CameraTD.SetActive(false);
@@ -52,6 +53,7 @@ public class CamSwitcher : MonoBehaviour
         {
             //Reset Player Rotation due to camera movements
             m_PlayerRotation.rotation = Quaternion.Euler(Vector3.zero);
+            Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             m_CameraFP.SetActive(false);
             m_CameraTD.SetActive(true);
