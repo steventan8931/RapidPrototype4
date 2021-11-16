@@ -104,6 +104,8 @@ public class MortarBullet : MonoBehaviour
     }
     void Explode()
     {
+        //GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
+        //Destroy(effectIns, 2f);
         Collider[] colliders = Physics.OverlapSphere(transform.position, explodeRad);
         foreach (Collider collider in colliders)
         {
