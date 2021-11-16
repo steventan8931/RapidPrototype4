@@ -15,6 +15,11 @@ public class Teleporter : MonoBehaviour
     public float m_CreateTimer = 0.0f;
     public float m_CreateDelay = 0.8f;
     public bool m_Created = false;
+
+    public bool m_Teleporting = false;
+    private float m_TeleportTimer = 0.0f;
+    public float m_TeleportDelay = 1.0f;
+
     private void Start()
     {
         m_Motor = FindObjectOfType<FPCharacterMotor>();
@@ -40,7 +45,7 @@ public class Teleporter : MonoBehaviour
         {
             if (!m_ShadowPrefab)
             {
-                Instantiate(m_CreateParticles, Camera.main.transform);
+                //Instantiate(m_CreateParticles, Camera.main.transform);
                 m_Created = true;
                 m_Motor.m_Animation.SetBool("CastTeleport", true);
             }
@@ -63,12 +68,24 @@ public class Teleporter : MonoBehaviour
         {
             MoveObjectToMouse();
         }
+
+        if (m_Teleporting)
+        {
+            m_TeleportTimer += Time.deltaTime;
+            if (m_TeleportTimer > m_TeleportDelay)
+            {
+                Teleport(m_ShadowPrefab.transform);
+                Destroy(m_ShadowPrefab);
+                m_TeleportTimer = 0.0f;
+                m_Teleporting = false;
+            }
+
+        }
     }
 
     public void Teleport(Transform _TeleportEnd)
     {
         m_Motor.m_Controller.enabled = false;
-        Instantiate(m_CreateParticles, Camera.main.transform);
         transform.position = _TeleportEnd.position;
         m_Motor.m_Controller.enabled = true;
     }
@@ -102,10 +119,11 @@ public class Teleporter : MonoBehaviour
                 {
                     if (Input.GetMouseButtonDown(0))
                     {
+                        Instantiate(m_CreateParticles, Camera.main.transform);
                         //PlaceableCollider.isTrigger = false;
                         //m_ShadowPrefab.layer = 30;
-                        Teleport(m_ShadowPrefab.transform);
-                        Destroy(m_ShadowPrefab);
+                        m_Teleporting = true;
+
                     }
                 }
             }
