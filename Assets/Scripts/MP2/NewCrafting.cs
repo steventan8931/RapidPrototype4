@@ -61,7 +61,7 @@ public class NewCrafting : MonoBehaviour
         }
 
         //Order -> SetItemCostCount -> SetItemCost - > AddItem
-        UpdateSlot(1, m_TurretOneUI);
+        UpdateSlot(3, m_TurretOneUI);
         UpdateSlot(5, m_TurretTwoUI);
         UpdateSlot(5, m_TurretThreeUI);
         UpdateSlot(10, m_TurretFourUI);
