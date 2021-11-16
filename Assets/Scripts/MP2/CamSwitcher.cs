@@ -19,6 +19,7 @@ public class CamSwitcher : MonoBehaviour
         m_CameraTD.SetActive(false);
         m_PlayerRotation = FindObjectOfType<FPCharacterMotor>().transform;
         cacheRotationY = m_PlayerRotation.rotation.eulerAngles.y;
+        UpdateCamera();
     }
     private void Update()
     {
