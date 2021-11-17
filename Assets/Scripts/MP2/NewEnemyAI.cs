@@ -45,6 +45,11 @@ public class NewEnemyAI : MonoBehaviour
 
     private MP2AudioManager m_AudioManager;
 
+
+    //YPosChange
+    private bool m_YChange = true;
+    Vector3 newPos;
+
     private void Awake()
     {
         m_AIStartPos = GameObject.FindGameObjectWithTag("AIStart");
@@ -59,6 +64,11 @@ public class NewEnemyAI : MonoBehaviour
     {
         if (currentHp > 0)
         {
+            if (m_YChange)
+            {
+                Vector3 actualNewPos = new Vector3(transform.localPosition.x, newPos.y, transform.localPosition.z);
+                transform.localPosition = Vector3.Lerp(transform.localPosition, actualNewPos, Time.deltaTime);
+            }
             //playerInAttackRange = Physics.CheckSphere(attackpoint.position, attackRange, playerMask);
             //objInAttackRange = Physics.CheckSphere(attackpoint.position, attackRange, objMask);
             calDebuff();
@@ -331,9 +341,9 @@ public class NewEnemyAI : MonoBehaviour
         }
 
     }
-    //void destroywhendead()
-    //{
-    //    Instantiate(m_BloodBlockPrefab, transform.position, Quaternion.identity);
-    //    Destroy(gameObject);
-    //}
+
+    public void LerpYChange(float _Y)
+    {
+        newPos = new Vector3(transform.localPosition.x, transform.localPosition.y + _Y, transform.localPosition.z);
+    }
 }
