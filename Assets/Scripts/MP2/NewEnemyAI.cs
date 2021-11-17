@@ -38,6 +38,7 @@ public class NewEnemyAI : MonoBehaviour
 
     //Ice and Fire
     public bool onFire = false;
+    public GameObject fireParticle;
     public bool onIce = false;
     float debuffTimer = 4f;
     float currDebuff = 0f;
@@ -269,6 +270,9 @@ public class NewEnemyAI : MonoBehaviour
         }else
         {
             onFire = true;
+            fireParticle.SetActive(true);
+            fireParticle.GetComponent<ParticleSystem>().Play();
+            print("playing onfire effect");
             currDebuff = debuffTimer;
         }
 
@@ -297,6 +301,7 @@ public class NewEnemyAI : MonoBehaviour
             if(currDebuff <= 0)
             {
                 currDebuff = 0;
+                fireParticle.SetActive(false);
                 onFire = false;
             }
         }

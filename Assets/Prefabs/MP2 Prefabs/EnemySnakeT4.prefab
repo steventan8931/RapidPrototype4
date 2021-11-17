@@ -76,6 +76,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 1168150979882729679}
+  - {fileID: 7395855794581880677}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -118,6 +119,7 @@ MonoBehaviour:
     type: 3}
   EnemyAnimator: {fileID: 4227199509266118079}
   onFire: 0
+  fireParticle: {fileID: 8043404646085895874}
   onIce: 0
 --- !u!54 &6333628573907130764
 Rigidbody:
