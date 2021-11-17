@@ -124,7 +124,15 @@ public class NewEnemyAI : MonoBehaviour
     {
         if (onIce)
         {
-            EnemyAnimator.speed = 0.5f;
+            //If is snake
+            if (maxHp > 600)
+            {
+                EnemyAnimator.speed = 0.2f;
+            }
+            else //For other enemy
+            {
+                EnemyAnimator.speed = 0.5f;
+            }
             return Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * 0.35f * Time.deltaTime);
         }
         else
