@@ -221,6 +221,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3768268385768571464, guid: 78b53c74a31e5674ab6145df8702f0b2, type: 3}
+--- !u!1 &22522228 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7753986552515005226, guid: f7dd21203abab8f478510edd2c232ff4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1936709108}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &25025134 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5062539749895174449, guid: fe9188d93d7777140a47a1914e92e513,
@@ -21634,6 +21640,11 @@ PrefabInstance:
       propertyPath: m_CameraTD
       value: 
       objectReference: {fileID: 1407808508}
+    - target: {fileID: 6234935403755660582, guid: 59c888afdd87bce4aba74eee82dfa292,
+        type: 3}
+      propertyPath: m_CrossHair
+      value: 
+      objectReference: {fileID: 22522228}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59c888afdd87bce4aba74eee82dfa292, type: 3}
 --- !u!1 &1609151975 stripped
@@ -32126,7 +32137,7 @@ PrefabInstance:
     - target: {fileID: 4089280323478966034, guid: 20f8db8802c1fd845a68fb1bc6123a49,
         type: 3}
       propertyPath: m_EnemiesT4ToSpawn
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4089280324160758847, guid: 20f8db8802c1fd845a68fb1bc6123a49,
         type: 3}

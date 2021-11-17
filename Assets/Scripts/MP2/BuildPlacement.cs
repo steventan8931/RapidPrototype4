@@ -7,12 +7,7 @@ public class BuildPlacement : MonoBehaviour
 {
     public GameObject m_BuildablePrefab;
 
-    private KeyCode newObjectHotKey = KeyCode.A;
-
     public GameObject m_CurrentPlaceableObject;
-
-    public Material m_CantPlaceMat;
-    public Material m_CanPlaceMat;
 
     private CamSwitcher m_CamSwitcher;
     private NewCrafting m_Crafting;
@@ -37,7 +32,7 @@ public class BuildPlacement : MonoBehaviour
         {
             if (m_CurrentPlaceableObject == null)
             {
-                //m_CurrentPlaceableObject = Instantiate(m_BuildablePrefab);
+
 
             }
             else
@@ -69,7 +64,6 @@ public class BuildPlacement : MonoBehaviour
             //if (!hitInfo.collider.gameObject.CompareTag("Floor") && !hitInfo.collider.gameObject.CompareTag("Enemy"))
             if (hitInfo.collider.gameObject.CompareTag("Placeable"))
             { 
-                //m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material = m_CanPlaceMat;
                 m_CurrentPlaceableObject.GetComponent<PlaceableObject>().CheckValid(true);
 
                 BoxCollider PlaceableCollider = m_CurrentPlaceableObject.gameObject.GetComponent<BoxCollider>();
@@ -100,7 +94,6 @@ public class BuildPlacement : MonoBehaviour
             }
             else
             {
-                //m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material = m_CantPlaceMat;
                 m_CurrentPlaceableObject.GetComponent<PlaceableObject>().CheckValid(false);
             }
         }

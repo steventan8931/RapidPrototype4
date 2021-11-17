@@ -10,6 +10,11 @@ public class NewInventory : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            Debug.Log("give me monies");
+            m_MagicCrystalCount += 100;
+        }
         m_MagicCrystalUI.text = m_MagicCrystalCount.ToString();
     }
 }

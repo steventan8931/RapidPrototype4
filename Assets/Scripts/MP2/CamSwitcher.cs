@@ -6,6 +6,7 @@ public class CamSwitcher : MonoBehaviour
 {
     public GameObject m_CameraFP;
     public GameObject m_CameraTD;
+    public GameObject m_CrossHair;
 
     public bool m_IsFirstPerson = true;
 
@@ -49,6 +50,7 @@ public class CamSwitcher : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             m_CameraFP.SetActive(true);
             m_CameraTD.SetActive(false);
+            m_CrossHair.SetActive(true);
         }
         else
         {
@@ -58,6 +60,7 @@ public class CamSwitcher : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             m_CameraFP.SetActive(false);
             m_CameraTD.SetActive(true);
+            m_CrossHair.SetActive(false);
         }
     }
 }
