@@ -44,7 +44,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 100, y: 10.1406, z: 100}
+  m_Size: {x: 50, y: 10.1406, z: 50}
   m_Center: {x: -0.0000076293945, y: 0, z: 0}
 --- !u!114 &4758199681993557667
 MonoBehaviour:
@@ -146,6 +146,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 163451570647819272}
     m_Modifications:
+    - target: {fileID: 3946434591872276644, guid: ca4475802dd190748832fb1f9fbaeea6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3946434591872276645, guid: ca4475802dd190748832fb1f9fbaeea6,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -165,6 +170,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: teleport_particle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946434592903742760, guid: ca4475802dd190748832fb1f9fbaeea6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3946434592903742761, guid: ca4475802dd190748832fb1f9fbaeea6,
         type: 3}
@@ -235,6 +245,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946434593163013938, guid: ca4475802dd190748832fb1f9fbaeea6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3946434593163013939, guid: ca4475802dd190748832fb1f9fbaeea6,
         type: 3}
