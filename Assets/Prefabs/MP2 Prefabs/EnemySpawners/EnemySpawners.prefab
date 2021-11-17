@@ -876,6 +876,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 317870168934159013, guid: 4be8e76f6046b014aa7958d69249f05a,
         type: 3}
+      propertyPath: m_EnemiesT2ToSpawn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317870168934159013, guid: 4be8e76f6046b014aa7958d69249f05a,
+        type: 3}
+      propertyPath: m_EnemiesT3ToSpawn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317870168934159013, guid: 4be8e76f6046b014aa7958d69249f05a,
+        type: 3}
+      propertyPath: m_EnemiesT4ToSpawn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317870168934159013, guid: 4be8e76f6046b014aa7958d69249f05a,
+        type: 3}
       propertyPath: m_EnemiesSnakeToSpawn
       value: 5
       objectReference: {fileID: 0}

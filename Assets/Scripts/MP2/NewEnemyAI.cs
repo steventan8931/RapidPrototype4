@@ -123,10 +123,12 @@ public class NewEnemyAI : MonoBehaviour
     {
         if (onIce)
         {
+            EnemyAnimator.speed = 0.5f;
             return Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * 0.35f * Time.deltaTime);
         }
         else
         {
+            EnemyAnimator.speed = 1.0f;
             return Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
         }
 

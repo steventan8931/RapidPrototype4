@@ -521,7 +521,8 @@ MonoBehaviour:
     type: 3}
   iceBullet: {fileID: 2223983275142287115, guid: 8a8dfe8dde6a1634788de9d512516aee,
     type: 3}
-  buffBullet: {fileID: 0}
+  buffBullet: {fileID: 545735321071371381, guid: 81dd771fca863a845b62d50c443868e6,
+    type: 3}
   shootForce: 300
   upwardForce: 0
   timeBetweenShooting: 0.47
@@ -540,8 +541,12 @@ MonoBehaviour:
   allowInvoke: 1
   Cam: {fileID: 6234935404435143393}
   attackPoint: {fileID: 5951117108526250981}
-  ammoDisplay: {fileID: 0}
+  ManaBar: {fileID: 0}
   ammoType: {fileID: 0}
+  bulletIcon: {fileID: 0}
+  fireIcon: {fileID: 0}
+  iceIcon: {fileID: 0}
+  buffIcon: {fileID: 0}
   ReloadReminder: {fileID: 0}
   camswitcher: {fileID: 6234935403755660582}
 --- !u!114 &501428716
@@ -556,9 +561,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290342c05d646f54f8dd8b4f86d71e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TeleportLocations:
-  - {fileID: 0}
-  - {fileID: 0}
+  m_BuildablePrefab: {fileID: 0}
+  m_ShadowPrefab: {fileID: 0}
+  m_MaxDistance: 500
+  m_CreateParticles: {fileID: 0}
+  m_CreateTimer: 0
+  m_CreateDelay: 0.8
+  m_Created: 0
+  m_Teleporting: 0
+  m_TeleportDelay: 1
+  cacheTransform: {x: 0, y: 0, z: 0}
 --- !u!1 &916257916078079284
 GameObject:
   m_ObjectHideFlags: 0
