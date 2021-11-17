@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0.99999946, b: 0.99999946, a: 1}
+  m_IndirectSpecularColor: {r: 0.45060146, g: 0.50057805, b: 0.5750266, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11826,6 +11826,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3545882010804895318, guid: 78b53c74a31e5674ab6145df8702f0b2, type: 3}
+--- !u!1 &734494823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8513490349320866203, guid: f7dd21203abab8f478510edd2c232ff4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1936709108}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &736034988 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3276090053785794617, guid: fe9188d93d7777140a47a1914e92e513,
@@ -13698,6 +13704,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d8ad62f9c34895147a08c862f41dea8c,
     type: 3}
   m_PrefabInstance: {fileID: 879309300}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &880524130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5686442388512629941, guid: f7dd21203abab8f478510edd2c232ff4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1936709108}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &880705458 stripped
 GameObject:
@@ -17265,6 +17277,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 70046964606735169, guid: fe9188d93d7777140a47a1914e92e513, type: 3}
+--- !u!1 &1197045259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6842795264631181267, guid: f7dd21203abab8f478510edd2c232ff4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1936709108}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1199617953 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2702966995309455198, guid: 78b53c74a31e5674ab6145df8702f0b2,
@@ -21559,9 +21577,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1286978928}
     - target: {fileID: 1753972680, guid: 59c888afdd87bce4aba74eee82dfa292, type: 3}
+      propertyPath: iceIcon
+      value: 
+      objectReference: {fileID: 1831136810}
+    - target: {fileID: 1753972680, guid: 59c888afdd87bce4aba74eee82dfa292, type: 3}
       propertyPath: ammoType
       value: 
       objectReference: {fileID: 169822231}
+    - target: {fileID: 1753972680, guid: 59c888afdd87bce4aba74eee82dfa292, type: 3}
+      propertyPath: buffIcon
+      value: 
+      objectReference: {fileID: 880524130}
+    - target: {fileID: 1753972680, guid: 59c888afdd87bce4aba74eee82dfa292, type: 3}
+      propertyPath: fireIcon
+      value: 
+      objectReference: {fileID: 734494823}
+    - target: {fileID: 1753972680, guid: 59c888afdd87bce4aba74eee82dfa292, type: 3}
+      propertyPath: bulletIcon
+      value: 
+      objectReference: {fileID: 1197045259}
     - target: {fileID: 1753972680, guid: 59c888afdd87bce4aba74eee82dfa292, type: 3}
       propertyPath: fireBullet
       value: 
@@ -24058,6 +24092,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 853299992792861966, guid: 78b53c74a31e5674ab6145df8702f0b2, type: 3}
+--- !u!1 &1831136810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3506983274629376255, guid: f7dd21203abab8f478510edd2c232ff4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1936709108}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1843639110 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7831350983616246859, guid: 78b53c74a31e5674ab6145df8702f0b2,
