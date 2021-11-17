@@ -148,7 +148,11 @@ public class NewEnemyAI : MonoBehaviour
         // move towards to buddy directly
         Vector3 tempTarget = m_AIStartPos.transform.position;
         tempTarget.y = gameObject.transform.position.y;
-        transform.LookAt(tempTarget);
+        //transform.LookAt(tempTarget);
+
+        Quaternion lookAtRot = Quaternion.LookRotation(m_AIStartPos.transform.position - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookAtRot, Time.deltaTime * 5f);
+
         transform.position = moveTowards(m_AIStartPos);
         transform.position = new Vector3(transform.position.x, tempTarget.y, transform.position.z);
         //EnemyAnimator.SetBool("IsAttacking", false);
