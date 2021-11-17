@@ -282,6 +282,7 @@ public class NewEnemyAI : MonoBehaviour
         if (onFire == true)
         {
             onFire = false;
+            fireParticle.SetActive(false);
             currDebuff = 0;
             return;
         }
