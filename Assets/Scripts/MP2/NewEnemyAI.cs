@@ -45,6 +45,11 @@ public class NewEnemyAI : MonoBehaviour
 
     private MP2AudioManager m_AudioManager;
 
+
+    //YPosChange
+    private bool m_YChange = true;
+    Vector3 newPos;
+
     private void Awake()
     {
         m_AIStartPos = GameObject.FindGameObjectWithTag("AIStart");
@@ -59,6 +64,11 @@ public class NewEnemyAI : MonoBehaviour
     {
         if (currentHp > 0)
         {
+            if (m_YChange)
+            {
+                Vector3 actualNewPos = new Vector3(transform.localPosition.x, newPos.y, transform.localPosition.z);
+                transform.localPosition = Vector3.Lerp(transform.localPosition, actualNewPos, Time.deltaTime);
+            }
             //playerInAttackRange = Physics.CheckSphere(attackpoint.position, attackRange, playerMask);
             //objInAttackRange = Physics.CheckSphere(attackpoint.position, attackRange, objMask);
             calDebuff();
@@ -124,7 +134,15 @@ public class NewEnemyAI : MonoBehaviour
     {
         if (onIce)
         {
-            EnemyAnimator.speed = 0.5f;
+            //If is snake
+            if (maxHp > 600)
+            {
+                EnemyAnimator.speed = 0.2f;
+            }
+            else //For other enemy
+            {
+                EnemyAnimator.speed = 0.5f;
+            }
             return Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * 0.35f * Time.deltaTime);
         }
         else
@@ -140,7 +158,11 @@ public class NewEnemyAI : MonoBehaviour
         // move towards to buddy directly
         Vector3 tempTarget = m_AIStartPos.transform.position;
         tempTarget.y = gameObject.transform.position.y;
-        transform.LookAt(tempTarget);
+        //transform.LookAt(tempTarget);
+
+        Quaternion lookAtRot = Quaternion.LookRotation(m_AIStartPos.transform.position - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookAtRot, Time.deltaTime * 5f);
+
         transform.position = moveTowards(m_AIStartPos);
         transform.position = new Vector3(transform.position.x, tempTarget.y, transform.position.z);
         //EnemyAnimator.SetBool("IsAttacking", false);
@@ -194,7 +216,8 @@ public class NewEnemyAI : MonoBehaviour
 
     void attackPowerSource()
     {
-        EnemyAnimator.SetBool("IsWalking", false);
+        //EnemyAnimator.SetBool("IsWalking", false);
+        EnemyAnimator.SetBool("Attacking", true);
         if (!attacked)
         {
             Collider[] hitobjects = Physics.OverlapSphere(attackpoint.position, attackRange, PowerSourceMask);
@@ -205,7 +228,7 @@ public class NewEnemyAI : MonoBehaviour
                 {
                     //damage Player
                     enemy.GetComponent<PowerSource>().receiveDmg(atkDmg);
-                    EnemyAnimator.SetBool("IsAttacking", true);
+                    EnemyAnimator.SetBool("Attacking", true);
                     //m_AudioManager.PlaySound("EnemyAttack");
                 }
                 //debug message
@@ -319,9 +342,9 @@ public class NewEnemyAI : MonoBehaviour
         }
 
     }
-    //void destroywhendead()
-    //{
-    //    Instantiate(m_BloodBlockPrefab, transform.position, Quaternion.identity);
-    //    Destroy(gameObject);
-    //}
+
+    public void LerpYChange(float _Y)
+    {
+        newPos = new Vector3(transform.localPosition.x, transform.localPosition.y + _Y, transform.localPosition.z);
+    }
 }

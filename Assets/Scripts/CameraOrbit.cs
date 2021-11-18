@@ -10,7 +10,7 @@ public class CameraOrbit : MonoBehaviour
 
     private void Start()
     {
-        m_Rotation = -80;
+        m_Rotation = -320.26f;
     }
     public void Update()
     {

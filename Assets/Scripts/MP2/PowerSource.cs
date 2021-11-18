@@ -10,8 +10,8 @@ public class PowerSource : MonoBehaviour
 
     public Image m_PowerSourceHPBar;
 
-    //public GameObject warningUi;
-    // Start is called before the first frame update
+    public GameObject warningUi;
+
     public void receiveDmg(float dmg)
     {
         if (m_CurrentHP <= 0)

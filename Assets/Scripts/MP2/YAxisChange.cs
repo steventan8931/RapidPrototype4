@@ -9,7 +9,8 @@ public class YAxisChange : MonoBehaviour
     {
         if (_other.GetComponent<NewEnemyAI>() != null)
         {
-            _other.transform.localPosition = new Vector3(_other.transform.localPosition.x, _other.transform.localPosition.y + m_YChange, _other.transform.localPosition.z);
+            // _other.transform.localPosition = new Vector3(_other.transform.localPosition.x, _other.transform.localPosition.y + m_YChange, _other.transform.localPosition.z);
+            _other.GetComponent<NewEnemyAI>().LerpYChange(m_YChange);
         }
     }
 }
