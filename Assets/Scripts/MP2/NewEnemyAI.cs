@@ -216,7 +216,8 @@ public class NewEnemyAI : MonoBehaviour
 
     void attackPowerSource()
     {
-        EnemyAnimator.SetBool("IsWalking", false);
+        //EnemyAnimator.SetBool("IsWalking", false);
+        EnemyAnimator.SetBool("Attacking", true);
         if (!attacked)
         {
             Collider[] hitobjects = Physics.OverlapSphere(attackpoint.position, attackRange, PowerSourceMask);
@@ -227,7 +228,7 @@ public class NewEnemyAI : MonoBehaviour
                 {
                     //damage Player
                     enemy.GetComponent<PowerSource>().receiveDmg(atkDmg);
-                    EnemyAnimator.SetBool("IsAttacking", true);
+                    EnemyAnimator.SetBool("Attacking", true);
                     //m_AudioManager.PlaySound("EnemyAttack");
                 }
                 //debug message
