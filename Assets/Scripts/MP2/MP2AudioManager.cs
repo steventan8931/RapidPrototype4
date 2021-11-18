@@ -38,7 +38,7 @@ public class MP2AudioManager : MonoBehaviour
                 m_AudioSource.PlayOneShot(m_RockEnemyDeath);
                 break;
             case "FurDeath":
-                m_AudioSource.volume = 0.3f;
+                m_AudioSource.volume = 0.15f;
                 m_AudioSource.PlayOneShot(m_FurEnemyDeath);
                 break;
         }
