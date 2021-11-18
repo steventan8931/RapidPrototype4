@@ -26073,6 +26073,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 920470128}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &920978243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2960043676231149895, guid: ad6c780af1ac26b4293ffa1535e16e95,
+    type: 3}
+  m_PrefabInstance: {fileID: 169822230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &921839139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 17e52783bbcba32448eb40396d9705b6,
@@ -57358,7 +57364,9 @@ MonoBehaviour:
   m_CurrentHP: 200
   m_MaxHP: 200
   m_PowerSourceHPBar: {fileID: 415226526}
-  warningUi: {fileID: 0}
+  warningUi: {fileID: 920978243}
+  isShowingWarningUi: 0
+  warningTimer: 0
 --- !u!114 &2041031999
 MonoBehaviour:
   m_ObjectHideFlags: 0
