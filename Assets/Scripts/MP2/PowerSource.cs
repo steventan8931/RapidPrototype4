@@ -29,7 +29,7 @@ public class PowerSource : MonoBehaviour
                 warningUi.SetActive(true);
                 warningUi.GetComponent<CanvasGroup>().alpha = 1;
             }
-            warningTimer = 2f;
+            warningTimer = 3f;
             //Show warning UI
             //warningUi.SetActive(true);
             //Invoke(nameof(disableWarning), 1.2f);
@@ -43,6 +43,7 @@ public class PowerSource : MonoBehaviour
             warningTimer -= Time.deltaTime;
             if (warningTimer <= 0)
             {
+                warningTimer = 0;
                 //make warningUI disappear
                 warningUi.GetComponent<Animator>().SetBool("isFading", true);
                 Invoke(nameof(disableWarning), 1.1f);
@@ -57,7 +58,10 @@ public class PowerSource : MonoBehaviour
 
     public void disableWarning()
     {
-        //warningUi.SetActive(false);
+        warningUi.GetComponent<Animator>().SetBool("isFading", false);
+        warningUi.GetComponent<CanvasGroup>().alpha = 1;
+        isShowingWarningUi = false;
+        warningUi.SetActive(false);
     }
 
     // Update is called once per frame
