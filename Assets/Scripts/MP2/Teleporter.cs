@@ -50,6 +50,7 @@ public class Teleporter : MonoBehaviour
             if (!m_ShadowPrefab)
             {
                 //Instantiate(m_CreateParticles, Camera.main.transform);
+                m_AudioManager.PlaySound("Teleport");
                 m_Created = true;
                 m_Motor.m_Animation.SetBool("CastTeleport", true);
             }
@@ -120,17 +121,20 @@ public class Teleporter : MonoBehaviour
                 Vector3 BoxCenter = m_ShadowPrefab.gameObject.transform.position + PlaceableCollider.center;
                 Vector3 HalfExtents = PlaceableCollider.size / 2;
 
-
                 if (Physics.CheckBox(BoxCenter, HalfExtents, Quaternion.identity))
                 {
                     if (Input.GetMouseButtonDown(0))
                     {
-                        Instantiate(m_CreateParticles, Camera.main.transform);
                         //PlaceableCollider.isTrigger = false;
                         //m_ShadowPrefab.layer = 30;
                         //cacheTransform = m_ShadowPrefab.transform.position;
-                        cacheTransform = hitInfo.point + hitInfo.normal * 5;
-                        m_AudioManager.PlaySound("Teleport");
+                        if (!m_Teleporting)
+                        {
+                            m_ShadowPrefab.transform.parent = null;
+                            cacheTransform = hitInfo.point + hitInfo.normal * 5;
+                            Instantiate(m_CreateParticles, Camera.main.transform);
+                            m_AudioManager.PlaySound("Teleport");
+                        }
                         m_Teleporting = true;
 
                     }
