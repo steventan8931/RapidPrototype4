@@ -47558,11 +47558,11 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1795720459
+--- !u!114 &1795720459 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2432330045329107313, guid: 59c888afdd87bce4aba74eee82dfa292,
+    type: 3}
+  m_PrefabInstance: {fileID: 1604218849}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795720452}
   m_Enabled: 1
@@ -47570,40 +47570,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec0f40a94b02994faf5f5cb38bf7065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 1
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0.1084274
-      outSlope: 0.1084274
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.19910179
-      value: 0.021588089
-      inSlope: -0.027356032
-      outSlope: -0.027356032
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 1
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -0.026954848
-      outSlope: -0.026954848
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1798044221 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1144599169553638366, guid: 78b53c74a31e5674ab6145df8702f0b2,
@@ -57597,7 +57563,8 @@ MonoBehaviour:
   m_MaxHP: 200
   m_PowerSourceHPBar: {fileID: 415226526}
   warningUi: {fileID: 920978243}
-  failUi: {fileID: 0}
+  failUi: {fileID: 169822232}
+  screenshake: {fileID: 1795720459}
   isShowingWarningUi: 0
   warningTimer: 0
 --- !u!114 &2041031999
