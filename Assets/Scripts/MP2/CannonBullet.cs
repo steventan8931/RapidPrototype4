@@ -22,6 +22,14 @@ public class CannonBullet : MonoBehaviour
     public float speed = 50f;
     public GameObject impactEffect;
 
+    //Audio
+    public MP2AudioManager m_AudioManager;
+
+    private void Start()
+    {
+        m_AudioManager = FindObjectOfType<MP2AudioManager>();
+    }
+
     private void Update()
     {
         m_LifeTimeCounter += Time.deltaTime;
@@ -35,6 +43,8 @@ public class CannonBullet : MonoBehaviour
         {
             GetComponent<Collider>().enabled = false;
             m_ExplodeLifeCounter += Time.deltaTime;
+
+            m_AudioManager.PlaySound("Explode");
 
             if (m_ExplodeLifeCounter >= m_ExplodeLifeTime)
             {
@@ -77,7 +87,6 @@ public class CannonBullet : MonoBehaviour
                     enemy.GetComponent<NewEnemyAI>().receiveDmg(m_Damage);
                     GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
                     Destroy(effectIns, 2f);
-                    //m_AudioManager.PlaySound("EnemyAttack");
                 }
                 //debug message
                 Debug.Log(enemy.name + "has been hit");
