@@ -32,7 +32,8 @@ public class PowerSource : MonoBehaviour
         else
         {
             m_CurrentHP -= dmg;
-            screenshake.ShakeScreen();
+            
+            screenshake.StartCoroutine(screenshake.ShakeScreen());
             if(isShowingWarningUi == false)
             {
                 isShowingWarningUi = true;
@@ -76,8 +77,9 @@ public class PowerSource : MonoBehaviour
     public void failFunc()
     {
         warningUi.SetActive(false);
-        restrictCtrl.DisableControls();
         failUi.SetActive(true);
+        restrictCtrl.DisableControls();
+        
     }
     // Update is called once per frame
     void Update()
