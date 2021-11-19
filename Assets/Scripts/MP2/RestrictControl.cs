@@ -16,7 +16,14 @@ public class RestrictControl : MonoBehaviour
         m_Motor = FindObjectOfType<FPCharacterMotor>();
         m_Teleporter = FindObjectOfType<Teleporter>();
         m_Cam = FindObjectOfType<CamSwitcher>();
-        m_FPCam = FindObjectOfType<FpCameraScr>();
+    }
+
+    private void Update()
+    {
+        if (!m_FPCam)
+        {
+            m_FPCam = FindObjectOfType<FpCameraScr>();
+        }
     }
 
     public void DisableControls()
