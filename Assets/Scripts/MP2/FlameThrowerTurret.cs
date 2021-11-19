@@ -16,6 +16,8 @@ public class FlameThrowerTurret : TurretScr
     private float cacheFlameDuration = 0.0f;
     private float cacheReloadDuration = 0.0f;
 
+    public AudioSource m_Audio;
+
     void Start()
     {
         cacheFlameDuration = m_FlameDuration;
@@ -23,6 +25,8 @@ public class FlameThrowerTurret : TurretScr
 
         UpdateTarget();
         FlameThrower.SetActive(false);
+
+        m_Audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -33,10 +37,15 @@ public class FlameThrowerTurret : TurretScr
         if (target == null)
         {
             FlameThrower.SetActive(false);
+            m_Audio.Stop();
             return;
         }
         else
         {
+            if (!m_Audio.isPlaying)
+            {
+                m_Audio.Play();
+            }
         }
 
         fireCountdown += Time.deltaTime;
