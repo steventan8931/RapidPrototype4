@@ -22,7 +22,7 @@ public class MP2AudioManager : MonoBehaviour
         switch (_Clip)
         {
             case "Teleport":
-                m_AudioSource.volume = 0.5f;
+                m_AudioSource.volume = 0.2f;
                 m_AudioSource.PlayOneShot(m_TeleportSound);
                 break;
             case "Fire":
