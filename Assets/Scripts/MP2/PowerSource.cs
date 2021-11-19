@@ -78,6 +78,8 @@ public class PowerSource : MonoBehaviour
     {
         warningUi.SetActive(false);
         failUi.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         restrictCtrl.DisableControls();
         
     }
