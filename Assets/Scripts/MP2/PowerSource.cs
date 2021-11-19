@@ -33,7 +33,7 @@ public class PowerSource : MonoBehaviour
         {
             m_CurrentHP -= dmg;
             
-            screenshake.StartCoroutine(screenshake.ShakeScreen());
+            //screenshake.StartCoroutine(screenshake.ShakeScreen());
             if(isShowingWarningUi == false)
             {
                 isShowingWarningUi = true;
