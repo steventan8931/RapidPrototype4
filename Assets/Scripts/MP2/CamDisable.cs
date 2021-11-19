@@ -9,7 +9,12 @@ public class CamDisable : MonoBehaviour
     public GameObject m_SetCamActive;
     private void LateUpdate()
     {
-        m_Timer += Time.deltaTime;
+        //Skip cutscene with esc
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            m_Timer = m_EndTimer;
+        }
+            m_Timer += Time.deltaTime;
         if (m_Timer > m_EndTimer)
         {
             if (m_SetCamActive)

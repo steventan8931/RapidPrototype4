@@ -531,7 +531,7 @@ MonoBehaviour:
   timeBetweenShots: 0
   magazineSize: 75
   bulletsPerTap: 1
-  allowButtonHold: 1
+  allowButtonHold: 0
   bulletsLeft: 0
   bulletsShot: 0
   isShooting: 0
@@ -1716,8 +1716,6 @@ MonoBehaviour:
   m_BuildablePrefab: {fileID: 5556377889011743347, guid: c71851e21405bef45aa4152e398372f0,
     type: 3}
   m_CurrentPlaceableObject: {fileID: 0}
-  m_CantPlaceMat: {fileID: 0}
-  m_CanPlaceMat: {fileID: 0}
 --- !u!114 &6234935403755660582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1732,6 +1730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CameraFP: {fileID: 6234935404435143395}
   m_CameraTD: {fileID: 6234935404548534843}
+  m_CrossHair: {fileID: 0}
   m_IsFirstPerson: 1
 --- !u!114 &6234935403755660581
 MonoBehaviour:

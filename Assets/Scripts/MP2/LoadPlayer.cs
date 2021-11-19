@@ -28,5 +28,7 @@ public class LoadPlayer : MonoBehaviour
         m_HUD.SetActive(true);
         m_WaveManager.SetActive(true);
         m_CutSceneCamera.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
