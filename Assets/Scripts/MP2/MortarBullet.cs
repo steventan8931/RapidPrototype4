@@ -16,13 +16,16 @@ public class MortarBullet : MonoBehaviour
     public float gravity = -18;
     public float explodeRad = 10f;
 
+    public GameObject m_ExplosionFX;
+    public MP2AudioManager m_AudioManager;
+
     private void Awake()
     {
         bulletBody = gameObject.GetComponent<Rigidbody>();
     }
     private void Start()
     {
-       
+        m_AudioManager = FindObjectOfType<MP2AudioManager>();
         
     }
 
@@ -61,6 +64,9 @@ public class MortarBullet : MonoBehaviour
         Debug.Log("hit something");
         GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
         Damage(target);
+                GameObject temp = Instantiate(m_ExplosionFX, transform);
+        temp.transform.parent = null;
+        m_AudioManager.PlaySound("Explode");
         Destroy(effectIns, 2f);
         Destroy(gameObject);
     }
@@ -114,11 +120,19 @@ public class MortarBullet : MonoBehaviour
                 Damage(collider.transform);
             }
         }
+        GameObject temp = Instantiate(m_ExplosionFX, transform);
+        temp.transform.parent = null;
+        m_AudioManager.PlaySound("Explode");
         //Add effect here
         Destroy(gameObject);
     }
     private void OnCollisionEnter(Collision collision)
     {
         Explode();
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, explodeRad);
     }
 }

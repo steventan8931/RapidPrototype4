@@ -27,11 +27,13 @@ public class WavesManager : MonoBehaviour
 
     private NewInventory m_PlayerIventory;
     private CrystalsAddedPrompt m_Prompt;
+    private RestrictControl m_Restrict;
 
     private void Start()
     {
         m_PlayerIventory = FindObjectOfType<NewInventory>();
         m_Prompt = FindObjectOfType<CrystalsAddedPrompt>();
+        m_Restrict = FindObjectOfType<RestrictControl>();
         //If there are no preset spawners
         if (m_EnemySpawners.Count <= 0)
         {
@@ -54,7 +56,10 @@ public class WavesManager : MonoBehaviour
         if (m_GameWin)
         {
             m_WinPrompt.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             m_NextWaveUIPrompt.SetActive(false);
+            m_Restrict.DisableControls();
             return;
         }
 

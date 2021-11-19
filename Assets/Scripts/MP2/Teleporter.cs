@@ -22,15 +22,21 @@ public class Teleporter : MonoBehaviour
     public Vector3 cacheTransform;
 
     private MP2AudioManager m_AudioManager;
+    private CamSwitcher m_CamSwitch;
 
     private void Start()
     {
         m_Motor = FindObjectOfType<FPCharacterMotor>();
         m_AudioManager = FindObjectOfType<MP2AudioManager>();
+        m_CamSwitch = FindObjectOfType<CamSwitcher>();
     }
 
     private void Update()
     {
+        if (!m_CamSwitch.m_IsFirstPerson)
+        {
+            return;
+        }
         if (m_Created)
         {
             m_CreateTimer += Time.deltaTime;

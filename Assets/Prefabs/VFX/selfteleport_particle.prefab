@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Timer: 0
-  m_DespawnTime: 2.5
+  m_DespawnTime: 1.5
 --- !u!1 &2622755765277862338
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +161,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4.6
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -214,8 +214,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 13
-      minScalar: 0.48
+      scalar: 20
+      minScalar: 20
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -331,7 +331,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 3.2
-      minScalar: 1
+      minScalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:

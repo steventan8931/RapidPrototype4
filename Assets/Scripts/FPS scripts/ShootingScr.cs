@@ -37,8 +37,8 @@ public class ShootingScr : MonoBehaviour
 
     private void Awake()
     {
-        // bulletsLeft = magazineSize;
-        bulletsLeft = 5f;
+         bulletsLeft = magazineSize;
+        //bulletsLeft = 5f;
         rdyToShoot = true;
         camswitcher = FindObjectOfType<CamSwitcher>();
         m_CharacterMotor = FindObjectOfType<FPCharacterMotor>();
@@ -97,14 +97,14 @@ public class ShootingScr : MonoBehaviour
                 buffIcon.GetComponent<CanvasGroup>().alpha = 0.15f;
             }
 
-            if (bulletType == 4)
-            {
-                ammoType.SetText("Turret Buff");
-                bulletIcon.GetComponent<CanvasGroup>().alpha = 0.15f;
-                fireIcon.GetComponent<CanvasGroup>().alpha = 0.15f;
-                iceIcon.GetComponent<CanvasGroup>().alpha = 0.15f;
-                buffIcon.GetComponent<CanvasGroup>().alpha = 1f;
-            }
+            //if (bulletType == 4)
+            //{
+            //    ammoType.SetText("Turret Buff");
+            //    bulletIcon.GetComponent<CanvasGroup>().alpha = 0.15f;
+            //    fireIcon.GetComponent<CanvasGroup>().alpha = 0.15f;
+            //    iceIcon.GetComponent<CanvasGroup>().alpha = 0.15f;
+            //    buffIcon.GetComponent<CanvasGroup>().alpha = 1f;
+            //}
 
         }
     }
@@ -175,10 +175,10 @@ public class ShootingScr : MonoBehaviour
             bulletType = 3;
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            bulletType = 4;
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha4))
+        //{
+        //    bulletType = 4;
+        //}
     }
     private void Shoot()
     {
@@ -228,10 +228,10 @@ public class ShootingScr : MonoBehaviour
             currentBullet = Instantiate(iceBullet, attackPoint.position, Quaternion.identity);
             m_AudioManager.PlaySound("Ice");
         }
-        if (bulletType == 4)
-        {
-            currentBullet = Instantiate(buffBullet, attackPoint.position, Quaternion.identity);
-        }
+        //if (bulletType == 4)
+        //{
+        //    currentBullet = Instantiate(buffBullet, attackPoint.position, Quaternion.identity);
+        //}
         Debug.Log("fired one bullet!");
         //rotate bullet to shoot direction
         currentBullet.transform.forward = directionWithSpread.normalized;
