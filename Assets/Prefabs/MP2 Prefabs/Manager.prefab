@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1991775209916638771}
   - component: {fileID: 1991775209916638770}
+  - component: {fileID: 446698162894262900}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -48,3 +49,15 @@ MonoBehaviour:
   m_HUD: {fileID: 0}
   m_WaveManager: {fileID: 0}
   m_CutSceneCamera: {fileID: 0}
+--- !u!114 &446698162894262900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991775209916638769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b865c88194075b84f951e2c486d33f0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
