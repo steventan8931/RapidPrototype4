@@ -24,11 +24,17 @@ public class NewCrafting : MonoBehaviour
     public GameObject m_TurretFourUI;
 
     private CamSwitcher m_CamSwitcher;
+
+    [Header("UI + Prefabs Components")]
+    public AudioSource m_AudioSource;
+    public AudioClip m_Click, m_Build;
+
     private void Start()
     {
         m_Inventory = FindObjectOfType<NewInventory>();
         m_Builder = FindObjectOfType<BuildPlacement>();
         m_CamSwitcher = FindObjectOfType<CamSwitcher>();
+        m_AudioSource = GetComponent<AudioSource>();
     }
 
     private void UpdateSlot(int _ItemCost, GameObject _CraftUI)
@@ -121,6 +127,8 @@ public class NewCrafting : MonoBehaviour
                         //Disable turret to prevent shooting when not placed
                         m_Builder.m_CurrentPlaceableObject.GetComponent<TurretScr>().enabled = false;
                         m_Builder.m_CurrentPlaceableObject.transform.parent = null;
+                        m_AudioSource.volume = 1.0f;
+                        m_AudioSource.PlayOneShot(m_Click);
                         Debug.Log("added tur1");
                         m_EnoughMaterials = false;
                     }
@@ -133,6 +141,8 @@ public class NewCrafting : MonoBehaviour
                         //Disable turret to prevent shooting when not placed
                         m_Builder.m_CurrentPlaceableObject.GetComponent<TurretScr>().enabled = false;
                         m_Builder.m_CurrentPlaceableObject.transform.parent = null;
+                        m_AudioSource.volume = 1.0f;
+                        m_AudioSource.PlayOneShot(m_Click);
                         Debug.Log("added tur2");
                         m_EnoughMaterials = false;
                     }
@@ -144,6 +154,8 @@ public class NewCrafting : MonoBehaviour
                         //Disable turret to prevent shooting when not placed
                         m_Builder.m_CurrentPlaceableObject.GetComponent<TurretScr>().enabled = false;
                         m_Builder.m_CurrentPlaceableObject.transform.parent = null;
+                        m_AudioSource.volume = 1.0f;
+                        m_AudioSource.PlayOneShot(m_Click);
                         Debug.Log("added tur3");
                         m_EnoughMaterials = false;
                     }
@@ -155,6 +167,8 @@ public class NewCrafting : MonoBehaviour
                         //Disable turret to prevent shooting when not placed
                         m_Builder.m_CurrentPlaceableObject.GetComponent<TurretScr>().enabled = false;
                         m_Builder.m_CurrentPlaceableObject.transform.parent = null;
+                        m_AudioSource.volume = 1.0f;
+                        m_AudioSource.PlayOneShot(m_Click);
                         Debug.Log("added tur4");
                         m_EnoughMaterials = false;
                     }

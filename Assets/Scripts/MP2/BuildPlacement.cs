@@ -82,6 +82,8 @@ public class BuildPlacement : MonoBehaviour
                             m_Crafting.m_Inventory.m_MagicCrystalCount -= m_Crafting.m_Cost;
                             //reenable turret script afte being placed
                             m_CurrentPlaceableObject.GetComponent<TurretScr>().enabled = true;
+                            m_Crafting.m_AudioSource.volume = 0.2f;
+                            m_Crafting.m_AudioSource.PlayOneShot(m_Crafting.m_Build);
                             Debug.Log("craft cost" + m_Crafting.m_Cost);
                             m_CurrentPlaceableObject = null;
                         }
