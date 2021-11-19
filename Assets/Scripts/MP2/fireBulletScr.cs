@@ -6,6 +6,9 @@ public class fireBulletScr : MonoBehaviour
 {
     public float damage = 35f;
     public float lifetime = 0;
+
+    public GameObject m_HitFXPrefab;
+
     void Start()
     {
 
@@ -22,7 +25,8 @@ public class fireBulletScr : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             //collision.gameObject.GetComponent<NewEnemyAI>().currentHp -= damage;
-            collision.gameObject.GetComponent<NewEnemyAI>().receiveDmg(damage);
+            //collision.gameObject.GetComponent<NewEnemyAI>().receiveDmg(damage);
+            collision.gameObject.GetComponent<NewEnemyAI>().receiveDmgPlayerBullet(damage, m_HitFXPrefab);
             collision.gameObject.GetComponent<NewEnemyAI>().caughtFire();
         }
         Destroy(gameObject);

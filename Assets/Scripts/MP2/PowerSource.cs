@@ -13,13 +13,13 @@ public class PowerSource : MonoBehaviour
     public GameObject warningUi;
     public GameObject failUi;
     private RestrictControl restrictCtrl;
-    private ScreenShakeScr screenshake;
+    public ScreenShakeScr screenshake;
     public bool isShowingWarningUi = false;
     public float warningTimer = 0f;
     private void Awake()
     {
         restrictCtrl = FindObjectOfType<RestrictControl>();
-        screenshake = FindObjectOfType<ScreenShakeScr>();
+        //screenshake = FindObjectOfType<ScreenShakeScr>();
     }
     public void receiveDmg(float dmg)
     {

@@ -15,7 +15,10 @@ public class ScreenShakeScr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       /* if(Input.GetKeyDown(KeyCode.L))
+        {
+            StartCoroutine(ShakeScreen());
+        }*/
     }
 
     public IEnumerator ShakeScreen()

@@ -7,10 +7,9 @@ public class iceBulletScr : MonoBehaviour
 
     public float damage = 30f;
     public float lifetime = 0;
-    void Start()
-    {
 
-    }
+    public GameObject m_HitFXPrefab;
+
 
     // Update is called once per frame
     void Update()
@@ -23,7 +22,8 @@ public class iceBulletScr : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             //collision.gameObject.GetComponent<NewEnemyAI>().currentHp -= damage;
-            collision.gameObject.GetComponent<NewEnemyAI>().receiveDmg(damage);
+            //collision.gameObject.GetComponent<NewEnemyAI>().receiveDmg(damage);
+            collision.gameObject.GetComponent<NewEnemyAI>().receiveDmgPlayerBullet(damage, m_HitFXPrefab);
             collision.gameObject.GetComponent<NewEnemyAI>().caughtIce();
         }
         Destroy(gameObject);

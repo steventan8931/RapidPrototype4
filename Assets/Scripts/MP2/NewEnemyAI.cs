@@ -284,7 +284,33 @@ public class NewEnemyAI : MonoBehaviour
             }
         }
     }
-   public void caughtFire()
+
+    public void receiveDmgPlayerBullet(float dmg, GameObject _hitFX)
+    {
+        currentHp -= dmg;
+        m_AudioManager.PlaySound("Hit");
+        Instantiate(_hitFX, attackpoint.position, Quaternion.identity);
+        if (dmg >= 5 && isDead == false)
+        {
+            //m_AudioManager.PlaySound("EnemyHurt");
+        }
+
+        if (currentHp <= 0)
+        {
+            if (isDead == false)
+            {
+                currentHp = 0;
+                isDead = true;
+                //Play death animation
+                // EnemyAnimator.SetBool("IsWalking", false);
+                //EnemyAnimator.SetBool("Dying", true);
+                //Invoke(nameof(destroywhendead), 5.5f);
+                //m_AudioManager.PlaySound("EnemyDead");
+            }
+        }
+    }
+
+    public void caughtFire()
     {
         if(onIce == true)
         {
