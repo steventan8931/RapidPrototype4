@@ -40,7 +40,7 @@ public class PowerSource : MonoBehaviour
                 warningUi.SetActive(true);
                 warningUi.GetComponent<CanvasGroup>().alpha = 1;
             }
-            warningTimer = 3f;
+            warningTimer = 0.5f;
             //Show warning UI
             //warningUi.SetActive(true);
             //Invoke(nameof(disableWarning), 1.2f);
