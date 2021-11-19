@@ -59561,6 +59561,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 1991775209916638769, guid: a79729323245f4d4ca5bb663310a7732,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1991775209916638770, guid: a79729323245f4d4ca5bb663310a7732,
         type: 3}
       propertyPath: m_HUD
@@ -59732,10 +59737,20 @@ PrefabInstance:
       propertyPath: m_Transitions.m_OnCameraLive.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 384653614}
+    - target: {fileID: 2915636292047699507, guid: 25c6ab1424ac3944c9ac485ecf59490d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2915636292047699508, guid: 25c6ab1424ac3944c9ac485ecf59490d,
         type: 3}
       propertyPath: m_DefaultBlend.m_Time
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2915636293600525512, guid: 25c6ab1424ac3944c9ac485ecf59490d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2915636293657862298, guid: 25c6ab1424ac3944c9ac485ecf59490d,
         type: 3}
