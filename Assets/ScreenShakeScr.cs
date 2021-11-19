@@ -27,7 +27,7 @@ public class ScreenShakeScr : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             float strength = curve.Evaluate(elapsedTime / duration);
-            transform.position = startPos + Random.insideUnitSphere * strength;
+            transform.position = startPos + Random.insideUnitSphere * strength * 500;
             yield return null;
         }
         transform.position = startPos;

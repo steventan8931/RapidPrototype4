@@ -12,8 +12,8 @@ public class MortarBullet : MonoBehaviour
 
     //Mortar bullet param
     public Rigidbody bulletBody;
-    public float h = 25;
-    public float gravity = -18;
+    private float h = 25;
+    private float gravity = -360;
     public float explodeRad = 10f;
 
     public GameObject m_ExplosionFX;
@@ -33,6 +33,14 @@ public class MortarBullet : MonoBehaviour
     {
         Debug.Log("fired turret ball");
         target = tar;
+        float dist = Vector3.Distance(transform.position, tar.position);
+        if(dist >= 600)
+        {
+            gravity = -180;
+        }else
+        {
+            gravity = -360;
+        }
         launch();
     }
     // Update is called once per frame
