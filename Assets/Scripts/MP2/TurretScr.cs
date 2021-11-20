@@ -24,7 +24,9 @@ public class TurretScr : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform firepoint;
-    
+
+    public float m_ShotRecoil = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +62,10 @@ public class TurretScr : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
+        if (m_ShotRecoil >= 0)
+        {
+            m_ShotRecoil -= Time.deltaTime;
+        }
         UpdateTarget();
         CalBuff();
         if (target == null)
@@ -85,7 +91,11 @@ public class TurretScr : MonoBehaviour
 
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, Quaternion.AngleAxis(-90f, Vector3.up) * lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
         //Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, Quaternion.AngleAxis(90f, Vector3.up) * lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, rotation.z);
+
+        Vector3 recoilRotation = Quaternion.Lerp(partToRotate.rotation, Quaternion.Euler(partToRotate.rotation.x, partToRotate.rotation.y, m_ShotRecoil), Time.deltaTime * turnSpeed).eulerAngles;
+
+        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, recoilRotation.z);
     }
     private void Shoot()
     {
@@ -107,6 +117,7 @@ public class TurretScr : MonoBehaviour
         {
             morbullet.Seek(target);
         }
+        m_ShotRecoil = 7.0f;
     }
 
     private void OnDrawGizmosSelected()

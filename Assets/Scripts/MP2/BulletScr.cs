@@ -6,10 +6,8 @@ public class BulletScr : MonoBehaviour
 {
     public float damage = 50f;
     public float lifetime = 0;
-    void Start()
-    {
-        
-    }
+
+    public GameObject m_HitFXPrefab;
 
     // Update is called once per frame
     void Update()
@@ -22,7 +20,8 @@ public class BulletScr : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             //collision.gameObject.GetComponent<NewEnemyAI>().currentHp -= damage;
-            collision.gameObject.GetComponent<NewEnemyAI>().receiveDmg(damage);
+            //collision.gameObject.GetComponent<NewEnemyAI>().receiveDmg(damage);
+            collision.gameObject.GetComponent<NewEnemyAI>().receiveDmgPlayerBullet(damage, m_HitFXPrefab);
         }
         Destroy(gameObject);
     }

@@ -33,14 +33,14 @@ public class PowerSource : MonoBehaviour
         {
             m_CurrentHP -= dmg;
             
-            screenshake.StartCoroutine(screenshake.ShakeScreen());
+            //screenshake.StartCoroutine(screenshake.ShakeScreen());
             if(isShowingWarningUi == false)
             {
                 isShowingWarningUi = true;
                 warningUi.SetActive(true);
                 warningUi.GetComponent<CanvasGroup>().alpha = 1;
             }
-            warningTimer = 3f;
+            warningTimer = 0.5f;
             //Show warning UI
             //warningUi.SetActive(true);
             //Invoke(nameof(disableWarning), 1.2f);
@@ -78,6 +78,8 @@ public class PowerSource : MonoBehaviour
     {
         warningUi.SetActive(false);
         failUi.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         restrictCtrl.DisableControls();
         
     }
