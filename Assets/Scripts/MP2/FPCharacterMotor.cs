@@ -36,7 +36,25 @@ public class FPCharacterMotor : MonoBehaviour
         m_CamSwitcher = FindObjectOfType<CamSwitcher>();
         m_Shooter = FindObjectOfType<ShootingScr>();
     }
-
+    public void checkinput()
+    {
+        if(Input.GetKeyDown(KeyCode.W))
+        {
+            print("w Pressed");
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            print("A Pressed");
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            print("S Pressed");
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            print("D Pressed");
+        }
+    }
     public void Update()
     {
         //Only run if player is in first person
@@ -67,7 +85,9 @@ public class FPCharacterMotor : MonoBehaviour
         {
             inputMove.Normalize();
         }
-
+        //
+        checkinput();
+        //
         float cacheY = m_Velocity.y;
         m_Velocity.y = 0.0f;
 

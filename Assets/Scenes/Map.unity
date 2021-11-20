@@ -50783,6 +50783,10 @@ PrefabInstance:
       propertyPath: magazineSize
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 1753972680, guid: 59c888afdd87bce4aba74eee82dfa292, type: 3}
+      propertyPath: timeBetweenShooting
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 822650643643259883, guid: 59c888afdd87bce4aba74eee82dfa292,
         type: 3}
       propertyPath: m_Name
