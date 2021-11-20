@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject m_EnemyT2Prefab;
     public GameObject m_EnemyT3Prefab;
     public GameObject m_EnemyT4Prefab;
+    public GameObject m_EnemyT5Prefab;
 
     public int m_CrystalReward = 10;
     public float m_MoveSpeedBoost = 0.0f;
@@ -24,6 +25,7 @@ public class EnemySpawner : MonoBehaviour
     public int m_EnemiesT2ToSpawn = 0;
     public int m_EnemiesT3ToSpawn = 0;
     public int m_EnemiesT4ToSpawn = 0;
+    public int m_EnemiesT5ToSpawn = 0;
 
     public GameObject m_SpawnFX;
     public GameObject m_SpawnFXPos;
@@ -49,7 +51,14 @@ public class EnemySpawner : MonoBehaviour
                     Instantiate(m_SpawnFX, m_SpawnFXPos.transform);
                     //Spawns stronger enemies before weaker ones
                     //If there are T4 enemies to spawn
-                    if (m_EnemiesT4ToSpawn > 0)
+                    if (m_EnemiesT5ToSpawn > 0)
+                    {
+                        //Spawn all the T4 enemies first
+                        temp = Instantiate(m_EnemyT5Prefab, transform);
+                        m_EnemiesT5ToSpawn--;
+                    }
+                    //If there are T4 enemies to spawn
+                    else if (m_EnemiesT4ToSpawn > 0)
                     {
                         //Spawn all the T4 enemies first
                         temp = Instantiate(m_EnemyT4Prefab, transform);
