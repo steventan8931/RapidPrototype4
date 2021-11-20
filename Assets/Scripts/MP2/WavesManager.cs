@@ -150,15 +150,22 @@ public class WavesManager : MonoBehaviour
             {
                 for (int i = 0; i < m_EnemySpawners[0].transform.childCount; i++)
                 {
-                    m_EnemySpawners[0].transform.GetChild(i).GetComponent<NewEnemyAI>().moveSpeed += 10;
+                    if (m_EnemySpawners[0].transform.GetChild(i).GetComponent<NewEnemyAI>())
+                    {
+                        m_EnemySpawners[0].transform.GetChild(i).GetComponent<NewEnemyAI>().moveSpeed += 10;
+                    }
                 }
             }
             //Kill active enemies
             if (Input.GetKeyDown(KeyCode.Alpha9))
             {
                 for (int i = 0; i < m_EnemySpawners[0].transform.childCount; i++)
-                {
-                    m_EnemySpawners[0].transform.GetChild(i).GetComponent<NewEnemyAI>().currentHp = 0;
+                {   
+                    if (m_EnemySpawners[0].transform.GetChild(i).GetComponent<NewEnemyAI>())
+                    {
+                        m_EnemySpawners[0].transform.GetChild(i).GetComponent<NewEnemyAI>().currentHp = 0;
+                    }
+
                 }
             }
         }
