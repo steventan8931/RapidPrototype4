@@ -46,7 +46,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 300, y: 100.00005, z: 300}
+  m_Size: {x: 3000, y: 100.00005, z: 3000}
   m_Center: {x: -0.2032578, y: 55.00003, z: -9.278141e-16}
 --- !u!114 &4136404147273771282
 MonoBehaviour:
@@ -87,6 +87,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1913994490857038735, guid: 8d19c1012b27a044da892903e4d78164,
     type: 3}
   firepoint: {fileID: 3717139596571507473}
+  m_ShotRecoil: 0
 --- !u!1 &2577770065056579473
 GameObject:
   m_ObjectHideFlags: 0

@@ -143,7 +143,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 300, y: 100, z: 300}
+  m_Size: {x: 3000, y: 100, z: 3000}
   m_Center: {x: 0, y: 55, z: 0}
 --- !u!114 &4020759247967551144
 MonoBehaviour:
@@ -183,6 +183,7 @@ MonoBehaviour:
   turnSpeed: 7
   bulletPrefab: {fileID: 0}
   firepoint: {fileID: 3240662478000505532}
+  m_ShotRecoil: 0
   FlameThrower: {fileID: 3240662478590646058}
   m_FlameDuration: 5
   m_ReloadDuration: 2.5
