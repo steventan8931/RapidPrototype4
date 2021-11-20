@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1913994490857038736}
   - component: {fileID: 1455263531503555808}
   - component: {fileID: 7081792164974955655}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: CannonBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   speed: 200
   impactEffect: {fileID: 4886221927290178788, guid: b0dcfe390ed83b240abf538dd5f78a96,
     type: 3}
-  m_Audio: {fileID: 7081792164974955655}
+  m_AudioManager: {fileID: 0}
 --- !u!96 &1455263531503555808
 TrailRenderer:
   serializedVersion: 2
@@ -405,6 +405,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: turret4_bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fa201dc22b1805243b39d3abf382bff3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa201dc22b1805243b39d3abf382bff3, type: 3}

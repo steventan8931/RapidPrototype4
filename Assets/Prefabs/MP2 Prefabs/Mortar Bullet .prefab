@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4895365551283284130}
   - component: {fileID: 9202536731105420912}
   - component: {fileID: 1349616180877851156}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: 'Mortar Bullet '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,12 +132,10 @@ MonoBehaviour:
     type: 3}
   dmg: 50
   bulletBody: {fileID: 8550196204669685538}
-  h: 25
-  gravity: -360
   explodeRad: 100
   m_ExplosionFX: {fileID: 468040041564980282, guid: 33c5be27f8020e641a51a9079e0c34c1,
     type: 3}
-  m_Audio: {fileID: 1349616180877851156}
+  m_AudioManager: {fileID: 0}
 --- !u!96 &9202536731105420912
 TrailRenderer:
   serializedVersion: 2
@@ -421,6 +419,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: turret3new_bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bccd52627b57bad498f72c751cec76dc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bccd52627b57bad498f72c751cec76dc, type: 3}
