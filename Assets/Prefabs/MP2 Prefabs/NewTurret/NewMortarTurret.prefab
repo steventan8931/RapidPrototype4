@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  range: 1000
+  range: 900
   fireRate: 0.4
   fireRateStorage: 0
   isBuffed: 0
@@ -389,6 +389,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8550196204669685536, guid: f3e389443045a674081a64beeff20ce3,
     type: 3}
   firepoint: {fileID: 1664136612192077936}
+  m_ShotRecoil: 0
 --- !u!1 &2898141425171872319
 GameObject:
   m_ObjectHideFlags: 0

@@ -112,7 +112,7 @@ public class ShootingScr : MonoBehaviour
     {
         if(bulletsLeft < magazineSize)
         {
-            bulletsLeft += Time.deltaTime * 2;
+            bulletsLeft += Time.deltaTime * 1;
             if(bulletsLeft > magazineSize)
             {
                 bulletsLeft = magazineSize;
