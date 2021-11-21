@@ -115,6 +115,8 @@ MonoBehaviour:
     type: 3}
   m_EnemyT4Prefab: {fileID: 1168150980158287198, guid: 76cb9fdf74a05b9439e0053537bcef02,
     type: 3}
+  m_EnemyT5Prefab: {fileID: 6035417295309922164, guid: 5ccf10a1ec3f3d248b040a23b8bc687c,
+    type: 3}
   m_CrystalReward: 10
   m_MoveSpeedBoost: 0
   m_HPBoost: 0
@@ -127,6 +129,7 @@ MonoBehaviour:
   m_EnemiesT2ToSpawn: 0
   m_EnemiesT3ToSpawn: 0
   m_EnemiesT4ToSpawn: 0
+  m_EnemiesT5ToSpawn: 0
   m_SpawnFX: {fileID: 8718274022700708404, guid: 4e97540a4d81afb41a38b8502b07e574,
     type: 3}
   m_SpawnFXPos: {fileID: 3054677283394069765}
