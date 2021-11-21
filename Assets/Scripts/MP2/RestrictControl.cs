@@ -11,6 +11,7 @@ public class RestrictControl : MonoBehaviour
    public FpCameraScr m_FPCam;
     public BuildPlacement m_Build;
     public TopDownCameraController m_TopCam;
+    public WavesManager m_Waves;
 
     private void Awake()
     {
@@ -37,6 +38,11 @@ public class RestrictControl : MonoBehaviour
         {
             m_TopCam = FindObjectOfType<TopDownCameraController>();
         }
+
+        if (!m_Waves)
+        {
+            m_Waves = FindObjectOfType<WavesManager>();
+        }
     }
 
     public void DisableControls()
@@ -48,5 +54,6 @@ public class RestrictControl : MonoBehaviour
         m_FPCam.enabled = false;
         m_Build.enabled = false;
         m_TopCam.enabled = false;
+        m_Waves.enabled = false;
     }
 }
