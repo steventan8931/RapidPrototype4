@@ -15,7 +15,6 @@ public class MP2AudioManager : MonoBehaviour
     private void Start()
     {
         m_AudioSource = GetComponent<AudioSource>();
-        PlaySound("Lose");
     }
 
     public void PlaySound(string _Clip)
