@@ -75,7 +75,7 @@ public class PowerSource : MonoBehaviour
         warningUi.GetComponent<Animator>().SetBool("isFading", false);
         warningUi.GetComponent<CanvasGroup>().alpha = 1;
         isShowingWarningUi = false;
-        warningUi.SetActive(false);
+        //warningUi.SetActive(false);
     }
     public void failFunc()
     {
