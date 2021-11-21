@@ -5,7 +5,7 @@ using UnityEngine;
 public class MP2AudioManager : MonoBehaviour
 {
     public AudioClip m_TeleportSound, m_FireSpellSound, m_IceSpellSound, m_BasicSpellSound, m_RockEnemyDeath, m_FurEnemyDeath,
-        m_FlameThrower, m_EnemyHit, m_Explode, m_EnemyFreeze, m_Siren, m_Win;
+        m_FlameThrower, m_EnemyHit, m_Explode, m_EnemyFreeze, m_Siren, m_Win, m_Lose;
     
 
     public AudioSource m_AudioSource;
@@ -15,6 +15,7 @@ public class MP2AudioManager : MonoBehaviour
     private void Start()
     {
         m_AudioSource = GetComponent<AudioSource>();
+        PlaySound("Lose");
     }
 
     public void PlaySound(string _Clip)
@@ -64,6 +65,10 @@ public class MP2AudioManager : MonoBehaviour
             case "Win":
                 m_AudioSource.volume = 0.5f;
                 m_AudioSource.PlayOneShot(m_Win);
+                break;
+            case "Lose":
+                m_AudioSource.volume = 0.7f;
+                m_AudioSource.PlayOneShot(m_Lose);
                 break;
         }
     }

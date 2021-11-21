@@ -19,6 +19,7 @@ public class PowerSource : MonoBehaviour
     public float warningTimer = 0f;
 
     private MP2AudioManager m_AudioManager;
+    bool cacheLoseSound = false;
 
     private void Awake()
     {
@@ -92,7 +93,11 @@ public class PowerSource : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         restrictCtrl.DisableControls();
-        
+        if (!cacheLoseSound)
+        {
+            m_AudioManager.PlaySound("Lose");
+            cacheLoseSound = true;
+        }
     }
     // Update is called once per frame
     void Update()
