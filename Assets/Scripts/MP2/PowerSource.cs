@@ -9,7 +9,8 @@ public class PowerSource : MonoBehaviour
     public float m_MaxHP = 200.0f;
 
     public Image m_PowerSourceHPBar;
-
+    public Animator castleAnim;
+    public GameObject castleSmoke;
     public GameObject warningUi;
     public GameObject failUi;
     private RestrictControl restrictCtrl;
@@ -39,6 +40,7 @@ public class PowerSource : MonoBehaviour
                 isShowingWarningUi = true;
                 warningUi.SetActive(true);
                 warningUi.GetComponent<CanvasGroup>().alpha = 1;
+                castleAnim.SetBool("IsAttacked", true);
             }
             warningTimer = 0.5f;
             //Show warning UI
@@ -57,6 +59,7 @@ public class PowerSource : MonoBehaviour
                 warningTimer = 0;
                 //make warningUI disappear
                 warningUi.GetComponent<Animator>().SetBool("isFading", true);
+                castleAnim.SetBool("IsAttacked", false);
                 Invoke(nameof(disableWarning), 1.1f);
             }
         }
@@ -78,6 +81,9 @@ public class PowerSource : MonoBehaviour
     {
         warningUi.SetActive(false);
         failUi.SetActive(true);
+        castleAnim.SetBool("IsDestroyed", true);
+        castleSmoke.SetActive(true);
+        //unlock cursor and make it visible
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         restrictCtrl.DisableControls();
