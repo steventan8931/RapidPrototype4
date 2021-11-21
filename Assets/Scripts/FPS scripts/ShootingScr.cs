@@ -239,17 +239,20 @@ public class ShootingScr : MonoBehaviour
         //add force 
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
 
-        if(bulletType != 1)
+        if (bulletType == 1 && bulletsLeft >= 1)
         {
-            if(bulletType == 2 && bulletsLeft >=2)
-            {
-                bulletsLeft-=2;
-            }
-            if(bulletType == 3 && bulletsLeft >=3)
-            {
-                bulletsLeft-=3;
-            }
+            bulletsLeft -= 1;
         }
+
+        if (bulletType == 2 && bulletsLeft >=2)
+        {
+            bulletsLeft-=2;
+        }
+        if(bulletType == 3 && bulletsLeft >=3)
+        {
+            bulletsLeft-=3;
+        }
+        
         
         bulletsShot++;
 

@@ -321,7 +321,7 @@ public class NewEnemyAI : MonoBehaviour
         {
             onFire = true;
             fireParticle.SetActive(true);
-            fireParticle.GetComponent<ParticleSystem>().Play();
+            //fireParticle.GetComponent<ParticleSystem>().Play();
             print("playing onfire effect");
             currDebuff = debuffTimer;
         }
@@ -348,7 +348,7 @@ public class NewEnemyAI : MonoBehaviour
     {
         if(onFire == true)
         {
-            currentHp -= 10 * Time.deltaTime;
+            currentHp -= 15 * Time.deltaTime;
             currDebuff -= Time.deltaTime;
             if(currDebuff <= 0)
             {
