@@ -40,7 +40,7 @@ public class NewEnemyAI : MonoBehaviour
     public bool onFire = false;
     public GameObject fireParticle;
     public bool onIce = false;
-    float debuffTimer = 4f;
+    float debuffTimer = 5f;
     float currDebuff = 0f;
 
     private MP2AudioManager m_AudioManager;
