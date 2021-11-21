@@ -321,7 +321,7 @@ public class NewEnemyAI : MonoBehaviour
         {
             onFire = true;
             fireParticle.SetActive(true);
-            fireParticle.GetComponent<ParticleSystem>().Play();
+            //fireParticle.GetComponent<ParticleSystem>().Play();
             print("playing onfire effect");
             currDebuff = debuffTimer;
         }

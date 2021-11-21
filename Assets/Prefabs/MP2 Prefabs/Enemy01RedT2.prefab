@@ -194,7 +194,7 @@ MonoBehaviour:
     type: 3}
   EnemyAnimator: {fileID: 4293244884709567451}
   onFire: 0
-  fireParticle: {fileID: 8377852902951748622}
+  fireParticle: {fileID: 6373657887141897610}
   onIce: 0
 --- !u!54 &4398774112243976565
 Rigidbody:
@@ -567,6 +567,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 348d17e08f38af548925f0b7a999d54a, type: 3}
+--- !u!1 &6373657887141897610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5365087765423548672, guid: 348d17e08f38af548925f0b7a999d54a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1299102614434663562}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6373657887141897609 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5365087765423548675, guid: 348d17e08f38af548925f0b7a999d54a,
@@ -665,12 +671,6 @@ PrefabInstance:
 --- !u!4 &9041168194979896745 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4368197304571309833, guid: 4382c7d13e5ad9d47a20326044616f86,
-    type: 3}
-  m_PrefabInstance: {fileID: 4748582759115305632}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8377852902951748622 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3864728464426186414, guid: 4382c7d13e5ad9d47a20326044616f86,
     type: 3}
   m_PrefabInstance: {fileID: 4748582759115305632}
   m_PrefabAsset: {fileID: 0}
