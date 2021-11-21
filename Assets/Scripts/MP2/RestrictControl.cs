@@ -10,7 +10,7 @@ public class RestrictControl : MonoBehaviour
    public CamSwitcher m_Cam;
     public FpCameraScr m_FPCam;
 
-    private void Start()
+    private void Awake()
     {
         m_Shooter = FindObjectOfType<ShootingScr>();
         m_Motor = FindObjectOfType<FPCharacterMotor>();
