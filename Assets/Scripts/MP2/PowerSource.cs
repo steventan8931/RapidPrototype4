@@ -45,7 +45,7 @@ public class PowerSource : MonoBehaviour
             warningTimer = 0.5f;
             //Show warning UI
             //warningUi.SetActive(true);
-            //Invoke(nameof(disableWarning), 1.2f);
+            Invoke(nameof(disableWarning), 1.2f);
         }
 
     }
