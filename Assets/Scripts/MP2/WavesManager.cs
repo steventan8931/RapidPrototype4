@@ -28,12 +28,14 @@ public class WavesManager : MonoBehaviour
     private NewInventory m_PlayerIventory;
     private CrystalsAddedPrompt m_Prompt;
     private RestrictControl m_Restrict;
-
+    private MP2AudioManager m_AudioManager;
+    bool cacheWinSound = false;
     private void Start()
     {
         m_PlayerIventory = FindObjectOfType<NewInventory>();
         m_Prompt = FindObjectOfType<CrystalsAddedPrompt>();
         m_Restrict = FindObjectOfType<RestrictControl>();
+        m_AudioManager = FindObjectOfType<MP2AudioManager>();
         //If there are no preset spawners
         if (m_EnemySpawners.Count <= 0)
         {
@@ -60,6 +62,11 @@ public class WavesManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             m_NextWaveUIPrompt.SetActive(false);
             m_Restrict.DisableControls();
+            if (!cacheWinSound)
+            {
+                m_AudioManager.PlaySound("Win");
+                cacheWinSound = true;
+            }
             return;
         }
 

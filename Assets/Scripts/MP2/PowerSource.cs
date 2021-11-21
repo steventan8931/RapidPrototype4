@@ -17,10 +17,14 @@ public class PowerSource : MonoBehaviour
     public ScreenShakeScr screenshake;
     public bool isShowingWarningUi = false;
     public float warningTimer = 0f;
+
+    private MP2AudioManager m_AudioManager;
+
     private void Awake()
     {
         restrictCtrl = FindObjectOfType<RestrictControl>();
         //screenshake = FindObjectOfType<ScreenShakeScr>();
+        m_AudioManager = FindObjectOfType<MP2AudioManager>();
     }
     public void receiveDmg(float dmg)
     {
@@ -37,6 +41,7 @@ public class PowerSource : MonoBehaviour
             //screenshake.StartCoroutine(screenshake.ShakeScreen());
             if(isShowingWarningUi == false)
             {
+                m_AudioManager.PlaySound("Siren");
                 isShowingWarningUi = true;
                 warningUi.SetActive(true);
                 warningUi.GetComponent<CanvasGroup>().alpha = 1;
