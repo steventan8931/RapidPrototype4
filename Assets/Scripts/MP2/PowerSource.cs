@@ -17,10 +17,15 @@ public class PowerSource : MonoBehaviour
     public ScreenShakeScr screenshake;
     public bool isShowingWarningUi = false;
     public float warningTimer = 0f;
+
+    private MP2AudioManager m_AudioManager;
+    bool cacheLoseSound = false;
+
     private void Awake()
     {
         restrictCtrl = FindObjectOfType<RestrictControl>();
         //screenshake = FindObjectOfType<ScreenShakeScr>();
+        m_AudioManager = FindObjectOfType<MP2AudioManager>();
     }
     public void receiveDmg(float dmg)
     {
@@ -37,6 +42,7 @@ public class PowerSource : MonoBehaviour
             //screenshake.StartCoroutine(screenshake.ShakeScreen());
             if(isShowingWarningUi == false)
             {
+                m_AudioManager.PlaySound("Siren");
                 isShowingWarningUi = true;
                 warningUi.SetActive(true);
                 warningUi.GetComponent<CanvasGroup>().alpha = 1;
@@ -45,7 +51,7 @@ public class PowerSource : MonoBehaviour
             warningTimer = 0.5f;
             //Show warning UI
             //warningUi.SetActive(true);
-            Invoke(nameof(disableWarning), 1.2f);
+            Invoke(nameof(decayOnWarning), 1.2f);
         }
 
     }
@@ -75,7 +81,7 @@ public class PowerSource : MonoBehaviour
         warningUi.GetComponent<Animator>().SetBool("isFading", false);
         warningUi.GetComponent<CanvasGroup>().alpha = 1;
         isShowingWarningUi = false;
-        //warningUi.SetActive(false);
+        warningUi.SetActive(false);
     }
     public void failFunc()
     {
@@ -87,7 +93,11 @@ public class PowerSource : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         restrictCtrl.DisableControls();
-        
+        if (!cacheLoseSound)
+        {
+            m_AudioManager.PlaySound("Lose");
+            cacheLoseSound = true;
+        }
     }
     // Update is called once per frame
     void Update()

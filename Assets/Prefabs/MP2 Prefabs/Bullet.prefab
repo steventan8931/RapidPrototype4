@@ -135,6 +135,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 599401505501105761}
     m_Modifications:
+    - target: {fileID: 1931803400685998129, guid: 3a9fe0b0e343ce044a7c0a7f2b9e70de,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931803400685998129, guid: 3a9fe0b0e343ce044a7c0a7f2b9e70de,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931803400685998129, guid: 3a9fe0b0e343ce044a7c0a7f2b9e70de,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931803400979124794, guid: 3a9fe0b0e343ce044a7c0a7f2b9e70de,
+        type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 615
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931803400979124794, guid: 3a9fe0b0e343ce044a7c0a7f2b9e70de,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 60.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931803400979124794, guid: 3a9fe0b0e343ce044a7c0a7f2b9e70de,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 17.55
+      objectReference: {fileID: 0}
     - target: {fileID: 1931803401116855412, guid: 3a9fe0b0e343ce044a7c0a7f2b9e70de,
         type: 3}
       propertyPath: m_Name

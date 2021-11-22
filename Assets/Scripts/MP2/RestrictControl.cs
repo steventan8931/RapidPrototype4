@@ -8,9 +8,12 @@ public class RestrictControl : MonoBehaviour
    public FPCharacterMotor m_Motor;
    public Teleporter m_Teleporter;
    public CamSwitcher m_Cam;
-    public FpCameraScr m_FPCam;
+   public FpCameraScr m_FPCam;
+    public BuildPlacement m_Build;
+    public TopDownCameraController m_TopCam;
+    public WavesManager m_Waves;
 
-    private void Start()
+    private void Awake()
     {
         m_Shooter = FindObjectOfType<ShootingScr>();
         m_Motor = FindObjectOfType<FPCharacterMotor>();
@@ -23,6 +26,22 @@ public class RestrictControl : MonoBehaviour
         if (!m_FPCam)
         {
             m_FPCam = FindObjectOfType<FpCameraScr>();
+
+        }
+
+        if (!m_Build)
+        {
+            m_Build = FindObjectOfType<BuildPlacement>();
+        }
+
+        if (!m_TopCam)
+        {
+            m_TopCam = FindObjectOfType<TopDownCameraController>();
+        }
+
+        if (!m_Waves)
+        {
+            m_Waves = FindObjectOfType<WavesManager>();
         }
     }
 
@@ -33,5 +52,8 @@ public class RestrictControl : MonoBehaviour
         m_Teleporter.enabled = false;
         m_Cam.enabled = false;
         m_FPCam.enabled = false;
+        m_Build.enabled = false;
+        m_TopCam.enabled = false;
+        m_Waves.enabled = false;
     }
 }
