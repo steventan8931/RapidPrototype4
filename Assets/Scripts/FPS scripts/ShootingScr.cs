@@ -28,7 +28,7 @@ public class ShootingScr : MonoBehaviour
     //public TextMeshProUGUI ammoDisplay;
     public Image ManaBar;
     public TextMeshProUGUI ammoType;
-    public GameObject bulletIcon, fireIcon, iceIcon, buffIcon;
+    public GameObject bulletIcon, fireIcon, iceIcon;
     public GameObject ReloadReminder;
     public CamSwitcher camswitcher;
 
@@ -76,7 +76,7 @@ public class ShootingScr : MonoBehaviour
                 bulletIcon.GetComponent<CanvasGroup>().alpha = 1;
                 fireIcon.GetComponent<CanvasGroup>().alpha = 0.15f;
                 iceIcon.GetComponent<CanvasGroup>().alpha = 0.15f;
-                buffIcon.GetComponent<CanvasGroup>().alpha = 0.15f;
+                //buffIcon.GetComponent<CanvasGroup>().alpha = 0.15f;
             }
 
             if (bulletType == 2)
@@ -85,7 +85,7 @@ public class ShootingScr : MonoBehaviour
                 bulletIcon.GetComponent<CanvasGroup>().alpha = 0.15f;
                 fireIcon.GetComponent<CanvasGroup>().alpha = 1f;
                 iceIcon.GetComponent<CanvasGroup>().alpha = 0.15f;
-                buffIcon.GetComponent<CanvasGroup>().alpha = 0.15f;
+               // buffIcon.GetComponent<CanvasGroup>().alpha = 0.15f;
             }
 
             if (bulletType == 3)
@@ -94,7 +94,7 @@ public class ShootingScr : MonoBehaviour
                 bulletIcon.GetComponent<CanvasGroup>().alpha = 0.15f;
                 fireIcon.GetComponent<CanvasGroup>().alpha = 0.15f;
                 iceIcon.GetComponent<CanvasGroup>().alpha = 1f;
-                buffIcon.GetComponent<CanvasGroup>().alpha = 0.15f;
+              //  buffIcon.GetComponent<CanvasGroup>().alpha = 0.15f;
             }
 
             //if (bulletType == 4)
