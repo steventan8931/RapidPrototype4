@@ -24,20 +24,23 @@ public class CamSwitcher : MonoBehaviour
     }
     private void Update()
     {
-        if (cacheFirstPerson == m_IsFirstPerson)
+        if (!PauseCtrl.isPaused)
         {
-            if (m_IsFirstPerson)
+            if (cacheFirstPerson == m_IsFirstPerson)
             {
-                cacheRotationY = m_PlayerRotation.rotation.eulerAngles.y;
+                if (m_IsFirstPerson)
+                {
+                    cacheRotationY = m_PlayerRotation.rotation.eulerAngles.y;
+                }
             }
-        }
 
-        cacheFirstPerson = m_IsFirstPerson;
+            cacheFirstPerson = m_IsFirstPerson;
 
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            m_IsFirstPerson = !m_IsFirstPerson;
-            UpdateCamera();
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                m_IsFirstPerson = !m_IsFirstPerson;
+                UpdateCamera();
+            }
         }
     }
 

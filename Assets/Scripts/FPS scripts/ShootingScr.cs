@@ -48,13 +48,16 @@ public class ShootingScr : MonoBehaviour
 
     private void Update()
     {
-        if(!camswitcher.m_IsFirstPerson)
+        if (!PauseCtrl.isPaused)
         {
-            return;
+            if (!camswitcher.m_IsFirstPerson)
+            {
+                return;
+            }
+            switchAmmo();
+            shootInput();
         }
-        switchAmmo();
-        shootInput();
-        textDraw();
+            textDraw();
         
 
     }
