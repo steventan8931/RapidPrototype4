@@ -19,19 +19,22 @@ public class PowerSource : MonoBehaviour
     public float warningTimer = 0f;
 
     private MP2AudioManager m_AudioManager;
+    private AudioSource m_AudioSource;
     bool cacheLoseSound = false;
-
+    public GameObject m_EndCutScene;
     private void Awake()
     {
         restrictCtrl = FindObjectOfType<RestrictControl>();
         //screenshake = FindObjectOfType<ScreenShakeScr>();
-        m_AudioManager = FindObjectOfType<MP2AudioManager>();
+        m_AudioSource = GetComponent<AudioSource>();
+       m_AudioManager = FindObjectOfType<MP2AudioManager>();
     }
     public void receiveDmg(float dmg)
     {
         if (m_CurrentHP <= 0)
         {
             m_CurrentHP = 0;
+            m_EndCutScene.SetActive(true);
             // game over func
             failFunc();
         }
@@ -42,7 +45,11 @@ public class PowerSource : MonoBehaviour
             //screenshake.StartCoroutine(screenshake.ShakeScreen());
             if(isShowingWarningUi == false)
             {
-                m_AudioManager.PlaySound("Siren");
+                if (!m_AudioSource.isPlaying)
+                {
+                    m_AudioSource.Play();
+                }
+                //m_AudioManager.PlaySound("Siren");
                 isShowingWarningUi = true;
                 warningUi.SetActive(true);
                 warningUi.GetComponent<CanvasGroup>().alpha = 1;

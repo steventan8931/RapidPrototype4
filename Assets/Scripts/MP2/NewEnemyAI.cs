@@ -44,11 +44,14 @@ public class NewEnemyAI : MonoBehaviour
     float currDebuff = 0f;
 
     private MP2AudioManager m_AudioManager;
-
+    private bool cacheRot = false;
 
     //YPosChange
     private bool m_YChange = true;
     Vector3 newPos;
+
+    //Spawn Particles
+    public GameObject m_SpawnParticles;
 
     private void Awake()
     {
@@ -58,10 +61,18 @@ public class NewEnemyAI : MonoBehaviour
     private void Start()
     {
         m_AudioManager = FindObjectOfType<MP2AudioManager>();
+        Instantiate(m_SpawnParticles, transform);
     }
 
     private void Update()
     {
+        if (!cacheRot)
+        {
+            Quaternion lookAtRot = Quaternion.LookRotation(m_AIStartPos.transform.position - transform.position);
+            transform.rotation = lookAtRot;
+            cacheRot = true;
+
+        }
         if (currentHp > 0)
         {
             if (m_YChange)

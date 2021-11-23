@@ -13,13 +13,7 @@ public class LoadPlayer : MonoBehaviour
 
     private void Start()
     {
-        m_Player.SetActive(false);
-        m_CraftHUD.SetActive(false);
-        m_HUD.SetActive(false);
-        m_WaveManager.SetActive(false);
-        m_CutSceneCamera.SetActive(true);
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        CutScene();
     }
     public void LoadPlayerObjects()
     {
@@ -28,6 +22,17 @@ public class LoadPlayer : MonoBehaviour
         m_HUD.SetActive(true);
         m_WaveManager.SetActive(true);
         m_CutSceneCamera.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void CutScene()
+    {
+        m_Player.SetActive(false);
+        m_CraftHUD.SetActive(false);
+        m_HUD.SetActive(false);
+        m_WaveManager.SetActive(false);
+        m_CutSceneCamera.SetActive(true);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
