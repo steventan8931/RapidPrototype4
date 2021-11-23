@@ -21,7 +21,7 @@ public class PowerSource : MonoBehaviour
     private MP2AudioManager m_AudioManager;
     private AudioSource m_AudioSource;
     bool cacheLoseSound = false;
-
+    public GameObject m_EndCutScene;
     private void Awake()
     {
         restrictCtrl = FindObjectOfType<RestrictControl>();
@@ -34,6 +34,7 @@ public class PowerSource : MonoBehaviour
         if (m_CurrentHP <= 0)
         {
             m_CurrentHP = 0;
+            m_EndCutScene.SetActive(true);
             // game over func
             failFunc();
         }
