@@ -79,6 +79,8 @@ MonoBehaviour:
   onFire: 0
   fireParticle: {fileID: 5503319640379886621}
   onIce: 0
+  m_SpawnParticles: {fileID: 7116376077018839572, guid: 6e9bb86064a21e540b7bde687a4d632a,
+    type: 3}
 --- !u!54 &436510057774902944
 Rigidbody:
   m_ObjectHideFlags: 0

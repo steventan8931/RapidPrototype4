@@ -50,6 +50,9 @@ public class NewEnemyAI : MonoBehaviour
     private bool m_YChange = true;
     Vector3 newPos;
 
+    //Spawn Particles
+    public GameObject m_SpawnParticles;
+
     private void Awake()
     {
         m_AIStartPos = GameObject.FindGameObjectWithTag("AIStart");
@@ -58,7 +61,7 @@ public class NewEnemyAI : MonoBehaviour
     private void Start()
     {
         m_AudioManager = FindObjectOfType<MP2AudioManager>();
-
+        Instantiate(m_SpawnParticles, transform);
     }
 
     private void Update()
