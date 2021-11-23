@@ -91,12 +91,14 @@ public class BuildPlacement : MonoBehaviour
                     else
                     {
                         m_CurrentPlaceableObject.GetComponent<PlaceableObject>().CheckValid(false);
+                        m_CurrentPlaceableObject.GetComponent<PlaceableObject>().m_InvalidPlacementCircle.SetActive(false);
                     }
                 }
             }
             else
             {
                 m_CurrentPlaceableObject.GetComponent<PlaceableObject>().CheckValid(false);
+                m_CurrentPlaceableObject.GetComponent<PlaceableObject>().m_InvalidPlacementCircle.SetActive(true);
             }
         }
 
