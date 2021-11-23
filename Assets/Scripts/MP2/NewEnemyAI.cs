@@ -315,6 +315,8 @@ public class NewEnemyAI : MonoBehaviour
     public void receiveDmgPlayerBullet(float dmg, GameObject _hitFX)
     {
         currentHp -= dmg;
+        onHit = true;
+        onHitTimer = 0.1f;
         m_AudioManager.PlaySound("Hit");
         Instantiate(_hitFX, attackpoint.position, Quaternion.identity);
         if (dmg >= 5 && isDead == false)
