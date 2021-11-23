@@ -53,24 +53,27 @@ public class NewCrafting : MonoBehaviour
 
     private void Update()
     {
-        //Only Craft in Top Down
-        if (m_CamSwitcher.m_IsFirstPerson)
+        if (!PauseCtrl.isPaused)
         {
-            m_CraftingCanvas.GetComponent<BuildCanvasTransition>().m_OnScreen = false;
-            //m_CraftingCanvas.SetActive(false);
-            return;
-        }
-        else
-        {
-            m_CraftingCanvas.GetComponent<BuildCanvasTransition>().m_OnScreen = true;
-            //m_CraftingCanvas.SetActive(true);
-        }
+            //Only Craft in Top Down
+            if (m_CamSwitcher.m_IsFirstPerson)
+            {
+                m_CraftingCanvas.GetComponent<BuildCanvasTransition>().m_OnScreen = false;
+                //m_CraftingCanvas.SetActive(false);
+                return;
+            }
+            else
+            {
+                m_CraftingCanvas.GetComponent<BuildCanvasTransition>().m_OnScreen = true;
+                //m_CraftingCanvas.SetActive(true);
+            }
 
-        //Order -> SetItemCostCount -> SetItemCost - > AddItem
-        UpdateSlot(3, m_TurretOneUI);
-        UpdateSlot(5, m_TurretTwoUI);
-        UpdateSlot(5, m_TurretThreeUI);
-        UpdateSlot(10, m_TurretFourUI);
+            //Order -> SetItemCostCount -> SetItemCost - > AddItem
+            UpdateSlot(3, m_TurretOneUI);
+            UpdateSlot(5, m_TurretTwoUI);
+            UpdateSlot(5, m_TurretThreeUI);
+            UpdateSlot(10, m_TurretFourUI);
+        }
     }
 
     public void SetItemCostCount(int _ItemCostCount)
