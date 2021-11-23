@@ -38,7 +38,7 @@ public class FPCharacterMotor : MonoBehaviour
     }
     public void checkinput()
     {
-        if(Input.GetKeyDown(KeyCode.W))
+       /* if(Input.GetKeyDown(KeyCode.W))
         {
             print("w Pressed");
         }
@@ -53,7 +53,7 @@ public class FPCharacterMotor : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             print("D Pressed");
-        }
+        }*/
     }
     public void Update()
     {

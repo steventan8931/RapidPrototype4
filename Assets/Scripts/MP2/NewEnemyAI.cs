@@ -40,6 +40,8 @@ public class NewEnemyAI : MonoBehaviour
     public bool onFire = false;
     public GameObject fireParticle;
     public bool onIce = false;
+    public bool onHit = false;
+    float onHitTimer = 0.1f;
     float debuffTimer = 5f;
     float currDebuff = 0f;
 
@@ -66,6 +68,16 @@ public class NewEnemyAI : MonoBehaviour
 
     private void Update()
     {
+        print("hit status:" + onHit);
+        if(onHitTimer >0)
+        {
+            onHitTimer -= Time.deltaTime;
+            if(onHitTimer <=0)
+            {
+                onHitTimer = 0;
+                onHit = false;
+            }
+        }
         if (!cacheRot)
         {
             Quaternion lookAtRot = Quaternion.LookRotation(m_AIStartPos.transform.position - transform.position);
@@ -276,7 +288,7 @@ public class NewEnemyAI : MonoBehaviour
         currentHp -= dmg;
         if (dmg >= 10)
         {
-            m_AudioManager.PlaySound("Hit");
+            gotHit();
         }
       
         Instantiate(m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
@@ -358,6 +370,15 @@ public class NewEnemyAI : MonoBehaviour
             currDebuff = debuffTimer;
         }
 
+    }
+    public void gotHit()
+    {
+        print("enemy got hit");
+        m_AudioManager.PlaySound("Hit");
+        print("enemy got hit");
+        onHit = true;
+        onHitTimer = 0.1f;
+        print("enemy got hit");
     }
     void calDebuff()
     {
