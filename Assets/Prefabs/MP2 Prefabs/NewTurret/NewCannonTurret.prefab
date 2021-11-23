@@ -62,6 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StandardModel: {fileID: 2774422410644531999}
   m_InvalidPlacementModel: {fileID: 8275630354635623752}
+  m_InvalidPlacementCircle: {fileID: 1574881288840727473}
 --- !u!114 &8830655914741560031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6737593809532280608
 Transform:
   m_ObjectHideFlags: 0
