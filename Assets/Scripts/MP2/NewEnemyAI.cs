@@ -274,7 +274,11 @@ public class NewEnemyAI : MonoBehaviour
     public void receiveDmg(float dmg)
     {
         currentHp -= dmg;
-        m_AudioManager.PlaySound("Hit");
+        if (dmg >= 10)
+        {
+            m_AudioManager.PlaySound("Hit");
+        }
+      
         Instantiate(m_BloodFXPrefab, attackpoint.position, Quaternion.identity);
         if (dmg >= 5 && isDead == false)
         {

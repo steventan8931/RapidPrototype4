@@ -15,6 +15,7 @@ public class FlameThrowerFireDamage : MonoBehaviour
             //if (!_other.gameObject.GetComponent<NewEnemyAI>().onFire)
             {
                 _other.gameObject.GetComponent<NewEnemyAI>().caughtFire();
+                _other.gameObject.GetComponent<NewEnemyAI>().receiveDmg(m_Damage);
             }
 
         }
