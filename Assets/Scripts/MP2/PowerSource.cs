@@ -23,6 +23,8 @@ public class PowerSource : MonoBehaviour
     bool cacheLoseSound = false;
     public GameObject m_EndCutScene;
     public GameObject m_BackGroundTrack;
+    public float m_GameOverTimer = 0.0f;
+    private bool failFuncCalled = false;
     private void Awake()
     {
         restrictCtrl = FindObjectOfType<RestrictControl>();
@@ -95,24 +97,40 @@ public class PowerSource : MonoBehaviour
     public void failFunc()
     {
         warningUi.SetActive(false);
-        failUi.SetActive(true);
         castleAnim.SetBool("IsDestroyed", true);
         castleSmoke.SetActive(true);
-        //unlock cursor and make it visible
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
         restrictCtrl.DisableControls();
         //if (!cacheLoseSound)
         //{
         //    m_AudioManager.PlaySound("Lose");
         //    cacheLoseSound = true;
         //}
+        failFuncCalled = true;
+    }
+
+    void DelayGameOverHUD()
+    {
+        //show game over hud
+        failUi.SetActive(true);
+        //unlock cursor and make it visible
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
     // Update is called once per frame
     void Update()
     {
         updateHpBar();
         decayOnWarning();
-        
+
+        if (failFuncCalled)
+        {
+            m_GameOverTimer += Time.deltaTime;
+            if (m_GameOverTimer > 10.0f)
+            {
+                DelayGameOverHUD();
+            }
+        }
+
+
     }
 }
