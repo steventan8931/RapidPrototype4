@@ -22,6 +22,7 @@ public class PowerSource : MonoBehaviour
     private AudioSource m_AudioSource;
     bool cacheLoseSound = false;
     public GameObject m_EndCutScene;
+    public GameObject m_BackGroundTrack;
     private void Awake()
     {
         restrictCtrl = FindObjectOfType<RestrictControl>();
@@ -34,6 +35,7 @@ public class PowerSource : MonoBehaviour
         if (m_CurrentHP <= 0)
         {
             m_CurrentHP = 0;
+            m_BackGroundTrack.SetActive(false);
             m_EndCutScene.SetActive(true);
             // game over func
             failFunc();
@@ -100,11 +102,11 @@ public class PowerSource : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         restrictCtrl.DisableControls();
-        if (!cacheLoseSound)
-        {
-            m_AudioManager.PlaySound("Lose");
-            cacheLoseSound = true;
-        }
+        //if (!cacheLoseSound)
+        //{
+        //    m_AudioManager.PlaySound("Lose");
+        //    cacheLoseSound = true;
+        //}
     }
     // Update is called once per frame
     void Update()
