@@ -60,7 +60,7 @@ public class TopDownCameraController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
-            transform.position = new Vector3(m_PlayerTransform.position.x, transform.position.y, m_PlayerTransform.position.y);
+            transform.position = new Vector3(m_PlayerTransform.position.x, transform.position.y, m_PlayerTransform.position.z);
         }
     }
 }
