@@ -119,12 +119,19 @@ public class NewEnemyAI : MonoBehaviour
         }
         else
         {
+            Vector3 spawnOffset = new Vector3(0, 7.5f, 0);
+            //Make spawn higher for big guy
+            if (maxHp > 1900)
+            {
+                spawnOffset = new Vector3(0, 15.0f, 0);
+            }
+
             if (!cacheDeath)
             {
                 transform.parent.GetComponent<EnemySpawner>().m_EnemiesRemain--;
                 cacheDeath = true;
             }
-            if (maxHp > 600)
+            if (maxHp > 600 && maxHp < 1900)
             {
                 m_AudioManager.PlaySound("RockDeath");
             }
@@ -133,7 +140,8 @@ public class NewEnemyAI : MonoBehaviour
                 m_AudioManager.PlaySound("FurDeath");
             }
 
-           GameObject temp = Instantiate(m_DeathFXPrefab,transform);
+
+           GameObject temp = Instantiate(m_DeathFXPrefab,transform.position + spawnOffset, Quaternion.identity);
             temp.transform.parent = null;
             Destroy(gameObject);
         }
