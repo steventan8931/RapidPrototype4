@@ -110,15 +110,18 @@ public class Teleporter : MonoBehaviour
         if (Physics.Raycast(ray, out hitInfo,m_MaxDistance))
         {
             //hitInfo.point += new Vector3(0, 10.0f, 0);
-            Debug.Log("x = " + m_ShadowPrefab.transform.localRotation.eulerAngles.x);
-            Debug.Log("y = " + m_ShadowPrefab.transform.localRotation.eulerAngles.y);
-            Debug.Log("z = " + m_ShadowPrefab.transform.localRotation.eulerAngles.z);
+            Debug.Log(hitInfo.point.y);
+
             m_ShadowPrefab.transform.rotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
             if (m_ShadowPrefab.transform.localRotation.eulerAngles.y == 0 || m_ShadowPrefab.transform.localRotation.eulerAngles.y == 180)
             {
-                hitInfo.point += new Vector3(0, 25.0f, 0);
-                m_ShadowPrefab.transform.position = hitInfo.point - hitInfo.normal * 25;
-                m_ShadowPrefab.transform.localRotation = Quaternion.Euler(0, m_ShadowPrefab.transform.localRotation.y, 0);
+                hitInfo.point -= hitInfo.normal * 25;
+                if (hitInfo.point.y > transform.position.y + (37))
+                {
+                    hitInfo.point += new Vector3(0, 25.0f, 0);
+                    m_ShadowPrefab.transform.position = hitInfo.point; 
+                }
+                m_ShadowPrefab.transform.localRotation = Quaternion.Euler(20, m_ShadowPrefab.transform.localRotation.y, 0);
             }
             else
             {
@@ -127,9 +130,8 @@ public class Teleporter : MonoBehaviour
             }
         }
 
-
-            //If object has a collider
-        //if (hitInfo.collider != null)
+        //If object has a collider
+        if (hitInfo.collider != null)
         {
             //if (!hitInfo.collider.gameObject.CompareTag("Floor") && !hitInfo.collider.gameObject.CompareTag("Enemy"))
             if (hitInfo.collider.gameObject.CompareTag("Placeable") || hitInfo.collider.gameObject.CompareTag("Wall"))
@@ -139,10 +141,10 @@ public class Teleporter : MonoBehaviour
 
                 BoxCollider PlaceableCollider = m_ShadowPrefab.gameObject.GetComponent<BoxCollider>();
                 PlaceableCollider.isTrigger = true;
-                Vector3 BoxCenter = m_ShadowPrefab.gameObject.transform.position + PlaceableCollider.center;
-                Vector3 HalfExtents = PlaceableCollider.size / 2;
+                Vector3 BoxCenter = m_ShadowPrefab.gameObject.transform.position + PlaceableCollider.center * 5;
+                Vector3 HalfExtents = PlaceableCollider.size/ 2;
 
-                //if (Physics.CheckBox(BoxCenter, HalfExtents, Quaternion.identity))
+                if (Physics.CheckBox(BoxCenter, HalfExtents, Quaternion.identity))
                 {
                     if (Input.GetMouseButtonDown(1))
                     {
@@ -161,16 +163,19 @@ public class Teleporter : MonoBehaviour
 
                     }
                 }
-
+                else
+                {
+                    m_ShadowPrefab.GetComponent<TeleportShadow>().CheckValid(false);
+                }
             }
             else
             {
                 m_ShadowPrefab.GetComponent<TeleportShadow>().CheckValid(false);
             }
         }
-        //else
+        else
         {
-            //m_ShadowPrefab.GetComponent<TeleportShadow>().CheckValid(false);
+            m_ShadowPrefab.GetComponent<TeleportShadow>().CheckValid(false);
         }
     }
 }
