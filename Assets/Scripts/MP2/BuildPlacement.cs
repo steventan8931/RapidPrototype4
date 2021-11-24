@@ -75,6 +75,7 @@ public class BuildPlacement : MonoBehaviour
                 {
                     if (m_CurrentPlaceableObject.transform.rotation.x == 0 && m_CurrentPlaceableObject.transform.rotation.z == 0)
                     {
+                        m_CurrentPlaceableObject.GetComponent<PlaceableObject>().m_RangeCircle.SetActive(true);
                         if (Input.GetMouseButtonDown(0))
                         {
                             //PlaceableCollider.isTrigger = false;
@@ -92,13 +93,23 @@ public class BuildPlacement : MonoBehaviour
                     else
                     {
                         m_CurrentPlaceableObject.GetComponent<PlaceableObject>().CheckValid(false);
+                        m_CurrentPlaceableObject.GetComponent<PlaceableObject>().m_RangeCircle.SetActive(false);
                         m_CurrentPlaceableObject.GetComponent<PlaceableObject>().m_InvalidPlacementCircle.SetActive(false);
                     }
+                }
+                else
+                {
+
                 }
             }
             else
             {
                 m_CurrentPlaceableObject.GetComponent<PlaceableObject>().CheckValid(false);
+                //Invalid but flat
+                if (m_CurrentPlaceableObject.transform.rotation.x == 0 && m_CurrentPlaceableObject.transform.rotation.z == 0)
+                {
+                    m_CurrentPlaceableObject.GetComponent<PlaceableObject>().m_RangeCircle.SetActive(true);
+                }
                 m_CurrentPlaceableObject.GetComponent<PlaceableObject>().m_InvalidPlacementCircle.SetActive(true);
             }
         }
