@@ -67,7 +67,7 @@ public class Teleporter : MonoBehaviour
         }
 
         //Right click to remove item
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0))
         {
             if (m_ShadowPrefab)
             {
@@ -109,15 +109,17 @@ public class Teleporter : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo,m_MaxDistance))
         {
-            m_ShadowPrefab.transform.position = hitInfo.point;
             m_ShadowPrefab.transform.rotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
+            m_ShadowPrefab.transform.position = hitInfo.point;
+            hitInfo.point += new Vector3(0, 10.0f, 0);
         }
 
-        //If object has a collider
+
+            //If object has a collider
         if (hitInfo.collider != null)
         {
             //if (!hitInfo.collider.gameObject.CompareTag("Floor") && !hitInfo.collider.gameObject.CompareTag("Enemy"))
-            if (hitInfo.collider.gameObject.CompareTag("Placeable"))
+            if (hitInfo.collider.gameObject.CompareTag("Placeable") || hitInfo.collider.gameObject.CompareTag("Wall"))
             {
                 //m_CurrentPlaceableObject.transform.GetChild(0).GetComponent<Renderer>().material = m_CanPlaceMat;
                 m_ShadowPrefab.GetComponent<TeleportShadow>().CheckValid(true);
@@ -129,7 +131,7 @@ public class Teleporter : MonoBehaviour
 
                 if (Physics.CheckBox(BoxCenter, HalfExtents, Quaternion.identity))
                 {
-                    if (Input.GetMouseButtonDown(0))
+                    if (Input.GetMouseButtonDown(1))
                     {
                         //PlaceableCollider.isTrigger = false;
                         //m_ShadowPrefab.layer = 30;
