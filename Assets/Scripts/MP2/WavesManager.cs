@@ -25,9 +25,9 @@ public class WavesManager : MonoBehaviour
     public bool m_LastRound = false;
 
 
-    private NewInventory m_PlayerIventory;
-    private CrystalsAddedPrompt m_Prompt;
-    private RestrictControl m_Restrict;
+    public NewInventory m_PlayerIventory;
+    public CrystalsAddedPrompt m_Prompt;
+    public RestrictControl m_Restrict;
     private MP2AudioManager m_AudioManager;
     bool cacheWinSound = false;
     private void Start()
