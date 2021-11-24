@@ -8899,7 +8899,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207126945}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1575.4, y: 26.2, z: 184.6}
+  m_LocalPosition: {x: 1575.4, y: 7.1, z: 184.6}
   m_LocalScale: {x: 20, y: 50, z: 20}
   m_Children: []
   m_Father: {fileID: 1989287703}
@@ -39415,7 +39415,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984511157}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1741.9, y: 35, z: 261.6}
+  m_LocalPosition: {x: 1741.9, y: 16.7, z: 261.6}
   m_LocalScale: {x: 20, y: 50, z: 20}
   m_Children: []
   m_Father: {fileID: 1989287703}
@@ -51419,7 +51419,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321819476}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1770.6, y: 19.6, z: 319.3}
+  m_LocalPosition: {x: 1770.6, y: 15.2, z: 319.3}
   m_LocalScale: {x: 20, y: 50, z: 20}
   m_Children: []
   m_Father: {fileID: 1989287703}
@@ -84190,6 +84190,7 @@ MonoBehaviour:
   warningTimer: 0
   m_EndCutScene: {fileID: 8911003757584765400}
   m_BackGroundTrack: {fileID: 590313002}
+  m_GameOverTimer: 0
 --- !u!114 &2041031999
 MonoBehaviour:
   m_ObjectHideFlags: 0
