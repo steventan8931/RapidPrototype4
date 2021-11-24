@@ -7,7 +7,7 @@ public class PlaceableObject : MonoBehaviour
     public GameObject m_StandardModel;
     public GameObject m_InvalidPlacementModel;
     public GameObject m_InvalidPlacementCircle;
-
+    public GameObject m_RangeCircle;
     private void Start()
     {
         m_StandardModel.SetActive(true);
