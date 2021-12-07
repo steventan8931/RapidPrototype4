@@ -10,7 +10,7 @@ public class DefendTextFade : MonoBehaviour
     {
         fadeAnim = GetComponent<Animator>();
         canvasGroup = GetComponent<CanvasGroup>();
-        Invoke(nameof(startFading), 4.5f);
+        Invoke(nameof(startFading), 0.5f);
     }
     void Start()
     {
